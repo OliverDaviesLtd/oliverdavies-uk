@@ -1,0 +1,2 @@
+---
+digitalocean_api_key: '{{ vault_digitalocean_api_key }}'
