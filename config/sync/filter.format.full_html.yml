@@ -1,0 +1,24 @@
+uuid: 4125fc7e-c738-438d-b6ae-5eedbeb2c489
+langcode: en
+status: true
+dependencies:
+  module:
+    - markdown
+name: 'Full HTML'
+format: full_html
+weight: 0
+filters:
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  markdown:
+    id: markdown
+    provider: markdown
+    status: true
+    weight: 0
+    settings:
+      markdown_library: php-markdown

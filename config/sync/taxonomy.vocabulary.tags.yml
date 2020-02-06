@@ -1,0 +1,8 @@
+uuid: 1e665a58-d308-44d1-8c64-1799ba2aff20
+langcode: en
+status: true
+dependencies: {  }
+name: Tags
+vid: tags
+description: 'Tags for categorising blog posts.'
+weight: 0
