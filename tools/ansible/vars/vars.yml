@@ -1,0 +1,4 @@
+---
+ansistrano_current_dir: current
+project_root_path: /app
+project_web_dir: web

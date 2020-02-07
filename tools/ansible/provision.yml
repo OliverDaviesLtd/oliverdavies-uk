@@ -1,0 +1,21 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars/vars.yml
+    - vars/provision_vars.yml
+
+  roles:
+    - name: geerlingguy.firewall
+    - name: geerlingguy.security
+    - name: geerlingguy.mysql
+    - name: geerlingguy.nginx
+    - name: geerlingguy.php-versions
+    - name: geerlingguy.php
+    - name: geerlingguy.composer
+
+  tasks:
+    - name: Install packages
+      package:
+        name: [curl, zip]
+        state: present
