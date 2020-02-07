@@ -20,6 +20,7 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
+        "drupal/markdown": "^1.3",
         "drush/drush": "^10.2"
     },
     "require-dev": {
