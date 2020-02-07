@@ -1,0 +1,10 @@
+---
+- name: Setup directory permissions for files directories
+  become: true
+  file:
+    path: '{{ ansistrano_shared_path }}/{{ project_web_dir }}/sites/default/files'
+    state: directory
+    owner: www-data
+    group: root
+    mode: u=rwx,g=rw,o=
+    recurse: true

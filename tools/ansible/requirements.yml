@@ -1,4 +1,8 @@
 ---
+- name: ansistrano.deploy
+  version: 3.4.0
+- name: ansistrano.rollback
+  version: 3.0.0
 - name: geerlingguy.composer
   version: 1.7.3
 - name: geerlingguy.firewall

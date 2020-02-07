@@ -1,0 +1,36 @@
+---
+ansistrano_allow_anonymous_stats: false
+ansistrano_deploy_via: git
+ansistrano_deploy_to: '{{ project_root_path }}'
+ansistrano_git_identity_key_path: '{{ playbook_dir }}/id_deploy'
+ansistrano_git_repo: git@github.com:opdavies/oliverdavies-uk.git
+ansistrano_git_branch: master
+ansistrano_keep_releases: 5
+ansistrano_shared_paths:
+  - '{{ project_web_dir }}/sites/default/files'
+
+# Hooks
+ansistrano_after_symlink_shared_tasks_file: '{{ playbook_dir }}/deploy/after-symlink-shared.yml'
+ansistrano_after_update_code_tasks_file: '{{ playbook_dir }}/deploy/after-update-code.yml'
+
+app_hash_salt: '{{ vault_app_hash_salt }}'
+
+drupal_settings:
+  - drupal_root: '{{ ansistrano_release_path.stdout }}/{{ project_web_dir }}'
+    sites:
+      - name: default
+        settings:
+          base_url: http://d8.oliverdavies.uk
+          hash_salt: '{{ app_hash_salt }}'
+          databases:
+            default:
+              default:
+                driver: mysql
+                host: localhost
+                database: oliverdavies_uk
+                username: '{{ app_mysql_user }}'
+                password: '{{ app_mysql_password }}'
+          config_directories:
+            sync: ../config/sync
+          trusted_hosts:
+            - '^d8\.oliverdavies\.uk$'
