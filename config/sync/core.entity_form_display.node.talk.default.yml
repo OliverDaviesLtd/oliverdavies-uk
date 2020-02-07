@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.talk.field_events
     - node.type.talk
   module:
+    - paragraphs
     - text
 id: node.talk.default
 targetEntityType: node
@@ -30,14 +31,16 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_events:
+    type: entity_reference_paragraphs
     weight: 122
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: events
     third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   promote:
     type: boolean_checkbox

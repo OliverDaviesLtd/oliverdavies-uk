@@ -1,13 +1,13 @@
-uuid: 8ed18ca4-39ff-4d5f-90b4-415521fbe6cb
+uuid: 63566e18-2286-46ca-a181-f42121153cb3
 langcode: en
 status: true
 dependencies:
   module:
     - link
-    - taxonomy
-id: taxonomy_term.field_link
+    - paragraphs
+id: paragraph.field_link
 field_name: field_link
-entity_type: taxonomy_term
+entity_type: paragraph
 type: link
 settings: {  }
 module: link

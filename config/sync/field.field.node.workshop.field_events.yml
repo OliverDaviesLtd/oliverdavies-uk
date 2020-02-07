@@ -1,11 +1,13 @@
-uuid: ebe9ccf4-8c8a-412d-9ef1-67d31d71df2c
+uuid: 2b760037-dad1-47ac-92b1-ae198d25a694
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_events
     - node.type.workshop
-    - taxonomy.vocabulary.events
+    - paragraphs.paragraphs_type.event
+  module:
+    - entity_reference_revisions
 id: node.workshop.field_events
 field_name: field_events
 entity_type: node
@@ -17,13 +19,13 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
-      events: events
-    sort:
-      field: name
-      direction: asc
-    auto_create: false
-    auto_create_bundle: ''
-field_type: entity_reference
+      event: event
+    target_bundles_drag_drop:
+      event:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions
