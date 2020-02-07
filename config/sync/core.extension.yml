@@ -3,12 +3,14 @@ module:
   admin_toolbar_tools: 0
   block: 0
   breakpoint: 0
+  datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   field: 0
   field_ui: 0
   file: 0
   filter: 0
+  link: 0
   markdown: 0
   node: 0
   page_cache: 0
@@ -19,12 +21,15 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_ui: 0
+  views: 10
   minimal: 1000
 theme:
   stark: 0
   stable: 0
   classy: 0
   claro: 0
+  bartik: 0
 profile: minimal
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

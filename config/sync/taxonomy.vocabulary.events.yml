@@ -1,0 +1,8 @@
+uuid: adbc94a3-30fa-4df1-995d-a0b070b8700e
+langcode: en
+status: true
+dependencies: {  }
+name: Events
+vid: events
+description: 'Events that I''ve given talks and workshops at.'
+weight: 0
