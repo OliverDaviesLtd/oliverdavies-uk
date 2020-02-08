@@ -7,3 +7,12 @@
 - name: Generate settings.php file
   include_role:
     name: './roles/drupal-settings'
+
+- name: Import configuration
+  command: '{{ release_drush_path }} config-import -y chdir={{ release_web_path }}'
+
+- name: Run database updates
+  command: '{{ release_drush_path }} updatedb -y chdir={{ release_web_path }}'
+
+- name: Rebuild cache
+  command: '{{ release_drush_path }} cache-rebuild chdir={{ release_web_path }}'
