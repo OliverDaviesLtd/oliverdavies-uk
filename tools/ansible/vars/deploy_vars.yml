@@ -37,3 +37,8 @@ drupal_settings:
             sync: ../config/sync
           trusted_hosts:
             - '^d8\.oliverdavies\.uk$'
+          extra_parameters: |
+            $settings['config_exclude_modules'] = [
+              'devel',
+              'stage_file_proxy',
+            ];
