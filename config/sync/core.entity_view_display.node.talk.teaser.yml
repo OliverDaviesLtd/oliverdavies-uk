@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.talk.body
     - field.field.node.talk.field_events
+    - field.field.node.talk.field_video
     - node.type.talk
   module:
     - text
@@ -30,3 +31,4 @@ content:
     region: content
 hidden:
   field_events: true
+  field_video: true
