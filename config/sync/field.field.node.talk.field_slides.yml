@@ -1,0 +1,21 @@
+uuid: b7fc332a-392f-4330-80b0-0a4aa919350b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slides
+    - node.type.talk
+  module:
+    - speakerdeck_field
+id: node.talk.field_slides
+field_name: field_slides
+entity_type: node
+bundle: talk
+label: Slides
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: speakerdeck_field

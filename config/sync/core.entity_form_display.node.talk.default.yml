@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.talk.body
     - field.field.node.talk.field_events
+    - field.field.node.talk.field_slides
     - field.field.node.talk.field_video
     - node.type.talk
   module:
     - paragraphs
+    - speakerdeck_field
     - text
 id: node.talk.default
 targetEntityType: node
@@ -42,6 +44,14 @@ content:
       form_display_mode: default
       default_paragraph_type: events
     third_party_settings: {  }
+    region: content
+  field_slides:
+    weight: 26
+    settings:
+      data_id: ''
+      data_ratio: ''
+    third_party_settings: {  }
+    type: speakerdeck_widget
     region: content
   field_video:
     weight: 7

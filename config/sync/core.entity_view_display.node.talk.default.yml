@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.talk.body
     - field.field.node.talk.field_events
+    - field.field.node.talk.field_slides
     - field.field.node.talk.field_video
     - node.type.talk
   module:
     - entity_reference_revisions
+    - speakerdeck_field
     - text
     - user
 id: node.talk.default
@@ -31,6 +33,13 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_slides:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: speakerdeck_formatter
     region: content
   field_video:
     type: entity_reference_entity_view
