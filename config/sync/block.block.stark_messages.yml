@@ -1,15 +1,15 @@
-uuid: 53bb392d-ba68-4f82-ab6b-f1fba7c460c8
+uuid: 14214c70-2d38-401d-9ca1-268398b712a0
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - claro
+    - stark
 _core:
-  default_config_hash: iIy-YIc9d9s1isAtTIKWDBKd6kd2r6LxoYz_-hkLJco
-id: claro_messages
-theme: claro
+  default_config_hash: 5MNdk3fpMKx_xxBTcz2T11DL4XEU1H5SgHl8BsYdFsA
+id: stark_messages
+theme: stark
 region: highlighted
 weight: 0
 provider: null

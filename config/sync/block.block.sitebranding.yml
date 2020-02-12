@@ -1,15 +1,13 @@
-uuid: e768dc35-e421-449f-8997-d9b7bc935d95
+uuid: 2a431fd0-5784-4c38-84ab-ed9570be93e6
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - bartik
-_core:
-  default_config_hash: fRKXNB91UxDvEMkzCR8ZBsawfC6Fqbme2gtobei3gu4
-id: bartik_branding
-theme: bartik
+    - seven
+id: sitebranding
+theme: seven
 region: header
 weight: 0
 provider: null

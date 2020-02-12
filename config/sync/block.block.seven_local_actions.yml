@@ -1,13 +1,13 @@
-uuid: a8ae6ae9-ee4c-4cd9-9485-0e7460b51883
+uuid: 12629376-aca1-46af-ba64-98c09fdad096
 langcode: en
 status: true
 dependencies:
   theme:
-    - bartik
+    - seven
 _core:
   default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
-id: bartik_local_actions
-theme: bartik
+id: seven_local_actions
+theme: seven
 region: content
 weight: -10
 provider: null
