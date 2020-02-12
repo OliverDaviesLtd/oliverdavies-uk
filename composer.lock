@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58112000d5f7248c54333cc364d5a3c5",
+    "content-hash": "ce0c7f4df7de7476333a503afb60c251",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2236,11 +2236,17 @@
         },
         {
             "name": "drupal/speakerdeck_field",
-            "version": "dev-1.x",
+            "version": "1.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/speakerdeck_field.git",
-                "reference": "d204c8f96dcdb923ee49b1926519e3fd9995ee8b"
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/speakerdeck_field-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "bb43c04eddfbd45ffa1bf61c12824ef37c179a55"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2251,8 +2257,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1487450283",
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1581495847",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2273,8 +2279,7 @@
             "homepage": "https://www.drupal.org/project/speakerdeck_field",
             "support": {
                 "source": "https://git.drupalcode.org/project/speakerdeck_field"
-            },
-            "time": "2017-02-18T20:33:06+00:00"
+            }
         },
         {
             "name": "drush/drush",
@@ -5862,9 +5867,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "drupal/speakerdeck_field": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
