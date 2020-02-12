@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.post.body
+    - field.field.node.post.field_excerpt
     - field.field.node.post.field_tags
     - node.type.post
   module:
@@ -20,6 +21,13 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_excerpt:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_tags:
     weight: 102
