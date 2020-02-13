@@ -3,6 +3,9 @@ module:
   admin_toolbar_tools: 0
   block: 0
   breakpoint: 0
+  config: 0
+  config_filter: 0
+  config_ignore: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
