@@ -1,3 +1,4 @@
+config/*/block.block.*
 vendor/
 web/
 .editorconfig
