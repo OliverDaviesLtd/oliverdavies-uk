@@ -6,7 +6,7 @@
 
 - name: Generate settings.php file
   include_role:
-    name: './roles/drupal-settings'
+    name: opdavies.drupal_settings_files
 
 - name: Import configuration
   command: '{{ release_drush_path }} config-import -y chdir={{ release_web_path }}'
