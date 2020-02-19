@@ -9,10 +9,16 @@
     name: opdavies.drupal_settings_files
 
 - name: Import configuration
-  command: '{{ release_drush_path }} config-import -y chdir={{ release_web_path }}'
+  command: '{{ release_drush_path }} config-import -y'
+  args:
+    chdir: '{{ release_web_path }}'
 
 - name: Run database updates
-  command: '{{ release_drush_path }} updatedb -y chdir={{ release_web_path }}'
+  command: '{{ release_drush_path }} updatedb -y'
+  args:
+    chdir: '{{ release_web_path }}'
 
 - name: Rebuild cache
-  command: '{{ release_drush_path }} cache-rebuild chdir={{ release_web_path }}'
+  command: '{{ release_drush_path }} cache-rebuild'
+  args:
+    chdir: '{{ release_web_path }}'
