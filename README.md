@@ -6,7 +6,17 @@ This site is hosted on a DigitalOcean droplet, which was created using [Ansible]
 
 [Ansible]: https://www.ansible.com
 
-To download the required roles, run `ansible-galaxy install -r tools/ansible/requirements.yml`.
+## Provisioning
+
+To re-provision the server:
+
+```bash
+# Download the required roles
+ansible-galaxy install -r tools/ansible/requirements.yml --force
+
+# Run the provision playbook
+ansible-playbook tools/ansible/provision.yml
+```
 
 ### Deploying
 
