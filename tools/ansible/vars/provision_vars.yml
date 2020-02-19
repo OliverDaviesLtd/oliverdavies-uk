@@ -31,9 +31,17 @@ nginx_server_tokens: 'off'
 nginx_vhosts:
   - listen: 80
     server_name: d8.oliverdavies.uk
+    return: 301 https://d8.oliverdavies.uk$request_uri
+    filename: d8.oliverdavies.uk.80.conf
+
+  - listen: 443 ssl
+    server_name: d8.oliverdavies.uk
     root: '{{ project_root_path }}/{{ ansistrano_current_dir }}/{{ project_web_dir }}'
     index: index.php
     extra_parameters: |
+      ssl_certificate     /etc/letsencrypt/live/d8.oliverdavies.uk/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/d8.oliverdavies.uk/privkey.pem;
+ 
       location = /favicon.ico {
           log_not_found off;
           access_log off;
@@ -122,3 +130,9 @@ nginx_vhosts:
       if ($request_uri ~* "^(.*/)index\.php(.*)") {
           return 307 $1$2;
       }
+
+certbot_create_if_missing: true
+certbot_create_method: standalone
+certbot_admin_email: oliver+certbot@oliverdavies.uk
+certbot_certs:
+  - domains: [d8.oliverdavies.uk]

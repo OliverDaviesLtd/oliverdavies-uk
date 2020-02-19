@@ -3,6 +3,8 @@
   version: 3.4.0
 - name: ansistrano.rollback
   version: 3.0.0
+- name: geerlingguy.certbot
+  version: 3.0.3
 - name: geerlingguy.composer
   version: 1.7.3
 - name: geerlingguy.firewall
