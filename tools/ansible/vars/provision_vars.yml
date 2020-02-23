@@ -40,6 +40,7 @@ nginx_vhosts:
     index: index.php
     extra_parameters: |
       rewrite /about / permanent;
+      rewrite /articles /blog permanent;
       rewrite /blog/2010/04/05/style-drupal-6s-taxonomy-lists-php-css-and-jquery /blog/style-drupal-6s-taxonomy-lists-php-css-and-jquery permanent;
       rewrite /blog/2010/04/28/using-imagecache-and-imagecrop-my-portfolio /blog/using-imagecache-and-imagecrop-my-portfolio permanent;
       rewrite /blog/2010/05/06/conditional-email-addresses-webform /blog/conditional-email-addresses-webform permanent;
@@ -144,9 +145,7 @@ nginx_vhosts:
       rewrite /blog/drush-make-drupalbristol /talks/drush-make-drupalbristol permanent;
       rewrite /blog/system-users-null-users /blog/null-users-and-system-users-in-drupal permanent;
       rewrite /blog/tweets-from-drupalcamp-london /blog/tweets-drupalcamp-london permanent;
-      rewrite /blog /articles permanent;
       rewrite /blog.xml /feed permanent;
-      rewrite /blog/* /blog/:splat permanent;
       rewrite /book /test-driven-drupal permanent;
       rewrite /consulting / permanent;
       rewrite /cv https://cv.oliverdavies.uk permanent;
@@ -195,6 +194,7 @@ nginx_vhosts:
       rewrite /twitter https://twitter.com/opdavies permanent;
       rewrite /work /experience permanent;
       rewrite /youtube https://www.youtube.com/channel/UCkeK0qF9HHUPQH_fvn4ghqQ permanent;
+      rewrite ^/articles/(.*)$ /blog/$1 permanent;
 
       ssl_certificate     /etc/letsencrypt/live/d8.oliverdavies.uk/fullchain.pem;
       ssl_certificate_key /etc/letsencrypt/live/d8.oliverdavies.uk/privkey.pem;
