@@ -148,7 +148,6 @@ nginx_vhosts:
       rewrite /blog.xml /feed permanent;
       rewrite /book /test-driven-drupal permanent;
       rewrite /consulting / permanent;
-      rewrite /cv https://cv.oliverdavies.uk permanent;
       rewrite /drupal https://www.drupal.org/u/opdavies permanent;
       rewrite /drupalgive https://www.drupal.org/u/opdavies permanent;
       rewrite /experience https://cv.oliverdavies.uk permanent;
