@@ -11,7 +11,3 @@ $databases['default']['default'] = [
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'collation' => 'utf8mb4_general_ci',
 ];
-
-$settings["config_sync_directory"] = '../config/default';
-
-$settings['hash_salt'] = 'were';

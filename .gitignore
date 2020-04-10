@@ -4,3 +4,5 @@
 !/scripts/**
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php
+!/web/themes/custom/**
+/web/themes/custom/*/dist/

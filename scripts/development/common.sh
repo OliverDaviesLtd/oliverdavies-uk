@@ -2,6 +2,8 @@
 
 set -e
 
+theme_path="web/themes/custom/opdavies"
+
 function run_command {
   title=$1
   command=$2
