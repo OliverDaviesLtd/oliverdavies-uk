@@ -1,9 +1,0 @@
-uuid: 45f289b3-2e05-4f81-a8ae-d0532088582c
-langcode: en
-status: true
-dependencies: {  }
-id: event
-label: Event
-icon_uuid: null
-description: ''
-behavior_plugins: {  }
