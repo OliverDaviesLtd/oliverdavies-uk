@@ -1,5 +1,4 @@
-config/*/block.block.*
-vendor/
-web/
-.editorconfig
-.gitattributes
+*
+!/*/
+!/web/sites/default/environments/settings.*.php
+!/web/sites/default/settings.php
