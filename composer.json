@@ -30,6 +30,8 @@
         "tightenco/collect": "^6.15"
     },
     "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+        "drupal/coder": "^8.3"
     },
     "conflict": {
         "drupal/drupal": "*"
