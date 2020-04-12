@@ -1,0 +1,5 @@
+name: Oliver Davies custom module
+type: module
+core: 8.x
+core_version_requirements: ^8 || ^9
+package: Custom

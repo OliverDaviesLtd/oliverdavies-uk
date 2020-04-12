@@ -1,0 +1,5 @@
+services:
+  Drupal\custom\Command\FormatTagNamesCommand:
+    autowire: true
+    tags:
+      - { name: drush.command }
