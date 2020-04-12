@@ -1,10 +1,13 @@
 *
 !*/
 !/.gitignore
+!/**/.gitkeep
+!/.idea/**
 !/config/**
 !/scripts/**
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php
 !/web/themes/custom/**
+/.idea/workspace.xml
 /web/themes/custom/*/dist/
