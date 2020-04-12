@@ -1,0 +1,11 @@
+uuid: e4ef45c3-cc66-48e7-bffe-34beb6deab40
+langcode: en
+status: true
+dependencies: {  }
+name: Talk
+type: talk
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

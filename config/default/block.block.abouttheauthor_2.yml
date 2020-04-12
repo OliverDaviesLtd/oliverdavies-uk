@@ -1,0 +1,33 @@
+uuid: 43c851f2-4e05-4005-bd8a-c38bff6ffbd2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:cec72fa5-49c4-428d-bf49-59b477c9e886'
+  module:
+    - block_content
+    - node
+  theme:
+    - stark
+id: abouttheauthor_2
+theme: stark
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:cec72fa5-49c4-428d-bf49-59b477c9e886'
+settings:
+  id: 'block_content:cec72fa5-49c4-428d-bf49-59b477c9e886'
+  label: 'About the Author'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      post: post
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

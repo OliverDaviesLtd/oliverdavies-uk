@@ -1,6 +1,7 @@
 *
 !*/
 !/.gitignore
+!/config/**
 !/scripts/**
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php

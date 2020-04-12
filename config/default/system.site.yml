@@ -1,0 +1,15 @@
+uuid: 315b2e52-6e5f-4197-961b-777deee95063
+name: 'Oliver Davies'
+mail: oliver+website@oliverdavies.uk
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+mail_notification: ''

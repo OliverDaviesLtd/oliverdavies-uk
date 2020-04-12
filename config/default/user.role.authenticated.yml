@@ -1,0 +1,14 @@
+uuid: ce50ad2e-c42b-44e8-a9c2-7967eab57aaa
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'use text format full_html'
+  - 'view media'
