@@ -7,6 +7,9 @@ namespace Drupal\custom\Command;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drush\Commands\DrushCommands;
 
+/**
+ * Renames legacy tag terms.
+ */
 final class FormatTagNamesCommand extends DrushCommands {
 
   /**
@@ -23,7 +26,7 @@ final class FormatTagNamesCommand extends DrushCommands {
    *   An associative array, keyed by the original tag name. The value is either
    *   an overridden tag name or FALSE if the tag name is not to be changed.
    */
-  static $tagNames = [
+  private static $tagNames = [
     'accessible-bristol' => 'Accessible Bristol',
     'admin:hover' => FALSE,
     'aria' => 'ARIA',
@@ -88,6 +91,15 @@ final class FormatTagNamesCommand extends DrushCommands {
     'virtualhostx' => 'VirtualHostX',
   ];
 
+  /**
+   * FormatTagNamesCommand constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
   public function __construct(EntityTypeManagerInterface $entityTypeManager) {
     parent::__construct();
 
@@ -115,12 +127,18 @@ final class FormatTagNamesCommand extends DrushCommands {
     }
   }
 
+  /**
+   * Get all of the current tags.
+   */
   private function getTags(): array {
     return $this->termStorage->loadByProperties([
       'vid' => 'tags',
     ]);
   }
 
+  /**
+   * Get the new tag name.
+   */
   private function getNewTagName(string $tagName): ?string {
     if (!array_key_exists($tagName, static::$tagNames)) {
       return str_replace('-', ' ', ucfirst($tagName));
