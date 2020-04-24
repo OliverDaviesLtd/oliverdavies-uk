@@ -1,0 +1,12 @@
+parameters:
+  level: 7
+  paths:
+    - web/modules/custom
+    - web/themes/custom
+  excludes_analyse:
+    - *Test.php
+    - *TestBase.php
+  checkMissingIterableValueType: false
+includes:
+  - vendor/mglaman/phpstan-drupal/extension.neon
+  - vendor/phpstan/phpstan-deprecation-rules/rules.neon

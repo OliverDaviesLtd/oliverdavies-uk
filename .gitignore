@@ -4,6 +4,7 @@
 !/**/.gitkeep
 !/.idea/**
 !/config/**
+!/phpstan.neon
 !/scripts/**
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php

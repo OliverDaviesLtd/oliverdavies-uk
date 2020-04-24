@@ -34,7 +34,10 @@
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
-        "drupal/coder": "^8.3"
+        "drupal/coder": "^8.3",
+        "mglaman/phpstan-drupal": "^0.12.3",
+        "phpstan/phpstan": "^0.12.19",
+        "phpstan/phpstan-deprecation-rules": "^0.12.2"
     },
     "conflict": {
         "drupal/drupal": "*"
