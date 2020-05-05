@@ -1,0 +1,27 @@
+id: tag_term
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: https://deploy-preview-213--opdavies.netlify.app/tags.json
+  ids:
+    id:
+      type: integer
+  item_selector: tags/
+  fields:
+    -
+      name: id
+      selector: id
+      label: Tag ID
+    -
+      name: name
+      selector: name
+      label: Name
+
+process:
+  name: name
+
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: tags
