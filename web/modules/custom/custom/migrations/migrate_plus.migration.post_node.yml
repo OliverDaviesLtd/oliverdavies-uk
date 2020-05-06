@@ -22,6 +22,10 @@ source:
       selector: title
       label: Title
 
+    - name: excerpt
+      selector: excerpt
+      label: Excerpt
+
     - name: created
       selector: created
       label: Created
@@ -54,6 +58,8 @@ process:
   changed: created
   path: path
   status: status
+
+  field_excerpt: excerpt
 
   field_tags:
     plugin: migration_lookup
