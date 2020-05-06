@@ -4,50 +4,66 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
-  urls: http://localhost:9000/posts.json
+
+  urls: https://deploy-preview-213--opdavies.netlify.app/posts.json
+
   ids:
     id:
       type: integer
+
   item_selector: posts/
+
   fields:
-    -
-      name: id
+    - name: id
       selector: id
       label: Node ID
-    -
-      name: title
+
+    - name: title
       selector: title
       label: Title
-    -
-      name: created
+
+    - name: created
       selector: created
       label: Created
-    -
-      name: status
+
+    - name: status
       selector: status
       label: Status
-    -
-      name: content
+
+    - name: content
       selector: content
       label: Content
-    -
-      name: path
+
+    - name: path
       selector: path
       label: Path
+
+    - name: tags
+      selector: tags
+      label: Tags
 
 process:
   body/0/format:
     plugin: default_value
     default_value: full_html
+
   body/0/value: content
+
   title: title
   created: created
   changed: created
   path: path
   status: status
+
+  field_tags:
+    plugin: migration_lookup
+    migration: tag_term
+    source: tags
+
   type:
     plugin: default_value
     default_value: post
+
   uid:
     plugin: default_value
     default_value: 1
