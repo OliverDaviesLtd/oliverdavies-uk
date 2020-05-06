@@ -1,0 +1,78 @@
+id: talk_node
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+
+  urls: https://deploy-preview-213--opdavies.netlify.app/talks.json
+
+  ids:
+    id:
+      type: integer
+
+  item_selector: talks/
+
+  fields:
+    - name: id
+      selector: id
+      label: Node ID
+
+    - name: title
+      selector: title
+      label: Title
+
+    - name: description
+      selector: description
+      label: Description
+
+    - name: created
+      selector: created
+      label: Created
+
+    - name: content
+      selector: content
+      label: Content
+
+    - name: path
+      selector: path
+      label: Path
+
+    - name: speakerdeck
+      selector: speakerdeck
+      label: Speakerdeck
+
+process:
+  body/0/format:
+    plugin: default_value
+    default_value: full_html
+
+  body/0/value: content
+
+  field_excerpt: description
+
+  title: title
+  created: created
+  changed: created
+  path: path
+
+  field_slides/0/data_id: speakerdeck/id
+  field_slides/0/data_ratio: speakerdeck/ratio
+
+  status:
+    plugin: default_value
+    default_value: 1
+
+  type:
+    plugin: default_value
+    default_value: talk
+
+  uid:
+    plugin: default_value
+    default_value: 1
+
+destination:
+  plugin: 'entity:node'
+
+migration_dependencies:
+  required: { }
