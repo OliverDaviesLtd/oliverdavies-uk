@@ -70,3 +70,7 @@ process:
 
 destination:
   plugin: 'entity:node'
+
+migration_dependencies:
+  required:
+    - tag_term
