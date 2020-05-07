@@ -11,4 +11,5 @@
 !/web/sites/default/settings.php
 !/web/themes/custom/**
 /.idea/workspace.xml
+/vendor/
 /web/themes/custom/*/dist/
