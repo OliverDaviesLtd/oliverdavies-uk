@@ -3,6 +3,7 @@
 !/.gitignore
 !/**/.gitkeep
 !/.idea/**
+!/bin/*
 !/config/**
 !/phpstan.neon
 !/scripts/**
