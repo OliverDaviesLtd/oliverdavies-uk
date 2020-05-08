@@ -9,26 +9,24 @@ dependencies:
     - field.field.node.post.field_tags
     - node.type.post
   module:
-    - text
     - user
 id: node.post.teaser
 targetEntityType: node
 bundle: post
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
+  field_excerpt:
+    type: basic_string
+    weight: 0
     region: content
-  links:
-    weight: 100
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+  links:
+    weight: 1
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  field_excerpt: true
+  body: true
   field_tags: true
