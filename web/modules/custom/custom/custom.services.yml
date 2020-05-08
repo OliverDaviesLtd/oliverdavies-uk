@@ -1,0 +1,4 @@
+services:
+  Drupal\custom\EventSubscriber\UpdateTalkCreatedDateOnSave:
+    tags:
+      - { name: event_subscriber }

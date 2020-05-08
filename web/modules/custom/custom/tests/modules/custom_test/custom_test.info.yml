@@ -1,0 +1,5 @@
+name: Custom Test
+type: module
+core: 8.x
+core_version_requirements: ^8 || ^9
+hidden: true

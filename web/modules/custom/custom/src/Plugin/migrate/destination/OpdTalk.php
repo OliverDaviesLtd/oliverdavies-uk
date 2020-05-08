@@ -12,6 +12,8 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Illuminate\Support\Collection;
 
 /**
+ * A migrate destination for a talk node.
+ *
  * @MigrateDestination(
  *   id="opd_talk"
  * )

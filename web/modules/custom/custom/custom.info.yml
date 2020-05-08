@@ -3,3 +3,7 @@ type: module
 core: 8.x
 core_version_requirements: ^8 || ^9
 package: Custom
+dependencies:
+  - drupal:node
+  - hook_event_dispatcher:hook_event_dispatcher
+  - paragraphs:paragraphs
