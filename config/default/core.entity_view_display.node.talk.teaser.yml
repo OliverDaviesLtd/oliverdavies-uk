@@ -11,28 +11,26 @@ dependencies:
     - field.field.node.talk.field_video
     - node.type.talk
   module:
-    - text
     - user
 id: node.talk.teaser
 targetEntityType: node
 bundle: talk
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
+  field_excerpt:
+    type: basic_string
+    weight: 0
     region: content
-  links:
-    weight: 100
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+  links:
+    weight: 1
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  body: true
   field_events: true
-  field_excerpt: true
   field_slides: true
   field_video: true

@@ -1,0 +1,23 @@
+uuid: 5764fb06-990c-4fdb-b4bb-e31be33c4bce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_remote
+    - paragraphs.paragraphs_type.event
+id: paragraph.event.field_remote
+field_name: field_remote
+entity_type: paragraph
+bundle: event
+label: Remote
+description: 'Was this talk presented remotely?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

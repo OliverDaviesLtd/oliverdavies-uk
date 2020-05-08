@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.field.paragraph.event.field_date
     - field.field.paragraph.event.field_link
+    - field.field.paragraph.event.field_location
     - field.field.paragraph.event.field_name
+    - field.field.paragraph.event.field_remote
     - paragraphs.paragraphs_type.event
   module:
     - datetime
@@ -16,18 +18,26 @@ bundle: event
 mode: default
 content:
   field_date:
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_link:
-    weight: 2
+    weight: 4
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_location:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_name:
     weight: 0
@@ -36,6 +46,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_remote:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
 hidden:
   created: true
