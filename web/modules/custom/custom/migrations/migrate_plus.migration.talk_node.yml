@@ -42,6 +42,10 @@ source:
       selector: speakerdeck
       label: Speakerdeck
 
+    - name: events
+      selector: events
+      label: Events
+
 process:
   body/0/format:
     plugin: default_value
@@ -72,7 +76,7 @@ process:
     default_value: 1
 
 destination:
-  plugin: 'entity:node'
+  plugin: opd_talk
 
 migration_dependencies:
   required: { }
