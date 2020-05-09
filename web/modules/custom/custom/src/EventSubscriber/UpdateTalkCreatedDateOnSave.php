@@ -6,10 +6,9 @@ namespace Drupal\custom\EventSubscriber;
 
 use Carbon\Carbon;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\custom\Entity\Node;
 use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
-use Drupal\paragraphs\ParagraphInterface;
-use Illuminate\Support\Collection;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -25,11 +24,7 @@ final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
   }
 
   public function entityInsertOrUpdate(BaseEntityEvent $event): void {
-    if ($event->getEntity()->getEntityTypeId() != 'node') {
-      return;
-    }
-
-    if ($event->getEntity()->bundle() != 'talk') {
+    if (!$event->getEntity() instanceof Node) {
       return;
     }
 
@@ -37,7 +32,8 @@ final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
   }
 
   private function updateCreatedDate(EntityInterface $talk): void {
-    if (!$eventDate = $this->findLatestEventDate($talk)) {
+    /** @var \Drupal\custom\Entity\Node $talk */
+    if (!$eventDate = $talk->findLatestEventDate()) {
       return;
     }
 
@@ -48,18 +44,6 @@ final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
     }
 
     $talk->set('created', $talkDate);
-  }
-
-  /**
-   * Find the date for the latest event.
-   *
-   * @return string|null
-   */
-  private function findLatestEventDate(EntityInterface $talk) {
-    return Collection::make($talk->get('field_events')->referencedEntities())
-      ->map(fn(ParagraphInterface $event) => $event->get('field_date')
-        ->getString())
-      ->max();
   }
 
 }

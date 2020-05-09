@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Custom module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\custom\Entity\Node;
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function custom_entity_type_build(array &$entityTypes): void {
+  if (isset($entityTypes['node'])) {
+    $entityTypes['node']->setClass(Node::class);
+  }
+}

@@ -8,8 +8,8 @@ parameters:
     - *TestBase.php
   checkMissingIterableValueType: false
   ignoreErrors:
-    - '#Call to an undefined method Drupal\\Core\\Entity\\EntityInterface::get()#'
     - '#Call to an undefined method Drupal\\Core\\Entity\\EntityInterface::set()#'
+    - '#Call to an undefined method Drupal\\Core\\Field\\FieldItemListInterface::referencedEntities()#'
 includes:
   - vendor/mglaman/phpstan-drupal/extension.neon
   - vendor/phpstan/phpstan-deprecation-rules/rules.neon
