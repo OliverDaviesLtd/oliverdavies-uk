@@ -30,3 +30,17 @@ The Vault password is stored in LastPass.
 
 [Ansistrano]: https://ansistrano.com
 [CircleCI]: https://circleci.com/gh/opdavies/oliverdavies-uk
+
+## Migrating data into the website
+
+To view the status of all the migrations:
+
+    bin/drush.sh migrate:status
+
+To run all the migrations:
+
+    bin/drush.sh migrate:import --all
+
+To run all the migrations and update the existing migrated content:
+
+    bin/drush.sh migrate:import --all --update
