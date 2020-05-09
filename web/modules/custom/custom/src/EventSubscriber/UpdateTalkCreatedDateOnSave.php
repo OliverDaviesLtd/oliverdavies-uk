@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\custom\EventSubscriber;
 
+use Carbon\Carbon;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
@@ -40,7 +41,7 @@ final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
       return;
     }
 
-    $talkDate = (new \DateTime($eventDate))->getTimestamp();
+    $talkDate = Carbon::parse($eventDate)->getTimestamp();
 
     if ($talkDate == $talk->get('created')->getString()) {
       return;

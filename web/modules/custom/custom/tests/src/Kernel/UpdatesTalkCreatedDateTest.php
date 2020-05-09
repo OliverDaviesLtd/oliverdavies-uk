@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\custom\Kernel;
 
+use Carbon\Carbon;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
@@ -33,7 +34,7 @@ final class UpdatesTalkCreatedDateTest extends EntityKernelTestBase {
   ];
 
   public function testCreatingNode() {
-    $eventDate = (new \DateTime('today'))->modify('+1 week');
+    $eventDate = Carbon::today()->addWeek();
     $eventDateToFormat = $eventDate->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
     $eventDateToTimestamp = $eventDate->getTimestamp();
 
@@ -46,7 +47,7 @@ final class UpdatesTalkCreatedDateTest extends EntityKernelTestBase {
   public function testUpdatingNode() {
     $talk = $this->createTalk();
 
-    $eventDate = (new \DateTime('today'))->modify('+1 week');
+    $eventDate = Carbon::today()->addWeek();
     $eventDateToFormat = $eventDate->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
     $eventDateToTimestamp = $eventDate->getTimestamp();
 
