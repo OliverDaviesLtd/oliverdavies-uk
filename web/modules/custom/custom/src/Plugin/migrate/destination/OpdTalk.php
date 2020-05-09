@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\custom\Plugin\migrate\destination;
 
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -18,7 +20,7 @@ use Illuminate\Support\Collection;
  *   id="opd_talk"
  * )
  */
-class OpdTalk extends EntityContentBase {
+final class OpdTalk extends EntityContentBase {
 
   protected static function getEntityTypeId($plugin_id) {
     return 'node';

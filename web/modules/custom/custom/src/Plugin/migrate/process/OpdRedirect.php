@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\custom\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateExecutableInterface;
@@ -14,9 +16,9 @@ use Illuminate\Support\Str;
  *   id = "opd_redirect"
  * )
  */
-class OpdRedirect extends ProcessPluginBase {
+final class OpdRedirect extends ProcessPluginBase {
 
-  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+  public function transform($value, MigrateExecutableInterface $migrateExecutable, Row $row, $destinationProperty) {
     if (Str::startsWith($value, '/')) {
       return "internal:{$value}";
     }
