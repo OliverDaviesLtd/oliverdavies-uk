@@ -8,6 +8,7 @@ module:
   config: 0
   config_filter: 0
   config_ignore: 0
+  ctools: 0
   custom: 0
   datetime: 0
   dblog: 0
@@ -40,6 +41,7 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  pathauto: 1
   xmlsitemap: 1
   views: 10
   paragraphs: 11

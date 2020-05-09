@@ -27,6 +27,7 @@
         "drupal/migrate_source_yaml": "^1.2",
         "drupal/migrate_tools": "^4.5",
         "drupal/paragraphs": "^1.10",
+        "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.5",
         "drupal/speakerdeck_field": "^1.0",
         "drupal/xmlsitemap": "^1.0",

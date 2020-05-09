@@ -1,0 +1,22 @@
+uuid: abde9c0e-bcd2-4803-a8fd-0b590ae9decb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: talks
+label: Talks
+type: 'canonical_entities:node'
+pattern: 'talks/[node:title]'
+selection_criteria:
+  bf4513ca-ac62-4d81-9288-429f16aabcc1:
+    id: node_type
+    bundles:
+      talk: talk
+    negate: false
+    context_mapping:
+      node: node
+    uuid: bf4513ca-ac62-4d81-9288-429f16aabcc1
+selection_logic: and
+weight: -5
+relationships: {  }
