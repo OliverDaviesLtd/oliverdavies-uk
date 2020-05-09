@@ -33,8 +33,7 @@
         "drupal/xmlsitemap": "^1.0",
         "drush/drush": "^9",
         "illuminate/support": "^7.10",
-        "nesbot/carbon": "^2.33",
-        "tightenco/collect": "^6.15"
+        "nesbot/carbon": "^2.33"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
