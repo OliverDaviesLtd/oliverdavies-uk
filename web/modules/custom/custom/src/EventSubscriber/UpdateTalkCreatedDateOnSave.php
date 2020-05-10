@@ -24,7 +24,11 @@ final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
   }
 
   public function entityInsertOrUpdate(BaseEntityEvent $event): void {
-    if (!$event->getEntity() instanceof Node) {
+    if ($event->getEntity()->getEntityTypeId() != 'node') {
+      return;
+    }
+
+    if ($event->getEntity()->bundle() != 'talk') {
       return;
     }
 
