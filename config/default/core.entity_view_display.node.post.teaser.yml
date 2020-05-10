@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.post.body
     - field.field.node.post.field_excerpt
+    - field.field.node.post.field_series
     - field.field.node.post.field_tags
     - node.type.post
   module:
@@ -29,4 +30,5 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_series: true
   field_tags: true

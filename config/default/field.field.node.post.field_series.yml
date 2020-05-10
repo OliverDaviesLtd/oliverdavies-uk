@@ -1,0 +1,29 @@
+uuid: 1f7182fd-848c-4e03-bb17-a8132c524451
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_series
+    - node.type.post
+    - taxonomy.vocabulary.blog_series
+id: node.post.field_series
+field_name: field_series
+entity_type: node
+bundle: post
+label: Series
+description: 'Is this post part of a series?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      blog_series: blog_series
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
