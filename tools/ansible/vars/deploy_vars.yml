@@ -22,8 +22,8 @@ drupal_settings:
   - drupal_root: '{{ release_web_path }}'
     sites:
       - name: default
+        filename: settings.local.php
         settings:
-          base_url: http://d8.oliverdavies.uk
           hash_salt: '{{ app_hash_salt }}'
           databases:
             default:
@@ -33,8 +33,6 @@ drupal_settings:
                 database: oliverdavies_uk
                 username: '{{ app_mysql_user }}'
                 password: '{{ app_mysql_password }}'
-          config_directories:
-            sync: ../config/sync
           trusted_hosts:
             - '^d8\.oliverdavies\.uk$'
           extra_parameters: |

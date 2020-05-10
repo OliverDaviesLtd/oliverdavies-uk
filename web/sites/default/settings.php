@@ -761,3 +761,7 @@ $settings["config_sync_directory"] = '../config/default';
 if (isset($_SERVER['SYMFONY_DEFAULT_ROUTE_URL']) && file_exists(__DIR__ . '/environments/settings.symfony.php')) {
   require_once __DIR__ . '/environments/settings.symfony.php';
 }
+
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
