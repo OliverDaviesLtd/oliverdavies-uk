@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.post.body
     - field.field.node.post.field_excerpt
+    - field.field.node.post.field_images
     - field.field.node.post.field_series
     - field.field.node.post.field_tags
     - node.type.post
   module:
+    - media_library
     - path
     - text
 id: node.post.default
@@ -18,7 +20,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 8
     settings:
       rows: 9
       summary_rows: 3
@@ -28,20 +30,27 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_excerpt:
-    weight: 123
+    weight: 11
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_images:
+    weight: 9
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    type: media_library_widget
+    region: content
   field_series:
-    weight: 124
+    weight: 12
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -51,7 +60,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_tags:
-    weight: 122
+    weight: 10
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -62,7 +71,7 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -70,26 +79,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 3
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 7
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 4
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -97,7 +106,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -106,8 +115,8 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

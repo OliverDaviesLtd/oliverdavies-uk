@@ -23,6 +23,7 @@ module:
   link: 0
   markdown: 0
   media: 0
+  media_library: 0
   metatag: 0
   migrate: 0
   migrate_plus: 0
