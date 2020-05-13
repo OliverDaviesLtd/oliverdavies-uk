@@ -5,7 +5,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
 
-  urls: https://deploy-preview-213--opdavies.netlify.app/talks.json
+  urls: https://opdavies.netlify.app/talks.json
 
   ids:
     id:

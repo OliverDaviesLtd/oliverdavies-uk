@@ -5,7 +5,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
 
-  urls: https://deploy-preview-213--opdavies.netlify.app/redirects.json
+  urls: https://opdavies.netlify.app/redirects.json
 
   ids:
     id:

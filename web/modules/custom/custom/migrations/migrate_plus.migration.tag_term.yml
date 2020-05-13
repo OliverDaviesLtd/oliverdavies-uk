@@ -4,7 +4,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
-  urls: https://deploy-preview-213--opdavies.netlify.app/tags.json
+  urls: https://opdavies.netlify.app/tags.json
   ids:
     name:
       type: string
