@@ -18,5 +18,4 @@ symfony php vendor/bin/phpcs -n \
 vendor/bin/phpstan analyze
 
 symfony php vendor/bin/phpunit \
-  -c web/core \
   "$@"

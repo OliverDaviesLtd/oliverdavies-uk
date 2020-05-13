@@ -6,6 +6,7 @@
 !/bin/*
 !/config/**
 !/phpstan.neon
+!/phpunit.xml.dist
 !/scripts/**
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php
