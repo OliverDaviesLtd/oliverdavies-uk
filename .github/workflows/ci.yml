@@ -48,6 +48,7 @@ jobs:
       - name: Execute tests
         run: vendor/bin/phpunit --color --testsuite=${{ matrix.test-types }}
         env:
+          FORCE_COLOR: true
           SIMPLETEST_BASE_URL: http://localhost:8000
 
       - name: Stop the local web server
