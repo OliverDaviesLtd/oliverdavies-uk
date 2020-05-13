@@ -44,3 +44,9 @@ To run all the migrations:
 To run all the migrations and update the existing migrated content:
 
     bin/drush.sh migrate:import --all --update
+
+## Talks ordering
+
+In order to keep the talks page in the correct order, based on when the next time a talk is being given, the `created` date for the talk node is automatically updated on each save to match the date of the most future event for that talk.
+
+The view is then sorting the talk nodes based on their `created` date.
