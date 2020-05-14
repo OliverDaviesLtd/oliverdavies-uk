@@ -1,13 +1,13 @@
-uuid: 43c851f2-4e05-4005-bd8a-c38bff6ffbd2
+uuid: a3a4c380-0449-4e0e-b53d-d739c6d94a9c
 langcode: en
 status: true
 dependencies:
   module:
     - node
   theme:
-    - stark
-id: abouttheauthor_2
-theme: stark
+    - opdavies
+id: opdavies_abouttheauthor_2
+theme: opdavies
 region: content
 weight: 0
 provider: null

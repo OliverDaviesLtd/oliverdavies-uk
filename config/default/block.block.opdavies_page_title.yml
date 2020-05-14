@@ -1,0 +1,20 @@
+uuid: 62c54e09-4d24-4ef0-a038-a9c66fc13d6a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - opdavies
+_core:
+  default_config_hash: 8yptDf6WrXxeyevUz4nP5vfr7BtxQqCBMninhV2IJ1g
+id: opdavies_page_title
+theme: opdavies
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 09d6e46d-c9f7-4497-ac2d-8cecb1affb9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - opdavies
+id: opdavies_mainpagecontent
+theme: opdavies
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

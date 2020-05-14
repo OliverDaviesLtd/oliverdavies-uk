@@ -1,0 +1,22 @@
+uuid: c298066d-6e90-4a7f-89cd-c10a8fb2821b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - opdavies
+_core:
+  default_config_hash: c-06bbElRY5sKmglk74ppgTW93Et4-EJFyNiUZMb8JY
+id: opdavies_local_tasks
+theme: opdavies
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }
