@@ -4,6 +4,23 @@
     command: install
     working_dir: '{{ ansistrano_release_path.stdout }}'
 
+- name: Generate front-end assets
+  command: |
+    {{ item.command }}
+    chdir={{ release_theme_path }}
+    creates="{{ item.creates }}"
+  with_items:
+    - command: npm install
+      creates: "{{ release_theme_path }}/node_modules"
+
+    - command: npm run production
+      creates: "{{ release_theme_path }}/dist"
+
+- name: Remove node_modules as they are no longer needed
+  file:
+    path: "{{ release_theme_path }}/node_modules"
+    state: absent
+
 - name: Generate settings.php file
   include_role:
     name: opdavies.drupal_settings_files

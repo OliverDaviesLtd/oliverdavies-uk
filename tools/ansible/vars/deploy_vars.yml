@@ -17,6 +17,7 @@ app_hash_salt: '{{ vault_app_hash_salt }}'
 
 release_drush_path: '{{ ansistrano_release_path.stdout }}/vendor/bin/drush'
 release_web_path: '{{ ansistrano_release_path.stdout }}/{{ project_web_dir }}'
+release_theme_path: '{{ release_web_path }}/themes/custom/opdavies'
 
 drupal_settings:
   - drupal_root: '{{ release_web_path }}'
