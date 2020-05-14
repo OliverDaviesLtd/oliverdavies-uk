@@ -14,15 +14,15 @@
  */
 #}
 {% block content %}
-  <div class="tw-flex tw-items-center">
-    {% if site_logo %}
-      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo tw-mr-2">
-        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-      </a>
-    {% endif %}
+    <div class="flex items-center">
+        {% if site_logo %}
+            <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo mr-2">
+                <img src="{{ site_logo }}" alt="{{ 'Home'|t }}"/>
+            </a>
+        {% endif %}
     {% if site_name %}
-      <div class="site-name tw-text-2xl">
-        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+        <div class="site-name text-2xl">
+            <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
       </div>
     {% endif %}
     {% if site_slogan %}
