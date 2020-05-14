@@ -1,7 +1,14 @@
 uuid: e3672dd9-2caf-438a-940f-0cf60fd9c341
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: 'Blog post'
 type: post
 description: 'A single blog post.'

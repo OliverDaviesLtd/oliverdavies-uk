@@ -1,7 +1,14 @@
 uuid: e4ef45c3-cc66-48e7-bffe-34beb6deab40
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: Talk
 type: talk
 description: ''
