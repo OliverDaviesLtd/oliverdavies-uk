@@ -13,6 +13,8 @@
   version: 2.9.4
 - name: geerlingguy.nginx
   version: 2.7.0
+- name: geerlingguy.nodejs
+  version: 5.1.1
 - name: geerlingguy.php
   version: 3.7.0
 - name: geerlingguy.php-versions

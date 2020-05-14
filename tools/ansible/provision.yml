@@ -14,6 +14,8 @@
     - name: geerlingguy.php-versions
     - name: geerlingguy.php
     - name: geerlingguy.composer
+    - name: geerlingguy.nodejs
+      tags: [nodejs]
 
   tasks:
     - name: Install packages
