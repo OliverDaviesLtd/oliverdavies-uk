@@ -50,9 +50,7 @@ module:
 theme:
   stable: 0
   classy: 0
-  seven: 0
   claro: 0
-  stark: 0
   opdavies: 0
 profile: minimal
 _core:
