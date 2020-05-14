@@ -31,8 +31,8 @@
         "drupal/paragraphs": "^1.10",
         "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.5",
+        "drupal/simple_sitemap": "^3.6",
         "drupal/speakerdeck_field": "^1.0",
-        "drupal/xmlsitemap": "^1.0",
         "drush/drush": "^9",
         "illuminate/support": "^7.10",
         "nesbot/carbon": "^2.33"
