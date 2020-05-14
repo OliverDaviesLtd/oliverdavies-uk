@@ -41,3 +41,5 @@ drupal_settings:
               'devel',
               'stage_file_proxy',
             ];
+
+            $config['config_split.config_split.live']['status'] = TRUE;
