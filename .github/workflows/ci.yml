@@ -33,23 +33,14 @@ jobs:
           extensions: mbstring
           coverage: none
 
-      - name: Install the Symfony local web server
-        run: |
-          wget https://get.symfony.com/cli/installer -O - | bash
-          mv /home/runner/.symfony/bin/symfony /usr/local/bin/symfony
-
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
 
       - name: Start the local web server
-        run: symfony serve -d
+        run: php -S localhost:8000 -t web 2>&1 &
         if: matrix.test-types == 'functional'
 
       - name: Execute tests
         run: vendor/bin/phpunit --testdox --colors=always --testsuite=${{ matrix.test-types }}
         env:
           SIMPLETEST_BASE_URL: http://localhost:8000
-
-      - name: Stop the local web server
-        run: symfony server:stop
-        if: matrix.test-types == 'functional'
