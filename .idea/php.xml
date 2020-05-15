@@ -138,6 +138,7 @@
       <path value="$PROJECT_DIR$/vendor/consolidation/annotated-command" />
       <path value="$PROJECT_DIR$/vendor/consolidation/robo" />
       <path value="$PROJECT_DIR$/vendor/consolidation/filter-via-dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/cweagans/composer-patches" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
