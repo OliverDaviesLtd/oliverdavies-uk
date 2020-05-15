@@ -1,0 +1,111 @@
+.markup {
+  a {
+    @apply underline;
+
+    &:hover {
+      @apply no-underline
+    }
+
+    &:focus {
+      @apply p-px -m-px bg-blue-700 text-white outline-none
+    }
+  }
+
+  p {
+    @apply leading-relaxed;
+
+    + p {
+      @apply mt-4
+    }
+  }
+
+  ol {
+    @apply list-decimal
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol,
+  ul {
+    @apply pl-5;
+
+    li + li {
+      @apply mt-2
+    }
+  }
+
+  p {
+    + blockquote,
+    + ol,
+    + ul,
+    + div[v-pre] {
+      @apply mt-4
+    }
+  }
+
+  blockquote + * {
+    @apply mt-4
+  }
+
+  code {
+    @apply -my-px px-1 py-px border border-gray-400 text-sm bg-gray-200
+  }
+
+  pre {
+    @apply border-l-3 border-gray-400 text-sm bg-gray-200;
+
+    code {
+      @apply p-6 block border-none leading-loose text-sm overflow-x-scroll
+    }
+  }
+
+  * + pre,
+  * + div[v-pre] {
+    @apply my-4
+  }
+
+  img,
+  figure {
+    @apply my-8
+  }
+
+  figure {
+    img {
+      @apply m-0
+    }
+
+    figcaption {
+      @apply mt-3
+    }
+  }
+
+  h2 {
+    @apply leading-tight
+  }
+
+  * + h2 {
+    @apply mt-8
+  }
+
+  h2 + * {
+    @apply mt-4
+  }
+
+  h3 {
+    @apply text-xl font-bold leading-tight
+  }
+
+  * + h3 {
+    @apply mt-6
+  }
+
+  h3 + * {
+    @apply mt-2
+  }
+
+  h2 + h3 {
+    @apply mt-4
+  }
+}

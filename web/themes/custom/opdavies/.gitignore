@@ -4,7 +4,3 @@
 
 # Ignore compiled assets.
 # /dist/
-
-# Ignore lock files.
-/package-lock.json
-/yarn.lock

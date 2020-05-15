@@ -1,0 +1,15 @@
+.note {
+  @apply bg-blue-200 border-blue-600 border-l-4 mb-4 p-4 rounded;
+
+  > *:not(:first-child) {
+    @apply mt-6
+  }
+
+  p a {
+    @apply text-black underline;
+
+    &:hover {
+      @apply no-underline
+    }
+  }
+}

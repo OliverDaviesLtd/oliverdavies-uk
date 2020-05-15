@@ -1,0 +1,18 @@
+.table {
+  @apply w-full;
+
+  th {
+    @apply bg-gray-200 text-left
+  }
+
+  th,
+  td {
+    @apply px-4 py-2 border border-solid border-gray-300
+  }
+}
+
+table.is-striped {
+  tbody > tr:not(:nth-child(odd)) td {
+    @apply bg-gray-100
+  }
+}

@@ -1,15 +1,18 @@
 let mix = require('laravel-mix');
 
-require('laravel-mix-purgecss')
+// require('laravel-mix-purgecss')
 
 mix.postCss('src/tailwind.pcss', 'dist', [
-  require('tailwindcss')(),
+  require('postcss-import'),
+  require('tailwindcss'),
+  require('postcss-nested'),
+  require('autoprefixer')
 ])
 
-mix.purgeCss({
-  paths: () => glob.sync([
-    path.join(__dirname, '**/*.twig')
-  ]),
-  whitelistPatterns: [],
-  whitelistPatternsChildren: []
-})
+// mix.purgeCss({
+//   paths: () => glob.sync([
+//     path.join(__dirname, '**/*.twig')
+//   ]),
+//   whitelistPatterns: [],
+//   whitelistPatternsChildren: []
+// })

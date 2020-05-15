@@ -1,20 +1,11 @@
-@tailwind base;
+@import 'tailwindcss/base';
+@import './custom-base.pcss';
 
-@tailwind components;
+@import 'tailwindcss/components';
+@import './custom-components.pcss';
 
-input {
-  @apply border border-gray-500
-}
+@import 'highlightjs/styles/github-gist';
+@import './libraries/hljs.pcss';
 
-.block,
-.node {
-  @apply mb-4
-}
-
-.node__content p,
-.node__content ul,
-.node__content ol {
-  @apply mb-4 leading-normal
-}
-
-@tailwind utilities;
+@import 'tailwindcss/utilities';
+@import './custom-utilities.pcss';
