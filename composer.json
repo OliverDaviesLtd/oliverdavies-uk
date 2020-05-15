@@ -105,7 +105,8 @@
         },
         "patches": {
             "drupal/core": {
-                "Drupal 8.7.10 to 8.8.0 update fails if views have invalid configuration": "https://www.drupal.org/files/issues/2020-05-11/3100712-views-36-PASS.patch"
+                "Drupal 8.7.10 to 8.8.0 update fails if views have invalid configuration": "https://www.drupal.org/files/issues/2020-05-11/3100712-views-36-PASS.patch",
+                "Support for SQLite in memory database": "https://www.drupal.org/files/issues/2018-11-20/sqlite-support-in-memory-database-2983452-14-8.6.x.patch"
             }
         }
     }

@@ -9,7 +9,7 @@
     <ini name="error_reporting" value="32767"/>
     <ini name="memory_limit" value="-1"/>
     <env name="SIMPLETEST_BASE_URL" value="https://localhost:8000"/>
-    <env name="SIMPLETEST_DB" value="sqlite://localhost//tmp/.oliverdavies-uk.sqlite"/>
+    <env name="SIMPLETEST_DB" value="sqlite://localhost/:memory:"/>
     <env name="BROWSERTEST_OUTPUT_DIRECTORY" value=""/>
     <env name="BROWSERTEST_OUTPUT_BASE_URL" value=""/>
     <env name="MINK_DRIVER_CLASS" value=''/>
