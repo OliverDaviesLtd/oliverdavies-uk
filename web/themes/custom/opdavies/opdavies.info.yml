@@ -4,4 +4,5 @@ core: 8.x
 type: theme
 base theme: stable
 libraries:
+  - opdavies/global-scripts
   - opdavies/global-styling
