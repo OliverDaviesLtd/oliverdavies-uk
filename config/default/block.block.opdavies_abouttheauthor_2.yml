@@ -1,22 +1,19 @@
-uuid: ed08c33b-a73c-4b7e-9ebc-52a7afcb71df
+uuid: a3a4c380-0449-4e0e-b53d-d739c6d94a9c
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic_block:2306f51b-5b19-4a77-9ff0-5582a78c8a46'
   module:
-    - block_content
-    - ctools
+    - node
   theme:
     - opdavies
-id: abouttheauthor
+id: opdavies_abouttheauthor_2
 theme: opdavies
 region: content
 weight: 0
 provider: null
-plugin: 'block_content:2306f51b-5b19-4a77-9ff0-5582a78c8a46'
+plugin: 'block_content:cec72fa5-49c4-428d-bf49-59b477c9e886'
 settings:
-  id: 'block_content:2306f51b-5b19-4a77-9ff0-5582a78c8a46'
+  id: 'block_content:cec72fa5-49c4-428d-bf49-59b477c9e886'
   label: 'About the Author'
   provider: block_content
   label_display: visible
@@ -24,8 +21,8 @@ settings:
   info: ''
   view_mode: full
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
+  node_type:
+    id: node_type
     bundles:
       post: post
     negate: false
