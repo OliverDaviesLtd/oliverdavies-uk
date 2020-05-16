@@ -1,0 +1,34 @@
+uuid: 052d967c-8535-47e5-a7d0-130125704ed5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:32371a8f-5a9f-45c5-86c8-251562df8022'
+  module:
+    - block_content
+    - ctools
+  theme:
+    - opdavies
+id: aboutme
+theme: opdavies
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:32371a8f-5a9f-45c5-86c8-251562df8022'
+settings:
+  id: 'block_content:32371a8f-5a9f-45c5-86c8-251562df8022'
+  label: 'About Me'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      post: post
+      talk: talk
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
