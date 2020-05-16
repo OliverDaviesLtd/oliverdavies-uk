@@ -7,6 +7,7 @@ namespace Drupal\custom\Plugin\migrate\destination;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\media\Entity\Media;
 use Drupal\migrate\Annotation\MigrateDestination;
 use Drupal\migrate\Plugin\migrate\destination\EntityContentBase;
 use Drupal\migrate\Row;
@@ -36,15 +37,17 @@ final class OpdTalk extends EntityContentBase {
       $node = $this->storage->create($data);
     }
 
-    $eventData = $row->getSourceProperty('events');
-    $this->createEventParagraphs($node, $eventData);
+    $this->createEventParagraphs($row, $node);
+    $this->createVideoMedia($row, $node);
 
     $node->save();
 
     return [$node->id()];
   }
 
-  private function createEventParagraphs(EntityInterface $node, array $eventData): void {
+  private function createEventParagraphs(Row $row, EntityInterface $node): void {
+    $eventData = $row->getSourceProperty('events');
+
     Collection::make($eventData)->map(function (array $event): array {
       $paragraph = Paragraph::create([
         'field_date' => DrupalDateTime::createFromTimestamp($event['date'])
@@ -64,8 +67,33 @@ final class OpdTalk extends EntityContentBase {
       ];
     })->pipe(function (Collection $events) use ($node) {
       $node->set('field_events', $events->toArray());
-      $node->save();
     });
+  }
+
+  private function createVideoMedia(Row $row, EntityInterface $node) {
+    $video = $row->getSourceProperty('video');
+
+    if (!empty($video['type']) && !empty($video['id'])) {
+      $video = Media::create([
+        'bundle' => 'video',
+        'field_media_oembed_video' => [
+          'value' => $this->getVideoUrlFromId($video),
+        ],
+        'langcode' => \Drupal::languageManager()->getDefaultLanguage()->getId(),
+        'uid' => 1,
+      ]);
+
+      $node->set('field_video', tap($video)->save());
+    }
+  }
+
+  private function getVideoUrlFromId(array $video): string {
+    $urls = new Collection([
+      'vimeo' => 'https://vimeo.com/',
+      'youtube' => 'https://www.youtube.com/watch?v=',
+    ]);
+
+    return $urls->get($video['type']) . $video['id'];
   }
 
 }

@@ -46,6 +46,10 @@ source:
       selector: events
       label: Events
 
+    - name: video
+      selector: video
+      label: Video
+
 process:
   body/0/format:
     plugin: default_value
