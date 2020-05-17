@@ -10,7 +10,8 @@ module: {  }
 theme: {  }
 blacklist:
   - google_analytics.settings
-graylist: {  }
+graylist:
+  - system.site
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 0
