@@ -1,0 +1,31 @@
+uuid: 1cf2931b-16ec-44f5-9dec-cc172f5b982d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:8160bcb8-d26f-4ef7-a9a4-1f7f27a2bd02'
+  module:
+    - block_content
+    - system
+  theme:
+    - opdavies
+id: certificationbadges
+theme: opdavies
+region: sidebar_second
+weight: -3
+provider: null
+plugin: 'block_content:8160bcb8-d26f-4ef7-a9a4-1f7f27a2bd02'
+settings:
+  id: 'block_content:8160bcb8-d26f-4ef7-a9a4-1f7f27a2bd02'
+  label: 'Certification badges'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

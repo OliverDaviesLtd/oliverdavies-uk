@@ -1,0 +1,31 @@
+uuid: 8fc8457d-6358-480c-be43-69fd8b14c3a8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:89248382-67bb-47a6-840a-dfa4ceb6ff63'
+  module:
+    - block_content
+    - system
+  theme:
+    - opdavies
+id: drupalassociationmemberbadge
+theme: opdavies
+region: sidebar_second
+weight: -4
+provider: null
+plugin: 'block_content:89248382-67bb-47a6-840a-dfa4ceb6ff63'
+settings:
+  id: 'block_content:89248382-67bb-47a6-840a-dfa4ceb6ff63'
+  label: 'Drupal Association member badge'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
