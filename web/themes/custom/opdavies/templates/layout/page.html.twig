@@ -91,8 +91,18 @@
       <main role="main">
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-        <div class="md:flex -mx-4">
-          <div class="md:flex-1 p-4">
+        <div class="
+          -mx-4
+          {% if page.sidebar_first or page.sidebar_second %}
+            md:flex
+          {% endif %}
+        ">
+          <div class="
+            p-4
+            {% if page.sidebar_first or page.sidebar_second %}
+              md:flex-1
+            {% endif %}
+          ">
             {{ page.content }}
           </div>{# /.layout-content #}
 
