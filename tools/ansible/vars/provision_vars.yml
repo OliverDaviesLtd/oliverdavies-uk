@@ -131,6 +131,10 @@ nginx_vhosts:
           return 307 $1$2;
       }
 
+      location ~ ^/images/(.*) {
+          return 301 /sites/default/files/$1;
+      }
+
 certbot_create_if_missing: true
 certbot_create_method: standalone
 certbot_admin_email: oliver+certbot@oliverdavies.uk
