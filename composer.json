@@ -51,15 +51,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "scripts": {
-        "link-images": "cd web && ln -sf ../assets/images",
-        "post-install-cmd": [
-            "@link-images"
-        ],
-        "post-update-cmd": [
-            "@link-images"
-        ]
-    },
+    "scripts": {},
     "config": {
         "sort-packages": true
     },
