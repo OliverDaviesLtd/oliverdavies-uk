@@ -30,17 +30,18 @@ nginx_remove_default_vhost: true
 nginx_server_tokens: 'off'
 nginx_vhosts:
   - listen: 80
-    server_name: d8.oliverdavies.uk
-    return: 301 https://d8.oliverdavies.uk$request_uri
-    filename: d8.oliverdavies.uk.80.conf
+    server_name: oliverdavies.uk www.oliverdavies.uk
+    return: 301 https://www.oliverdavies.uk$request_uri
+    filename: www.oliverdavies.uk.80.conf
 
   - listen: 443 ssl
-    server_name: d8.oliverdavies.uk
+    server_name_redirect: oliverdavies.uk
+    server_name: www.oliverdavies.uk
     root: '{{ project_root_path }}/{{ ansistrano_current_dir }}/{{ project_web_dir }}'
     index: index.php
     extra_parameters: |
-      ssl_certificate     /etc/letsencrypt/live/d8.oliverdavies.uk/fullchain.pem;
-      ssl_certificate_key /etc/letsencrypt/live/d8.oliverdavies.uk/privkey.pem;
+      ssl_certificate     /etc/letsencrypt/live/www.oliverdavies.uk/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/www.oliverdavies.uk/privkey.pem;
 
       location ~ ^/images/(.*) {
          return 301 /sites/default/files/images/$1;
@@ -139,4 +140,5 @@ certbot_create_if_missing: true
 certbot_create_method: standalone
 certbot_admin_email: oliver+certbot@oliverdavies.uk
 certbot_certs:
-  - domains: [d8.oliverdavies.uk]
+  - domains:
+      - www.oliverdavies.uk
