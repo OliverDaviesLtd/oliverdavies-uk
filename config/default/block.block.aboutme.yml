@@ -1,9 +1,9 @@
-uuid: 052d967c-8535-47e5-a7d0-130125704ed5
+uuid: 5a40ebc9-95dc-49af-9a94-7724faa58c27
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic_block:32371a8f-5a9f-45c5-86c8-251562df8022'
+    - 'block_content:basic_block:5124375b-ca89-4c71-90f6-b8ef4e83ecbb'
   module:
     - block_content
     - ctools
@@ -14,9 +14,9 @@ theme: opdavies
 region: content
 weight: 0
 provider: null
-plugin: 'block_content:32371a8f-5a9f-45c5-86c8-251562df8022'
+plugin: 'block_content:5124375b-ca89-4c71-90f6-b8ef4e83ecbb'
 settings:
-  id: 'block_content:32371a8f-5a9f-45c5-86c8-251562df8022'
+  id: 'block_content:5124375b-ca89-4c71-90f6-b8ef4e83ecbb'
   label: 'About Me'
   provider: block_content
   label_display: visible
@@ -32,3 +32,4 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+
