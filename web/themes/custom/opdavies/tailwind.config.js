@@ -3,6 +3,7 @@ const {fontFamily, spacing} = require('tailwindcss/defaultTheme')
 
 module.exports = {
   important: true,
+  purge: false,
   theme: {
     extend: {
       colors: {
