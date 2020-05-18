@@ -35,7 +35,7 @@ drupal_settings:
                 username: '{{ app_mysql_user }}'
                 password: '{{ app_mysql_password }}'
           trusted_hosts:
-            - '^d8\.oliverdavies\.uk$'
+            - '^www\.oliverdavies\.uk$'
           extra_parameters: |
             $settings['config_exclude_modules'] = [
               'devel',
