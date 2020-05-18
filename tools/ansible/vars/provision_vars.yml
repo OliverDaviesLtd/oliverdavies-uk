@@ -41,7 +41,11 @@ nginx_vhosts:
     extra_parameters: |
       ssl_certificate     /etc/letsencrypt/live/d8.oliverdavies.uk/fullchain.pem;
       ssl_certificate_key /etc/letsencrypt/live/d8.oliverdavies.uk/privkey.pem;
- 
+
+      location ~ ^/images/(.*) {
+         return 301 /sites/default/files/images/$1;
+      }
+
       location = /favicon.ico {
           log_not_found off;
           access_log off;
@@ -129,10 +133,6 @@ nginx_vhosts:
       # Enforce clean URLs
       if ($request_uri ~* "^(.*/)index\.php(.*)") {
           return 307 $1$2;
-      }
-
-      location ~ ^/images/(.*) {
-          return 301 /sites/default/files/images/$1;
       }
 
 certbot_create_if_missing: true
