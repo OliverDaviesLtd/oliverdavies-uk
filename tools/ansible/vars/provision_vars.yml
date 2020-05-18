@@ -132,7 +132,7 @@ nginx_vhosts:
       }
 
       location ~ ^/images/(.*) {
-          return 301 /sites/default/files/$1;
+          return 301 /sites/default/files/images/$1;
       }
 
 certbot_create_if_missing: true
