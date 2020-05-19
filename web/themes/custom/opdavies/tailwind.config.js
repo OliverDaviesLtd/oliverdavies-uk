@@ -3,7 +3,17 @@ const {fontFamily, spacing} = require('tailwindcss/defaultTheme')
 
 module.exports = {
   important: true,
-  purge: false,
+  purge: {
+    content: [
+      'templates/**/*.twig',
+
+      // Include any classes used within config (e.g. within views).
+      '../../../../config/**/*.yml'
+    ],
+    options: {
+      whitelist: [],
+    }
+  },
   theme: {
     extend: {
       colors: {
