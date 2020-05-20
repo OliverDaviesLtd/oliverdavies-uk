@@ -1,0 +1,5 @@
+services:
+  Drupal\custom\Command\ExportBodyValuesForThemePurgingCommand:
+    tags:
+      - { name: drush.command }
+
