@@ -6,6 +6,7 @@
 !/.idea/**
 !/bin/*
 !/config/**
+!/Makefile
 !/phpstan.neon
 !/phpunit.xml.dist
 !/scripts/**
