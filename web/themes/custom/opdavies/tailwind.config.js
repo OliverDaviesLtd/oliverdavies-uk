@@ -8,7 +8,10 @@ module.exports = {
       'templates/**/*.twig',
 
       // Include any classes used within config (e.g. within views).
-      '../../../../config/**/*.yml'
+      '../../../../config/**/*.yml',
+
+      // Include any classes stored within body fields.
+      'body-field-values.txt'
     ],
     options: {
       whitelist: [],
