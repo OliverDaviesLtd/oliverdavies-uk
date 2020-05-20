@@ -4,6 +4,25 @@
     command: install
     working_dir: '{{ ansistrano_release_path.stdout }}'
 
+- name: Generate settings.php file
+  include_role:
+    name: opdavies.drupal_settings_files
+
+- name: Import configuration
+  command: '{{ release_drush_path }} config-import -y'
+  args:
+    chdir: '{{ release_web_path }}'
+
+- name: Run database updates
+  command: '{{ release_drush_path }} updatedb -y'
+  args:
+    chdir: '{{ release_web_path }}'
+
+- name: Rebuild cache
+  command: '{{ release_drush_path }} cache-rebuild'
+  args:
+    chdir: '{{ release_web_path }}'
+
 - name: Generate front-end assets
   command: |
     {{ item.command }}
@@ -27,21 +46,7 @@
     - body-field-values.txt
     - node_modules
 
-- name: Generate settings.php file
-  include_role:
-    name: opdavies.drupal_settings_files
-
-- name: Import configuration
-  command: '{{ release_drush_path }} config-import -y'
-  args:
-    chdir: '{{ release_web_path }}'
-
-- name: Run database updates
-  command: '{{ release_drush_path }} updatedb -y'
-  args:
-    chdir: '{{ release_web_path }}'
-
-- name: Rebuild cache
+- name: Rebuild cache again
   command: '{{ release_drush_path }} cache-rebuild'
   args:
     chdir: '{{ release_web_path }}'
