@@ -15,4 +15,5 @@
 !/web/themes/custom/**
 /.idea/workspace.xml
 /vendor/
+/web/themes/custom/*/body-field-values.txt
 /web/themes/custom/*/dist/
