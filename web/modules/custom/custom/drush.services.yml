@@ -1,0 +1,6 @@
+services:
+  Drupal\custom\Command\ExportBodyValuesForThemePurgingCommand:
+    arguments: ['@database']
+    autowire: true
+    tags:
+      - { name: drush.command }
