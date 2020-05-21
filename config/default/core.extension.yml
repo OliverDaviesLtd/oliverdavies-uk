@@ -9,6 +9,7 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
+  contextual: 0
   ctools: 0
   custom: 0
   datetime: 0
@@ -22,6 +23,8 @@ module:
   google_analytics: 0
   hook_event_dispatcher: 0
   image: 0
+  layout_builder: 0
+  layout_discovery: 0
   link: 0
   markdown: 0
   media: 0
