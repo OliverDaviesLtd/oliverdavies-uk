@@ -6,7 +6,6 @@ firewall_allowed_tcp_ports:
   - 80
   - 443
   - 2849
-  - 22
 
 php_default_version_debian: '{{ php_version }}'
 php_enable_php_fpm: true
