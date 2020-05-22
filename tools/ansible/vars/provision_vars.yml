@@ -41,7 +41,7 @@ nginx_vhosts:
     return: 301 https://www.oliverdavies.uk$request_uri
     filename: www.oliverdavies.uk.80.conf
 
-  - listen: 443 ssl default_server
+  - listen: 443 ssl
     server_name_redirect: oliverdavies.uk
     server_name: www.oliverdavies.uk
     root: '{{ project_root_path }}/{{ ansistrano_current_dir }}/{{ project_web_dir }}'
