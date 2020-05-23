@@ -23,7 +23,11 @@ module.exports = {
         inherit: 'inherit'
       },
       fontFamily: {
-        mono: ['Roboto Mono', ...fontFamily.mono]
+        mono: [
+          'Operator Mono',
+          'Roboto Mono',
+          ...fontFamily.mono
+        ]
       },
       spacing: {
         '2px': '2px'
