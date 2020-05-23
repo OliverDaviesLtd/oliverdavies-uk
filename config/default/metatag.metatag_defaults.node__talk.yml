@@ -1,0 +1,8 @@
+uuid: 8ac70867-d689-4f57-a771-622b0410ef10
+langcode: en
+status: true
+dependencies: {  }
+id: node__talk
+label: 'Content: Talk'
+tags:
+  description: '[node:field_excerpt]'

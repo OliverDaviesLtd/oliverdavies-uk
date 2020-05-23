@@ -1,0 +1,8 @@
+uuid: 5fe39710-85d4-4155-806b-21b4c0c6a59c
+langcode: en
+status: true
+dependencies: {  }
+id: node__post
+label: 'Content: Blog post'
+tags:
+  description: '[node:field_excerpt]'
