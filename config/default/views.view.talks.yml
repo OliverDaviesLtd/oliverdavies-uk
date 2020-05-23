@@ -60,8 +60,8 @@ display:
           default_row_class: true
           uses_fields: false
           type: ul
-          wrapper_class: item-list
-          class: ''
+          wrapper_class: ''
+          class: space-y-8
       row:
         type: 'entity:node'
         options:
