@@ -4,6 +4,8 @@ global-styling:
       dist/tailwind.css: {}
 global-scripts:
   js:
+    dist/js/app.js: {}
+
     'https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js':
       type: external
       minified: true

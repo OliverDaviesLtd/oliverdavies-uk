@@ -6,3 +6,5 @@ mix.postCss('src/tailwind.pcss', 'dist', [
   require('postcss-nested'),
   require('autoprefixer')
 ])
+
+mix.js('src/app.js', 'dist/js')
