@@ -1,0 +1,34 @@
+---
+- name: Download a database
+
+  hosts: all
+
+  vars_files:
+    - vars/vars.yml
+
+  tasks:
+    - name: Generate the name for the export
+      set_fact:
+        export_filename: "~/{{ lookup('pipe', 'date -u +%Y%m%d%H%M%SZ') }}.sql"
+        run_once: true
+        when: export_filename is not defined
+
+    - name: Export the database
+      command:
+        cmd: >
+          ../vendor/bin/drush sql-dump
+          --gzip
+          --result-file={{ export_filename }}
+        chdir: "{{ project_root_path }}/{{ ansistrano_current_dir }}/{{ project_web_dir }}"
+        creates: "{{ export_filename }}"
+
+    - name: Fetch the database from the server
+      fetch:
+        src: "{{ export_filename }}.gz"
+        dest: "{{ playbook_dir }}/../../"
+        flat: true
+
+    - name: Remove the export from the server
+      file:
+        path: "{{ export_filename }}.gz"
+        state: absent

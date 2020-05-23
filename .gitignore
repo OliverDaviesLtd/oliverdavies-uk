@@ -10,11 +10,13 @@
 !/phpstan.neon
 !/phpunit.xml.dist
 !/scripts/**
+!/tools/**
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php
 !/web/themes/custom/**
 /.idea/workspace.xml
+/tools/ansible/.roles/
 /vendor/
 /web/themes/custom/*/body-field-values.txt
 /web/themes/custom/*/dist/
