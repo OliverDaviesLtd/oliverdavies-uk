@@ -1,3 +1,4 @@
+import 'alpinejs'
 import hljs from 'highlightjs'
 
 document.addEventListener('DOMContentLoaded', event => {

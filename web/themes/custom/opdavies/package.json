@@ -17,5 +17,7 @@
     "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "alpinejs": "^2.3.5"
+  }
 }
