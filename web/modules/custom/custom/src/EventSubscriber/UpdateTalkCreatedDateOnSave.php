@@ -18,12 +18,11 @@ final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
 
   public static function getSubscribedEvents() {
     return [
-      HookEventDispatcherInterface::ENTITY_INSERT => 'entityInsertOrUpdate',
-      HookEventDispatcherInterface::ENTITY_UPDATE => 'entityInsertOrUpdate',
+      HookEventDispatcherInterface::ENTITY_PRE_SAVE => 'onEntityPreSave',
     ];
   }
 
-  public function entityInsertOrUpdate(BaseEntityEvent $event): void {
+  public function onEntityPreSave(BaseEntityEvent $event): void {
     if ($event->getEntity()->getEntityTypeId() != 'node') {
       return;
     }
