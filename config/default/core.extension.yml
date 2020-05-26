@@ -21,6 +21,7 @@ module:
   file: 0
   filter: 0
   google_analytics: 0
+  honeypot: 0
   hook_event_dispatcher: 0
   image: 0
   layout_builder: 0
