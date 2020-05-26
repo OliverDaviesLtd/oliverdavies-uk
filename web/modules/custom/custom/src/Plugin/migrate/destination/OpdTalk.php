@@ -70,7 +70,7 @@ final class OpdTalk extends EntityContentBase {
     });
   }
 
-  private function createVideoMedia(Row $row, EntityInterface $node) {
+  private function createVideoMedia(Row $row, EntityInterface $node): void {
     $video = $row->getSourceProperty('video');
 
     if (!empty($video['type']) && !empty($video['id'])) {

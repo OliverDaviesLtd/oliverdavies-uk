@@ -27,7 +27,7 @@ final class ExportBodyValuesForThemePurgingCommand {
    *
    * @command opdavies:export-body-values-for-theme-purging
    */
-  public function handle() {
+  public function handle(): void {
     $values = Collection::make(self::$tableNames)
       ->flatMap(fn(string $tableName) => $this->getValuesFromTable($tableName))
       ->implode(PHP_EOL);
