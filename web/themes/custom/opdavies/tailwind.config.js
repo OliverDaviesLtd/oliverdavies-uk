@@ -48,6 +48,7 @@ module.exports = {
   ],
   variants: {
     borderStyle: [...variants.borderStyle, 'hover', 'focus'],
-    borderWidth: [...variants.borderStyle, 'hover', 'focus']
+    borderWidth: [...variants.borderWidth, 'hover', 'focus'],
+    margin: [...variants.margin, 'first', 'last', 'odd', 'even'],
   }
 }
