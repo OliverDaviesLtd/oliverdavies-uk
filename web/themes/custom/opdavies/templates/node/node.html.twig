@@ -83,8 +83,8 @@
   {% if display_submitted %}
     <footer>
       {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+      <div{{ author_attributes.addClass('mb-4 text-gray-700') }}>
+        {% trans %}Posted on {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
     </footer>
