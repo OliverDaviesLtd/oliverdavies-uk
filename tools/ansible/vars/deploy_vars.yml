@@ -2,7 +2,6 @@
 ansistrano_allow_anonymous_stats: false
 ansistrano_deploy_via: git
 ansistrano_deploy_to: '{{ project_root_path }}'
-ansistrano_git_identity_key_path: '{{ playbook_dir }}/id_deploy'
 ansistrano_git_repo: git@github.com:opdavies/oliverdavies-uk.git
 ansistrano_git_branch: master
 ansistrano_keep_releases: 5
