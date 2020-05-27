@@ -80,7 +80,7 @@
   {% endif %}
   {{ title_suffix }}
 
-  {% if display_submitted %}
+  {% if display_submitted and view_mode == 'full' %}
     <footer>
       {{ author_picture }}
       <div{{ author_attributes.addClass('mb-4 text-gray-700') }}>
