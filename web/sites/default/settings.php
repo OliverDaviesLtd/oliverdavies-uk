@@ -266,7 +266,9 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+if (file_exists($app_root . '/../salt.txt')) {
+  $settings['hash_salt'] = file_get_contents($app_root . '/../salt.txt');
+}
 
 /**
  * Deployment identifier.
