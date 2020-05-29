@@ -2,6 +2,16 @@ global-styling:
   css:
     base:
       dist/tailwind.css: {}
+
 global-scripts:
   js:
     dist/js/app.js: {}
+
+twitter:
+  js:
+    https://platform.twitter.com/widgets.js:
+      type: external
+      minified: true
+      attributes:
+        async: true
+        charset: 'utf-8'

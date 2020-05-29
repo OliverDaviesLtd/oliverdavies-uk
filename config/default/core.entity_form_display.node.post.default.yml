@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.post.body
     - field.field.node.post.field_excerpt
+    - field.field.node.post.field_has_tweet
     - field.field.node.post.field_images
     - field.field.node.post.field_series
     - field.field.node.post.field_tags
@@ -41,6 +42,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_has_tweet:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_images:
     weight: 9

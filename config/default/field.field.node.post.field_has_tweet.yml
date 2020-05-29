@@ -1,0 +1,23 @@
+uuid: e9be005a-2f67-4204-ba80-72a74e7f990b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_has_tweet
+    - node.type.post
+id: node.post.field_has_tweet
+field_name: field_has_tweet
+entity_type: node
+bundle: post
+label: 'Has tweet'
+description: 'Check to include Twitter''s widget.js script for this page.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
