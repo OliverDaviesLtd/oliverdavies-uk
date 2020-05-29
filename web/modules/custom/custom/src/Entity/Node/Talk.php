@@ -1,14 +1,22 @@
 <?php
 
-declare(strict_types=1);
+namespace Drupal\custom\Entity\Node;
 
-namespace Drupal\custom\Entity;
-
-use Drupal\node\Entity\Node as CoreNode;
+use Drupal\discoverable_entity_bundle_classes\ContentEntityBundleInterface;
+use Drupal\node\Entity\Node;
 use Drupal\paragraphs\ParagraphInterface;
 use Illuminate\Support\Collection;
 
-final class Node extends CoreNode {
+/**
+ * Defines an talk node class.
+ *
+ * @ContentEntityBundleClass(
+ *   label = @Translation("Talk"),
+ *   entity_type = "node",
+ *   bundle = "talk"
+ * );
+ */
+class Talk extends Node implements ContentEntityBundleInterface {
 
   /**
    * Find the date for the latest event.
@@ -16,10 +24,6 @@ final class Node extends CoreNode {
    * @return string|null
    */
   public function findLatestEventDate(): ?string {
-    if (!$this->hasField('field_events')) {
-      return NULL;
-    }
-
     return Collection::make($this->get('field_events')->referencedEntities())
       ->map(fn(ParagraphInterface $event) => $event->get('field_date')
         ->getString())
