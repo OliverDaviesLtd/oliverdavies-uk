@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45ee4839265d8526697b7d951fc351a2",
+    "content-hash": "94cf3f9b73a5a2ae184de25fd2a302b7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2320,6 +2320,56 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
+            }
+        },
+        {
+            "name": "drupal/discoverable_entity_bundle_classes",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/discoverable_entity_bundle_classes.git",
+                "reference": "8.x-1.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/discoverable_entity_bundle_classes-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "c8f1e27475f3a1b7d7694949baaf337ed126c05a"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1553798282",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "amcgowanca",
+                    "homepage": "https://www.drupal.org/user/802138"
+                }
+            ],
+            "description": "An experimental approach for implementing entity classes for specific bundles.",
+            "homepage": "https://www.drupal.org/project/discoverable_entity_bundle_classes",
+            "support": {
+                "source": "https://git.drupalcode.org/project/discoverable_entity_bundle_classes"
             }
         },
         {

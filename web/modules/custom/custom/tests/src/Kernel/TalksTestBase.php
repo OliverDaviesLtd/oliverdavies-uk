@@ -22,6 +22,7 @@ abstract class TalksTestBase extends EntityKernelTestBase {
     'datetime',
 
     // Contrib.
+    'discoverable_entity_bundle_classes',
     'entity_reference_revisions',
     'paragraphs',
     'hook_event_dispatcher',
