@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Drupal\custom\EventSubscriber;
 
 use Carbon\Carbon;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\custom\Entity\Node;
+use Drupal\custom\Entity\Node\Talk;
+use Drupal\custom\Entity\Paragraph\Event;
 use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
+use Drupal\paragraphs\ParagraphInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Set the created date for a talk to be the last date that the talk is given.
+ * Update a talk node before it's saved.
  */
-final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
+final class UpdateTalkNodeBeforeSave implements EventSubscriberInterface {
 
   public static function getSubscribedEvents() {
     return [
@@ -31,11 +32,26 @@ final class UpdateTalkCreatedDateOnSave implements EventSubscriberInterface {
       return;
     }
 
+    $this->reorderEvents($event->getEntity());
     $this->updateCreatedDate($event->getEntity());
   }
 
-  private function updateCreatedDate(EntityInterface $talk): void {
-    /** @var \Drupal\custom\Entity\Node $talk */
+  private function reorderEvents(Talk $talk): void {
+    $events = $talk->getEvents();
+
+    $eventsByDate = $events
+      ->sortBy(fn(ParagraphInterface $event) => $event->get('field_date')
+        ->getString())
+      ->values();
+
+    // If the original event IDs don't match the sorted event IDs, update the
+    // event field to use the sorted ones.
+    if ($events->map->id() != $eventsByDate->map->id()) {
+      $talk->set('field_events', $eventsByDate->toArray());
+    }
+  }
+
+  private function updateCreatedDate(Talk $talk): void {
     if (!$eventDate = $talk->findLatestEventDate()) {
       return;
     }

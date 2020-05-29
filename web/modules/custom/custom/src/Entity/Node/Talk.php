@@ -18,13 +18,25 @@ use Illuminate\Support\Collection;
  */
 class Talk extends Node implements ContentEntityBundleInterface {
 
+  public function addEvent(ParagraphInterface $event): void {
+    $this->set(
+      'field_events',
+      $this->getEvents()->push($event)->toArray()
+    );
+  }
+
+  public function getEvents(): Collection {
+    return Collection::make($this->get('field_events')
+      ->referencedEntities());
+  }
+
   /**
    * Find the date for the latest event.
    *
    * @return string|null
    */
   public function findLatestEventDate(): ?string {
-    return Collection::make($this->get('field_events')->referencedEntities())
+    return $this->getEvents()
       ->map(fn(ParagraphInterface $event) => $event->get('field_date')
         ->getString())
       ->max();
