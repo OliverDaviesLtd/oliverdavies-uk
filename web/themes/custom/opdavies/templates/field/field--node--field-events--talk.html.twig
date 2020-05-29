@@ -42,29 +42,16 @@
   ]
 %}
 
-{% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes }}>
-      {% for item in items %}
-        <div{{ item.attributes }}>{{ item.content }}</div>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% for item in items %}
-      <div{{ attributes }}>{{ item.content }}</div>
+<div{{ attributes.addClass('markup') }}>
+  <h2{{ title_attributes.addClass(title_classes) }}>
+    {{ label }}
+  </h2>
+
+  <ul>
+    {% for item in items|reverse %}
+      <li{{ item.attributes }}>
+        {{ item.content }}
+      </li>
     {% endfor %}
-  {% endif %}
-{% else %}
-  <div{{ attributes }}>
-    <h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2>
-    {% if multiple %}
-      <div>
-    {% endif %}
-    {% for item in items %}
-      <div{{ item.attributes }}>{{ item.content }}</div>
-    {% endfor %}
-    {% if multiple %}
-      </div>
-    {% endif %}
-  </div>
-{% endif %}
+  </ul>
+</div>
