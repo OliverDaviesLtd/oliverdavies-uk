@@ -33,9 +33,6 @@ module:
   media_library: 0
   menu_ui: 0
   metatag: 0
-  migrate: 0
-  migrate_plus: 0
-  migrate_tools: 0
   node: 0
   page_cache: 0
   path: 0
