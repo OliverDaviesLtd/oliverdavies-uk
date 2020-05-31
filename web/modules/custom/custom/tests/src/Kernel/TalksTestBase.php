@@ -32,14 +32,21 @@ abstract class TalksTestBase extends EntityKernelTestBase {
     'custom_test',
   ];
 
-  protected function createEvent(string $eventDateToFormat): ParagraphInterface {
-    /** @var \Drupal\paragraphs\ParagraphInterface $event */
-    $event = Paragraph::create([
-      'field_date' => $eventDateToFormat,
+  protected function createEvent(array $overrides = []): ParagraphInterface {
+    $event = Paragraph::create(array_merge([
       'type' => 'event',
-    ]);
+    ], $overrides));
 
     return tap($event)->save();
+  }
+
+  protected function createTalk(array $overrides = []): EntityInterface {
+    $talk = Node::create(array_merge([
+      'title' => 'Test Driven Drupal',
+      'type' => 'talk',
+    ], $overrides));
+
+    return tap($talk)->save();
   }
 
   protected function setUp() {
@@ -49,23 +56,6 @@ abstract class TalksTestBase extends EntityKernelTestBase {
     $this->installSchema('node', ['node_access']);
 
     $this->installConfig(['custom_test']);
-  }
-
-  protected function createTalk(?string $eventDateToFormat = NULL): EntityInterface {
-    if ($eventDateToFormat) {
-      $event = $this->createEvent($eventDateToFormat);
-    }
-
-    $talk = Node::create([
-      'title' => 'TDD - Test Driven Drupal',
-      'type' => 'talk',
-    ]);
-
-    if (isset($event)) {
-      $talk->set('field_events', [$event]);
-    }
-
-    return tap($talk)->save();
   }
 
 }

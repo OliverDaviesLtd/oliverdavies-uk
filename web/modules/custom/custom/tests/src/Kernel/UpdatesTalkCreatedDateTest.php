@@ -11,27 +11,31 @@ final class UpdatesTalkCreatedDateTest extends TalksTestBase {
 
   public function testCreatingNode() {
     $eventDate = Carbon::today()->addWeek();
-    $eventDateToFormat = $eventDate->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
-    $eventDateToTimestamp = $eventDate->getTimestamp();
+    $eventDateFormat = $eventDate->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
+    $eventDateTimestamp = $eventDate->getTimestamp();
 
-    $talk = $this->createTalk($eventDateToFormat);
+    $talk = $this->createTalk([
+      'field_events' => [
+        $this->createEvent(['field_date' => $eventDateFormat]),
+      ],
+    ]);
 
-    $this->assertEqual($eventDateToTimestamp, $talk->get('created')
+    $this->assertEqual($eventDateTimestamp, $talk->get('created')
       ->getString());
   }
 
   public function testUpdatingNode() {
-    $talk = $this->createTalk();
-
     $eventDate = Carbon::today()->addWeek();
-    $eventDateToFormat = $eventDate->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
-    $eventDateToTimestamp = $eventDate->getTimestamp();
+    $eventDateFormat = $eventDate->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
+    $eventDateTimestamp = $eventDate->getTimestamp();
 
-    $event = $this->createEvent($eventDateToFormat);
-    $talk->set('field_events', [$event]);
-    $talk->save();
+    $talk = $this->createTalk([
+      'field_events' => [
+        $this->createEvent(['field_date' => $eventDateFormat]),
+      ],
+    ]);
 
-    $this->assertEqual($eventDateToTimestamp, $talk->get('created')
+    $this->assertEqual($eventDateTimestamp, $talk->get('created')
       ->getString());
   }
 
