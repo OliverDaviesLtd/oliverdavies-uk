@@ -1,3 +1,5 @@
+SHELL=/bin/bash -e -o pipefail
+
 .PHONY: *
 
 phpcs:
@@ -19,6 +21,18 @@ phpstan:
 
 phpunit:
 	vendor/bin/phpunit web/modules/custom
+
+pull-from-prod:
+	# Download and import the database.
+	ansible-playbook tools/ansible/download-database.yml
+	zcat < dump.sql.gz | bin/drush.sh sql-cli
+	rm dump.sql.gz
+
+	# Post import steps.
+	bin/drush.sh sql-sanitize -y --sanitize-password=password
+	bin/drush.sh updatedb -y
+	bin/drush.sh cache-rebuild
+	bin/drush.sh user-login 1
 
 start:
 	docker-compose up -d

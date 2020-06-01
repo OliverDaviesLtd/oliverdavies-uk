@@ -6,13 +6,10 @@
   vars_files:
     - vars/vars.yml
 
-  tasks:
-    - name: Generate the name for the export
-      set_fact:
-        export_filename: "~/{{ lookup('pipe', 'date -u +%Y%m%d%H%M%SZ') }}.sql"
-        run_once: true
-        when: export_filename is not defined
+  vars:
+    export_filename: /tmp/dump.sql
 
+  tasks:
     - name: Export the database
       command:
         cmd: >
