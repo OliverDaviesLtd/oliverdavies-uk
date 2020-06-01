@@ -222,10 +222,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: articles
+      path: blog
       menu:
         type: normal
-        title: Articles
+        title: Blog
         description: ''
         expanded: false
         parent: ''
