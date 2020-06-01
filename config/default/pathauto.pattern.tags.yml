@@ -8,16 +8,16 @@ dependencies:
 id: tags
 label: Tags
 type: 'canonical_entities:taxonomy_term'
-pattern: 'articles/tags/[term:name]'
+pattern: 'blog/tags/[term:name]'
 selection_criteria:
-  cb5277f9-f11a-4432-99b4-e47299612697:
+  664ce4e7-135f-4654-9c7d-5ee094cb2607:
     id: 'entity_bundle:taxonomy_term'
     bundles:
       tags: tags
     negate: false
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: cb5277f9-f11a-4432-99b4-e47299612697
+    uuid: 664ce4e7-135f-4654-9c7d-5ee094cb2607
 selection_logic: and
 weight: -5
 relationships: {  }
