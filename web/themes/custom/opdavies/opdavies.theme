@@ -12,7 +12,7 @@ use Drupal\custom\Entity\Node\Post;
  */
 function opdavies_preprocess_page(array &$variables): void {
   /** @var \Drupal\custom\Entity\Node\Post $node */
-  if (!$node = $variables['node']) {
+  if (!$node = $variables['node'] ?? NULL) {
     return;
   }
 
