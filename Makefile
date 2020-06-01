@@ -4,17 +4,11 @@ SHELL=/bin/bash -e -o pipefail
 
 phpcs:
 	symfony php vendor/bin/phpcs -n \
-  		--standard="Drupal,DrupalPractice" \
-  		--extensions="php,module,inc,install,test,profile,theme" \
-  		--ignore=*/tests/* \
-  		--exclude="Drupal.Commenting.ClassComment,Drupal.Commenting.FunctionComment" \
-  		web/modules/custom
-
-	symfony php vendor/bin/phpcs -n \
 		--standard="Drupal,DrupalPractice" \
 		--extensions="php,module,inc,install,test,profile,theme" \
-		--exclude="Drupal.Commenting.ClassComment,Drupal.Commenting.DocComment,Drupal.Commenting.FunctionComment,Drupal.NamingConventions.ValidFunctionName" \
-		web/modules/custom/**/tests
+		--exclude="Drupal.Commenting.ClassComment,Drupal.Commenting.FunctionComment,Drupal.Commenting.VariableComment" \
+		web/modules/custom \
+		web/themes/custom
 
 phpstan:
 	vendor/bin/phpstan analyze

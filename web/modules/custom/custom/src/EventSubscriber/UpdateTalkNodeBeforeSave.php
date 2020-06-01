@@ -32,8 +32,10 @@ final class UpdateTalkNodeBeforeSave implements EventSubscriberInterface {
       return;
     }
 
-    $this->reorderEvents($event->getEntity());
-    $this->updateCreatedDate($event->getEntity());
+    /** @var \Drupal\custom\Entity\Node\Talk $talk */
+    $talk = $event->getEntity();
+    $this->reorderEvents($talk);
+    $this->updateCreatedDate($talk);
   }
 
   private function reorderEvents(Talk $talk): void {
