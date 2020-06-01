@@ -202,6 +202,11 @@ display:
       displays:
         default: default
         page_1: page_1
+      title: 'Oliver Davies'' Blog'
+      defaults:
+        title: false
+        sitename_title: false
+      sitename_title: false
     cache_metadata:
       max-age: -1
       contexts:
