@@ -6,10 +6,11 @@ id: live
 label: Live
 description: ''
 folder: ../config/splits/live
-module: {  }
+module:
+  fathom_analytics: 0
 theme: {  }
 blacklist:
-  - google_analytics.settings
+  - fathom_analytics.settings
 graylist:
   - system.site
 graylist_dependents: true
