@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^8.8",
         "drupal/discoverable_entity_bundle_classes": "^1.0",
         "drupal/fathom_analytics": "^2.1",
+        "drupal/gin": "^3.0",
         "drupal/google_analytics": "^2.4",
         "drupal/honeypot": "^2.0",
         "drupal/hook_event_dispatcher": "^1.28",
