@@ -198,7 +198,7 @@ display:
         type: some
       style:
         type: rss
-      path: feed
+      path: blog/feed
       displays:
         default: default
         page_1: page_1
