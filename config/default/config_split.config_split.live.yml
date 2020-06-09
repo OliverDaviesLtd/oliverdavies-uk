@@ -8,6 +8,7 @@ description: ''
 folder: ../config/splits/live
 module:
   fathom_analytics: 0
+  stage_file_proxy: 0
 theme: {  }
 blacklist:
   - fathom_analytics.settings
