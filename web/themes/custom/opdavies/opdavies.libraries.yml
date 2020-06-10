@@ -1,11 +1,11 @@
 global-styling:
   css:
     base:
-      dist/tailwind.css: {}
+      build/app.css: {}
 
 global-scripts:
   js:
-    dist/js/app.js: {}
+    build/app.js: {}
 
 twitter:
   js:

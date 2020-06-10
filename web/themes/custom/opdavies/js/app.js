@@ -1,3 +1,4 @@
+import '../css/tailwind.pcss'
 import 'alpinejs'
 import hljs from 'highlightjs'
 
