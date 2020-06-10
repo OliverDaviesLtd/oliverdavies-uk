@@ -1,6 +1,10 @@
 SHELL=/bin/bash -e -o pipefail
 
+THEME_PATH:=web/themes/custom/opdavies
+
 .PHONY: *
+
+clean: theme-clean
 
 phpcs:
 	symfony php vendor/bin/phpcs -n \
@@ -38,3 +42,19 @@ stop:
 
 test: phpstan phpunit phpcs
 
+theme-build: theme-install-dependencies
+	cd ${THEME_PATH} && npm run dev
+
+theme-build-prod: theme-install-dependencies
+	bin/drush.sh opdavies:export-body-values-for-theme-purging
+	cd ${THEME_PATH} && npm run prod
+
+theme-clean: ${THEME_PATH}/build ${THEME_PATH}/node_modules
+	rm -fr ${THEME_PATH}/build
+	rm -fr ${THEME_PATH}/node_modules
+
+theme-install-dependencies: ${THEME_PATH}/package.json ${THEME_PATH}/package-lock.json
+	cd ${THEME_PATH} && npm install
+
+theme-watch: theme-build
+	cd ${THEME_PATH} && npm run watch
