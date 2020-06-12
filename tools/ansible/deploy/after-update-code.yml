@@ -8,13 +8,13 @@
   include_role:
     name: opdavies.drupal_settings_files
 
-- name: Import configuration
-  command: '{{ release_drush_path }} config-import -y'
+- name: Run database updates
+  command: '{{ release_drush_path }} updatedb -y'
   args:
     chdir: '{{ release_web_path }}'
 
-- name: Run database updates
-  command: '{{ release_drush_path }} updatedb -y'
+- name: Import configuration
+  command: '{{ release_drush_path }} config-import -y'
   args:
     chdir: '{{ release_web_path }}'
 
