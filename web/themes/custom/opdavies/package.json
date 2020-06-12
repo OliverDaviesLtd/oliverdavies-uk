@@ -1,8 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "dev": "encore dev",
-    "prod": "NODE_ENV=production encore production",
+    "dev": "npm run development",
+    "development": "encore dev",
+    "prod": "npm run production",
+    "production": "NODE_ENV=production encore production",
     "watch": "encore dev --watch"
   },
   "devDependencies": {
