@@ -1,5 +1,5 @@
-import '../css/tailwind.pcss'
 import 'alpinejs'
+import 'styles/tailwind.pcss'
 import hljs from 'highlightjs'
 
 document.addEventListener('DOMContentLoaded', event => {

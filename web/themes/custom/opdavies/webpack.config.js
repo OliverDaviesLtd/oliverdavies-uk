@@ -1,4 +1,5 @@
 let Encore = require('@symfony/webpack-encore')
+let path = require('path')
 
 Encore
     .disableSingleRuntimeChunk()
@@ -6,9 +7,14 @@ Encore
     .setOutputPath('build/')
     .setPublicPath('/themes/custom/opdavies/build')
 
-    .addEntry('app', './assets/js/app.js')
+    .addEntry('app', '@/app.js')
 
     .enablePostCssLoader()
+
+    .addAliases({
+        '@': path.resolve(__dirname, 'assets', 'js'),
+        styles: path.resolve(__dirname, 'assets', 'css')
+    })
 
 if (!Encore.isProduction()) {
     Encore.enableSourceMaps()
