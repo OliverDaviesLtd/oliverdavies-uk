@@ -6,7 +6,7 @@ Encore
     .setOutputPath('build/')
     .setPublicPath('/themes/custom/opdavies/build')
 
-    .addEntry('app', './js/app.js')
+    .addEntry('app', './assets/js/app.js')
 
     .enablePostCssLoader()
 
