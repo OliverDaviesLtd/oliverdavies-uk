@@ -13,16 +13,21 @@
   command: '{{ release_drush_path }} updatedb -y'
   args:
     chdir: '{{ release_web_path }}'
+  register: update_database_result
+  changed_when: "'No pending updates' not in update_database_result.stderr"
 
 - name: Import configuration
   command: '{{ release_drush_path }} config-import -y'
   args:
     chdir: '{{ release_web_path }}'
+  register: config_import_result
+  changed_when: "'There are no changes to import' not in config_import_result.stderr"
 
 - name: Rebuild cache
   command: '{{ release_drush_path }} cache-rebuild'
   args:
     chdir: '{{ release_web_path }}'
+  changed_when: false
 
 - name: Generate front-end assets
   command: |
@@ -51,3 +56,4 @@
   command: '{{ release_drush_path }} cache-rebuild'
   args:
     chdir: '{{ release_web_path }}'
+  changed_when: false
