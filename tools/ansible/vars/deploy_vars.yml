@@ -11,6 +11,7 @@ ansistrano_shared_paths:
 # Hooks
 ansistrano_after_symlink_shared_tasks_file: '{{ playbook_dir }}/deploy/after-symlink-shared.yml'
 ansistrano_after_update_code_tasks_file: '{{ playbook_dir }}/deploy/after-update-code.yml'
+ansistrano_before_symlink_tasks_file: '{{ playbook_dir }}/deploy/before-symlink.yml'
 
 app_hash_salt: '{{ vault_app_hash_salt }}'
 

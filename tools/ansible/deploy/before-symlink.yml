@@ -1,0 +1,6 @@
+---
+- name: Rebuild Drupal cache
+  command: >
+    {{ release_drush_path }} cache-rebuild
+    chdir={{ release_web_path }}
+  changed_when: false
