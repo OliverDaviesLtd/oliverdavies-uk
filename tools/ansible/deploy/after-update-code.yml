@@ -31,25 +31,4 @@
   register: config_import_result
   changed_when: "'There are no changes to import' not in config_import_result.stderr"
 
-- name: Generate front-end assets
-  command: |
-    {{ item.command }}
-    chdir={{ release_theme_path }}
-    creates="{{ item.creates }}"
-  with_items:
-    - command: "{{ release_drush_path }} opdavies:export-body-values-for-theme-purging"
-      creates: "{{ release_theme_path }}/body-field-values.txt"
-
-    - command: npm install
-      creates: "{{ release_theme_path }}/node_modules"
-
-    - command: npm run production
-      creates: "{{ release_theme_path }}/dist"
-
-- name: Remove files that are no longer needed
-  file:
-    path: "{{ release_theme_path }}/{{ item }}"
-    state: absent
-  with_items:
-    - body-field-values.txt
-    - node_modules
+- include: ../includes/build-theme-assets.yml
