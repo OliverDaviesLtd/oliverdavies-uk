@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b795dbde2846e59730e12d3867d07e6",
+    "content-hash": "add80c0a094b18d9ab4dc1953db5c118",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2496,17 +2496,17 @@
         },
         {
             "name": "drupal/gin",
-            "version": "3.0.0-alpha17",
+            "version": "3.0.0-alpha18",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "8.x-3.0-alpha17"
+                "reference": "8.x-3.0-alpha18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-alpha17.zip",
-                "reference": "8.x-3.0-alpha17",
-                "shasum": "2de491b72fc023d4831b6d29daa45d666f4ffb06"
+                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-alpha18.zip",
+                "reference": "8.x-3.0-alpha18",
+                "shasum": "45c291964686e4a23a90aa38f5640da7a6097bcd"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -2514,8 +2514,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-alpha17",
-                    "datestamp": "1591349946",
+                    "version": "8.x-3.0-alpha18",
+                    "datestamp": "1592169349",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -3267,17 +3267,17 @@
         },
         {
             "name": "drupal/simple_sitemap",
-            "version": "3.6.0",
+            "version": "3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_sitemap.git",
-                "reference": "8.x-3.6"
+                "reference": "8.x-3.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-8.x-3.6.zip",
-                "reference": "8.x-3.6",
-                "shasum": "37fc0ae98a4ccb23316cb089ae4839913e80cbf6"
+                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-8.x-3.7.zip",
+                "reference": "8.x-3.7",
+                "shasum": "7b23930cc71d37f332c1e836bc18c29ed2ae8cde"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -3286,8 +3286,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.6",
-                    "datestamp": "1586469908",
+                    "version": "8.x-3.7",
+                    "datestamp": "1592298918",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3301,7 +3301,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -3309,10 +3309,6 @@
                     "homepage": "https://www.drupal.org/u/gbyte.co",
                     "email": "contact@gbyte.co",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "gbyte.co",
-                    "homepage": "https://www.drupal.org/user/2381352"
                 }
             ],
             "description": "Creates a standard conform hreflang XML sitemap of the site content and provides a framework for developing other sitemap types.",
@@ -3325,29 +3321,29 @@
         },
         {
             "name": "drupal/speakerdeck_field",
-            "version": "1.0.0-rc1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/speakerdeck_field.git",
-                "reference": "8.x-1.0-rc1"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/speakerdeck_field-8.x-1.0-rc1.zip",
-                "reference": "8.x-1.0-rc1",
-                "shasum": "bb43c04eddfbd45ffa1bf61c12824ef37c179a55"
+                "url": "https://ftp.drupal.org/files/projects/speakerdeck_field-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "3da7cbd5a8901abef923b083a00a4edb0a43bdaf"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc1",
-                    "datestamp": "1581495847",
+                    "version": "2.0.0",
+                    "datestamp": "1589974531",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
