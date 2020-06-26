@@ -25,13 +25,15 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes.addClass('mt-4 first:mt-0') }}>
+<section{{ attributes.addClass('mt-6 first:mt-0') }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
+    <h2{{ title_attributes.addClass('mb-3') }}>
+      {{ label }}
+    </h2>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
     {{ content }}
   {% endblock %}
-</div>
+</section>

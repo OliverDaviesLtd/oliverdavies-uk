@@ -90,7 +90,7 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('space-y-4') }}>
+  <div{{ content_attributes.addClass(['space-y-6', page ? 'markup']) }}>
     {{ content }}
   </div>
 
