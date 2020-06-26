@@ -7,6 +7,7 @@ namespace Drupal\Tests\opd_talks\Kernel;
 use Carbon\Carbon;
 use Drupal\Tests\custom\Kernel\TalksTestBase;
 use Drupal\views\ResultRow;
+use Illuminate\Support\Collection;
 
 final class TalksPageSortTest extends TalksTestBase {
 
@@ -24,12 +25,10 @@ final class TalksPageSortTest extends TalksTestBase {
     $this->createTalk(['created' => Carbon::parse('+1 days')->getTimestamp()]);
     $this->createTalk(['created' => Carbon::parse('-10 days')->getTimestamp()]);
 
-    $talkIds = array_map(
-      fn(ResultRow $row) => (int) $row->_entity->id(),
-      views_get_view_result('talks')
-    );
+    $talkIds = (new Collection(views_get_view_result('talks')))
+      ->map(fn(ResultRow $row) => (int) $row->_entity->id());
 
-    $this->assertSame([3, 1, 2, 4], $talkIds);
+    $this->assertSame([3, 1, 2, 4], $talkIds->toArray());
   }
 
 }
