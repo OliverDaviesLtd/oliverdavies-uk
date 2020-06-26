@@ -12,6 +12,8 @@ use Drupal\paragraphs\ParagraphInterface;
 
 abstract class TalksTestBase extends EntityKernelTestBase {
 
+  protected $strictConfigSchema = FALSE;
+
   /**
    * {@inheritDoc}
    */

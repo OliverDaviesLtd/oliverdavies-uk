@@ -38,6 +38,7 @@ module:
   migrate_plus: 0
   migrate_tools: 0
   node: 0
+  opd_talks: 0
   page_cache: 0
   path: 0
   path_alias: 0

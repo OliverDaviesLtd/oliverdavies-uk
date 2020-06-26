@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Custom code for talks pages.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function opd_talks_views_data_alter(array &$data): void {
+  $data['node_field_data']['event_sort'] = [
+    'title' => t('Custom event sort'),
+    'group' => t('Content'),
+    'help' => t('Sort events by past/future, then distance from now.'),
+    'sort' => [
+      'field' => 'created',
+      'id' => 'event_sort',
+    ]
+  ];
+}
