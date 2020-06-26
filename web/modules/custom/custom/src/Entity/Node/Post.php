@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Drupal\custom\Entity\Node;
 
-use Drupal\node\Entity\Node;
 use Drupal\discoverable_entity_bundle_classes\ContentEntityBundleInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Defines an blog post node class.
