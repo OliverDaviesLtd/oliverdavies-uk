@@ -14,27 +14,27 @@ use Drupal\views\Annotation\ViewsSort;
  */
 final class Event extends Date {
 
-   public function query() {
-     $this->ensureMyTable();
+  public function query() {
+    $this->ensureMyTable();
 
-     $currentTime = time();
-     $dateAlias = "$this->tableAlias.$this->realField";
+    $currentTime = time();
+    $dateAlias = "$this->tableAlias.$this->realField";
 
-     // Is this event in the past?
-     $this->query->addOrderBy(
-       NULL,
-       sprintf("%d > %s", $currentTime, $dateAlias),
-       $this->options['order'],
-       "in_past"
-     );
+    // Is this event in the past?
+    $this->query->addOrderBy(
+      NULL,
+      sprintf("%d > %s", $currentTime, $dateAlias),
+      $this->options['order'],
+      "in_past"
+    );
 
-     // How far in the past/future is this event?
-     $this->query->addOrderBy(
-       NULL,
-       sprintf('ABS(%s - %d)', $dateAlias, $currentTime),
+    // How far in the past/future is this event?
+    $this->query->addOrderBy(
+      NULL,
+      sprintf('ABS(%s - %d)', $dateAlias, $currentTime),
        $this->options['order'],
        "distance_from_now"
      );
-   }
+  }
 
 }
