@@ -2,3 +2,6 @@ services:
   Drupal\custom\EventSubscriber\UpdateTalkNodeBeforeSave:
     tags:
       - { name: event_subscriber }
+
+  Drupal\custom\Service\TalkCounter:
+    autowire: true

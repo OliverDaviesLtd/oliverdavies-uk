@@ -139,6 +139,8 @@
       <path value="$PROJECT_DIR$/vendor/consolidation/robo" />
       <path value="$PROJECT_DIR$/vendor/consolidation/filter-via-dot-access-data" />
       <path value="$PROJECT_DIR$/vendor/cweagans/composer-patches" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-stdlib" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
