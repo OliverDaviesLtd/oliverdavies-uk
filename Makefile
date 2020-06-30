@@ -7,12 +7,7 @@ THEME_PATH:=web/themes/custom/opdavies
 clean: theme-clean
 
 phpcs:
-	symfony php vendor/bin/phpcs -n \
-		--standard="Drupal,DrupalPractice" \
-		--extensions="php,module,inc,install,test,profile,theme" \
-		--exclude="Drupal.Commenting.ClassComment,Drupal.Commenting.FunctionComment,Drupal.Commenting.VariableComment" \
-		web/modules/custom \
-		web/themes/custom
+	@vendor/bin/phpcs -s --warning-severity=6
 
 phpstan:
 	vendor/bin/phpstan analyze
