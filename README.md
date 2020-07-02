@@ -23,13 +23,18 @@ ansible-playbook tools/ansible/provision.yml
 Deployments for this site for managed with Ansible and [Ansistrano][].
 Ansible Vault is used to manage sensitive information like database passwords.
 
-Deployments are triggered automatically when changes are pushed to GitHub, and are performed via [CircleCI][].
+Deployments are triggered automatically when changes are pushed to GitHub, and are performed automatically via GitHub Actions on each push to the `production` branch.
 
 To run a deployment manually, run `ansible-playbook tools/ansible/deploy.yml --ask-vault-pass`.
 The Vault password is stored in LastPass.
 
 [Ansistrano]: https://ansistrano.com
-[CircleCI]: https://circleci.com/gh/opdavies/oliverdavies-uk
+
+#### Generating settings files
+
+Production settings files are generated automatically during a deployment. This is done using the [opdavies.drupal_settings_files][] Ansible role, using variables from `tools/ansible/vars/deploy_vars.yml`, and performed during Ansistrano’s `After update code` build step.
+
+[opdavies.drupal_settings_files][https://galaxy.ansible.com/opdavies/drupal_settings_files]
 
 ## Migrating data into the website
 
