@@ -32,9 +32,9 @@ The Vault password is stored in LastPass.
 
 #### Generating settings files
 
-Production settings files are generated automatically during a deployment. This is done using the [opdavies.drupal_settings_files][] Ansible role, using variables from `tools/ansible/vars/deploy_vars.yml`, and performed during Ansistrano’s `After update code` build step.
+Production settings files are generated automatically during a deployment. This is done using the [opdavies.drupal_settings_files][drupal_settings_files] Ansible role, using variables from `tools/ansible/vars/deploy_vars.yml`, and performed during Ansistrano’s `After update code` build step.
 
-[opdavies.drupal_settings_files][https://galaxy.ansible.com/opdavies/drupal_settings_files]
+[drupal_settings_files]: https://galaxy.ansible.com/opdavies/drupal_settings_files
 
 ## Migrating data into the website
 
