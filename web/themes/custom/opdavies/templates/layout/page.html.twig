@@ -91,14 +91,14 @@
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
         <div class="grid gap-8 grid-cols-12">
-          <div class="{{ page.sidebar_second ? 'col-span-8' : 'col-span-12' }}">
+          <div class="col-span-12 {{ page.sidebar_second ? 'md:col-span-8' : 'md:col-span-12' }}">
             <div>
               {{ page.content }}
             </div>
           </div>{# /.layout-content #}
 
           {% if page.sidebar_second %}
-            <aside role="complementary" class="col-span-4">
+            <aside role="complementary" class="col-span-12 md:col-span-4">
               {{ page.sidebar_second }}
             </aside>
           {% endif %}
