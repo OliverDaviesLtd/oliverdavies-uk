@@ -1,0 +1,17 @@
+---
+name: Remove labels from closed issues
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  unlabel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Unlabel the closed issue
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: next
