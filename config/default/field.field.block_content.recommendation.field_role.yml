@@ -1,0 +1,19 @@
+uuid: bd5404cd-7a55-48e9-8658-a7d539933c49
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.recommendation
+    - field.storage.block_content.field_role
+id: block_content.recommendation.field_role
+field_name: field_role
+entity_type: block_content
+bundle: recommendation
+label: Role
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,42 @@
+uuid: 60c9b2c7-c8b8-4236-bc1f-37cfd574b28a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.recommendation
+    - field.field.block_content.recommendation.body
+    - field.field.block_content.recommendation.field_photo
+    - field.field.block_content.recommendation.field_role
+  module:
+    - image
+    - text
+id: block_content.recommendation.default
+targetEntityType: block_content
+bundle: recommendation
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_photo:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_role:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

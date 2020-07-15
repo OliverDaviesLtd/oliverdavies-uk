@@ -1,0 +1,8 @@
+uuid: 85d8f24d-3125-4aa8-8961-be2a7c8c54d3
+langcode: en
+status: true
+dependencies: {  }
+id: recommendation
+label: Recommendation
+revision: 1
+description: ''
