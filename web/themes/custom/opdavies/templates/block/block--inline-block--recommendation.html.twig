@@ -1,4 +1,4 @@
-<article{{ attributes.addClass('recommendation mt-6 first-of-type:mt-0') }}>
+<article{{ attributes.addClass('recommendation mt-12 first-of-type:mt-0') }}>
   {{ title_prefix }}
   <h2>{{ label }}</h2>
   {{ title_suffix }}
@@ -20,7 +20,7 @@
     </div>
 
     {% if content.field_photo %}
-      <div class="photo flex-shrink-0 flex justify-center">
+      <div class="photo ml-auto flex-shrink-0 flex justify-center">
         {{ content.field_photo }}
       </div>
     {% endif %}
