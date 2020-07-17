@@ -20,4 +20,7 @@ if (!Encore.isProduction()) {
     Encore.enableSourceMaps()
 }
 
+process.env.NODE_ENV =
+  process.env.NODE_ENV || Encore.isProduction() ? 'production' : 'development';
+
 module.exports = Encore.getWebpackConfig()
