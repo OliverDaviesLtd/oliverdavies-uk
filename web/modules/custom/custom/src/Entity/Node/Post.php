@@ -22,4 +22,12 @@ class Post extends Node implements ContentEntityBundleInterface {
     return (bool) $this->get('field_has_tweet')->getString();
   }
 
+  public function toTweet(): string {
+    // TODO: Add tags.
+
+    $parts = [$this->label(), $this->url('canonical', ['absolute' => TRUE])];
+
+    return implode(PHP_EOL . PHP_EOL, $parts);
+  }
+
 }

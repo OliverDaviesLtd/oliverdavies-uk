@@ -3,5 +3,9 @@ services:
     tags:
       - { name: event_subscriber }
 
+  Drupal\custom\EventSubscriber\PushBlogPostToSocialMedia:
+    tags:
+      - { name: event_subscriber }
+
   Drupal\custom\Service\TalkCounter:
     autowire: true

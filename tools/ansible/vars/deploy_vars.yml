@@ -15,6 +15,8 @@ ansistrano_before_symlink_tasks_file: '{{ playbook_dir }}/deploy/before-symlink.
 
 app_hash_salt: '{{ vault_app_hash_salt }}'
 
+zapier_post_tweet_url: '{{ vault_zapier_post_tweet_url }}'
+
 release_drush_path: '{{ ansistrano_release_path.stdout }}/vendor/bin/drush'
 release_web_path: '{{ ansistrano_release_path.stdout }}/{{ project_web_dir }}'
 release_theme_path: '{{ release_web_path }}/themes/custom/opdavies'
@@ -52,3 +54,4 @@ drupal_settings:
             $settings['reverse_proxy_header'] = 'CF-Connecting-IP';
             $settings['omit_vary_cookie'] = TRUE;
 
+            $config['opdavies_talks.config']['zapier_post_tweet_url'] = '{{ zapier_post_tweet_url }}';
