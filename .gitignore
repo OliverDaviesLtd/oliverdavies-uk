@@ -16,5 +16,6 @@
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php
 !/web/themes/custom/
+!/workspace.yml
 /.idea/workspace.xml
 /tools/ansible/.roles/

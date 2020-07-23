@@ -1,0 +1,87 @@
+attributes:
+  drupal:
+    docroot: web
+  theme:
+    build:
+      dev: npm run dev
+      prod: npm run prod
+      watch: npm run watch
+    install: npm install
+    path: = '/app/' ~ @('drupal.docroot') ~ '/themes/custom/opdavies'
+
+command('disable'): |
+  #!bash|@
+  source tools/workspace/scripts/disable.sh
+
+command('destroy'): |
+  #!bash|@
+  source tools/workspace/scripts/destroy.sh
+
+command('drush %'): |
+  #!bash|=
+  passthru docker-compose exec php vendor/bin/drush --root=={ @('drupal.docroot') } ={ input.argument('%') }
+
+command('enable'): |
+  #!bash|@
+  source tools/workspace/scripts/enable.sh
+
+command('theme build dev'): |
+  #!bash|@
+  run "docker-compose run --rm -w @('theme.path') node npm install"
+  passthru "docker-compose run --rm -w @('theme.path') node npm run dev"
+
+#command('theme build watch'): |
+#  #!bash|@
+#    passthru "docker-compose run --rm node bash -i -c 'cd @('theme.path'); npm run watch'"
+
+# command('theme build (dev|watch|prod)'):
+#   env:
+#     ENVIRONMENT: = input.command(3)
+#   exec: |
+#     #!bash|@
+#     run "docker-compose run --rm node bash -c 'cd @('theme.path'); @('theme.build.$ENVIRONMENT')'"
+
+command('install'): |
+  #!bash|@
+  run "cp .docker.env.example .docker.env"
+  run "cp .env.example .env"
+  run "ws composer install --ignore-platform-reqs"
+
+  if [ -f "tools/assets/development/drupal.sql.gz" ]; then
+    # ws drush sql-drop -y
+    # ws drush sql-query --file="./tools/assets/development/drupal.sql.gz"
+
+    run "pv --force ./tools/assets/development/drupal.sql.gz | zcat - | ws drush sql-cli"
+  fi
+
+  # run "docker-compose run --rm node bash -c 'cd @('theme.path'); @('theme.install')'"
+
+command('refresh'): |
+  #!bash
+  ws drush cache-rebuild
+
+command('sync'): |
+  #!php
+  $ws->download_database();
+  $ws->exec('rm -f tools/workspace/.flag-built');
+  $ws('install');
+
+function('download_database'): |
+  #!bash(workspace:/tools/ansible)
+  passthru "ansible-playbook download-database.yml"
+
+command('exec %'): |
+  #!bash|=
+  passthru "docker-compose exec -T php ={ input.argument('%') }"
+
+command('logs <service>'): |
+  #!bash|=
+  passthru "docker-compose logs ={ input.argument('service') }"
+
+command('composer %'): |
+  #!bash|=
+  passthru "docker-compose run --rm composer ={ input.argument('%') }"
+
+command('npm %'): |
+  #!bash(workspace:/web/themes/custom/opdavies)|=
+  passthru "docker-compose run --rm node bash -c 'npm install ={ input.argument('%') }'"
