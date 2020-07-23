@@ -1,4 +1,5 @@
 import 'alpinejs'
+import 'focus-visible'
 import 'styles/tailwind.pcss'
 import hljs from 'highlightjs'
 
