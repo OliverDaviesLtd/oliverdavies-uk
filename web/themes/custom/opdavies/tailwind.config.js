@@ -19,6 +19,19 @@ module.exports = {
     }
   },
   theme: {
+    typography: (theme) => ({
+      default: {
+        css: {
+          a: {
+            color: theme('colors.blue.500')
+          },
+          h2: {
+            marginBottom: theme('spacing.2'),
+            marginTop: theme('spacing.8')
+          }
+        }
+      }
+    }),
     extend: {
       colors: {
         inherit: 'inherit'
@@ -51,7 +64,9 @@ module.exports = {
           return `.${e(`focus-visible${separator}${className}`)}[data-focus-visible-added]`
         })
       })
-    })
+    }),
+
+    require('@tailwindcss/typography')
   ],
   variants: {
     borderColor: [...variants.borderColor, 'focus-visible'],
