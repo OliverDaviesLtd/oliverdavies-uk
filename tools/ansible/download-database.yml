@@ -7,7 +7,7 @@
     - vars/vars.yml
 
   vars:
-    export_filename: /tmp/dump.sql
+    export_filename: /tmp/drupal.sql
 
   tasks:
     - name: Export the database
@@ -22,7 +22,7 @@
     - name: Fetch the database from the server
       fetch:
         src: "{{ export_filename }}.gz"
-        dest: "{{ playbook_dir }}/../../"
+        dest: "{{ playbook_dir }}/../assets/development/"
         flat: true
 
     - name: Remove the export from the server
