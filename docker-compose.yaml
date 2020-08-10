@@ -1,13 +1,69 @@
-version: '2.1'
+version: '3.4'
 
 services:
-  database:
-    image: mysql:5.7
-    ports: [3306]
+  nginx:
+    container_name: oliverdavies-nginx
+    build:
+      context: .
+      dockerfile: tools/docker/nginx/Dockerfile
+    volumes:
+      - ./web:/app/web
+    depends_on:
+      - mysql
+      - php
+    labels:
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.oliverdavies.rule=Host(`oliverdavies.docker.localhost`)"
+    networks:
+      - traefik
+      - internal
+
+  php:
+    image: oliverdavies-php
+    container_name: oliverdavies-php
+    build:
+      context: .
+      dockerfile: tools/docker/php/Dockerfile
+    volumes:
+      - .:/app
+    links:
+      - mysql
+    networks:
+      - internal
+
+  mysql:
+    container_name: oliverdavies-mysql
+    image: mariadb:10
+    env_file:
+      - .docker.env
     environment:
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: oliverdavies
+      MYSQL_USER: oliverdavies
+      MYSQL_PASSWORD: secret
     volumes:
       - mysql-data:/var/lib/mysql
+    networks:
+      - internal
+
+  composer:
+    container_name: oliverdavies-composer
+    build:
+      context: .
+      dockerfile: tools/docker/composer/Dockerfile
+    volumes:
+      - .:/app
+
+  node:
+    container_name: oliverdavies-node
+    image: node:12
+    volumes:
+      - .:/app
+    working_dir: /app
+
+networks:
+  traefik:
+    external: true
+  internal:
 
 volumes:
   mysql-data:
