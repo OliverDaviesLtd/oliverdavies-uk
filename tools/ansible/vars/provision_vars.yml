@@ -152,7 +152,7 @@ nginx_vhosts:
       # Talks
       {% for name in slides_repo_names %}
         location /slides-{{ name }} {
-          alias /srv/slides-{{ name }}/_static/;
+          alias {{ project_root_path }}/{{ ansistrano_current_dir }}/slides/{{ name }}/_static/;
         }
       {% endfor %}
 

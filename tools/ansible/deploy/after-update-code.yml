@@ -32,3 +32,4 @@
   changed_when: "'There are no changes to import' not in config_import_result.stderr"
 
 - include: ../includes/build-theme-assets.yml
+- include: ../includes/build-talk-slides.yml

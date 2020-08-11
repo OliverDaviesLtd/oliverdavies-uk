@@ -1,0 +1,6 @@
+---
+- name: Generate static slides for talks
+  shell: >
+    npm install; npx reveal-md slides.md --static --static-dirs=assets
+    chdir={{ ansistrano_release_path.stdout }}/slides/{{ item }}
+  with_items: '{{ slides_repo_names }}'
