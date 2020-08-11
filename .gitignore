@@ -10,6 +10,7 @@
 !/phpstan.neon
 !/phpunit.xml.dist
 !/scripts/
+!/slides/
 !/tools/
 !/web/modules/custom/
 !/web/sites/default/environments/settings.*.php

@@ -1,0 +1,3 @@
+[submodule "slides/working-with-workspace"]
+	path = slides/working-with-workspace
+	url = https://github.com/opdavies/slides-working-with-workspace
