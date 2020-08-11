@@ -51,7 +51,7 @@ nginx_vhosts:
   - listen: 443 ssl default_server
     server_name: www.oliverdavies.uk
     root: '{{ project_root_path }}/{{ ansistrano_current_dir }}/{{ project_web_dir }}'
-    index: index.php
+    index: index.php index.html
     extra_parameters: |
       ssl_certificate     /etc/letsencrypt/live/oliverdavies.uk/fullchain.pem;
       ssl_certificate_key /etc/letsencrypt/live/oliverdavies.uk/privkey.pem;
@@ -149,6 +149,13 @@ nginx_vhosts:
           return 307 $1$2;
       }
 
+      # Talks
+      {% for name in slides_repo_names %}
+        location /slides-{{ name }} {
+          alias /srv/slides-{{ name }}/_static/;
+        }
+      {% endfor %}
+
 certbot_create_if_missing: true
 certbot_create_method: standalone
 certbot_admin_email: oliver+certbot@oliverdavies.uk
@@ -156,3 +163,6 @@ certbot_certs:
   - domains:
     - oliverdavies.uk
     - www.oliverdavies.uk
+
+slides_repo_names:
+  - working-with-workspace
