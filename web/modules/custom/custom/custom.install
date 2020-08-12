@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\custom\Repository\PostRepository;
+
+/**
+ * Mark existing blog posts as sent to social media.
+ */
+function custom_update_8001(): void {
+  $posts = \Drupal::service(PostRepository::class)->getAll();
+
+  foreach ($posts as $post) {
+    $post->set('field_sent_to_social_media', TRUE);
+    $post->save();
+  }
+}

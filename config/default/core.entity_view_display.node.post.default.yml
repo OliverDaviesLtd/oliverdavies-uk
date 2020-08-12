@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.post.field_excerpt
     - field.field.node.post.field_has_tweet
     - field.field.node.post.field_images
+    - field.field.node.post.field_sent_to_social_media
     - field.field.node.post.field_series
     - field.field.node.post.field_tags
     - node.type.post
@@ -24,6 +25,16 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_sent_to_social_media:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_tags:
     weight: 2
