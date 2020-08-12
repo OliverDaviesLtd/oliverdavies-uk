@@ -18,6 +18,10 @@ use Drupal\node\Entity\Node;
  */
 class Post extends Node implements ContentEntityBundleInterface {
 
+  public function hasBeenSentToSocialMedia(): bool {
+    return (bool) $this->get('field_sent_to_social_media')->getString();
+  }
+
   public function hasTweet(): bool {
     return (bool) $this->get('field_has_tweet')->getString();
   }

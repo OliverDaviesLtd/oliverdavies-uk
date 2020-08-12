@@ -37,7 +37,10 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
-    // TODO: Check that the post has not already been pushed.
+    // If this post has already been sent to social media, do not send it again.
+    if ($entity->hasBeenSentToSocialMedia()) {
+      return;
+    }
 
     $url = \Drupal::configFactory()->get('opdavies_talks.config')
       ->get('zapier_post_tweet_url');
@@ -47,6 +50,8 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
         'message' => $entity->toTweet(),
       ],
     ]);
+
+    $entity->set('field_sent_to_social_media', TRUE);
   }
 
 }
