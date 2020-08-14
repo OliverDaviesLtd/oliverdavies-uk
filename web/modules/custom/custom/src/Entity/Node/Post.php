@@ -18,12 +18,22 @@ use Drupal\node\Entity\Node;
  */
 class Post extends Node implements ContentEntityBundleInterface {
 
+  public function getExternalLink(): ?array {
+    return ($link = $this->get('field_external_link')->get(0))
+      ? $link->getValue()
+      : NULL;
+  }
+
   public function hasBeenSentToSocialMedia(): bool {
     return (bool) $this->get('field_sent_to_social_media')->getString();
   }
 
   public function hasTweet(): bool {
     return (bool) $this->get('field_has_tweet')->getString();
+  }
+
+  public function isExternalPost(): bool {
+    return (bool) $this->getExternalLink();
   }
 
   public function toTweet(): string {

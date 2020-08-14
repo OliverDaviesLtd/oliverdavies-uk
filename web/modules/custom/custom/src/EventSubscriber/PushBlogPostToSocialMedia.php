@@ -7,7 +7,6 @@ namespace Drupal\custom\EventSubscriber;
 use Drupal\custom\Entity\Node\Post;
 use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
-use Drupal\node\NodeInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
@@ -28,7 +27,7 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
-    /** @var NodeInterface $entity */
+    /** @var Post $entity */
     if ($entity->bundle() != 'post') {
       return;
     }
@@ -39,6 +38,10 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
 
     // If this post has already been sent to social media, do not send it again.
     if ($entity->hasBeenSentToSocialMedia()) {
+      return;
+    }
+
+    if ($entity->isExternalPost()) {
       return;
     }
 
