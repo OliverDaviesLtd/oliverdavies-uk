@@ -1,6 +1,9 @@
-const plugin = require('tailwindcss/plugin')
-const {variants} = require('tailwindcss/defaultConfig')
-const {fontFamily, spacing} = require('tailwindcss/defaultTheme')
+const defaultConfig = require('tailwindcss/defaultConfig')
+const defaultTheme = require('tailwindcss/defaultTheme')
+const focusVisible = require('./tailwind-focus-visible')
+const typography = require('@tailwindcss/typography')
+const { fontFamily } = defaultTheme
+const { variants } = defaultConfig
 
 module.exports = {
   important: true,
@@ -58,15 +61,8 @@ module.exports = {
     container: false
   },
   plugins: [
-    plugin(function({ addVariant, e }) {
-      addVariant('focus-visible', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.${e(`focus-visible${separator}${className}`)}[data-focus-visible-added]`
-        })
-      })
-    }),
-
-    require('@tailwindcss/typography')
+    focusVisible,
+    typography
   ],
   variants: {
     borderColor: [...variants.borderColor, 'focus-visible'],
