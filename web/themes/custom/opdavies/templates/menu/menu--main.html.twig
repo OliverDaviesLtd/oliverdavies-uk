@@ -42,7 +42,7 @@
           {% endif %}
           {% for item in items %}
             <li{{ item.attributes.addClass('flex flex-1 justify-center') }}>
-              {% set linkClasses = ['w-full flex items-center mx-4 mt-1 -mb-px py-3 px-4 block rounded text-sm text-white no-underline hover:underline focus:outline-none focus:underline md:py-1 md:px-2 md:mx-2 md:mt-0 md:mr-0'] %}
+              {% set linkClasses = ['w-full flex items-center mx-4 mt-1 -mb-px py-3 px-4 block rounded text-base text-white no-underline hover:underline focus:outline-none focus:underline md:py-1 md:px-2 md:mx-2 md:mt-0 md:mr-0'] %}
               {% if item.in_active_trail %}
                 {% set linkClasses = linkClasses|merge(['cursor-default bg-blue-500 hover:border-blue-600 hover:no-underline md:bg-blue-700']) %}
               {% endif %}
