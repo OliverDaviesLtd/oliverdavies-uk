@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.post.body
     - field.field.node.post.field_excerpt
+    - field.field.node.post.field_external_link
     - field.field.node.post.field_has_tweet
     - field.field.node.post.field_images
     - field.field.node.post.field_sent_to_social_media
