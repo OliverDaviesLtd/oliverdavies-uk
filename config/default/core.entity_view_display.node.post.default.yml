@@ -26,16 +26,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_sent_to_social_media:
-    weight: 3
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_tags:
     weight: 2
     label: above
@@ -54,4 +44,5 @@ hidden:
   field_external_link: true
   field_has_tweet: true
   field_images: true
+  field_sent_to_social_media: true
   field_series: true
