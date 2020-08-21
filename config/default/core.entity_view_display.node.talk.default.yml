@@ -7,10 +7,12 @@ dependencies:
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
     - field.field.node.talk.field_slides
+    - field.field.node.talk.field_type
     - field.field.node.talk.field_video
     - node.type.talk
   module:
     - entity_reference_revisions
+    - options
     - speakerdeck_field
     - text
     - user
@@ -41,6 +43,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: speakerdeck_formatter
+    region: content
+  field_type:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_video:
     type: entity_reference_entity_view

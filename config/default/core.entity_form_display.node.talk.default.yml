@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
     - field.field.node.talk.field_slides
+    - field.field.node.talk.field_type
     - field.field.node.talk.field_video
     - node.type.talk
   module:
@@ -62,6 +63,12 @@ content:
       data_ratio: ''
     third_party_settings: {  }
     type: speakerdeck_widget
+    region: content
+  field_type:
+    weight: 52
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_video:
     weight: 7

@@ -5,7 +5,7 @@
 !/.github/
 !/.idea/
 !/bin/
-!/config/
+!/config/**
 !/Makefile
 !/phpcs.xml.dist
 !/phpstan.neon
