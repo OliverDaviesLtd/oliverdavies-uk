@@ -1,0 +1,23 @@
+uuid: 9c3a7cca-0588-4db4-b834-e96e59aa7ff1
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: blog_series
+label: 'Blog series'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'blog/series/[term:name]'
+selection_criteria:
+  24d2fe6d-bb21-43dd-957d-828733f5bb31:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      blog_series: blog_series
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 24d2fe6d-bb21-43dd-957d-828733f5bb31
+selection_logic: and
+weight: -5
+relationships: {  }
