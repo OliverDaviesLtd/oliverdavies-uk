@@ -1,0 +1,19 @@
+uuid: 60d2dea9-37ce-4341-b6f8-e749aa83aa29
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_amendment_text
+field_name: field_amendment_text
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,34 @@
+uuid: eac02fdb-edb0-4d67-ab96-fedc6d812986
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_amendments
+    - node.type.post
+    - paragraphs.paragraphs_type.post_amendment
+  module:
+    - entity_reference_revisions
+id: node.post.field_amendments
+field_name: field_amendments
+entity_type: node
+bundle: post
+label: Amendments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      post_amendment: post_amendment
+    target_bundles_drag_drop:
+      event:
+        weight: 3
+        enabled: false
+      post_amendment:
+        enabled: true
+        weight: 4
+field_type: entity_reference_revisions

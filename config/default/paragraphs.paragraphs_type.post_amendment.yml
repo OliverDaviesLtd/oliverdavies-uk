@@ -1,0 +1,10 @@
+uuid: 3453df1b-03ab-4655-af35-aa7e3398dfb0
+langcode: en
+status: true
+dependencies: {  }
+id: post_amendment
+label: 'Post amendment'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

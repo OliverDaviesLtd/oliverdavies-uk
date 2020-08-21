@@ -1,0 +1,21 @@
+uuid: c36e196e-5d86-4734-baef-820567a73e77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amendment_text
+    - paragraphs.paragraphs_type.post_amendment
+  module:
+    - text
+id: paragraph.post_amendment.field_amendment_text
+field_name: field_amendment_text
+entity_type: paragraph
+bundle: post_amendment
+label: 'Amendment text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

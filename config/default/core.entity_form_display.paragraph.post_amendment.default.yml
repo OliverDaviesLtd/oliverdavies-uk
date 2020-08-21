@@ -1,0 +1,33 @@
+uuid: cc28009a-704c-42d4-aa9e-4a16338fc45f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.post_amendment.field_amendment_text
+    - field.field.paragraph.post_amendment.field_date
+    - paragraphs.paragraphs_type.post_amendment
+  module:
+    - datetime
+    - text
+id: paragraph.post_amendment.default
+targetEntityType: paragraph
+bundle: post_amendment
+mode: default
+content:
+  field_amendment_text:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_date:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,33 @@
+uuid: 173cf160-3536-4f5a-ad40-6cf4fb5a1586
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.post_amendment.field_amendment_text
+    - field.field.paragraph.post_amendment.field_date
+    - paragraphs.paragraphs_type.post_amendment
+  module:
+    - datetime
+    - text
+id: paragraph.post_amendment.default
+targetEntityType: paragraph
+bundle: post_amendment
+mode: default
+content:
+  field_amendment_text:
+    weight: 1
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_date:
+    weight: 0
+    label: visually_hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden: {  }

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.post.body
+    - field.field.node.post.field_amendments
     - field.field.node.post.field_excerpt
     - field.field.node.post.field_external_link
     - field.field.node.post.field_has_tweet
@@ -13,6 +14,7 @@ dependencies:
     - field.field.node.post.field_tags
     - node.type.post
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.post.default
@@ -27,8 +29,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_tags:
+  field_amendments:
+    type: entity_reference_revisions_entity_view
     weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 3
     label: above
     settings:
       link: true

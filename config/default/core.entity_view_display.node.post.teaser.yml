@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.post.body
+    - field.field.node.post.field_amendments
     - field.field.node.post.field_excerpt
     - field.field.node.post.field_has_tweet
     - field.field.node.post.field_images
@@ -33,6 +34,7 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_amendments: true
   field_external_link: true
   field_has_tweet: true
   field_images: true

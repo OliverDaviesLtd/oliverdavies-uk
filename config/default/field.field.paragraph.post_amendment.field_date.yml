@@ -1,0 +1,24 @@
+uuid: fc9d1843-9e9e-4f66-8291-bfa163e9df36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date
+    - paragraphs.paragraphs_type.post_amendment
+  module:
+    - datetime
+id: paragraph.post_amendment.field_date
+field_name: field_date
+entity_type: paragraph
+bundle: post_amendment
+label: Date
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime
