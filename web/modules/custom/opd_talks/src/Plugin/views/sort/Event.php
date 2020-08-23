@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\opd_talks\Plugin\views\sort;
 
-use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\datetime\DateTimeComputed;
 use Drupal\views\Plugin\views\sort\Date;
 use Drupal\views\Annotation\ViewsSort;
 
