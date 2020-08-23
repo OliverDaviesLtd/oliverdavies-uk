@@ -7,6 +7,16 @@
 
 declare(strict_types=1);
 
+use Drupal\opd_talks\Service\TalkDateUpdater;
+
+/**
+ * Implements hook_cron().
+ */
+function opd_talks_cron(): void {
+  $dateUpdater = Drupal::service(TalkDateUpdater::class);
+  $dateUpdater->__invoke();
+}
+
 /**
  * Implements hook_views_data_alter().
  */
