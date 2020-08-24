@@ -30,6 +30,14 @@ class Talk extends Node implements ContentEntityBundleInterface {
       ->referencedEntities());
   }
 
+  public function getNextDate(): ?int {
+    if ($this->get('field_event_date')->isEmpty()) {
+      return NULL;
+    }
+
+    return (int) $this->get('field_event_date')->getString();
+  }
+
   /**
    * Find the date for the latest event.
    *
@@ -40,6 +48,10 @@ class Talk extends Node implements ContentEntityBundleInterface {
       ->map(fn(ParagraphInterface $event) => $event->get('field_date')
         ->getString())
       ->max();
+  }
+
+  public function setNextDate(int $date): void {
+    $this->set('field_event_date', $date);
   }
 
 }

@@ -12,10 +12,8 @@ use Drupal\paragraphs\ParagraphInterface;
 
 abstract class TalksTestBase extends EntityKernelTestBase {
 
-  protected $strictConfigSchema = FALSE;
-
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
   public static $modules = [
     // Core.
@@ -32,7 +30,10 @@ abstract class TalksTestBase extends EntityKernelTestBase {
     // Custom.
     'custom',
     'custom_test',
+    'opd_talks',
   ];
+
+  protected $strictConfigSchema = FALSE;
 
   protected function createEvent(array $overrides = []): ParagraphInterface {
     /** @var \Drupal\paragraphs\ParagraphInterface $event */

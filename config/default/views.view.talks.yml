@@ -144,7 +144,7 @@ display:
       sorts:
         event_sort:
           id: event_sort
-          table: node_field_data
+          table: node__field_event_date
           field: event_sort
           relationship: none
           group_type: group
@@ -154,7 +154,6 @@ display:
           expose:
             label: ''
           granularity: second
-          entity_type: node
           plugin_id: event_sort
       title: Talks
       header: {  }

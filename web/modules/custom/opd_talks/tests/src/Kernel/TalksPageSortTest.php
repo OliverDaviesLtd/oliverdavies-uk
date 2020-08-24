@@ -20,10 +20,18 @@ final class TalksPageSortTest extends TalksTestBase {
    * @test
    */
   public function upcoming_talks_are_shown_first_followed_by_past_talks_and_ordered_by_distance() {
-    $this->createTalk(['created' => Carbon::parse('+4 days')->getTimestamp()]);
-    $this->createTalk(['created' => Carbon::parse('-2 days')->getTimestamp()]);
-    $this->createTalk(['created' => Carbon::parse('+1 days')->getTimestamp()]);
-    $this->createTalk(['created' => Carbon::parse('-10 days')->getTimestamp()]);
+    $this->createTalk([
+      'field_event_date' => Carbon::today()->addDays(4)->getTimestamp(),
+    ]);
+    $this->createTalk([
+      'field_event_date' => Carbon::today()->subDays(2)->getTimestamp(),
+    ]);
+    $this->createTalk([
+      'field_event_date' => Carbon::today()->addDay()->getTimestamp(),
+    ]);
+    $this->createTalk([
+      'field_event_date' => Carbon::today()->subDays(10)->getTimestamp(),
+    ]);
 
     $talkIds = (new Collection(views_get_view_result('talks')))
       ->map(fn(ResultRow $row) => (int) $row->_entity->id());

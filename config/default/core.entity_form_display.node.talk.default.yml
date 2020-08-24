@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.talk.body
+    - field.field.node.talk.field_event_date
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
     - field.field.node.talk.field_slides
@@ -143,4 +144,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_event_date: true

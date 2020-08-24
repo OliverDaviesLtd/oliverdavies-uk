@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.talk.body
+    - field.field.node.talk.field_event_date
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
     - field.field.node.talk.field_slides
@@ -32,6 +33,7 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_event_date: true
   field_events: true
   field_slides: true
   field_type: true
