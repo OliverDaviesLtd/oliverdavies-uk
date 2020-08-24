@@ -28,10 +28,34 @@ module.exports = {
           a: {
             color: theme('colors.blue.500')
           },
+          code: {
+            backgroundColor: theme('colors.gray.200'),
+            borderColor: theme('colors.gray.400'),
+            borderStyle: 'solid',
+            borderWidth: '1px',
+            fontWeight: theme('fontWeight.normal'),
+            paddingBottom: theme('spacing.px'),
+            paddingLeft: theme('spacing.1'),
+            paddingRight: theme('spacing.1'),
+            paddingTop: theme('spacing.px')
+          },
           h2: {
             marginBottom: theme('spacing.2'),
             marginTop: theme('spacing.8')
-          }
+          },
+          pre: {
+            backgroundColor: theme('colors.gray.200'),
+            borderLeftColor: theme('colors.gray.400'),
+            borderLeftStyle: 'solid',
+            borderLeftWidth: '3px',
+            borderRadius: '0',
+            color: theme('colors.gray.800'),
+            padding: theme('spacing.6')
+          },
+          'code::before': false,
+          'code::after': false,
+          'pre code::before': false,
+          'pre code::after': false
         }
       }
     }),
