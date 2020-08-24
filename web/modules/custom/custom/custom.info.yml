@@ -1,9 +1,0 @@
-name: Oliver Davies custom module
-type: module
-core_version_requirement: ^8 || ^9
-package: Custom
-dependencies:
-  - drupal:node
-  - hook_event_dispatcher:hook_event_dispatcher
-  - paragraphs:paragraphs
-package: Custom

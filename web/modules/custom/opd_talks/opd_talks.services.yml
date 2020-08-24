@@ -1,6 +1,0 @@
-services:
-  Drupal\opd_talks\Repository\TalkRepository:
-    autowire: true
-
-  Drupal\opd_talks\Service\TalkDateUpdater:
-    autowire: true

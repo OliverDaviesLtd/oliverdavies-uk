@@ -1,0 +1,7 @@
+services:
+  Drupal\opdavies_blog\EventSubscriber\PushBlogPostToSocialMedia:
+    tags:
+      - { name: event_subscriber }
+
+  Drupal\opdavies_blog\Repository\PostRepository:
+    autowire: true

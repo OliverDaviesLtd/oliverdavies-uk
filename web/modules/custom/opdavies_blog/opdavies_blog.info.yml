@@ -1,0 +1,9 @@
+name: Oliver Davies blog
+type: module
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:node
+  - discoverable_entity_bundle_classes:discoverable_entity_bundle_classes
+  - hook_event_dispatcher:hook_event_dispatcher
+  - paragraphs:paragraphs

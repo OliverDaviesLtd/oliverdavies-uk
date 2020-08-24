@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Custom code for talks pages.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\discoverable_entity_bundle_classes\Storage\Node\NodeStorage;
+use Drupal\opdavies_talks\Service\TalkDateUpdater;
+
+/**
+ * Implements hook_cron().
+ */
+function opdavies_talks_cron(): void {
+  $dateUpdater = Drupal::service(TalkDateUpdater::class);
+  $dateUpdater->__invoke();
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function opdavies_talks_views_data_alter(array &$data): void {
+  $data['node__field_event_date']['event_sort'] = [
+    'title' => t('Custom event sort'),
+    'group' => t('Content'),
+    'help' => t('Sort events by past/future, then distance from now.'),
+    'sort' => [
+      'field' => 'field_event_date_value',
+      'id' => 'event_sort',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function opdavies_talks_entity_type_build(array &$entityTypes): void {
+  /** @var EntityTypeInterface[] $entityTypes */
+  if (isset($entityTypes['node'])) {
+    $entityTypes['node']->setStorageClass(NodeStorage::class);
+  }
+}

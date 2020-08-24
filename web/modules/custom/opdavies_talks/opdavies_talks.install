@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\opdavies_talks\Repository\TalkRepository;
+
+/**
+ * Set talk type for all existing talks.
+ */
+function opdavies_talks_update_8001(): void {
+  $talkRepository = \Drupal::service(TalkRepository::class);
+
+  foreach ($talkRepository->getAll() as $talk) {
+    $talk->set('field_type', 'talk');
+    $talk->save();
+  }
+}

@@ -1,5 +1,0 @@
-name: Oliver Davies Talks
-description: Custom code for talks pages.
-type: module
-core_version_requirement: ^8 || ^9
-package: Custom

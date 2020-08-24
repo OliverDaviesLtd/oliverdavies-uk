@@ -1,0 +1,11 @@
+services:
+  Drupal\opdavies_blog\Command\ExportBodyValuesForThemePurgingCommand:
+    arguments: ['@database']
+    autowire: true
+    tags:
+      - { name: drush.command }
+
+  Drupal\opdavies_blog\Command\FormatTagNamesCommand:
+    autowire: true
+    tags:
+      - { name: drush.command }

@@ -11,7 +11,6 @@ module:
   config_split: 0
   contextual: 0
   ctools: 0
-  custom: 0
   datetime: 0
   dblog: 0
   discoverable_entity_bundle_classes: 0
@@ -40,7 +39,8 @@ module:
   migrate_plus: 0
   migrate_tools: 0
   node: 0
-  opd_talks: 0
+  opdavies_blog: 0
+  opdavies_talks: 0
   options: 0
   page_cache: 0
   path: 0
