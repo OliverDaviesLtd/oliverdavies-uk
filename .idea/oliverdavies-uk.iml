@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/web/modules/custom/custom/tests/src" isTestSource="true" packagePrefix="Drupal\Tests\custom" />
       <sourceFolder url="file://$MODULE_DIR$/web/modules/custom/opd_talks/tests/src" isTestSource="true" packagePrefix="Drupal\Tests\opd_talks" />
       <sourceFolder url="file://$MODULE_DIR$/web/modules/custom/opd_talks/src" isTestSource="false" packagePrefix="Drupal\opd_talks" />
+      <sourceFolder url="file://$MODULE_DIR$/web/modules/custom/opdavies_blog/tests/src" isTestSource="true" packagePrefix="Drupal\Tests\opdavies_blog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/behat/mink" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/behat/mink-browserkit-driver" />

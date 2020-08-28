@@ -6,6 +6,8 @@ namespace Drupal\opdavies_blog\Entity\Node;
 
 use Drupal\discoverable_entity_bundle_classes\ContentEntityBundleInterface;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+use Illuminate\Support\Collection;
 
 /**
  * Defines an blog post node class.
@@ -24,6 +26,13 @@ class Post extends Node implements ContentEntityBundleInterface {
       : NULL;
   }
 
+  /**
+   * @return Collection|Term[]
+   */
+  public function getTags(): Collection {
+    return new Collection($this->get('field_tags')->referencedEntities());
+  }
+
   public function hasBeenSentToSocialMedia(): bool {
     return (bool) $this->get('field_sent_to_social_media')->getString();
   }
@@ -34,6 +43,10 @@ class Post extends Node implements ContentEntityBundleInterface {
 
   public function isExternalPost(): bool {
     return (bool) $this->getExternalLink();
+  }
+
+  public function setTags(array $tags): void {
+    $this->set('field_tags', $tags);
   }
 
   public function toTweet(): string {

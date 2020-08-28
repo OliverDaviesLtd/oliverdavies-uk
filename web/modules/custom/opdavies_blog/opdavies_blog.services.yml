@@ -3,5 +3,9 @@ services:
     tags:
       - { name: event_subscriber }
 
+  Drupal\opdavies_blog\EventSubscriber\ReorderBlogTags:
+    tags:
+      - { name: event_subscriber }
+
   Drupal\opdavies_blog\Repository\PostRepository:
     autowire: true

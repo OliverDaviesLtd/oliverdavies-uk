@@ -7,9 +7,10 @@ namespace Drupal\opdavies_blog\EventSubscriber;
 use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
+use Drupal\taxonomy\TermInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
+final class ReorderBlogTags implements EventSubscriberInterface {
 
   /**
    * @inheritDoc
@@ -32,33 +33,10 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
-    if (!$entity->isPublished()) {
-      return;
-    }
+    $sortedTags = $entity->getTags()
+      ->sortBy(fn(TermInterface $tag) => $tag->label());
 
-    // If this post has already been sent to social media, do not send it again.
-    if ($entity->hasBeenSentToSocialMedia()) {
-      return;
-    }
-
-    if ($entity->isExternalPost()) {
-      return;
-    }
-
-    $url = \Drupal::configFactory()->get('opdavies_talks.config')
-      ->get('zapier_post_tweet_url');
-
-    if (!$url) {
-      return;
-    }
-
-    \Drupal::httpClient()->post($url, [
-      'form_params' => [
-        'message' => $entity->toTweet(),
-      ],
-    ]);
-
-    $entity->set('field_sent_to_social_media', TRUE);
+    $entity->setTags($sortedTags->toArray());
   }
 
 }
