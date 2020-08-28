@@ -13,6 +13,8 @@ final class PostTest extends EntityKernelTestBase {
   public static $modules = [
     // Core.
     'node',
+    'link',
+    'taxonomy',
 
     // Contrib.
     'discoverable_entity_bundle_classes',
