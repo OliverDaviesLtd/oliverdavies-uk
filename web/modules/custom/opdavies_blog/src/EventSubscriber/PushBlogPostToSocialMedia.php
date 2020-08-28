@@ -4,12 +4,28 @@ declare(strict_types=1);
 
 namespace Drupal\opdavies_blog\EventSubscriber;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Config\ImmutableConfig;
 use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
+
+  private ClientInterface $client;
+
+  private ImmutableConfig $config;
+
+  public function __construct(
+    ConfigFactoryInterface $configFactory,
+    Client $client
+  ) {
+    $this->client = $client;
+    $this->config = $configFactory->get('opdavies_talks.config');
+  }
 
   /**
    * @inheritDoc
@@ -45,14 +61,11 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
-    $url = \Drupal::configFactory()->get('opdavies_talks.config')
-      ->get('zapier_post_tweet_url');
-
-    if (!$url) {
+    if (!$url = $this->config->get('zapier_post_tweet_url')) {
       return;
     }
 
-    \Drupal::httpClient()->post($url, [
+    $this->client->post($url, [
       'form_params' => [
         'message' => $entity->toTweet(),
       ],
