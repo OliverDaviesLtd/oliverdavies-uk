@@ -8,6 +8,7 @@ use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
+use Drupal\taxonomy\Entity\Term;
 
 final class PostTest extends EntityKernelTestBase {
 
@@ -43,6 +44,12 @@ final class PostTest extends EntityKernelTestBase {
   public function it_converts_a_post_to_a_tweet(): void {
     /** @var Post $post */
     $post = Node::create([
+      'field_tags' => [
+        Term::create(['vid' => 'tags', 'name' => 'Automated testing']),
+        Term::create(['vid' => 'tags', 'name' => 'DDEV']),
+        Term::create(['vid' => 'tags', 'name' => 'Drupal']),
+        Term::create(['vid' => 'tags', 'name' => 'PHP']),
+      ],
       'status' => NodeInterface::PUBLISHED,
       'title' => 'Creating a custom PHPUnit command for DDEV',
       'type' => 'post',
@@ -53,6 +60,8 @@ final class PostTest extends EntityKernelTestBase {
     Creating a custom PHPUnit command for DDEV
 
     http://localhost/node/1
+
+    #automated-testing #ddev #drupal #php
     EOF;
 
     $this->assertSame($expected, $post->toTweet());
@@ -60,6 +69,8 @@ final class PostTest extends EntityKernelTestBase {
 
   protected function setUp() {
     parent::setUp();
+
+    $this->installEntitySchema('taxonomy_term');
 
     $this->installConfig(['opdavies_blog_test']);
   }

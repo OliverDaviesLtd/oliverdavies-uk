@@ -50,11 +50,27 @@ class Post extends Node implements ContentEntityBundleInterface {
   }
 
   public function toTweet(): string {
-    // TODO: Add tags.
-
-    $parts = [$this->label(), $this->url('canonical', ['absolute' => TRUE])];
+    $parts = [
+      $this->label(),
+      $this->url('canonical', ['absolute' => TRUE]),
+      $this->convertTermsToHashtags(),
+    ];
 
     return implode(PHP_EOL . PHP_EOL, $parts);
+  }
+
+  private function convertTermsToHashtags(): string {
+    return $this->getTags()
+      ->map(fn(Term $term) => $this->convertTermToHashtag($term))
+      ->implode(' ');
+  }
+
+  private function convertTermToHashtag(Term $tag): string {
+    $tagName = strtolower($tag->label());
+    $tagName = "#{$tagName}";
+    $tagName = str_replace(' ', '-', $tagName);
+
+    return $tagName;
   }
 
 }
