@@ -67,6 +67,32 @@ final class PostTest extends EntityKernelTestBase {
     $this->assertSame($expected, $post->toTweet());
   }
 
+  /** @test */
+  public function certain_terms_are_not_added_as_hashtags(): void {
+    /** @var Post $post */
+    $post = Node::create([
+      'field_tags' => [
+        Term::create(['vid' => 'tags', 'name' => 'Drupal']),
+        Term::create(['vid' => 'tags', 'name' => 'Drupal Planet']),
+        Term::create(['vid' => 'tags', 'name' => 'PHP']),
+      ],
+      'status' => NodeInterface::PUBLISHED,
+      'title' => 'Drupal Planet should not be added as a hashtag',
+      'type' => 'post',
+    ]);
+    $post->save();
+
+    $expected = <<<EOF
+    Drupal Planet should not be added as a hashtag
+
+    http://localhost/node/1
+
+    #drupal #php
+    EOF;
+
+    $this->assertSame($expected, $post->toTweet());
+  }
+
   protected function setUp() {
     parent::setUp();
 

@@ -61,8 +61,17 @@ class Post extends Node implements ContentEntityBundleInterface {
 
   private function convertTermsToHashtags(): string {
     return $this->getTags()
+      ->filter(fn(Term $term) => !$this->tagsToRemove()
+        ->contains($term->label()))
       ->map(fn(Term $term) => $this->convertTermToHashtag($term))
       ->implode(' ');
+  }
+
+  private function tagsToRemove(): Collection {
+    // TODO: Move these values into configuration/settings.php.
+    return new Collection([
+      'Drupal Planet',
+    ]);
   }
 
   private function convertTermToHashtag(Term $tag): string {
