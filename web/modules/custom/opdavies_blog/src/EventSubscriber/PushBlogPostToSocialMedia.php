@@ -24,7 +24,7 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
     Client $client
   ) {
     $this->client = $client;
-    $this->config = $configFactory->get('opdavies_talks.config');
+    $this->config = $configFactory->get('opdavies_blog.settings');
   }
 
   /**

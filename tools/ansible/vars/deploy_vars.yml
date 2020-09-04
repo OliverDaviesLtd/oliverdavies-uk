@@ -54,4 +54,4 @@ drupal_settings:
             $settings['reverse_proxy_header'] = 'CF-Connecting-IP';
             $settings['omit_vary_cookie'] = TRUE;
 
-            $config['opdavies_talks.config']['zapier_post_tweet_url'] = '{{ zapier_post_tweet_url }}';
+            $config['opdavies_blog.settings']['zapier_post_tweet_url'] = '{{ zapier_post_tweet_url }}';
