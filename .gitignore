@@ -12,7 +12,7 @@
 !/phpunit.xml.dist
 !/scripts/
 !/slides/
-!/tools/
+!/tools/**
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php

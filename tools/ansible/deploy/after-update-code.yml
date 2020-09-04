@@ -9,6 +9,10 @@
   include_role:
     name: opdavies.drupal_settings_files
 
+- name: Fix file permissions
+  include_role:
+    name: drupal-permissions
+
 - name: Clear Drush cache
   command: >
     {{ release_drush_path }}

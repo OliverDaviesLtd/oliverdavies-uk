@@ -9,7 +9,6 @@ ansistrano_shared_paths:
   - '{{ project_web_dir }}/sites/default/files'
 
 # Hooks
-ansistrano_after_symlink_shared_tasks_file: '{{ playbook_dir }}/deploy/after-symlink-shared.yml'
 ansistrano_after_update_code_tasks_file: '{{ playbook_dir }}/deploy/after-update-code.yml'
 ansistrano_before_symlink_tasks_file: '{{ playbook_dir }}/deploy/before-symlink.yml'
 
@@ -20,6 +19,16 @@ zapier_post_tweet_url: '{{ vault_zapier_post_tweet_url }}'
 release_drush_path: '{{ ansistrano_release_path.stdout }}/vendor/bin/drush'
 release_web_path: '{{ ansistrano_release_path.stdout }}/{{ project_web_dir }}'
 release_theme_path: '{{ release_web_path }}/themes/custom/opdavies'
+
+drupal_permissions:
+  sites:
+    - root: "{{ release_web_path }}"
+      files_directories:
+        - sites/default/files
+      settings_files:
+        - sites/default/settings.php
+        - sites/default/settings.local.php
+  user: root
 
 drupal_settings:
   - drupal_root: '{{ release_web_path }}'
