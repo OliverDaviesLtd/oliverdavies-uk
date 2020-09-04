@@ -6,6 +6,7 @@ namespace Drupal\Tests\custom\Kernel\Entity\Node;
 
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
 use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
 
 final class PostTest extends EntityKernelTestBase {
@@ -36,6 +37,25 @@ final class PostTest extends EntityKernelTestBase {
       'type'  => 'post',
     ]);
     $this->assertTrue($post->hasTweet());
+  }
+
+  /** @test */
+  public function it_converts_a_post_to_a_tweet(): void {
+    /** @var Post $post */
+    $post = Node::create([
+      'status' => NodeInterface::PUBLISHED,
+      'title' => 'Creating a custom PHPUnit command for DDEV',
+      'type' => 'post',
+    ]);
+    $post->save();
+
+    $expected = <<<EOF
+    Creating a custom PHPUnit command for DDEV
+
+    http://localhost/node/1
+    EOF;
+
+    $this->assertSame($expected, $post->toTweet());
   }
 
   protected function setUp() {
