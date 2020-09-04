@@ -75,11 +75,9 @@ class Post extends Node implements ContentEntityBundleInterface {
   }
 
   private function convertTermToHashtag(Term $tag): string {
-    $tagName = strtolower($tag->label());
-    $tagName = "#{$tagName}";
-    $tagName = str_replace(' ', '-', $tagName);
-
-    return $tagName;
+    return '#' . (new Collection(explode(' ', $tag->label())))
+        ->map(fn(string $word): string => ucfirst($word))
+        ->implode('');
   }
 
 }

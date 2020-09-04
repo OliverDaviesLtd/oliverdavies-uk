@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Drupal\Tests\custom\Kernel\Entity\Node;
 
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
-use Drupal\node\Entity\Node;
-use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\opdavies_blog_test\Factory\PostFactory;
 
 final class PostTest extends EntityKernelTestBase {
@@ -42,7 +40,7 @@ final class PostTest extends EntityKernelTestBase {
   public function it_converts_a_post_to_a_tweet(): void {
     $post = (new PostFactory())
       ->setTitle('Creating a custom PHPUnit command for DDEV')
-      ->withTags(['Automated testing', 'DDEV', 'Drupal', 'PHP'])
+      ->withTags(['Automated testing', 'DDEV', 'Drupal', 'Drupal 8', 'PHP'])
       ->create();
 
     $post->save();
@@ -52,7 +50,7 @@ final class PostTest extends EntityKernelTestBase {
 
     http://localhost/node/1
 
-    #automated-testing #ddev #drupal #php
+    #AutomatedTesting #DDEV #Drupal #Drupal8 #PHP
     EOF;
 
     $this->assertSame($expected, $post->toTweet());
@@ -72,7 +70,7 @@ final class PostTest extends EntityKernelTestBase {
 
     http://localhost/node/1
 
-    #drupal #php
+    #Drupal #PHP
     EOF;
 
     $this->assertSame($expected, $post->toTweet());
