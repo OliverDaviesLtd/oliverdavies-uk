@@ -36,9 +36,9 @@ final class ReorderBlogTagsTest extends EntityKernelTestBase {
     /** @var VocabularyInterface $vocabulary */
     $vocabulary = Vocabulary::load('tags');
 
-    $this->createTerm($vocabulary, ['name' => 'Drupal']); // 1
-    $this->createTerm($vocabulary, ['name' => 'PHP']); // 2
-    $this->createTerm($vocabulary, ['name' => 'Symfony']); // 3
+    $this->createTerm($vocabulary, ['name' => 'Drupal']);
+    $this->createTerm($vocabulary, ['name' => 'PHP']);
+    $this->createTerm($vocabulary, ['name' => 'Symfony']);
 
     $post = $this->createNode([
       'field_tags' => [3, 1, 2],

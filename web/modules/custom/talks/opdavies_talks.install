@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall functions for opdavies_talks.
+ */
+
 declare(strict_types=1);
 
 use Drupal\opdavies_talks\Repository\TalkRepository;
