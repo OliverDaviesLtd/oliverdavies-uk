@@ -15,6 +15,7 @@
         }
     ],
     "require": {
+        "beberlei/assert": "^3.2",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal/admin_toolbar": "^2.0",
