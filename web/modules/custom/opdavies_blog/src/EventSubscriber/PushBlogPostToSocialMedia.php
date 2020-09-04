@@ -32,11 +32,12 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     return [
-      HookEventDispatcherInterface::ENTITY_PRE_SAVE => 'onEntityPreSave',
+      HookEventDispatcherInterface::ENTITY_INSERT => 'onEntityUpdate',
+      HookEventDispatcherInterface::ENTITY_UPDATE => 'onEntityUpdate',
     ];
   }
 
-  public function onEntityPresave(BaseEntityEvent $event): void {
+  public function onEntityUpdate(BaseEntityEvent $event): void {
     $entity = $event->getEntity();
 
     if ($entity->getEntityTypeId() != 'node') {
@@ -72,6 +73,7 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
     ]);
 
     $entity->set('field_sent_to_social_media', TRUE);
+    $entity->save();
   }
 
 }
