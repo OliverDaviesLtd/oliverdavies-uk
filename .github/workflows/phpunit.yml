@@ -1,0 +1,54 @@
+name: Run PHPUnit tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+
+    name: "Run ${{ matrix.test-types }} tests"
+
+    strategy:
+      matrix:
+        test-types:
+          - functional
+          - kernel
+          - unit
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: |
+            ~/.composer/cache/files
+            web/core
+            web/modules/constrib
+            web/themes/contrib
+            vendor
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+
+      - name: Start the local web server
+        run: php -S localhost:8000 -t web 2>&1 &
+        if: matrix.test-types == 'functional'
+
+      - name: Execute tests
+        run: vendor/bin/phpunit --testdox --colors=always --testsuite=${{ matrix.test-types }}
+        env:
+          SIMPLETEST_BASE_URL: http://localhost:8000

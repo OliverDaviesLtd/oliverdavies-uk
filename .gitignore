@@ -2,7 +2,7 @@
 !*/
 !/.gitignore
 !/**/.gitkeep
-!/.github/
+!/.github/**
 !/.idea/
 !/bin/
 !/config/**

@@ -1,0 +1,54 @@
+name: Drupal installation
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    name: Test Drupal site installation
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: |
+            ~/.composer/cache/files
+            web/core
+            web/modules/contrib
+            web/themes/contrib
+            vendor
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+
+      - name: Install Drupal
+        run: >
+          vendor/bin/drush --root=$(pwd)/web
+          site:install -y
+          --existing-config
+          --db-url=sqlite://sites/default/files/.ht.sqlite
+
+      - name: Start a web server
+        run: php -S localhost:8000 -t web 2>&1 &
+
+      - name: Test loading the home page
+        run: curl http://localhost:8000
+
+      - name: Verify the home page has the site name in it
+        run: curl -s http://localhost:8000 | grep "Oliver Davies"
