@@ -19,8 +19,8 @@ final class Event extends Date {
 
   public function __construct(
     array $configuration,
-    $pluginId,
-    $pluginDefinition,
+    string $pluginId,
+    array $pluginDefinition,
     TimeInterface $time
   ) {
     parent::__construct($configuration, $pluginId, $pluginDefinition);
@@ -42,7 +42,7 @@ final class Event extends Date {
     );
   }
 
-  public function query() {
+  public function query(): void {
     $this->ensureMyTable();
 
     $currentDate = Carbon::parse('today')->getTimestamp();

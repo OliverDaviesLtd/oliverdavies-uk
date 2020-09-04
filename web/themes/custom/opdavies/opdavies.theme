@@ -5,13 +5,13 @@
  * Functions to support theming in the Tailwind CSS theme.
  */
 
-use Drupal\custom\Entity\Node\Post;
+use Drupal\opdavies_blog\Entity\Node\Post;
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function opdavies_preprocess_page(array &$variables): void {
-  /** @var \Drupal\custom\Entity\Node\Post|null $node */
+  /** @var Post|null $node */
   $node = $variables['node'] ?? NULL;
   if (!$node) {
     return;

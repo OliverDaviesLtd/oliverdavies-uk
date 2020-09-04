@@ -6,7 +6,7 @@ namespace Drupal\opdavies_talks\Repository;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\opdavies_blog\Entity\Node\Talk;
+use Drupal\opdavies_talks\Entity\Node\Talk;
 use Illuminate\Support\Collection;
 
 final class TalkRepository {

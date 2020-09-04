@@ -30,7 +30,7 @@ final class TalkDateUpdater {
     }
   }
 
-  private function updateNextEventDate(Talk $talk) {
+  private function updateNextEventDate(Talk $talk): void {
     if (!$nextDate = $this->findNextEventDate($talk)) {
       return;
     }
