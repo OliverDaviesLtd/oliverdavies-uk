@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Drupal\opdavies_talks\EventSubscriber;
 
 use Carbon\Carbon;
-use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
+use Drupal\core_event_dispatcher\Event\Entity\AbstractEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_talks\Entity\Node\Talk;
 use Drupal\paragraphs\ParagraphInterface;
@@ -22,7 +22,7 @@ final class UpdateTalkNodeBeforeSave implements EventSubscriberInterface {
     ];
   }
 
-  public function onEntityPreSave(BaseEntityEvent $event): void {
+  public function onEntityPreSave(AbstractEntityEvent $event): void {
     if ($event->getEntity()->getEntityTypeId() != 'node') {
       return;
     }

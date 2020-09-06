@@ -26,6 +26,7 @@ abstract class TalksTestBase extends EntityKernelTestBase {
     'entity_reference_revisions',
     'paragraphs',
     'hook_event_dispatcher',
+    'core_event_dispatcher',
 
     // Custom.
     'opdavies_talks',

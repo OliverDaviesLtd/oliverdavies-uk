@@ -10,6 +10,7 @@ module:
   config_ignore: 0
   config_split: 0
   contextual: 0
+  core_event_dispatcher: 0
   ctools: 0
   datetime: 0
   dblog: 0

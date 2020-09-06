@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\opdavies_blog\EventSubscriber;
 
-use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
+use Drupal\core_event_dispatcher\Event\Entity\AbstractEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\TermInterface;
@@ -21,7 +21,7 @@ final class ReorderBlogTags implements EventSubscriberInterface {
     ];
   }
 
-  public function onEntityPresave(BaseEntityEvent $event): void {
+  public function onEntityPresave(AbstractEntityEvent $event): void {
     $entity = $event->getEntity();
 
     if ($entity->getEntityTypeId() != 'node') {

@@ -6,7 +6,7 @@ namespace Drupal\opdavies_blog\EventSubscriber;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\ImmutableConfig;
-use Drupal\hook_event_dispatcher\Event\Entity\BaseEntityEvent;
+use Drupal\core_event_dispatcher\Event\Entity\AbstractEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use GuzzleHttp\Client;
@@ -37,7 +37,7 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
     ];
   }
 
-  public function onEntityUpdate(BaseEntityEvent $event): void {
+  public function onEntityUpdate(AbstractEntityEvent $event): void {
     $entity = $event->getEntity();
 
     if ($entity->getEntityTypeId() != 'node') {

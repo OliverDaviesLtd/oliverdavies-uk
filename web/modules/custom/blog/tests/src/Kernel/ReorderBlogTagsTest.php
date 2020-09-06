@@ -25,6 +25,7 @@ final class ReorderBlogTagsTest extends EntityKernelTestBase {
     // Contrib.
     'discoverable_entity_bundle_classes',
     'hook_event_dispatcher',
+    'core_event_dispatcher',
 
     // Custom.
     'opdavies_blog_test',
