@@ -2546,17 +2546,17 @@
         },
         {
             "name": "drupal/gin",
-            "version": "3.0.0-alpha23",
+            "version": "3.0.0-alpha26",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "8.x-3.0-alpha23"
+                "reference": "8.x-3.0-alpha26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-alpha23.zip",
-                "reference": "8.x-3.0-alpha23",
-                "shasum": "9bc03cad25b1def9e9327df8c13bc2e11bc61aeb"
+                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-alpha26.zip",
+                "reference": "8.x-3.0-alpha26",
+                "shasum": "de139c54019ed378b00f10a83f079c7e3fe9f916"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -2564,8 +2564,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-alpha23",
-                    "datestamp": "1594643695",
+                    "version": "8.x-3.0-alpha26",
+                    "datestamp": "1598863786",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -2578,20 +2578,31 @@
             ],
             "authors": [
                 {
-                    "name": "dermario",
-                    "homepage": "https://www.drupal.org/user/241276"
+                    "name": "Sascha Eggenberger (saschaeggi)",
+                    "homepage": "https://www.drupal.org/u/saschaeggi",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "saschaeggi",
                     "homepage": "https://www.drupal.org/user/1999056"
                 }
             ],
-            "description": "For a better Content Editor Experience on top of Claro.",
+            "description": "For a better Admin and Content Editor Experience.",
             "homepage": "https://www.drupal.org/project/gin",
             "support": {
                 "source": "https://git.drupalcode.org/project/gin",
                 "issues": "https://www.drupal.org/project/issues/gin"
-            }
+            },
+            "funding": [
+                {
+                    "type": "github",
+                    "url": "https://github.com/sponsors/saschaeggi"
+                },
+                {
+                    "type": "other",
+                    "url": "https://paypal.me/saschaeggi"
+                }
+            ]
         },
         {
             "name": "drupal/honeypot",
