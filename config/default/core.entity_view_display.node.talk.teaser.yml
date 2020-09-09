@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
     - field.field.node.talk.field_slides
+    - field.field.node.talk.field_slides_html
     - field.field.node.talk.field_type
     - field.field.node.talk.field_video
     - node.type.talk
@@ -36,5 +37,6 @@ hidden:
   field_event_date: true
   field_events: true
   field_slides: true
+  field_slides_html: true
   field_type: true
   field_video: true

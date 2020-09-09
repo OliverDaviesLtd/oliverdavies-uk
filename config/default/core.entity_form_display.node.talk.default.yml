@@ -8,10 +8,12 @@ dependencies:
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
     - field.field.node.talk.field_slides
+    - field.field.node.talk.field_slides_html
     - field.field.node.talk.field_type
     - field.field.node.talk.field_video
     - node.type.talk
   module:
+    - link
     - paragraphs
     - path
     - scheduler
@@ -65,6 +67,14 @@ content:
       data_ratio: ''
     third_party_settings: {  }
     type: speakerdeck_widget
+    region: content
+  field_slides_html:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_type:
     weight: 1
