@@ -27,18 +27,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_feedback_url:
-    weight: 5
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   field_link:
     weight: 1
     label: hidden
@@ -77,4 +65,5 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-hidden: {  }
+hidden:
+  field_feedback_url: true
