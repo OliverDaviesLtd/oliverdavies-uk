@@ -149,13 +149,6 @@ nginx_vhosts:
           return 307 $1$2;
       }
 
-      # Talks
-      {% for name in slides_repo_names %}
-        location /slides-{{ name }} {
-          alias /srv/slides-{{ name }}/_static/;
-        }
-      {% endfor %}
-
 certbot_create_if_missing: true
 certbot_create_method: standalone
 certbot_admin_email: oliver+certbot@oliverdavies.uk
@@ -163,6 +156,3 @@ certbot_certs:
   - domains:
     - oliverdavies.uk
     - www.oliverdavies.uk
-
-slides_repo_names:
-  - working-with-workspace
