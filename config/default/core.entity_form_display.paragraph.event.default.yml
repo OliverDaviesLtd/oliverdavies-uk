@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.event.field_date
+    - field.field.paragraph.event.field_feedback_url
     - field.field.paragraph.event.field_link
     - field.field.paragraph.event.field_location
     - field.field.paragraph.event.field_name
@@ -22,6 +23,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_feedback_url:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_link:
     weight: 4

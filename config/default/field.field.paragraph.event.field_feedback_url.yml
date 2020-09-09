@@ -1,0 +1,23 @@
+uuid: 8b3195c1-799e-41d9-b79d-9f27f3c4c500
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feedback_url
+    - paragraphs.paragraphs_type.event
+  module:
+    - link
+id: paragraph.event.field_feedback_url
+field_name: field_feedback_url
+entity_type: paragraph
+bundle: event
+label: 'Feedback URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 2
+field_type: link
