@@ -1,0 +1,21 @@
+uuid: f7f473a3-a0ed-4c74-8f73-5a35c8b3db56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_note
+    - node.type.post
+  module:
+    - text
+id: node.post.field_note
+field_name: field_note
+entity_type: node
+bundle: post
+label: Note
+description: 'A note section to display at the end of the post.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

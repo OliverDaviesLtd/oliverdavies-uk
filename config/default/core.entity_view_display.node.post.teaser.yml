@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.post.field_excerpt
     - field.field.node.post.field_has_tweet
     - field.field.node.post.field_images
+    - field.field.node.post.field_note
     - field.field.node.post.field_sent_to_social_media
     - field.field.node.post.field_series
     - field.field.node.post.field_tags
@@ -38,6 +39,7 @@ hidden:
   field_external_link: true
   field_has_tweet: true
   field_images: true
+  field_note: true
   field_sent_to_social_media: true
   field_series: true
   field_tags: true
