@@ -7,7 +7,7 @@
 
 - name: Install theme dependencies
   command: >
-    npm install
+    npm ci
     chdir={{ release_theme_path }}
     creates={{ release_theme_path }}/node_modules
 
