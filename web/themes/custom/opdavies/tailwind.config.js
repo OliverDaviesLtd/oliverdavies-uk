@@ -93,5 +93,8 @@ module.exports = {
     borderStyle: [...variants.borderStyle, 'hover', 'focus'],
     borderWidth: [...variants.borderWidth, 'hover', 'focus'],
     margin: [...variants.margin, 'first', 'last', 'odd', 'even'],
+  },
+  experimental: {
+    applyComplexClasses: true
   }
 }
