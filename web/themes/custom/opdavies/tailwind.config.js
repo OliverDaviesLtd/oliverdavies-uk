@@ -8,6 +8,7 @@ const { variants } = defaultConfig
 module.exports = {
   important: true,
   purge: {
+    mode: 'layers',
     content: [
       'templates/**/*.twig',
 
@@ -17,9 +18,6 @@ module.exports = {
       // Include any classes stored within body fields.
       'body-field-values.txt'
     ],
-    options: {
-      whitelist: [],
-    }
   },
   theme: {
     typography: (theme) => ({
@@ -96,5 +94,8 @@ module.exports = {
   },
   experimental: {
     applyComplexClasses: true
+  },
+  future: {
+    purgeLayersByDefault: true
   }
 }
