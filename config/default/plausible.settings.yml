@@ -1,0 +1,8 @@
+data_domain: oliverdavies.uk
+visibility:
+  request_path_mode: '0'
+  request_path_pages: ''
+  user_role_mode: '0'
+  user_role_roles:
+    anonymous: anonymous
+    authenticated: 0

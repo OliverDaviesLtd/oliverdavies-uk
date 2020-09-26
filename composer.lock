@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd5d663c215838b5134f059af1a07aac",
+    "content-hash": "93360382c8722947d5a2d047abfd2071",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3269,6 +3269,48 @@
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
             }
+        },
+        {
+            "name": "drupal/plausible",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/plausible.git",
+                "reference": "b49998458cdd2b02834f156132cc0b02ba239b99"
+            },
+            "require": {
+                "drupal/core": "^8.8.6 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1596149122",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "droces",
+                    "homepage": "https://www.drupal.org/user/2996575"
+                }
+            ],
+            "description": "Allows your site to be tracked using Plausible, by adding a Javascript tracking snippet to every page.",
+            "homepage": "https://www.drupal.org/project/plausible",
+            "support": {
+                "source": "https://git.drupalcode.org/project/plausible"
+            },
+            "time": "2020-07-30T22:44:53+00:00"
         },
         {
             "name": "drupal/redirect",
@@ -11216,7 +11258,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/plausible": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
