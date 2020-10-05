@@ -16,7 +16,7 @@
     "highlightjs": "^9.16.2",
     "lodash": ">=4.17.19",
     "postcss-import": "^12.0.1",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^4.0.3",
     "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.8.10",
     "webpack-notifier": "^1.8.0"
