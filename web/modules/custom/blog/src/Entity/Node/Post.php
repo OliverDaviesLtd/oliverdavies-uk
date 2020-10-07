@@ -49,6 +49,10 @@ class Post extends Node implements ContentEntityBundleInterface {
     $this->set('field_tags', $tags);
   }
 
+  public function shouldSendToSocialMedia(): bool {
+    return (bool) $this->get('field_send_to_social_media')->getString();
+  }
+
   public function toTweet(): string {
     $parts = [
       $this->label(),
