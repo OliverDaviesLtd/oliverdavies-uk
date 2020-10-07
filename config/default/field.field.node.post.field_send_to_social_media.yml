@@ -1,0 +1,23 @@
+uuid: d27ec5b4-e52e-4569-988f-31e3de0af32e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_send_to_social_media
+    - node.type.post
+id: node.post.field_send_to_social_media
+field_name: field_send_to_social_media
+entity_type: node
+bundle: post
+label: 'Send to social media'
+description: 'Automatically send this post to Twitter and LinkedIn.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

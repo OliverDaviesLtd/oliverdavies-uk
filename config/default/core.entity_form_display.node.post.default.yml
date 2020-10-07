@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.post.field_has_tweet
     - field.field.node.post.field_images
     - field.field.node.post.field_note
+    - field.field.node.post.field_send_to_social_media
     - field.field.node.post.field_sent_to_social_media
     - field.field.node.post.field_series
     - field.field.node.post.field_tags
@@ -82,6 +83,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_send_to_social_media:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_series:
     weight: 1
