@@ -53,6 +53,10 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
+    if (!$entity->shouldSendToSocialMedia()) {
+      return;
+    }
+
     // If this post has already been sent to social media, do not send it again.
     if ($entity->hasBeenSentToSocialMedia()) {
       return;
