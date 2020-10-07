@@ -33,6 +33,25 @@ final class RelatedPostsTest extends PostTestBase {
     $this->assertSame('Post B', $relatedPosts->first()->label());
   }
 
+  /** @test */
+  public function it_returns_an_empty_collection_if_there_are_no_related_posts(): void {
+    $postA = $this->postFactory
+      ->setTitle('Drupal 8 post')
+      ->withTags(['Drupal 8'])
+      ->create();
+    $postA->save();
+
+    $postB = $this->postFactory
+      ->setTitle('Drupal 9 post')
+      ->withTags(['Drupal 9'])
+      ->create();
+    $postB->save();
+
+    $relatedPosts = $this->relatedPostsRepository->getFor($postA);
+
+    $this->assertEmpty($relatedPosts);
+  }
+
   protected function setUp() {
     parent::setUp();
 
