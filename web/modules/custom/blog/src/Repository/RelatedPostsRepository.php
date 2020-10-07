@@ -20,13 +20,17 @@ final class RelatedPostsRepository {
   }
 
   public function getFor(Post $post): Collection {
-    $posts = $this->nodeStorage->loadByProperties([
-      'type' => 'post',
-    ]);
+    $query = $this->nodeStorage->getQuery();
 
-    return (new Collection($posts))
-      ->filter(fn(Post $relatedPost) => $relatedPost->id() != $post->id())
-      ->values();
+    // Ensure that the current node ID is not returned as a related post.
+    $query->condition('nid', $post->id(), '!=');
+
+    /** @var array $postIds */
+    $postIds = $query->execute();
+
+    $posts = $this->nodeStorage->loadMultiple($postIds);
+
+    return (new Collection($posts))->values();
   }
 
 }
