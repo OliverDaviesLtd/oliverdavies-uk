@@ -1,0 +1,31 @@
+uuid: e0702bdf-0960-4a52-938b-cc6f5f71185b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:3b82b744-c385-448c-a9ca-33a5348905da'
+  module:
+    - block_content
+    - system
+  theme:
+    - opdavies
+id: findmeon
+theme: opdavies
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:3b82b744-c385-448c-a9ca-33a5348905da'
+settings:
+  id: 'block_content:3b82b744-c385-448c-a9ca-33a5348905da'
+  label: 'Find me on'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
