@@ -7,11 +7,9 @@ label: Live
 description: ''
 folder: ../config/splits/live
 module:
-  fathom_analytics: 0
   stage_file_proxy: 0
 theme: {  }
-blacklist:
-  - fathom_analytics.settings
+blacklist: { }
 graylist:
   - system.site
 graylist_dependents: true
