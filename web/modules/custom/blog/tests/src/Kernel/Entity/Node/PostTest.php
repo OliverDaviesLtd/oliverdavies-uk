@@ -24,14 +24,16 @@ final class PostTest extends EntityKernelTestBase {
     'opdavies_blog_test',
   ];
 
+  private PostFactory $postFactory;
+
   /** @test */
   public function it_can_determine_if_a_post_contains_a_tweet(): void {
-    $post = (new PostFactory())->create();
+    $post = $this->postFactory->create();
     $post->save();
 
     $this->assertFalse($post->hasTweet());
 
-    $post = (new PostFactory())->create([Post::FIELD_HAS_TWEET => TRUE]);
+    $post = $this->postFactory->create([Post::FIELD_HAS_TWEET => TRUE]);
     $post->save();
 
     $this->assertTrue($post->hasTweet());
@@ -39,7 +41,7 @@ final class PostTest extends EntityKernelTestBase {
 
   /** @test */
   public function it_converts_a_post_to_a_tweet(): void {
-    $post = (new PostFactory())
+    $post = $this->postFactory
       ->setTitle('Creating a custom PHPUnit command for DDEV')
       ->withTags(['Automated testing', 'DDEV', 'Drupal', 'Drupal 8', 'PHP'])
       ->create();
@@ -59,7 +61,7 @@ final class PostTest extends EntityKernelTestBase {
 
   /** @test */
   public function certain_terms_are_not_added_as_hashtags(): void {
-    $post = (new PostFactory())
+    $post = $this->postFactory
       ->setTitle('Drupal Planet should not be added as a hashtag')
       ->withTags(['Drupal', 'Drupal Planet', 'PHP'])
       ->create();
@@ -79,6 +81,8 @@ final class PostTest extends EntityKernelTestBase {
 
   protected function setUp() {
     parent::setUp();
+
+    $this->postFactory = $this->container->get(PostFactory::class);
 
     $this->installEntitySchema('taxonomy_term');
 

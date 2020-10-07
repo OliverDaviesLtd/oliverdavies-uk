@@ -9,16 +9,20 @@ use Drupal\opdavies_blog_test\Factory\PostFactory;
 
 final class RelatedPostsTest extends PostTestBase {
 
+  private PostFactory $postFactory;
+
   private RelatedPostsRepository $relatedPostsRepository;
 
   /** @test */
   public function it_returns_related_posts(): void {
-    $postA = (new PostFactory())->setTitle('Post A')
+    $postA = $this->postFactory
+      ->setTitle('Post A')
       ->withTags(['Drupal 8'])
       ->create();
     $postA->save();
 
-    $postB = (new PostFactory())->setTitle('Post B')
+    $postB = $this->postFactory
+      ->setTitle('Post B')
       ->withTags(['Drupal 8'])
       ->create();
     $postB->save();
@@ -32,6 +36,7 @@ final class RelatedPostsTest extends PostTestBase {
   protected function setUp() {
     parent::setUp();
 
+    $this->postFactory = $this->container->get(PostFactory::class);
     $this->relatedPostsRepository = $this->container->get(RelatedPostsRepository::class);
   }
 

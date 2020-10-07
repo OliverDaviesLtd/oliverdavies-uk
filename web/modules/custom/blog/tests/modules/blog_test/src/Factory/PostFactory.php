@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Drupal\opdavies_blog_test\Factory;
 
 use Assert\Assert;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\Entity\Node;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\Entity\Term;
@@ -13,11 +16,17 @@ use Tightenco\Collect\Support\Collection;
 
 final class PostFactory {
 
+  private EntityStorageInterface $termStorage;
+
   private Collection $tags;
 
   private string $title = 'This is a test blog post';
 
-  public function __construct() {
+  public function __construct(
+    EntityTypeManagerInterface $entityTypeManager
+  ) {
+    $this->termStorage = $entityTypeManager->getStorage('taxonomy_term');
+
     $this->tags = new Collection();
   }
 
@@ -47,15 +56,25 @@ final class PostFactory {
   }
 
   public function withTags(array $tags): self {
+    $this->tags = new Collection();
+
     foreach ($tags as $tag) {
       Assert::that($tag)->notEmpty()->string();
 
-      $this->tags->push(
-        Term::create(['vid' => 'tags', 'name' => $tag])
-      );
+      $this->tags->push($this->createOrReferenceTag($tag));
     }
 
     return $this;
+  }
+
+  private function createOrReferenceTag(string $tag): EntityInterface {
+    $existingTags = $this->termStorage->loadByProperties(['name' => $tag]);
+
+    if ($existingTags) {
+      return reset($existingTags);
+    }
+
+    return Term::create(['vid' => 'tags', 'name' => $tag]);
   }
 
 }
