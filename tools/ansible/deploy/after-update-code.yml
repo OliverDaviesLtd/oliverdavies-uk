@@ -20,13 +20,6 @@
     chdir={{ release_web_path }}
   changed_when: false
 
-- name: Import configuration
-  command: >
-    {{ release_drush_path }} config-import -y
-    chdir={{ release_web_path }}
-  register: config_import_result
-  changed_when: "'There are no changes to import' not in config_import_result.stderr"
-
 - name: Run database updates
   command: >
     {{ release_drush_path }}
@@ -34,5 +27,12 @@
     chdir={{ release_web_path }}
   register: update_database_result
   changed_when: "'No pending updates' not in update_database_result.stderr"
+
+- name: Import configuration
+  command: >
+    {{ release_drush_path }} config-import -y
+    chdir={{ release_web_path }}
+  register: config_import_result
+  changed_when: "'There are no changes to import' not in config_import_result.stderr"
 
 - include: ../includes/build-theme-assets.yml
