@@ -5,11 +5,12 @@ features:
   favicon: true
 favicon:
   use_default: true
-enable_darkmode: true
-preset_accent_color: blue
+enable_darkmode: false
+preset_accent_color: claro_blue
 accent_color: '#000000'
 preset_focus_color: gin
 focus_color: '#000000'
-classic_toolbar: false
+classic_toolbar: horizontal
 icon_default: true
 icon_upload: ''
+high_contrast_mode: false
