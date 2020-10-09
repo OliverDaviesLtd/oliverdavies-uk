@@ -6,16 +6,22 @@
     - ./vars/digitalocean_vault.yml
     - ./vars/digitalocean_vars.yml
 
-  tasks:
-    - name: Create a Droplet
-      digital_ocean_droplet:
-        state: present
-        name: oliverdavies-uk
-        oauth_token: '{{ digitalocean_api_key }}'
-        size: 1gb
-        region: lon1
-        image: ubuntu-16-04-x64
-        wait_timeout: 500
-      register: droplet
+  vars:
+    droplets:
+      - { name: "oliverdavies-uk-web2", group: "oliverdavies-uk" }
+      - { name: "oliverdavies-uk-db", group: "oliverdavies-uk" }
 
-    - debug: var=droplet
+  tasks:
+    - name: Provision DigitalOcean droplets
+      digital_ocean_droplet:
+        state: "{{ item.state | default('present') }}"
+        name: "{{ item.name }}"
+        oauth_token: "{{ digitalocean_api_key }}"
+        size: "{{ item.size | default('1gb') }}"
+        region: "{{ item.region | default('lon1') }}"
+        image: "{{ item.image | default('ubuntu-20-04-x64') }}"
+        unique_name: yes
+        ssh_keys:
+          - 28701873
+      register: created_droplets 
+      with_items: "{{ droplets }}"

@@ -2,11 +2,6 @@
 security_ssh_permit_root_login: 'yes'
 security_ssh_port: 2849
 
-firewall_allowed_tcp_ports:
-  - 80
-  - 443
-  - 2849
-
 php_default_version_debian: '{{ php_version }}'
 php_enable_php_fpm: true
 php_version: 7.4
@@ -27,10 +22,8 @@ app_mysql_password: '{{ vault_app_mysql_password }}'
 mysql_packages:
   - mariadb-client
   - mariadb-server
-  - python-mysqldb
+  - python3-mysqldb
 
-mysql_databases:
-  - name: oliverdavies_uk
 
 nginx_remove_default_vhost: true
 nginx_server_tokens: 'off'

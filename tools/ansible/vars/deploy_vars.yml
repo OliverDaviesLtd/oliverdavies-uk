@@ -10,7 +10,7 @@ ansistrano_shared_paths:
 
 # Hooks
 ansistrano_after_update_code_tasks_file: '{{ playbook_dir }}/deploy/after-update-code.yml'
-ansistrano_before_symlink_tasks_file: '{{ playbook_dir }}/deploy/before-symlink.yml'
+# ansistrano_before_symlink_tasks_file: '{{ playbook_dir }}/deploy/before-symlink.yml'
 
 app_hash_salt: '{{ vault_app_hash_salt }}'
 
@@ -41,11 +41,12 @@ drupal_settings:
             default:
               default:
                 driver: mysql
-                host: localhost
+                host: '10.131.0.3'
                 database: oliverdavies_uk
                 username: '{{ app_mysql_user }}'
                 password: '{{ app_mysql_password }}'
           trusted_hosts:
+            - '^new-www\.oliverdavies\.uk$'
             - '^www\.oliverdavies\.uk$'
           extra_parameters: |
             $settings['deployment_identifier'] = '{{ ansistrano_release_version }}';

@@ -6,20 +6,22 @@
 - name: geerlingguy.certbot
   version: 3.0.3
 - name: geerlingguy.composer
-  version: 1.7.3
+  version: 1.9.0
 - name: geerlingguy.firewall
-  version: 2.4.3
+  version: 2.5.0
 - name: geerlingguy.mysql
-  version: 2.9.4
+  version: 3.3.0
 - name: geerlingguy.nginx
   version: 2.7.0
 - name: geerlingguy.nodejs
   version: 5.1.1
 - name: geerlingguy.php
   version: 3.7.0
+- name: geerlingguy.php-mysql
+  version: 2.1.0
 - name: geerlingguy.php-versions
   version: 4.0.2
 - name: geerlingguy.security
-  version: 1.9.0
+  version: 2.0.1
 - name: opdavies.drupal_settings_files
   version: 0.1.0
