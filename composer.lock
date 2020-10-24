@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcefedfd2f7ee2173cec5928b432d12a",
+    "content-hash": "251bb73361539f16425f518ae1c2a858",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7699,6 +7699,44 @@
                 }
             ],
             "time": "2020-05-11T07:51:54+00:00"
+        },
+        {
+            "name": "topfloor/composer-cleanup-vcs-dirs",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TopFloorTech/composer-cleanup-vcs-dirs.git",
+                "reference": "0158853dd054321b5048108ed5532c4b5e002d1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TopFloorTech/composer-cleanup-vcs-dirs/zipball/0158853dd054321b5048108ed5532c4b5e002d1b",
+                "reference": "0158853dd054321b5048108ed5532c4b5e002d1b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0.0",
+                "php": ">=5.5",
+                "symfony/finder": "*"
+            },
+            "require-dev": {
+                "composer/composer": "dev-master"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "TopFloor\\ComposerCleanupVcsDirs\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "TopFloor\\ComposerCleanupVcsDirs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Automatically deletes .git directories in newly installed or updated dependencies.",
+            "time": "2016-10-06T04:35:51+00:00"
         },
         {
             "name": "twig/twig",
