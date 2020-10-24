@@ -170,7 +170,20 @@ display:
             label: ''
           granularity: second
       title: Blog
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: 'I enjoy writing articles and have written a number of them so far during my career, both to document my own learning as well to act as resources for others.'
+            format: full_html
+          plugin_id: text
       footer: {  }
       empty: {  }
       relationships: {  }
