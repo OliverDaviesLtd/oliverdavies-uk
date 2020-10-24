@@ -48,6 +48,7 @@
 %}
 {% block paragraph %}
   {% set date = paragraph.field_date.0.value %}
+  {% set is_online = paragraph.field_is_online.0.value %}
   {% set is_remote = paragraph.field_remote.0.value %}
   {% set location = paragraph.field_location.0.value %}
   {% set name = paragraph.field_name.0.value %}
@@ -65,6 +66,10 @@
         {{ 'in'|t }}
         {{ location }}
       {%- endif %}
+
+      {% if is_online %}
+        {{ '(Online)'|t }}
+      {% endif %}
 
       {% if is_remote %}
         {{ '(Remote)'|t }}
