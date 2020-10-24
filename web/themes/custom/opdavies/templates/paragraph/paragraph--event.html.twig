@@ -47,26 +47,30 @@
 ]
 %}
 {% block paragraph %}
+  {% set date = paragraph.field_date.0.value %}
+  {% set is_remote = paragraph.field_remote.0.value %}
+  {% set location = paragraph.field_location.0.value %}
+  {% set name = paragraph.field_name.0.value %}
+  {% set url = paragraph.field_link.0.url %}
 
-  <div{{ attributes.addClass(classes).addClass('') }}>
+  <div{{ attributes.addClass(classes) }}>
     {% block content %}
-        {% set url = paragraph.field_link.0.url %}
-        {% if url %}
-          {{ link(paragraph.field_name.0.value, url) -}}
-        {% else %}
-          {{ content.field_name -}}
-        {% endif -%}
+      {% if url %}
+        {{ link(name, url) -}}
+      {% else %}
+        {{ name -}}
+      {% endif -%}
 
-      {%- if content.field_location is not empty %}
-          {{ 'in'|t }}
-          {{ content.field_location }}
+      {%- if location is not empty %}
+        {{ 'in'|t }}
+        {{ location }}
       {%- endif %}
 
-      {% if paragraph.field_remote.0.value %}
+      {% if is_remote %}
         {{ '(Remote)'|t }}
       {% endif %}
 
-      <span>- {{ paragraph.field_date.0.value|date('jS F Y') }}</span>
+      <span>- {{ date|date('jS F Y') }}</span>
 
       {{ content.without('field_remote') }}
     {% endblock %}
