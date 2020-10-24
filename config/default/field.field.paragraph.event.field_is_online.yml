@@ -1,0 +1,23 @@
+uuid: 63f3d4c3-f079-4c26-828a-df0ea5bb2568
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_is_online
+    - paragraphs.paragraphs_type.event
+id: paragraph.event.field_is_online
+field_name: field_is_online
+entity_type: paragraph
+bundle: event
+label: 'Is online'
+description: 'Was this talk presented at an online event?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

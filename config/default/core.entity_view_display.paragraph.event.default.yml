@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.event.field_date
     - field.field.paragraph.event.field_feedback_url
+    - field.field.paragraph.event.field_is_online
     - field.field.paragraph.event.field_link
     - field.field.paragraph.event.field_location
     - field.field.paragraph.event.field_name
@@ -26,6 +27,16 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_is_online:
+    weight: 5
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_link:
     weight: 1

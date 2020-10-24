@@ -9,7 +9,7 @@ id: paragraph.event.field_remote
 field_name: field_remote
 entity_type: paragraph
 bundle: event
-label: Remote
+label: 'Is remote'
 description: 'Was this talk presented remotely?'
 required: false
 translatable: false
