@@ -11,8 +11,8 @@ additional_fqdns: []
 provider: default
 hooks:
   post-start:
-  - composer: install
-  - exec-host: ddev theme development
+  - exec: "[[ ! -f .flag-built ]] && composer install || exit 0"
+  - exec-host: "[[ ! -f .flag-built ]] && ddev theme development || exit 0"
   post-import-db:
   - exec: drush sql-sanitize -y --sanitize-password=password
   - exec: drush cr
