@@ -93,7 +93,8 @@ module.exports = {
     margin: [...variants.margin, 'first', 'last', 'odd', 'even'],
   },
   experimental: {
-    applyComplexClasses: true
+    applyComplexClasses: true,
+    darkModeVariant: true
   },
   future: {
     purgeLayersByDefault: true
