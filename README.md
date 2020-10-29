@@ -36,6 +36,29 @@ Production settings files are generated automatically during a deployment. This 
 
 [drupal_settings_files]: https://galaxy.ansible.com/opdavies/drupal_settings_files
 
+## Local development
+
+Local development is done using [DDEV-Local](https://www.ddev.com/ddev-local).
+
+### Custom DDEV commands
+
+#### Drupal
+
+| Command | Description |
+| --- | --- |
+| `ddev app install` | Install the site based on the existing config |
+| `ddev app refresh` | Re-import the existing config and rebuild cache |
+
+#### Front-end
+
+| Command | Description |
+| --- | --- |
+| `ddev theme build` | Compile a production (minified and purged) version of the theme's CSS and JS |
+| `ddev theme dev` | Compile a development version of the theme's CSS and JS |
+| `ddev theme install` | Install the node dependencies for the theme |
+| `ddev theme ssh` | SSH into the theme directory within the web container |
+| `ddev theme watch` | Compile a development version of the theme's CSS and JS, and watch for changes |
+
 ## Migrating data into the website
 
 To view the status of all the migrations:
