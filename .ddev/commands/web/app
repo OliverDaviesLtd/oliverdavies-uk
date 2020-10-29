@@ -11,9 +11,14 @@ if [ $# -eq 0 ] ; then
 fi
 
 case $1 in
-  install|refresh)
+  install)
     drush site:install -y --account-pass=admin123 --existing-config
     drush user:login
+    ;;
+
+  refresh)
+    drush config-import -y
+    drush cache-rebuild
     ;;
 
   *)
