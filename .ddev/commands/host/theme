@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
 ## Description: Helper commands for the for theme
-## Usage: theme development|install|production|ssh|watch
+## Usage: theme build|dev|install|ssh|watch
 
 set -e
 
 THEME_PATH="/var/www/html/$DDEV_DOCROOT/themes/custom/opdavies"
 
 case $1 in
+  build|prod|production)
+    ddev theme install
+    ddev exec -d $THEME_PATH npm run production
+    ;;
+
   dev|development)
     ddev theme install
     ddev exec -d $THEME_PATH npm run development
@@ -15,11 +20,6 @@ case $1 in
 
   install)
     ddev exec -d $THEME_PATH npm ci
-    ;;
-
-  prod|production)
-    ddev theme install
-    ddev exec -d $THEME_PATH npm run production
     ;;
 
   ssh)
