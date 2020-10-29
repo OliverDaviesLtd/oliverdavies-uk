@@ -12,6 +12,7 @@ provider: default
 hooks:
   post-start:
   - composer: install
+  - exec-host: ddev theme development
   post-import-db:
   - exec: drush sql-sanitize -y --sanitize-password=password
   - exec: drush cr
