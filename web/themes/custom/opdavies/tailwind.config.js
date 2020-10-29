@@ -69,7 +69,9 @@ module.exports = {
           750: "#2e3136",
           800: "#1e2125",
           900: "#18171b",
-        }
+        },
+
+        'blue.500': '#42a7ff'
       },
       fontFamily: {
         mono: [
