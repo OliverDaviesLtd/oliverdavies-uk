@@ -10,6 +10,8 @@ additional_hostnames: []
 additional_fqdns: []
 provider: default
 hooks:
+  post-start:
+  - composer: install
   post-import-db:
   - exec: drush sql-sanitize -y --sanitize-password=password
   - exec: drush cr
