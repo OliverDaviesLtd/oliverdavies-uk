@@ -55,6 +55,19 @@ module.exports = {
           'pre code::before': false,
           'pre code::after': false
         }
+      },
+      dark: {
+        css: {
+          color: theme('colors.gray.200'),
+
+          h2: {
+            color: theme('colors.white')
+          },
+
+          strong: {
+            color: theme('colors.gray.200')
+          }
+        }
       }
     }),
     extend: {
@@ -103,6 +116,7 @@ module.exports = {
     borderStyle: [...variants.borderStyle, 'hover', 'focus'],
     borderWidth: [...variants.borderWidth, 'hover', 'focus'],
     margin: [...variants.margin, 'first', 'last', 'odd', 'even'],
+    typography: ['responsive', 'dark']
   },
   experimental: {
     applyComplexClasses: true,
