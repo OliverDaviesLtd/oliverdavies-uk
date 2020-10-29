@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+## Description: Helper commands for the for theme
+## Usage: theme development|install|production|ssh|watch
+
+set -e
+
+THEME_PATH="/var/www/html/$DDEV_DOCROOT/themes/custom/opdavies"
+
+case $1 in
+  dev|development)
+    ddev theme install
+    ddev exec -d $THEME_PATH npm run development
+    ;;
+
+  install)
+    ddev exec -d $THEME_PATH npm ci
+    ;;
+
+  prod|production)
+    ddev theme install
+    ddev exec -d $THEME_PATH npm run production
+    ;;
+
+  ssh)
+    ddev ssh -d $THEME_PATH
+    ;;
+
+  watch)
+    ddev theme install
+    ddev exec -d $THEME_PATH npm run watch
+    ;;
+
+  *)
+    echo "Invalid argument: $1"
+    ;;
+esac
