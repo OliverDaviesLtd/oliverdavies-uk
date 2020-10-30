@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Unlabel the closed issue
-        uses: actions-ecosystem/action-remove-labels@v1
+        uses: actions-ecosystem/action-remove-labels@556e306
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: next

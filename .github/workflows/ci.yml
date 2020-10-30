@@ -13,10 +13,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@d974700
         with:
           path: |
             ~/.composer/cache/files
@@ -27,7 +27,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@5d27b8f
         with:
           php-version: 7.4
           extensions: mbstring
@@ -67,10 +67,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@d974700
         with:
           path: |
             ~/.composer/cache/files
@@ -81,7 +81,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@5d27b8f
         with:
           php-version: 7.4
           extensions: mbstring
@@ -107,10 +107,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@d974700
         with:
           path: |
             ~/.composer/cache/files
@@ -121,7 +121,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@5d27b8f
         with:
           php-version: 7.4
           tools: composer:v1
@@ -139,10 +139,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@d974700
         with:
           path: |
             ~/.composer/cache/files
@@ -153,7 +153,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@5d27b8f
         with:
           php-version: 7.4
           tools: composer:v1
