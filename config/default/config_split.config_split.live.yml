@@ -5,7 +5,7 @@ dependencies: {  }
 id: live
 label: Live
 description: ''
-folder: ../config/splits/live
+folder: ../../config_splits/live
 module:
   stage_file_proxy: 0
 theme: {  }
