@@ -1,0 +1,165 @@
+name: CI
+
+on:
+  push:
+    branches: [production]
+  pull_request:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    name: Test Drupal site installation
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: |
+            ~/.composer/cache/files
+            web/core
+            web/modules/contrib
+            web/themes/contrib
+            vendor
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring
+          coverage: none
+          tools: composer:v1
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+
+      - name: Install Drupal
+        run: >
+          vendor/bin/drush --root=$(pwd)/web
+          site:install -y
+          --existing-config
+          --db-url=sqlite://sites/default/files/.ht.sqlite
+
+      - name: Start a web server
+        run: php -S localhost:8000 -t web 2>&1 &
+
+      - name: Test loading the home page
+        run: curl http://localhost:8000
+
+      - name: Verify the home page has the site name in it
+        run: curl -s http://localhost:8000 | grep "Oliver Davies"
+
+  phpunit:
+    runs-on: ubuntu-latest
+
+    name: "Run ${{ matrix.test-types }} tests"
+
+    strategy:
+      matrix:
+        test-types:
+          - functional
+          - kernel
+          - unit
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: |
+            ~/.composer/cache/files
+            web/core
+            web/modules/constrib
+            web/themes/contrib
+            vendor
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring
+          coverage: none
+          tools: composer:v1
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+
+      - name: Start the local web server
+        run: php -S localhost:8000 -t web 2>&1 &
+        if: matrix.test-types == 'functional'
+
+      - name: Execute tests
+        run: vendor/bin/phpunit --testdox --colors=always --testsuite=${{ matrix.test-types }}
+        env:
+          SIMPLETEST_BASE_URL: http://localhost:8000
+
+  phpcs:
+    runs-on: ubuntu-latest
+
+    name: "Run coding standards checks"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: |
+            ~/.composer/cache/files
+            web/core
+            web/modules/constrib
+            web/themes/contrib
+            vendor
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          tools: composer:v1
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+
+      - name: Run checks
+        run: vendor/bin/phpcs -s --warning-severity=6
+
+  phpstan:
+    runs-on: ubuntu-latest
+
+    name: Static analysis with PHPStan
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: |
+            ~/.composer/cache/files
+            web/core
+            web/modules/constrib
+            web/themes/contrib
+            vendor
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          tools: composer:v1
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+
+      - name: Run checks
+        run: vendor/bin/phpstan analyze
