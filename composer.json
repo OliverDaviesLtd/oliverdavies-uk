@@ -68,6 +68,7 @@
         "drupal-scaffold": {
             "file-mapping": {
                 "[web-root]/.htaccess": false,
+                "[web-root]/.ht.router.php": false,
                 "[web-root]/sites/README.txt": false,
                 "[web-root]/modules/README.txt": false,
                 "[web-root]/profiles/README.txt": false,
