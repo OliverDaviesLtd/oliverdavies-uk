@@ -34,6 +34,9 @@ jobs:
           coverage: none
           tools: composer:v1
 
+      - name: Ensure that composer.json and composer.lock are in sync
+        run: composer validate
+
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
 
