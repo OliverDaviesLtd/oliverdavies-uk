@@ -48,7 +48,7 @@
         "topfloor/composer-cleanup-vcs-dirs": "^1.0"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "drupal/coder": "^8.3",
         "drupal/core-dev": "^8.8",
         "mglaman/phpstan-drupal": "^0.12.3",
