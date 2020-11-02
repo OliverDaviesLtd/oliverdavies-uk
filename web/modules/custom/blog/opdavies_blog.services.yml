@@ -1,4 +1,9 @@
 services:
+  Drupal\opdavies_blog\EventSubscriber\DisplayMessageOnOldPosts:
+    autowire: true
+    tags:
+      - { name: event_subscriber }
+
   Drupal\opdavies_blog\EventSubscriber\PushBlogPostToSocialMedia:
     autowire: true
     tags:
