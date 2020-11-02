@@ -2,8 +2,7 @@
 name: Deploy
 
 on:
-  pull_request:
-    types: closed
+  push:
     branches:
       - production
   workflow_dispatch:
