@@ -60,7 +60,7 @@ module.exports = {
         css: {
           color: theme('colors.gray.200'),
 
-          h2: {
+          'h2, h3': {
             color: theme('colors.white')
           },
 
