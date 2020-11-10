@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\Tests\custom\Kernel\Entity\Node;
 
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
+use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\opdavies_blog_test\Factory\PostFactory;
 
 final class PostTest extends EntityKernelTestBase {
@@ -30,7 +31,7 @@ final class PostTest extends EntityKernelTestBase {
 
     $this->assertFalse($post->hasTweet());
 
-    $post = (new PostFactory())->create(['field_has_tweet' => TRUE]);
+    $post = (new PostFactory())->create([Post::FIELD_HAS_TWEET => TRUE]);
     $post->save();
 
     $this->assertTrue($post->hasTweet());

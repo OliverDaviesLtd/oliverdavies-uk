@@ -20,8 +20,14 @@ use Illuminate\Support\Collection;
  */
 class Post extends Node implements ContentEntityBundleInterface {
 
+  public const FIELD_EXTERNAL_LINK = 'field_external_link';
+  public const FIELD_HAS_TWEET = 'field_has_tweet';
+  public const FIELD_SEND_TO_SOCIAL_MEDIA = 'field_send_to_social_media';
+  public const FIELD_SENT_TO_SOCIAL_MEDIA = 'field_sent_to_social_media';
+  public const FIELD_TAGS = 'field_tags';
+
   public function getExternalLink(): ?array {
-    return ($link = $this->get('field_external_link')->get(0))
+    return ($link = $this->get(self::FIELD_EXTERNAL_LINK)->get(0))
       ? $link->getValue()
       : NULL;
   }
@@ -30,15 +36,15 @@ class Post extends Node implements ContentEntityBundleInterface {
    * @return Collection|Term[]
    */
   public function getTags(): Collection {
-    return new Collection($this->get('field_tags')->referencedEntities());
+    return new Collection($this->get(self::FIELD_TAGS)->referencedEntities());
   }
 
   public function hasBeenSentToSocialMedia(): bool {
-    return (bool) $this->get('field_sent_to_social_media')->getString();
+    return (bool) $this->get(self::FIELD_SENT_TO_SOCIAL_MEDIA)->getString();
   }
 
   public function hasTweet(): bool {
-    return (bool) $this->get('field_has_tweet')->getString();
+    return (bool) $this->get(self::FIELD_HAS_TWEET)->getString();
   }
 
   public function isExternalPost(): bool {
@@ -46,11 +52,11 @@ class Post extends Node implements ContentEntityBundleInterface {
   }
 
   public function setTags(array $tags): void {
-    $this->set('field_tags', $tags);
+    $this->set(self::FIELD_TAGS, $tags);
   }
 
   public function shouldSendToSocialMedia(): bool {
-    return (bool) $this->get('field_send_to_social_media')->getString();
+    return (bool) $this->get(self::FIELD_SEND_TO_SOCIAL_MEDIA)->getString();
   }
 
   public function toTweet(): string {

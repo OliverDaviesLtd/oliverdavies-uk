@@ -42,8 +42,8 @@ final class ReorderBlogTagsTest extends EntityKernelTestBase {
     $this->createTerm($vocabulary, ['name' => 'Symfony']);
 
     $post = $this->createNode([
-      'field_tags' => [3, 1, 2],
       'type' => 'post',
+      Post::FIELD_TAGS => [3, 1, 2],
     ]);
 
     /** @var Post $post */

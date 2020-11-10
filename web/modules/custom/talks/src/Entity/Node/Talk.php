@@ -18,24 +18,27 @@ use Illuminate\Support\Collection;
  */
 class Talk extends Node implements ContentEntityBundleInterface {
 
+  public const FIELD_EVENTS = 'field_events';
+  public const FIELD_EVENT_DATE = 'field_event_date';
+
   public function addEvent(ParagraphInterface $event): void {
     $this->set(
-      'field_events',
+      self::FIELD_EVENTS,
       $this->getEvents()->push($event)->toArray()
     );
   }
 
   public function getEvents(): Collection {
-    return Collection::make($this->get('field_events')
+    return Collection::make($this->get(self::FIELD_EVENTS)
       ->referencedEntities());
   }
 
   public function getNextDate(): ?int {
-    if ($this->get('field_event_date')->isEmpty()) {
+    if ($this->get(self::FIELD_EVENT_DATE)->isEmpty()) {
       return NULL;
     }
 
-    return (int) $this->get('field_event_date')->getString();
+    return (int) $this->get(self::FIELD_EVENT_DATE)->getString();
   }
 
   /**
@@ -51,7 +54,7 @@ class Talk extends Node implements ContentEntityBundleInterface {
   }
 
   public function setNextDate(int $date): void {
-    $this->set('field_event_date', $date);
+    $this->set(self::FIELD_EVENT_DATE, $date);
   }
 
 }

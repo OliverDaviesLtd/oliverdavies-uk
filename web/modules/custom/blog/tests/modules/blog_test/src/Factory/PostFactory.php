@@ -27,9 +27,9 @@ final class PostFactory {
     });
 
     $values = [
-      'field_tags' => $this->tags->toArray(),
       'title' => $this->title,
       'type' => 'post',
+      Post::FIELD_TAGS => $this->tags->toArray(),
     ];
 
     /** @var Post $post */

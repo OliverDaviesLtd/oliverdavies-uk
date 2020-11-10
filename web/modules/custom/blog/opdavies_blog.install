@@ -7,6 +7,7 @@
 
 declare(strict_types=1);
 
+use Drupal\opdavies_blog\Entity\Post;
 use Drupal\opdavies_blog\Repository\PostRepository;
 
 /**
@@ -16,7 +17,7 @@ function opdavies_blog_update_8001(): void {
   $posts = \Drupal::service(PostRepository::class)->getAll();
 
   foreach ($posts as $post) {
-    $post->set('field_sent_to_social_media', TRUE);
+    $post->set(Post::FIELD_SENT_TO_SOCIAL_MEDIA, TRUE);
     $post->save();
   }
 }

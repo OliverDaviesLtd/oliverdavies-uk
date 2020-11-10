@@ -48,7 +48,7 @@ final class UpdateTalkNodeBeforeSave implements EventSubscriberInterface {
     // If the original event IDs don't match the sorted event IDs, update the
     // event field to use the sorted ones.
     if ($events->map->id() != $eventsByDate->map->id()) {
-      $talk->set('field_events', $eventsByDate->toArray());
+      $talk->set(Talk::FIELD_EVENTS, $eventsByDate->toArray());
     }
   }
 
