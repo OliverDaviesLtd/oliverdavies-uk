@@ -51,6 +51,12 @@ class Post extends Node implements ContentEntityBundleInterface {
     return (bool) $this->getExternalLink();
   }
 
+  public function markAsSentToSocialMedia(): self {
+    $this->set(self::FIELD_SENT_TO_SOCIAL_MEDIA, TRUE);
+
+    return $this;
+  }
+
   public function setTags(array $tags): void {
     $this->set(self::FIELD_TAGS, $tags);
   }

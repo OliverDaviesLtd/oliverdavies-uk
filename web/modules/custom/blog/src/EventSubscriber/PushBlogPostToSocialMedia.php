@@ -76,7 +76,7 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       ],
     ]);
 
-    $entity->set(Post::FIELD_SENT_TO_SOCIAL_MEDIA, TRUE);
+    $entity->markAsSentToSocialMedia();
     $entity->save();
   }
 

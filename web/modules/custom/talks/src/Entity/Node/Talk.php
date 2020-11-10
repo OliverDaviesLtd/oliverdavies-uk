@@ -53,6 +53,10 @@ class Talk extends Node implements ContentEntityBundleInterface {
       ->max();
   }
 
+  public function setEvents(array $events): void {
+    $this->set(self::FIELD_EVENTS, $events);
+  }
+
   public function setNextDate(int $date): void {
     $this->set(self::FIELD_EVENT_DATE, $date);
   }
