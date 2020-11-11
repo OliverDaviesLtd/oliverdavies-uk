@@ -49,6 +49,7 @@ module:
   plausible: 0
   redirect: 0
   scheduler: 0
+  shortcut: 0
   simple_sitemap: 0
   simple_sitemap_engines: 0
   speakerdeck_field: 0
