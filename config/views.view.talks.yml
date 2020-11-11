@@ -155,7 +155,7 @@ display:
             label: ''
           granularity: second
           plugin_id: event_sort
-      title: Talks
+      title: Talks and Workshops
       header:
         area:
           id: area
@@ -167,7 +167,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: 'After giving my first talk in September 2012, I have now given [opdavies_talks:talk_count] presentations at various conferences and meetups, in-person and remotely, on topics including PHP, Drupal, Git, CSS, and systems administration.'
+            value: 'After giving my first talk in September 2012, I have now given [opdavies_talks:talk_count] presentations and workshops at various conferences and meetups, in-person and remotely, on topics including PHP, Drupal, Git, CSS, and systems administration.'
             format: full_html
           plugin_id: text
       footer: {  }
