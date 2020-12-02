@@ -46,7 +46,6 @@ drupal_settings:
                 username: '{{ app_mysql_user }}'
                 password: '{{ app_mysql_password }}'
           trusted_hosts:
-            - '^new-www\.oliverdavies\.uk$'
             - '^www\.oliverdavies\.uk$'
           extra_parameters: |
             $settings['deployment_identifier'] = '{{ ansistrano_release_version }}';
