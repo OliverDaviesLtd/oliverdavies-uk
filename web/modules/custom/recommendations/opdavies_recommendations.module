@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Oliver Davies Recommendations module.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_preprocess_image_style().
+ */
+function opdavies_recommendations_preprocess_image_style(array &$variables): void {
+  if ($variables['style_name'] == 'recommendation') {
+    $image = &$variables['image'];
+
+    $image['#attributes']['class'][] = 'bg-gray-200';
+    $image['#attributes']['height'] = 100;
+    $image['#attributes']['loading'] = 'lazy';
+    $image['#attributes']['width'] = 100;
+  }
+}

@@ -18,6 +18,7 @@ module.exports = {
       // Include any classes stored within body fields.
       'body-field-values.txt'
     ],
+    whitelist: ['bg-gray-200']
   },
   theme: {
     typography: (theme) => ({

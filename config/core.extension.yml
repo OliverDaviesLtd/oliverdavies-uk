@@ -41,6 +41,7 @@ module:
   migrate_tools: 0
   node: 0
   opdavies_blog: 0
+  opdavies_recommendations: 0
   opdavies_talks: 0
   options: 0
   page_cache: 0
