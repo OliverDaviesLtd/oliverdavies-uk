@@ -41,7 +41,9 @@ abstract class TalksTestBase extends EntityKernelTestBase {
       'type' => 'event',
     ], $overrides));
 
-    return tap($event)->save();
+    $event->save();
+
+    return $event;
   }
 
   protected function createTalk(array $overrides = []): Talk {
@@ -50,7 +52,9 @@ abstract class TalksTestBase extends EntityKernelTestBase {
       'type' => 'talk',
     ], $overrides));
 
-    return tap($talk)->save();
+    $talk->save();
+
+    return $talk;
   }
 
   protected function setUp() {

@@ -39,8 +39,8 @@
         "drupal/speakerdeck_field": "^2.0",
         "drupal/stage_file_proxy": "^1.0",
         "drush/drush": "^10",
-        "illuminate/support": "^7.10",
         "nesbot/carbon": "^2.33",
+        "tightenco/collect": "^8.17",
         "topfloor/composer-cleanup-vcs-dirs": "^1.0"
     },
     "require-dev": {
