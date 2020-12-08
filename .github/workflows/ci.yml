@@ -35,7 +35,6 @@ jobs:
           php-version: $php_version
           extensions: mbstring
           coverage: none
-          tools: composer:v1
 
       - name: Ensure that composer.json and composer.lock are in sync
         run: composer validate
@@ -127,7 +126,6 @@ jobs:
           php-version: $php_version
           extensions: mbstring
           coverage: none
-          tools: composer:v1
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
@@ -167,7 +165,6 @@ jobs:
         uses: shivammathur/setup-php@5d27b8f
         with:
           php-version: $php_version
-          tools: composer:v1
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
@@ -201,7 +198,6 @@ jobs:
         uses: shivammathur/setup-php@5d27b8f
         with:
           php-version: $php_version
-          tools: composer:v1
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
