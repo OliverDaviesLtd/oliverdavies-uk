@@ -14,7 +14,7 @@
     "autoprefixer": "^9.8.0",
     "elliptic": ">=6.5.3",
     "lodash": ">=4.17.19",
-    "postcss-import": "^12.0.1",
+    "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.8.10",
