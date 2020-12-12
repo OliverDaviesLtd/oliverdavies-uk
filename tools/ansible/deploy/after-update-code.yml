@@ -2,6 +2,7 @@
 - name: Install Composer dependencies
   composer:
     command: install
+    arguments: --no-interaction
     optimize_autoloader: true
     working_dir: '{{ ansistrano_release_path.stdout }}'
 
