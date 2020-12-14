@@ -23,7 +23,7 @@ working_dir:
   web: /var/www/html
 use_dns_when_possible: true
 composer_version: "2"
-
+omit_containers: [dba]
 
 # This config.yaml was created with ddev version v1.16.1
 # webimage: drud/ddev-webserver:v1.16.1
