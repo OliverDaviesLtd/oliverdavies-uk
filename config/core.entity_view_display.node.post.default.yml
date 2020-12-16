@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.post.field_tags
     - node.type.post
   module:
-    - entity_reference_revisions
     - text
     - user
 id: node.post.default
@@ -30,22 +29,6 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_amendments:
-    type: entity_reference_revisions_entity_view
-    weight: 3
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
-  field_note:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
     region: content
   field_tags:
     weight: 4
@@ -61,10 +44,12 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_amendments: true
   field_excerpt: true
   field_external_link: true
   field_has_tweet: true
   field_images: true
+  field_note: true
   field_send_to_social_media: true
   field_sent_to_social_media: true
   field_series: true
