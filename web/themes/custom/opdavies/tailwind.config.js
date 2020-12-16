@@ -28,10 +28,7 @@ module.exports = {
             color: theme('colors.blue.500')
           },
           code: {
-            backgroundColor: theme('colors.gray.200'),
-            borderColor: theme('colors.gray.400'),
-            borderStyle: 'solid',
-            borderWidth: '1px',
+            backgroundColor: theme('colors.gray.150'),
             fontWeight: theme('fontWeight.normal'),
             paddingBottom: theme('spacing.px'),
             paddingLeft: theme('spacing.1'),
@@ -43,13 +40,10 @@ module.exports = {
             marginTop: theme('spacing.8')
           },
           pre: {
-            backgroundColor: theme('colors.gray.200'),
-            borderLeftColor: theme('colors.gray.400'),
-            borderLeftStyle: 'solid',
-            borderLeftWidth: '3px',
+            backgroundColor: theme('colors.gray.750'),
             borderRadius: '0',
-            color: theme('colors.gray.800'),
-            padding: theme('spacing.6')
+            color: theme('colors.gray.200'),
+            padding: theme('spacing.4')
           },
           'code::before': false,
           'code::after': false,
@@ -60,6 +54,11 @@ module.exports = {
       dark: {
         css: {
           color: theme('colors.gray.200'),
+
+          code: {
+            backgroundColor: theme('colors.gray.750'),
+            color: theme('colors.gray.200')
+          },
 
           'h2, h3': {
             color: theme('colors.white')
@@ -78,6 +77,7 @@ module.exports = {
         gray: {
           50: "#f9f9f9",
           100: "#f5f5f5",
+          150: '#eee',
           200: "#aaa",
           700: "#36393e",
           750: "#2e3136",
