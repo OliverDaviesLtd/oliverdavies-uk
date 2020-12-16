@@ -9,7 +9,7 @@ folder: ../config_splits/live
 module:
   stage_file_proxy: 0
 theme: {  }
-blacklist: { }
+blacklist: {  }
 graylist:
   - system.site
 graylist_dependents: true

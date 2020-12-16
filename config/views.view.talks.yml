@@ -155,7 +155,7 @@ display:
             label: ''
           granularity: second
           plugin_id: event_sort
-      title: Talks and Workshops
+      title: 'Talks and Workshops'
       header:
         area:
           id: area
