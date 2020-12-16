@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('node') }}>
+<article{{ attributes.addClass('node min-w-full prose dark:prose-dark') }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -83,7 +83,7 @@
   {% if display_submitted and view_mode == 'full' %}
     <footer>
       {{ author_picture }}
-      <div{{ author_attributes.addClass('mb-4 text-gray-700') }}>
+      <div{{ author_attributes.addClass('mb-4') }}>
         {% trans %}Posted on {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
