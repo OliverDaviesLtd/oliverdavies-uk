@@ -220,6 +220,7 @@ display:
       use_more_text: 'All posts'
       link_url: /articles
       link_display: custom_url
+      css_class: prose
     cache_metadata:
       max-age: -1
       contexts:
