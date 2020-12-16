@@ -1,11 +1,11 @@
 .note {
-  @apply bg-blue-200 border-blue-600 border-l-4 mb-4 p-4 rounded;
+  @apply max-w-full prose bg-blue-200 border-blue-600 border-l-4 mb-4 p-4 rounded dark:prose-dark;
 
-  > *:not(:first-child) {
-    @apply mt-6
+  * {
+    @apply dark:text-gray-700
   }
 
   p a {
-    @apply text-black underline hover:no-underline
+    @apply underline hover:no-underline
   }
 }
