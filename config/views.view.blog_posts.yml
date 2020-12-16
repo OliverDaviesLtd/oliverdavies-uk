@@ -340,8 +340,8 @@ display:
         type: rss
       path: blog/feed
       displays:
-        default: default
-        page_1: page_1
+        default: '0'
+        page_1: '0'
       title: 'Oliver Davies'' Blog'
       defaults:
         title: false
