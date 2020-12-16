@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  php_verion: 7.4
+  php_version: '7.4'
 
 jobs:
   install:
@@ -32,7 +32,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
         with:
-          php-version: $php_version
+          php-version: ${{ env.php_version }}
           extensions: mbstring
           coverage: none
 
@@ -123,7 +123,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
         with:
-          php-version: $php_version
+          php-version: ${{ env.php_version }}
           extensions: mbstring
           coverage: none
 
@@ -164,7 +164,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
         with:
-          php-version: $php_version
+          php-version: ${{ env.php_version }}
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
@@ -197,7 +197,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
         with:
-          php-version: $php_version
+          php-version: ${{ env.php_version }}
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
