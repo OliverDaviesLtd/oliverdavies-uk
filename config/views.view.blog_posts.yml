@@ -62,7 +62,7 @@ display:
           row_class: ''
           default_row_class: true
           type: ul
-          wrapper_class: 'min-w-full prose'
+          wrapper_class: ''
           class: ''
       row:
         type: fields
