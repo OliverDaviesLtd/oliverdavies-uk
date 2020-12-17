@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Drupal.Commenting.DocComment, Drupal.NamingConventions.ValidFunctionName
+
 namespace Drupal\Tests\opdavies_blog\Kernel;
 
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;

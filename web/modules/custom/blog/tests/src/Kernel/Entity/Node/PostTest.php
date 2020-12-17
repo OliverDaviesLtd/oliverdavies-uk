@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Drupal.Commenting.DocComment, Drupal.NamingConventions.ValidFunctionName
+
 declare(strict_types=1);
 
 namespace Drupal\Tests\custom\Kernel\Entity\Node;

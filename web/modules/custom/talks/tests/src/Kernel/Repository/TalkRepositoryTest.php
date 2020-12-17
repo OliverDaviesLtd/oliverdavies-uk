@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Drupal.Commenting.DocComment, Drupal.NamingConventions.ValidFunctionName
+
 namespace Drupal\Tests\opdavies_talks\Kernel\Repository;
 
 use Drupal\node\NodeInterface;
