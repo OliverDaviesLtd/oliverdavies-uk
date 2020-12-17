@@ -9,8 +9,8 @@ use Drupal\core_event_dispatcher\Event\Entity\AbstractEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_talks\Entity\Node\Talk;
 use Drupal\paragraphs\ParagraphInterface;
-use Illuminate\Support\Collection;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Tightenco\Collect\Support\Collection;
 
 /**
  * Update a talk node before it's saved.

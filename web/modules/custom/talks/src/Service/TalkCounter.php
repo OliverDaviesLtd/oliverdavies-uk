@@ -10,7 +10,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
 use Drupal\opdavies_talks\Entity\Node\Talk;
 use Drupal\paragraphs\ParagraphInterface;
-use Illuminate\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 
 final class TalkCounter {
 

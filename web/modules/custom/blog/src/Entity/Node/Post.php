@@ -7,7 +7,7 @@ namespace Drupal\opdavies_blog\Entity\Node;
 use Drupal\discoverable_entity_bundle_classes\ContentEntityBundleInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
-use Illuminate\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 
 /**
  * Defines an blog post node class.

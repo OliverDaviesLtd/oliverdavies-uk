@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Drupal\opdavies_blog\Command;
 
 use Drupal\Core\Database\Connection;
-use Illuminate\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 
 final class ExportBodyValuesForThemePurgingCommand {
 

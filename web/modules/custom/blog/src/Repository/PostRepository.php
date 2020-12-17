@@ -6,7 +6,7 @@ namespace Drupal\opdavies_blog\Repository;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Illuminate\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 
 final class PostRepository {
 

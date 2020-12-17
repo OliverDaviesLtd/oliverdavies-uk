@@ -6,7 +6,7 @@ namespace Drupal\Tests\opdavies_talks\Kernel;
 
 use Carbon\Carbon;
 use Drupal\views\ResultRow;
-use Illuminate\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 
 final class TalksPageSortTest extends TalksTestBase {
 

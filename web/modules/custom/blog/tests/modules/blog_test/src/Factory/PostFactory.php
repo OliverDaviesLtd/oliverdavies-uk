@@ -9,7 +9,7 @@ use Drupal\node\Entity\Node;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\TermInterface;
-use Illuminate\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 
 final class PostFactory {
 
