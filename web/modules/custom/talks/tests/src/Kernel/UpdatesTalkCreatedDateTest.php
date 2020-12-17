@@ -25,6 +25,8 @@ final class UpdatesTalkCreatedDateTest extends TalksTestBase {
   }
 
   public function testUpdatingNode() {
+    $this->assertTrue(FALSE);
+
     $talk = $this->createTalk();
     $originalCreatedTime = $talk->getCreatedTime();
 
