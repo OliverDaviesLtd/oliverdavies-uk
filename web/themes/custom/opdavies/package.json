@@ -15,7 +15,7 @@
     "elliptic": ">=6.5.3",
     "lodash": ">=4.17.19",
     "postcss-easy-import": "^3.0.0",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^4.1.0",
     "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.8.10",
     "webpack-notifier": "^1.8.0"
