@@ -2,8 +2,6 @@
 
 // phpcs:disable Drupal.Commenting.DocComment, Drupal.NamingConventions.ValidFunctionName
 
-declare(strict_types=1);
-
 namespace Drupal\Tests\opdavies_talks\Kernel;
 
 use Carbon\Carbon;
@@ -11,7 +9,7 @@ use Drupal\node\NodeInterface;
 use Drupal\opdavies_talks\Service\TalkCounter;
 use PHPUnit\Framework\Assert;
 
-class CountPreviousTalksTest extends TalksTestBase {
+final class CountPreviousTalksTest extends TalksTestBase {
 
   private TalkCounter $talkCounter;
 

@@ -2,8 +2,6 @@
 
 // phpcs:disable Drupal.Commenting.DocComment, Drupal.NamingConventions.ValidFunctionName
 
-declare(strict_types=1);
-
 namespace Drupal\Tests\opdavies_blog\Kernel\Entity\Node;
 
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
