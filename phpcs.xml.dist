@@ -10,48 +10,19 @@
   <exclude-pattern>./web/sites/*</exclude-pattern>
   <exclude-pattern>./web/themes/custom/*\.(?!theme$)</exclude-pattern>
 
-  <arg name="colors" />
+  <arg name="colors"/>
   <arg value="np"/>
 
-  <!-- Use Drupal rules -->
-  <rule ref="Drupal"/>
-  <rule ref="DrupalPractice"/>
-
-  <rule ref="Drupal.Commenting.ClassComment.Missing">
-    <severity>0</severity>
-  </rule>
-  <rule ref="Drupal.Commenting.ClassComment.Missing">
-    <severity>0</severity>
-  </rule>
-  <rule ref="Drupal.Commenting.FunctionComment.Missing">
-    <severity>0</severity>
-  </rule>
-  <rule ref="Drupal.Commenting.DocComment.MissingShort">
-    <severity>0</severity>
-  </rule>
-  <rule ref="Drupal.Commenting.FunctionComment.MissingParamComment">
-    <severity>0</severity>
-  </rule>
-  <rule ref="Drupal.Commenting.FunctionComment.MissingReturnComment">
-    <severity>0</severity>
-  </rule>
-  <rule ref="Drupal.Commenting.VariableComment.Missing">
-    <severity>0</severity>
-  </rule>
-  <rule ref="Drupal.Commenting.DataTypeNamespace.DataTypeNamespace">
-    <severity>0</severity>
+  <rule ref="Drupal">
+    <exclude name="Drupal.Commenting.ClassComment.Missing"/>
+    <exclude name="Drupal.Commenting.DataTypeNamespace.DataTypeNamespace"/>
+    <exclude name="Drupal.Commenting.DocComment.MissingShort"/>
+    <exclude name="Drupal.Commenting.FunctionComment.Missing"/>
+    <exclude name="Drupal.Commenting.FunctionComment.MissingReturnComment"/>
+    <exclude name="Drupal.Commenting.VariableComment.Missing"/>
   </rule>
 
-  <!--  -->
-  <rule ref="Drupal.Commenting.DocComment.ContentAfterOpen">
-    <severity>1</severity>
-  </rule>
-  <rule ref="Drupal.NamingConventions.ValidFunctionName.ScopeNotCamelCaps">
-    <severity>1</severity>
-  </rule>
-
-  <!-- Features module doesn't export config schema -->
-  <rule ref="DrupalPractice.Objects.StrictSchemaDisabled.StrictConfigSchema">
-    <severity>0</severity>
+  <rule ref="DrupalPractice">
+    <exclude name="DrupalPractice.Objects.StrictSchemaDisabled.StrictConfigSchema"/>
   </rule>
 </ruleset>
