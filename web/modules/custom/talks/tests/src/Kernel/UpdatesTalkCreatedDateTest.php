@@ -7,7 +7,7 @@ use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 
 final class UpdatesTalkCreatedDateTest extends TalksTestBase {
 
-  public function testCreatingNode() {
+  public function testCreatingNode(): void {
     $eventDate = Carbon::today()->addWeek();
     $eventDateFormat = $eventDate
       ->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
@@ -22,7 +22,7 @@ final class UpdatesTalkCreatedDateTest extends TalksTestBase {
     $this->assertEqual($eventDateTimestamp, $talk->getCreatedTime());
   }
 
-  public function testUpdatingNode() {
+  public function testUpdatingNode(): void {
     $talk = $this->createTalk();
     $originalCreatedTime = $talk->getCreatedTime();
 

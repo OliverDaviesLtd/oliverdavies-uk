@@ -18,7 +18,7 @@ final class TalksPageSortTest extends TalksTestBase {
   /**
    * @test
    */
-  public function upcoming_talks_are_shown_first_followed_by_past_talks_and_ordered_by_distance() {
+  public function upcoming_talks_are_shown_first_followed_by_past_talks_and_ordered_by_distance(): void {
     $this->createTalk([
       'field_event_date' => Carbon::today()->addDays(4)->getTimestamp(),
     ]);

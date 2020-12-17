@@ -17,7 +17,7 @@ final class TalkRepositoryTest extends TalksTestBase {
   private TalkRepository $talkRepository;
 
   /** @test */
-  public function get_all_talks() {
+  public function get_all_talks(): void {
     $this->createTalk(['title' => 'TDD - Test Driven Drupal']);
     $this->createTalk(['title' => 'Taking Flight with Tailwind CSS']);
     $this->createTalk(['title' => 'Upgrading to Drupal 9']);
@@ -36,7 +36,7 @@ final class TalkRepositoryTest extends TalksTestBase {
   }
 
   /** @test */
-  public function get_all_published_talks() {
+  public function get_all_published_talks(): void {
     $this->createTalk([
       'title' => 'TDD - Test Driven Drupal',
       'status' => NodeInterface::PUBLISHED,
@@ -54,7 +54,7 @@ final class TalkRepositoryTest extends TalksTestBase {
   }
 
   /** @test */
-  public function it_only_returns_talk_nodes() {
+  public function it_only_returns_talk_nodes(): void {
     $this->createNode(['type' => 'page']);
 
     $talks = $this->talkRepository->getAll();

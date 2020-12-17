@@ -7,7 +7,7 @@ use Drupal\paragraphs\ParagraphInterface;
 
 final class EventsAreReorderedByDateTest extends TalksTestBase {
 
-  public function testCreatingNode() {
+  public function testCreatingNode(): void {
     $events = [
       $this->createEvent([
         'field_date' => Carbon::today()->addWeeks(2),
@@ -50,7 +50,7 @@ final class EventsAreReorderedByDateTest extends TalksTestBase {
     );
   }
 
-  public function testUpdatingNode() {
+  public function testUpdatingNode(): void {
     $events = [
       $this->createEvent([
         'field_date' => Carbon::today()->addWeeks(2),
