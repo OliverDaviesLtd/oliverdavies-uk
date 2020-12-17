@@ -7,10 +7,10 @@ namespace Drupal\Tests\opdavies_talks\Kernel;
 use Carbon\Carbon;
 use Drupal\paragraphs\ParagraphInterface;
 
-final class EventsAreReorderedByDateTest extends TalksTestBase {
+final class ReorderEventsTest extends TalksTestBase {
 
   /** @test */
-  public function the_events_are_reordered_when_a_talk_node_is_created(): void {
+  public function the_events_are_ordered_by_date_when_a_talk_is_created(): void {
     $events = [
       $this->createEvent([
         'field_date' => Carbon::today()->addWeeks(2),
@@ -54,7 +54,7 @@ final class EventsAreReorderedByDateTest extends TalksTestBase {
   }
 
   /** @test */
-  public function the_events_are_reordered_when_a_talk_node_is_updated(): void {
+  public function the_events_are_ordered_by_date_when_a_talk_is_updated(): void {
     $events = [
       $this->createEvent([
         'field_date' => Carbon::today()->addWeeks(2),
