@@ -50,24 +50,6 @@ module.exports = {
           'pre code::before': false,
           'pre code::after': false
         }
-      },
-      dark: {
-        css: {
-          color: theme('colors.gray.200'),
-
-          code: {
-            backgroundColor: theme('colors.gray.750'),
-            color: theme('colors.gray.200')
-          },
-
-          'h2, h3': {
-            color: theme('colors.white')
-          },
-
-          strong: {
-            color: theme('colors.gray.200')
-          }
-        }
       }
     }),
     extend: {
@@ -117,11 +99,10 @@ module.exports = {
     borderStyle: [...variants.borderStyle, 'hover', 'focus'],
     borderWidth: [...variants.borderWidth, 'hover', 'focus'],
     margin: [...variants.margin, 'first', 'last', 'odd', 'even'],
-    typography: ['responsive', 'dark']
+    typography: ['responsive']
   },
   experimental: {
-    applyComplexClasses: true,
-    darkModeVariant: true
+    applyComplexClasses: true
   },
   future: {
     purgeLayersByDefault: true
