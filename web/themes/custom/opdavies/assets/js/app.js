@@ -1,6 +1,6 @@
 import 'alpinejs'
 import 'focus-visible'
-import 'highlight.js/styles/hybrid.css'
+import 'highlight.js/styles/github.css'
 import 'styles/tailwind.pcss'
 import bash from 'highlight.js/lib/languages/bash'
 import hljs from 'highlight.js/lib/core'

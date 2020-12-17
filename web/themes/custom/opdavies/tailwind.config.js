@@ -40,9 +40,9 @@ module.exports = {
             marginTop: theme('spacing.8')
           },
           pre: {
-            backgroundColor: theme('colors.gray.750'),
+            backgroundColor: theme('colors.gray.150'),
             borderRadius: '0',
-            color: theme('colors.gray.200'),
+            color: theme('colors.gray.800'),
             padding: theme('spacing.4')
           },
           'code::before': false,
