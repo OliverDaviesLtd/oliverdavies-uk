@@ -4,7 +4,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\Tests\custom\Kernel\Entity\Node;
+namespace Drupal\Tests\opdavies_blog\Kernel\Entity\Node;
 
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
 use Drupal\opdavies_blog\Entity\Node\Post;
