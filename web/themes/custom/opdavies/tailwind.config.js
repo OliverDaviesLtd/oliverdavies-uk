@@ -43,7 +43,7 @@ module.exports = {
             backgroundColor: theme('colors.gray.150'),
             borderRadius: '0',
             color: theme('colors.gray.800'),
-            padding: theme('spacing.4')
+            padding: theme('spacing.6')
           },
           'code::before': false,
           'code::after': false,
