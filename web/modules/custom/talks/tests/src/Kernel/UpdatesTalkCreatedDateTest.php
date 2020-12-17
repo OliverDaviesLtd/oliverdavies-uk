@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Drupal.Commenting.DocComment, Drupal.NamingConventions.ValidFunctionName
+
 namespace Drupal\Tests\opdavies_talks\Kernel;
 
 use Carbon\Carbon;
@@ -7,7 +9,8 @@ use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 
 final class UpdatesTalkCreatedDateTest extends TalksTestBase {
 
-  public function testCreatingNode(): void {
+  /** @test */
+  public function the_date_is_updated_when_a_talk_node_is_created(): void {
     $eventDate = Carbon::today()->addWeek();
     $eventDateFormat = $eventDate
       ->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
@@ -22,7 +25,8 @@ final class UpdatesTalkCreatedDateTest extends TalksTestBase {
     $this->assertEqual($eventDateTimestamp, $talk->getCreatedTime());
   }
 
-  public function testUpdatingNode(): void {
+  /** @test */
+  public function the_date_is_updated_when_a_talk_node_is_updated(): void {
     $talk = $this->createTalk();
     $originalCreatedTime = $talk->getCreatedTime();
 

@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Drupal.Commenting.DocComment, Drupal.NamingConventions.ValidFunctionName
+
 namespace Drupal\Tests\opdavies_talks\Kernel;
 
 use Carbon\Carbon;
@@ -7,7 +9,8 @@ use Drupal\paragraphs\ParagraphInterface;
 
 final class EventsAreReorderedByDateTest extends TalksTestBase {
 
-  public function testCreatingNode(): void {
+  /** @test */
+  public function the_events_are_reordered_when_a_talk_node_is_created(): void {
     $events = [
       $this->createEvent([
         'field_date' => Carbon::today()->addWeeks(2),
@@ -50,7 +53,8 @@ final class EventsAreReorderedByDateTest extends TalksTestBase {
     );
   }
 
-  public function testUpdatingNode(): void {
+  /** @test */
+  public function the_events_are_reordered_when_a_talk_node_is_updated(): void {
     $events = [
       $this->createEvent([
         'field_date' => Carbon::today()->addWeeks(2),
