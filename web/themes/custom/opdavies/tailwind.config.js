@@ -1,3 +1,4 @@
+const colors = require('./tailwind-colours')
 const defaultConfig = require('tailwindcss/defaultConfig')
 const defaultTheme = require('tailwindcss/defaultTheme')
 const focusVisible = require('./tailwind-plugin-focus-visible')
@@ -49,22 +50,7 @@ module.exports = {
           }
         }
       }),
-      colors: {
-        inherit: 'inherit',
-
-        gray: {
-          50: "#f9f9f9",
-          100: "#f5f5f5",
-          150: '#eee',
-          200: "#aaa",
-          700: "#36393e",
-          750: "#2e3136",
-          800: "#1e2125",
-          900: "#18171b",
-        },
-
-        'blue.500': '#42a7ff'
-      },
+      colors,
       fontFamily: {
         mono: [
           'Operator Mono',
