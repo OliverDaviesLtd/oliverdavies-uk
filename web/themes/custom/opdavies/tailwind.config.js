@@ -10,15 +10,11 @@ module.exports = {
   purge: {
     mode: 'layers',
     content: [
-      'templates/**/*.twig',
-
-      // Include any classes used within config (e.g. within views).
       '../../../../config/**/*.yml',
-
-      // Include any classes stored within body fields.
-      'body-field-values.txt'
+      'body-field-values.txt',
+      'templates/**/*.twig'
     ],
-    whitelist: ['bg-gray-200']
+    safelist: ['bg-gray-200']
   },
   theme: {
     extend: {
