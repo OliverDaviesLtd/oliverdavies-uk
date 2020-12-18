@@ -1,20 +1,24 @@
 module.exports = {
-  transparent: 'transparent',
   current: 'currentColor',
+  inherit: 'inherit',
+  transparent: 'transparent',
 
   black: '#000',
   white: '#fff',
 
   gray: {
-    100: '#f7fafc',
-    200: '#edf2f7',
+    50: '#f9f9f9',
+    100: '#f5f5f5',
+    150: '#eee',
+    200: '#aaa',
     300: '#e2e8f0',
     400: '#cbd5e0',
     500: '#a0aec0',
     600: '#718096',
-    700: '#4a5568',
-    800: '#2d3748',
-    900: '#1a202c',
+    700: '#36393e',
+    750: '#2e3136',
+    800: '#1e2125',
+    900: '#18171b',
   },
   red: {
     100: '#fff5f5',
