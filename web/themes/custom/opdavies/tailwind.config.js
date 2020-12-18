@@ -1,6 +1,6 @@
 const defaultConfig = require('tailwindcss/defaultConfig')
 const defaultTheme = require('tailwindcss/defaultTheme')
-const focusVisible = require('./tailwind-focus-visible')
+const focusVisible = require('./tailwind-plugin-focus-visible')
 const typography = require('@tailwindcss/typography')
 const { fontFamily } = defaultTheme
 const { variants } = defaultConfig
