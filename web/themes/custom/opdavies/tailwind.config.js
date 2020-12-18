@@ -21,38 +21,38 @@ module.exports = {
     whitelist: ['bg-gray-200']
   },
   theme: {
-    typography: (theme) => ({
-      default: {
-        css: {
-          a: {
-            color: theme('colors.blue.500')
-          },
-          code: {
-            backgroundColor: theme('colors.gray.150'),
-            fontWeight: theme('fontWeight.normal'),
-            paddingBottom: theme('spacing.px'),
-            paddingLeft: theme('spacing.1'),
-            paddingRight: theme('spacing.1'),
-            paddingTop: theme('spacing.px')
-          },
-          h2: {
-            marginBottom: theme('spacing.2'),
-            marginTop: theme('spacing.8')
-          },
-          pre: {
-            backgroundColor: theme('colors.gray.150'),
-            borderRadius: '0',
-            color: theme('colors.gray.800'),
-            padding: theme('spacing.6')
-          },
-          'code::before': false,
-          'code::after': false,
-          'pre code::before': false,
-          'pre code::after': false
-        }
-      }
-    }),
     extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              color: theme('colors.blue.500')
+            },
+            code: {
+              backgroundColor: theme('colors.gray.150'),
+              fontWeight: theme('fontWeight.normal'),
+              paddingBottom: theme('spacing.px'),
+              paddingLeft: theme('spacing.1'),
+              paddingRight: theme('spacing.1'),
+              paddingTop: theme('spacing.px')
+            },
+            h2: {
+              marginBottom: theme('spacing.2'),
+              marginTop: theme('spacing.8')
+            },
+            pre: {
+              backgroundColor: theme('colors.gray.150'),
+              borderRadius: '0',
+              color: theme('colors.gray.800'),
+              padding: theme('spacing.6')
+            },
+            'code::before': false,
+            'code::after': false,
+            'pre code::before': false,
+            'pre code::after': false
+          }
+        }
+      }),
       colors: {
         inherit: 'inherit',
 
