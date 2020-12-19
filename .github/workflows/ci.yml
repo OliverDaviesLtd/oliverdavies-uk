@@ -27,7 +27,7 @@ jobs:
             web/modules/contrib
             web/themes/contrib
             vendor
-          key: dependencies-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
@@ -83,7 +83,7 @@ jobs:
         uses: actions/cache@d974700
         with:
           path: node_modules
-          key: dependencies-npm-${{ hashFiles('package.json') }}
+          key: dependencies-npm-${{ hashFiles('package-lock.json') }}
 
       - name: Build the production theme assets
         run: |
@@ -118,7 +118,7 @@ jobs:
             web/modules/constrib
             web/themes/contrib
             vendor
-          key: dependencies-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
@@ -159,7 +159,7 @@ jobs:
             web/modules/constrib
             web/themes/contrib
             vendor
-          key: dependencies-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
@@ -192,7 +192,7 @@ jobs:
             web/modules/constrib
             web/themes/contrib
             vendor
-          key: dependencies-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@5d27b8f
