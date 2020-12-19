@@ -24,6 +24,7 @@ module:
   gin_toolbar: 0
   honeypot: 0
   hook_event_dispatcher: 0
+  hreflang: 0
   image: 0
   layout_builder: 0
   layout_discovery: 0
