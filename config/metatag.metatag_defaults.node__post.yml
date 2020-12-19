@@ -6,4 +6,3 @@ id: node__post
 label: 'Content: Blog post'
 tags:
   description: '[node:field_excerpt]'
-  title: '[node:title]'

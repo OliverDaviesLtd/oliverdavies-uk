@@ -6,4 +6,3 @@ id: node__talk
 label: 'Content: Talk'
 tags:
   description: '[node:field_excerpt]'
-  title: '[node:title]'

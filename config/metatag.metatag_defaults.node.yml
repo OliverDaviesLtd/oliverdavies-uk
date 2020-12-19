@@ -7,6 +7,12 @@ _core:
 id: node
 label: Content
 tags:
-  title: '[node:title] | [site:name]'
   description: '[node:summary]'
+  abstract: '[node:summary]'
   canonical_url: '[node:url]'
+  title: '[node:title] | [site:name] - [site:slogan]'
+  og_type: article
+  article_published_time: '[node:changed:custom:c]'
+  og_updated_time: '[node:changed:custom:c]'
+  twitter_cards_title: '[node:title] | [site:name]'
+  twitter_cards_description: '[node:summary]'
