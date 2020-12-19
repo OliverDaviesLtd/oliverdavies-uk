@@ -8,18 +8,19 @@ id: global
 label: Global
 tags:
   shortlink: '[current-page:url:unaliased]'
+  image_src: 'https://www.oliverdavies.uk/sites/default/files/images/me-precedent.jpg'
   canonical_url: '[current-page:url]'
   title: '[current-page:title] | [site:name] - [site:slogan]'
-  image_src: 'https://www.oliverdavies.uk/sites/default/files/images/me-precedent.jpg'
-  profile_username: opdavies
-  og_title: '[current-page:title]'
   og_image: 'https://www.oliverdavies.uk/sites/default/files/images/me-precedent.jpg'
+  og_title: '[current-page:title]'
+  profile_username: opdavies
   og_url: '[current-page:url:absolute]'
   og_site_name: '[site:name]'
   twitter_cards_creator_id: '24857701'
-  twitter_cards_site: '@opdavies'
-  twitter_cards_page_url: '[current-page:url]'
-  twitter_cards_site_id: '24857701'
   twitter_cards_type: summary
+  twitter_cards_site_id: '24857701'
   twitter_cards_title: '[current-page:title] - [site:name]'
+  twitter_cards_site: '@opdavies'
   twitter_cards_creator: '@opdavies'
+  twitter_cards_page_url: '[current-page:url]'
+  bing: 95A8C7665157A89C064B570D7D66DB0B
