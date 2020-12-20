@@ -9,13 +9,17 @@ const { variants } = defaultConfig
 module.exports = {
   important: true,
   purge: {
-    mode: 'layers',
     content: [
       '../../../../config/**/*.yml',
       'body-field-values.txt',
       'templates/**/*.twig'
     ],
-    safelist: ['bg-gray-200']
+    options: {
+      safelist: [
+        'bg-gray-200',
+        'block-opdavies-branding'
+      ]
+    }
   },
   theme: {
     extend: {
