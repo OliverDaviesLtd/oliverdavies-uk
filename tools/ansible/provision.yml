@@ -75,7 +75,7 @@
         name: Drupal cron - oliverdavies.uk
         minute: '*/5'
         job: >
-          {{ project_root_path }}/{{ ansistrano_current_dir }}/vendor/bin/drush core-cron
+          {{ project_root_path }}/{{ ansistrano_current_dir }}/bin/drush core-cron
           --root={{ project_root_path }}/{{ ansistrano_current_dir }}/{{ project_web_dir }}
           --uri https://www.oliverdavies.uk
           --quiet

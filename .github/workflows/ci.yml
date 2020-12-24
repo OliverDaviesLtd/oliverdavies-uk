@@ -44,7 +44,7 @@ jobs:
 
       - name: Install Drupal
         run: >
-          vendor/bin/drush --root=$(pwd)/web
+          bin/drush --root=$(pwd)/web
           site:install -y
           --existing-config
           --db-url=sqlite://sites/default/files/.ht.sqlite
@@ -135,7 +135,7 @@ jobs:
         if: matrix.test-types == 'functional'
 
       - name: Execute tests
-        run: vendor/bin/phpunit --testdox --colors=always --testsuite=${{ matrix.test-types }}
+        run: bin/phpunit --testdox --colors=always --testsuite=${{ matrix.test-types }}
         env:
           SIMPLETEST_BASE_URL: http://localhost:8000
 
@@ -170,7 +170,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-suggest
 
       - name: Run checks
-        run: vendor/bin/phpcs -s --warning-severity=6
+        run: bin/phpcs -s --warning-severity=6
 
   phpstan:
     runs-on: ubuntu-latest
@@ -203,4 +203,4 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-suggest
 
       - name: Run checks
-        run: vendor/bin/phpstan analyze
+        run: bin/phpstan analyze
