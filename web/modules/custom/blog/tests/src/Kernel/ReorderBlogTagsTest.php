@@ -30,8 +30,8 @@ final class ReorderBlogTagsTest extends EntityKernelTestBase {
     'core_event_dispatcher',
 
     // Custom.
-    'opdavies_blog_test',
     'opdavies_blog',
+    'opdavies_blog_test',
   ];
 
   /** @test */
@@ -66,6 +66,8 @@ final class ReorderBlogTagsTest extends EntityKernelTestBase {
       'filter',
       'opdavies_blog_test',
     ]);
+
+    $this->installSchema('node', ['node_access']);
 
     $this->installEntitySchema('taxonomy_vocabulary');
     $this->installEntitySchema('taxonomy_term');

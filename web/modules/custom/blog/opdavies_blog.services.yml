@@ -14,5 +14,8 @@ services:
   Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher:
     autowire: true
 
+  Drupal\opdavies_blog\Service\PostPusher\NullPostPusher:
+    autowire: true
+
   Drupal\opdavies_blog\Service\PostPusher\PostPusher:
     alias: Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher

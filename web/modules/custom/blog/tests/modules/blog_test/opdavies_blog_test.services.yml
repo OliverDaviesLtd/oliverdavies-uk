@@ -1,0 +1,3 @@
+services:
+  Drupal\opdavies_blog\Service\PostPusher\PostPusher:
+    alias: Drupal\opdavies_blog\Service\PostPusher\NullPostPusher
