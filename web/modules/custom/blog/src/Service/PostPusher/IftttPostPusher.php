@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Drupal\opdavies_blog\Service\PostPusher;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use GuzzleHttp\ClientInterface;
 use Webmozart\Assert\Assert;
 
 final class IftttPostPusher extends HttpPostPusher {
+
+  use StringTranslationTrait;
 
   private ConfigFactoryInterface $configFactory;
 
@@ -31,7 +34,9 @@ final class IftttPostPusher extends HttpPostPusher {
 
     $this->client->post($url, [
       'form_params' => [
-        'value1' => $post->toTweet(),
+        'value1' => $this->t('Blogged: @text', [
+          '@text' => $post->toTweet(),
+        ]),
       ],
     ]);
   }
