@@ -66,7 +66,7 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
-    if (!$url = $this->config->get('zapier_post_tweet_url')) {
+    if (!$url = $this->config->get('post_tweet_webhook_url')) {
       return;
     }
 

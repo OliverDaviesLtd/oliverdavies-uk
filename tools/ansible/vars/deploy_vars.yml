@@ -14,7 +14,7 @@ ansistrano_after_update_code_tasks_file: '{{ playbook_dir }}/deploy/after-update
 
 app_hash_salt: '{{ vault_app_hash_salt }}'
 
-zapier_post_tweet_url: '{{ vault_zapier_post_tweet_url }}'
+post_tweet_webhook_url: '{{ vault_post_tweet_webhook_url }}'
 
 release_drush_path: '{{ ansistrano_release_path.stdout }}/bin/drush'
 release_web_path: '{{ ansistrano_release_path.stdout }}/{{ project_web_dir }}'
@@ -63,4 +63,4 @@ drupal_settings:
             $settings['reverse_proxy_header'] = 'CF-Connecting-IP';
             $settings['omit_vary_cookie'] = TRUE;
 
-            $config['opdavies_blog.settings']['zapier_post_tweet_url'] = '{{ zapier_post_tweet_url }}';
+            $config['opdavies_blog.settings']['post_tweet_webhook_url'] = '{{ post_tweet_webhook_url }}';
