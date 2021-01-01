@@ -59,7 +59,7 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
 
     $this->client->post($url, [
       'form_params' => [
-        'message' => $entity->toTweet(),
+        'value1' => $entity->toTweet(),
       ],
     ]);
 
