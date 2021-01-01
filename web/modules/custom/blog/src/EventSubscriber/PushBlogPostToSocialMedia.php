@@ -49,24 +49,11 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
-    if (!$entity->isPublished()) {
-      return;
-    }
-
-    if (!$entity->shouldSendToSocialMedia()) {
-      return;
-    }
-
-    // If this post has already been sent to social media, do not send it again.
-    if ($entity->hasBeenSentToSocialMedia()) {
-      return;
-    }
-
-    if ($entity->isExternalPost()) {
-      return;
-    }
-
     if (!$url = $this->config->get('post_tweet_webhook_url')) {
+      return;
+    }
+
+    if (!$this->shouldBePushed($entity)) {
       return;
     }
 
@@ -80,4 +67,25 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
     $entity->save();
   }
 
+  private function shouldBePushed(Post $post): bool {
+    if ($post->isExternalPost()) {
+      return FALSE;
+    }
+
+    if (!$post->isPublished()) {
+      return FALSE;
+    }
+
+    if (!$post->shouldSendToSocialMedia()) {
+      return FALSE;
+    }
+
+    if ($post->hasBeenSentToSocialMedia()) {
+      return FALSE;
+    }
+
+    return TRUE;
+  }
+
 }
+
