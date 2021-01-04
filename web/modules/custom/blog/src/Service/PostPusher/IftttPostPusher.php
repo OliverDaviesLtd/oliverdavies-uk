@@ -34,9 +34,8 @@ final class IftttPostPusher extends HttpPostPusher {
 
     $this->client->post($url, [
       'form_params' => [
-        'value1' => $this->t('Blogged: @text', [
-          '@text' => $post->toTweet(),
-        ]),
+        'value1' => $this->t('Blogged: @text', ['@text' => $post->toTweet()])
+          ->render(),
       ],
     ]);
   }
