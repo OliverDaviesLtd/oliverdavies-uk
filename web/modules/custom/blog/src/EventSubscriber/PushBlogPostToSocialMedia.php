@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Drupal\opdavies_blog\EventSubscriber;
 
+use Drupal\Core\Queue\QueueFactory;
 use Drupal\core_event_dispatcher\Event\Entity\AbstractEntityEvent;
 use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
-use Drupal\opdavies_blog\Service\PostPusher\PostPusher;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
 
-  private PostPusher $postPusher;
+  private QueueFactory $queueFactory;
 
-  public function __construct(PostPusher $postPusher) {
-    $this->postPusher = $postPusher;
+  public function __construct(QueueFactory $queueFactory) {
+    $this->queueFactory = $queueFactory;
   }
 
   /**
@@ -40,14 +40,12 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
       return;
     }
 
-    if (!$this->shouldBePushed($entity)) {
-      return;
-    }
+    $queue = $this->queueFactory->get('opdavies_blog_push_post_to_social_media');
+    $queue->createQueue();
 
-    $this->postPusher->push($entity);
-
-    $entity->markAsSentToSocialMedia();
-    $entity->save();
+    $queue->createItem([
+      'post' => $entity,
+    ]);
   }
 
   private function shouldBePushed(Post $post): bool {
