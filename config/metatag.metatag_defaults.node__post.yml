@@ -5,4 +5,9 @@ dependencies: {  }
 id: node__post
 label: 'Content: Blog post'
 tags:
+  abstract: '[node:field_excerpt]'
   description: '[node:field_excerpt]'
+  og_url: '[node:url:absolute]'
+  og_site_name: '[site:name]'
+  twitter_cards_type: summary
+  twitter_cards_description: '[node:field_excerpt]'
