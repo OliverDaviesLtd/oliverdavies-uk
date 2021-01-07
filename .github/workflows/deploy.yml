@@ -20,38 +20,36 @@ jobs:
       ANSIBLE_HOST_KEY_CHECKING: no
 
     steps:
-      - run: ansible --version
+      - name: Checkout the code
+        uses: actions/checkout@a81bbbf
 
-      # - name: Checkout the code
-      #   uses: actions/checkout@a81bbbf
+      - name: Add the deployment SSH key
+        uses: shimataro/ssh-key-action@6f350ca
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          name: id_rsa
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
-      # - name: Add the deployment SSH key
-      #   uses: shimataro/ssh-key-action@6f350ca
-      #   with:
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     name: id_rsa
-      #     known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Cache dependencies
+        uses: actions/cache@d974700
+        with:
+          path: tools/ansible/.roles
+          key: dependencies-composer-${{ hashFiles('tools/ansible/requirements.yml') }}
 
-      # - name: Cache dependencies
-      #   uses: actions/cache@d974700
-      #   with:
-      #     path: tools/ansible/.roles
-      #     key: dependencies-composer-${{ hashFiles('tools/ansible/requirements.yml') }}
+      - name: Download Ansible roles
+        run: ansible-galaxy install -r tools/ansible/requirements.yml
 
-      # - name: Download Ansible roles
-      #   run: ansible-galaxy install -r tools/ansible/requirements.yml
+      - name: Export the Ansible Vault password
+        run: echo $ANSIBLE_VAULT_PASS > tools/ansible/.vault-pass.txt
+        env:
+          ANSIBLE_VAULT_PASS: ${{ secrets.ANSIBLE_VAULT_PASS }}
 
-      # - name: Export the Ansible Vault password
-      #   run: echo $ANSIBLE_VAULT_PASS > tools/ansible/.vault-pass.txt
-      #   env:
-      #     ANSIBLE_VAULT_PASS: ${{ secrets.ANSIBLE_VAULT_PASS }}
+      - name: Deploy the code
+        run: >
+          ansible-playbook tools/ansible/deploy.yml
+          -i tools/ansible/hosts.yml
+          -e "ansistrano_deploy_branch=$GITHUB_SHA"
+          --vault-password-file=tools/ansible/.vault-pass.txt
 
-      # - name: Deploy the code
-      #   run: >
-      #     ansible-playbook tools/ansible/deploy.yml
-      #     -i tools/ansible/hosts.yml
-      #     -e "ansistrano_deploy_branch=$GITHUB_SHA"
-      #     --vault-password-file=tools/ansible/.vault-pass.txt
-
-      # - name: Remove the Ansible Vault password file
-      #   run: rm tools/ansible/.vault-pass.txt
+      - name: Remove the Ansible Vault password file
+        run: rm tools/ansible/.vault-pass.txt
