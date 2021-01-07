@@ -39,8 +39,7 @@
     - vars/provision_vars.yml
 
   vars:
-    composer_keep_updated: true
-    composer_version_branch: '--2'
+    composer_version_branch: '--1'
     firewall_allowed_tcp_ports: [80, 443, 2849]
     mysql_packages:
       - mariadb-client
