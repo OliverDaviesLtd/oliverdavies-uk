@@ -17,6 +17,11 @@ use Drupal\opdavies_blog\Entity\Node\Post;
 final class PostPusherQueueWorker extends QueueWorkerBase {
 
   public function processItem($data): void {
+    ['post' => $post] = $data;
+
+    if (!$this->shouldBePushed($post)) {
+      return;
+    }
   }
 
   private function shouldBePushed(Post $post): bool {
