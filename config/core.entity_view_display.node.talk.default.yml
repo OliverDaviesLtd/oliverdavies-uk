@@ -8,13 +8,11 @@ dependencies:
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
     - field.field.node.talk.field_slides
-    - field.field.node.talk.field_slides_html
     - field.field.node.talk.field_type
     - field.field.node.talk.field_video
     - node.type.talk
   module:
     - entity_reference_revisions
-    - link
     - options
     - speakerdeck_field
     - text
@@ -46,18 +44,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: speakerdeck_formatter
-    region: content
-  field_slides_html:
-    weight: 6
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
     region: content
   field_type:
     weight: 5
