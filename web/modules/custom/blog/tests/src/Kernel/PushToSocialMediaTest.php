@@ -32,7 +32,7 @@ final class PushToSocialMediaTest extends EntityKernelTestBase {
   private QueueInterface $queue;
 
   /** @test */
-  public function a_post_is_pushed_to_social_media_once_published(): void {
+  public function it_queues_a_post_when_it_is_created(): void {
     $this->assertSame(0, $this->queue->numberOfItems());
 
     $this->createNode([
@@ -43,6 +43,7 @@ final class PushToSocialMediaTest extends EntityKernelTestBase {
     $this->assertSame(1, $this->queue->numberOfItems());
 
     $item = $this->queue->claimItem();
+
     /** @var Post $post */
     $post = $item->data['post'];
 
