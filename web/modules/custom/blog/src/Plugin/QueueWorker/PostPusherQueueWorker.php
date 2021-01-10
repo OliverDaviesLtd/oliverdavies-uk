@@ -8,6 +8,8 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
 use Drupal\opdavies_blog\Entity\Node\Post;
+use Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher;
+use Drupal\opdavies_blog\Service\PostPusher\PostPusher;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -21,15 +23,22 @@ final class PostPusherQueueWorker extends QueueWorkerBase implements ContainerFa
 
   private EntityStorageInterface $nodeStorage;
 
+  /**
+   * @var array|PostPusher[]
+   */
+  private array $postPushers;
+
   public function __construct(
     array $configuration,
     string $pluginId,
     array $pluginDefinition,
-    EntityStorageInterface $nodeStorage
+    EntityStorageInterface $nodeStorage,
+    array $postPushers
   ) {
     parent::__construct($configuration, $pluginId, $pluginDefinition);
 
     $this->nodeStorage = $nodeStorage;
+    $this->postPushers = $postPushers;
   }
 
   public static function create(
@@ -42,7 +51,10 @@ final class PostPusherQueueWorker extends QueueWorkerBase implements ContainerFa
       $configuration,
       $pluginId,
       $pluginDefinition,
-      $container->get('entity_type.manager')->getStorage('node')
+      $container->get('entity_type.manager')->getStorage('node'),
+      [
+        $container->get(IftttPostPusher::class),
+      ]
     );
   }
 
@@ -61,6 +73,11 @@ final class PostPusherQueueWorker extends QueueWorkerBase implements ContainerFa
       if (!$this->shouldBePushed($post)) {
         return;
       }
+    }
+
+    foreach ($this->postPushers as $pusher) {
+      // @phpstan-ignore-next-line
+      $pusher->push($post);
     }
 
     // @phpstan-ignore-next-line
