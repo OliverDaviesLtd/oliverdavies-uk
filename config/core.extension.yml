@@ -13,7 +13,6 @@ module:
   core_event_dispatcher: 0
   ctools: 0
   datetime: 0
-  dblog: 0
   discoverable_entity_bundle_classes: 0
   dynamic_page_cache: 0
   entity_reference_revisions: 0
