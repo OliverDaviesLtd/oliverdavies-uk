@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\opdavies_blog\Plugin\QueueWorker;
 
 use Drupal\Core\Queue\QueueWorkerBase;
+use Drupal\opdavies_blog\Entity\Node\Post;
 
 /**
  * @QueueWorker(
@@ -16,6 +17,26 @@ use Drupal\Core\Queue\QueueWorkerBase;
 final class PostPusherQueueWorker extends QueueWorkerBase {
 
   public function processItem($data): void {
+  }
+
+  private function shouldBePushed(Post $post): bool {
+    if ($post->isExternalPost()) {
+      return FALSE;
+    }
+
+    if (!$post->isPublished()) {
+      return FALSE;
+    }
+
+    if (!$post->shouldSendToSocialMedia()) {
+      return FALSE;
+    }
+
+    if ($post->hasBeenSentToSocialMedia()) {
+      return FALSE;
+    }
+
+    return TRUE;
   }
 
 }

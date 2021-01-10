@@ -48,24 +48,4 @@ final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
     ]);
   }
 
-  private function shouldBePushed(Post $post): bool {
-    if ($post->isExternalPost()) {
-      return FALSE;
-    }
-
-    if (!$post->isPublished()) {
-      return FALSE;
-    }
-
-    if (!$post->shouldSendToSocialMedia()) {
-      return FALSE;
-    }
-
-    if ($post->hasBeenSentToSocialMedia()) {
-      return FALSE;
-    }
-
-    return TRUE;
-  }
-
 }
