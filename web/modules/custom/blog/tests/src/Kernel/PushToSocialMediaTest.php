@@ -53,6 +53,16 @@ final class PushToSocialMediaTest extends EntityKernelTestBase {
     $this->assertSame('Ignoring PHPCS sniffs within PHPUnit tests', $post->getTitle());
   }
 
+  /** @test */
+  public function it_queues_a_post_when_it_is_updated(): void {
+    $this->markTestSkipped();
+  }
+
+  /** @test */
+  public function it_pushes_a_post_when_the_queue_is_processed(): void {
+    $this->markTestSkipped();
+  }
+
   protected function setUp() {
     parent::setUp();
 
