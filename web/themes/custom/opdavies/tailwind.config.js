@@ -12,6 +12,7 @@ module.exports = {
     content: [
       '../../../../config/**/*.yml',
       'body-field-values.txt',
+      'opdavies.theme',
       'templates/**/*.twig'
     ],
     options: {
