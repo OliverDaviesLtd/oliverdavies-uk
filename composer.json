@@ -56,7 +56,14 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "scripts": {},
+    "scripts": {
+        "post-install-cmd": [
+            "rm -fr web/modules/contrib/*/.git"
+        ],
+        "post-update-cmd": [
+            "rm -fr web/modules/contrib/*/.git"
+        ]
+    },
     "config": {
         "bin-dir": "bin",
         "sort-packages": true
