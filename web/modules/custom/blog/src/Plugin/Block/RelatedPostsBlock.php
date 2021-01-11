@@ -68,12 +68,12 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
         'max-age' => 604800,
         'tags' => ["node:{$currentPost->id()}"],
       ],
-      '#theme' => 'item_list',
       '#items' => $relatedPosts
         ->sortByDesc(fn(Post $post) => $post->getCreatedTime())
         ->map(fn(Post $post) => $this->generateLinkToPost($post))
         ->slice(0, 3)
         ->toArray(),
+      '#theme' => 'item_list',
     ];
 
     return $build;
