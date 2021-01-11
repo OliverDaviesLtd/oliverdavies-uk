@@ -64,6 +64,9 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
     }
 
     $build['content'] = [
+      '#cache' => [
+        'max-age' => 604800,
+      ],
       '#theme' => 'item_list',
       '#items' => $relatedPosts
         ->sortByDesc(fn(Post $post) => $post->getCreatedTime())
