@@ -9,7 +9,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\TermInterface;
-use Illuminate\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 
 final class RelatedPostsRepository {
 
