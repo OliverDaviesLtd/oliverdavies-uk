@@ -66,6 +66,7 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
     $build['content'] = [
       '#cache' => [
         'max-age' => 604800,
+        'tags' => ["node:{$currentPost->id()}"],
       ],
       '#theme' => 'item_list',
       '#items' => $relatedPosts
