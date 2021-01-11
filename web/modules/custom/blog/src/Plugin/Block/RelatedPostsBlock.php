@@ -3,6 +3,7 @@
 namespace Drupal\opdavies_blog\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Link;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\CurrentRouteMatch;
@@ -64,10 +65,6 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
     }
 
     $build['content'] = [
-      '#cache' => [
-        'max-age' => 604800,
-        'tags' => ["node:{$currentPost->id()}"],
-      ],
       '#items' => $relatedPosts
         ->sortByDesc(fn(Post $post) => $post->getCreatedTime())
         ->map(fn(Post $post) => $this->generateLinkToPost($post))
@@ -77,6 +74,17 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
     ];
 
     return $build;
+  }
+
+  public function getCacheMaxAge(): int {
+    return 604800;
+  }
+
+  public function getCacheTags(): array {
+    /** @var Post $post */
+    $post = $this->currentRouteMatch->getParameter('node');
+
+    return Cache::mergeTags(parent::getCacheTags(), ["node:{$post->id()}"]);
   }
 
   private function generateLinkToPost(Post $post): Link {
