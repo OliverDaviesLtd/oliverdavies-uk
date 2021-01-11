@@ -1,0 +1,36 @@
+uuid: a524befa-25df-44a7-90dd-58588da3019a
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+    - opdavies_blog
+  theme:
+    - opdavies
+id: relatedposts
+theme: opdavies
+region: content
+weight: -2
+provider: null
+plugin: opdavies_blog_related_posts
+settings:
+  id: opdavies_blog_related_posts
+  label: 'Related Posts'
+  provider: opdavies_blog
+  label_display: visible
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      post: post
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      post: post
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

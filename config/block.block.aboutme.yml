@@ -12,7 +12,7 @@ dependencies:
 id: aboutme
 theme: opdavies
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: 'block_content:5124375b-ca89-4c71-90f6-b8ef4e83ecbb'
 settings:
