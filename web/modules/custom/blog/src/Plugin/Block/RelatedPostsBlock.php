@@ -80,6 +80,10 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
     return 604800;
   }
 
+  public function getCacheContexts(): array {
+    return Cache::mergeContexts(parent::getCacheContexts(), ['route']);
+  }
+
   public function getCacheTags(): array {
     /** @var Post $post */
     $post = $this->currentRouteMatch->getParameter('node');
