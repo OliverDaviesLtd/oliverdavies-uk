@@ -7,6 +7,7 @@ namespace Drupal\opdavies_blog\Repository;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryInterface;
+use Drupal\node\NodeInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\TermInterface;
 use Tightenco\Collect\Support\Collection;
@@ -48,6 +49,8 @@ final class RelatedPostsRepository {
 
     // Only return posts with the same tags.
     $query->condition('field_tags', $tagIds->toArray(), 'IN');
+
+    $query->condition('status', NodeInterface::PUBLISHED);
 
     return $query;
   }
