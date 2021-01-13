@@ -1,6 +1,12 @@
+parameters:
+  container.autowiring.strict_mode: true
+
 services:
+  Drupal\Core\Entity\EntityTypeManagerInterface:
+    alias: entity_type.manager
+
   Drupal\opdavies_blog\Service\PostPusher\PostPusher:
-    alias: Drupal\opdavies_blog\Service\PostPusher\NullPostPusher
+    class: Drupal\opdavies_blog\Service\PostPusher\NullPostPusher
 
   Drupal\opdavies_blog_test\Factory\PostFactory:
     autowire: true

@@ -1,24 +1,25 @@
+parameters:
+  container.autowiring.strict_mode: true
+
 services:
+  Drupal\Core\Config\ConfigFactoryInterface:
+    alias: config.factory
+
+  Drupal\Core\Entity\EntityTypeManagerInterface:
+    alias: entity_type.manager
+
+  Drupal\Core\Queue\QueueFactory:
+    alias: queue
+
   Drupal\opdavies_blog\EventSubscriber\PushPostToSocialMediaOnceItIsPublished:
     autowire: true
     tags:
       - { name: event_subscriber }
 
   Drupal\opdavies_blog\EventSubscriber\SortTagsAlphabeticallyWhenPostIsSaved:
+    autowire: true
     tags:
       - { name: event_subscriber }
 
-  Drupal\opdavies_blog\Repository\PostRepository:
-    autowire: true
-
-  Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher:
-    autowire: true
-
-  Drupal\opdavies_blog\Service\PostPusher\NullPostPusher:
-    autowire: true
-
-  Drupal\opdavies_blog\Service\PostPusher\PostPusher:
-    alias: Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher
-
-  Drupal\opdavies_blog\Repository\RelatedPostsRepository:
-    autowire: true
+  GuzzleHttp\ClientInterface:
+    alias: http_client

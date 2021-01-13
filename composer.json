@@ -41,6 +41,7 @@
         "drupal/stage_file_proxy": "^1.0",
         "drush/drush": "^10",
         "nesbot/carbon": "^2.33",
+        "symfony/config": "^3.4",
         "tightenco/collect": "^8.17"
     },
     "require-dev": {

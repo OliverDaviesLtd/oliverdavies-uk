@@ -1,13 +1,10 @@
 services:
+  Drupal\Component\Datetime\TimeInterface:
+    alias: datetime.time
+
+  Drupal\Core\Entity\EntityTypeManagerInterface:
+    alias: entity_type.manager
+
   Drupal\opdavies_talks\EventSubscriber\UpdateTalkNodeBeforeSave:
     tags:
       - { name: event_subscriber }
-
-  Drupal\opdavies_talks\Repository\TalkRepository:
-    autowire: true
-
-  Drupal\opdavies_talks\Service\TalkCounter:
-    autowire: true
-
-  Drupal\opdavies_talks\Service\TalkDateUpdater:
-    autowire: true
