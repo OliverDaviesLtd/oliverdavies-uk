@@ -34,6 +34,11 @@ final class RelatedPostsTest extends PostTestBase {
   }
 
   /** @test */
+  public function unpublished_posts_are_not_returned(): void {
+    $this->markTestSkipped();
+  }
+
+  /** @test */
   public function it_returns_an_empty_collection_if_there_are_no_related_posts(): void {
     $postA = $this->postFactory
       ->setTitle('Drupal 8 post')
