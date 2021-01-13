@@ -23,12 +23,12 @@ final class PushPostToSocialMediaOnceItIsPublished implements EventSubscriberInt
    */
   public static function getSubscribedEvents() {
     return [
-      HookEventDispatcherInterface::ENTITY_INSERT => 'onEntityUpdate',
-      HookEventDispatcherInterface::ENTITY_UPDATE => 'onEntityUpdate',
+      HookEventDispatcherInterface::ENTITY_INSERT => 'pushPost',
+      HookEventDispatcherInterface::ENTITY_UPDATE => 'pushPost',
     ];
   }
 
-  public function onEntityUpdate(AbstractEntityEvent $event): void {
+  public function pushPost(AbstractEntityEvent $event): void {
     $entity = $event->getEntity();
 
     if ($entity->getEntityTypeId() != 'node') {

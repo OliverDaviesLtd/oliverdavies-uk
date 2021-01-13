@@ -17,11 +17,11 @@ final class SortTagsAlphabeticallyWhenPostIsSaved implements EventSubscriberInte
    */
   public static function getSubscribedEvents() {
     return [
-      HookEventDispatcherInterface::ENTITY_PRE_SAVE => 'onEntityPreSave',
+      HookEventDispatcherInterface::ENTITY_PRE_SAVE => 'sortTags',
     ];
   }
 
-  public function onEntityPresave(AbstractEntityEvent $event): void {
+  public function sortTags(AbstractEntityEvent $event): void {
     $entity = $event->getEntity();
 
     if ($entity->getEntityTypeId() != 'node') {
