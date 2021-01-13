@@ -10,7 +10,7 @@ use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\TermInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class ReorderBlogTags implements EventSubscriberInterface {
+final class SortTagsAlphabeticallyWhenPostIsSaved implements EventSubscriberInterface {
 
   /**
    * @inheritDoc

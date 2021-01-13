@@ -10,7 +10,7 @@ use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class PushBlogPostToSocialMedia implements EventSubscriberInterface {
+final class PushPostToSocialMediaOnceItIsPublished implements EventSubscriberInterface {
 
   private QueueFactory $queueFactory;
 

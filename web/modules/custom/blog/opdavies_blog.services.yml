@@ -1,10 +1,10 @@
 services:
-  Drupal\opdavies_blog\EventSubscriber\PushBlogPostToSocialMedia:
+  Drupal\opdavies_blog\EventSubscriber\PushPostToSocialMediaOnceItIsPublished:
     autowire: true
     tags:
       - { name: event_subscriber }
 
-  Drupal\opdavies_blog\EventSubscriber\ReorderBlogTags:
+  Drupal\opdavies_blog\EventSubscriber\SortTagsAlphabeticallyWhenPostIsSaved:
     tags:
       - { name: event_subscriber }
 
