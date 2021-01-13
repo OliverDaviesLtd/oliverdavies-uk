@@ -7,6 +7,3 @@ services:
 
   Drupal\opdavies_blog\Service\PostPusher\PostPusher:
     class: Drupal\opdavies_blog\Service\PostPusher\NullPostPusher
-
-  Drupal\opdavies_blog_test\Factory\PostFactory:
-    autowire: true
