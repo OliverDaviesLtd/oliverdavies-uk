@@ -4,7 +4,3 @@ services:
 
   Drupal\Core\Entity\EntityTypeManagerInterface:
     alias: entity_type.manager
-
-  Drupal\opdavies_talks\EventSubscriber\UpdateTalkNodeBeforeSave:
-    tags:
-      - { name: event_subscriber }

@@ -11,15 +11,5 @@ services:
   Drupal\Core\Queue\QueueFactory:
     alias: queue
 
-  Drupal\opdavies_blog\EventSubscriber\PushPostToSocialMediaOnceItIsPublished:
-    autowire: true
-    tags:
-      - { name: event_subscriber }
-
-  Drupal\opdavies_blog\EventSubscriber\SortTagsAlphabeticallyWhenPostIsSaved:
-    autowire: true
-    tags:
-      - { name: event_subscriber }
-
   GuzzleHttp\ClientInterface:
     alias: http_client
