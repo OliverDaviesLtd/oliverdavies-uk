@@ -77,6 +77,9 @@
                 "[web-root]/sites/README.txt": false,
                 "[web-root]/modules/README.txt": false,
                 "[web-root]/profiles/README.txt": false,
+                "[web-root]/robots.txt": {
+                    "append": "assets/robots-additions.txt"
+                },
                 "[web-root]/themes/README.txt": false,
                 "[web-root]/web.config": false
             },

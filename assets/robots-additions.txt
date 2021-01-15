@@ -1,0 +1,8 @@
+Disallow: /drupal-tailwindcss/
+Disallow: /drupalorg/
+Disallow: /github/
+Disallow: /linkedin/
+Disallow: /rebuilding-pantheon/
+Disallow: /twitter/
+Disallow: /webpack-encore-pcss-regex/
+Disallow: /workshop-drupal-testing/

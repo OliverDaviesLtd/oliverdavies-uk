@@ -5,6 +5,7 @@
 !/**/.gitkeep
 !/.github/**
 !/.idea/
+!/assets/**
 !/bin/
 !/config/**
 !/Makefile
