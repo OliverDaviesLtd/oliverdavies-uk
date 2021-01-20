@@ -47,4 +47,4 @@ services:
     image: node:12
     working_dir: /node
     volumes:
-      - ./web:/node
+      - ./{{ @('drupal.docroot') }}:/node

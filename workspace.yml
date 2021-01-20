@@ -1,6 +1,7 @@
 workspace('oliverdavies-uk'):
   description: My personal website codebase.
 
+attribute('drupal.docroot'): web
 attribute('frontend'):
   build: npm run prod
   dev: npm run dev
