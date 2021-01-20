@@ -9,7 +9,7 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
-      - ./tools/docker/images/nginx/vhost.conf:/etc/nginx/conf.d/default.conf
+      - ./tools/.docker/images/nginx/vhost.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 8080:80
     depends_on:

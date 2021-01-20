@@ -11,6 +11,7 @@ attribute('frontend'):
 confd('workspace:/tools/workspace/confd'):
   - { src: 'docker-compose.yaml', dst: 'workspace:/docker-compose.yaml' }
   - { src: 'Dockerfile', dst: 'workspace:/Dockerfile' }
+  - { src: 'vhost.conf', dst: 'workspace:/tools/.docker/images/nginx/vhost.conf' }
 
 command('apply config'): |
   #!php

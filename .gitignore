@@ -21,6 +21,7 @@
 !/workspace.yml
 /.idea/workspace.xml
 /node_modules/
+/tools/.docker/
 /tools/ansible/.roles/
 /vendor/
 /web/themes/custom/*/body-field-values.txt
