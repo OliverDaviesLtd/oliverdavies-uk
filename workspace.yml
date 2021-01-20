@@ -43,6 +43,15 @@ command('exec %'):
     #!bash|=
     passthru docker-compose exec php ={ input.argument('%') }
 
+command('install'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash
+    ws composer install
+    ws theme install
+    ws theme dev
+
 command('frontend dev'):
   env:
     COMPOSE_PROJECT_NAME: = @('namespace')
