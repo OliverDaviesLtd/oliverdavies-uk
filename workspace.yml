@@ -1,2 +1,16 @@
 workspace('oliverdavies-uk'):
   description: My personal website codebase.
+
+command('disable'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash
+    run docker-compose down --remove-orphans
+
+command('enable'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash
+    run docker-compose up -d --build
