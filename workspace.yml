@@ -8,6 +8,14 @@ attribute('frontend'):
   path: themes/custom/opdavies
   watch: npm run watch
 
+confd('workspace:/tools/workspace/confd'):
+  - { src: 'docker-compose.yaml', dst: 'workspace:/docker-compose.yaml' }
+  - { src: 'Dockerfile', dst: 'workspace:/Dockerfile' }
+
+command('apply config'): |
+  #!php
+  $ws->confd('workspace:/tools/workspace/confd')->apply();
+
 command('composer %'):
   env:
     COMPOSE_PROJECT_NAME: = @('namespace')
