@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-## Description: Run PHPUnit tests inside the web container.
-## Usage: phpunit
-## Example: "ddev phpunit" or with additional arguments such as "ddev phpunit --testdox"
-
-vendor/bin/phpunit $*
