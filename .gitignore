@@ -16,7 +16,6 @@
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php
-!/web/sites/default/settings.docker.php
 !/web/themes/custom/**
 !/workspace.yml
 /.idea/workspace.xml

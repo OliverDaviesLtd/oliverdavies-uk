@@ -1,6 +1,10 @@
 workspace('oliverdavies-uk'):
   description: My personal website codebase.
 
+attribute('database'):
+  database: drupal
+  password: drupal
+  username: drupal
 attribute('drupal.docroot'): web
 attribute('frontend'):
   build: npm run prod
@@ -17,6 +21,7 @@ attribute('php.version'): 7.4
 confd('workspace:/tools/workspace/confd'):
   - { src: 'docker-compose.yaml', dst: 'workspace:/docker-compose.yaml' }
   - { src: 'Dockerfile', dst: 'workspace:/Dockerfile' }
+  - { src: 'settings.local.php', dst: 'workspace:/web/sites/default/settings.local.php' }
   - { src: 'vhost.conf', dst: 'workspace:/tools/.docker/images/nginx/vhost.conf' }
 
 command('apply config'): |
