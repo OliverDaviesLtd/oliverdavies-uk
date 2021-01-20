@@ -15,6 +15,13 @@ command('disable'):
     #!bash
     run docker-compose down --remove-orphans
 
+command('drush %'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|=
+    ws exec bin/drush ={ input.argument('%') }
+
 command('enable'):
   env:
     COMPOSE_PROJECT_NAME: = @('namespace')
