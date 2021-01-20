@@ -35,3 +35,10 @@ command('exec %'):
   exec: |
     #!bash|=
     passthru docker-compose exec php ={ input.argument('%') }
+
+command('phpunit %'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|=
+    ws exec bin/phpunit ={ input.argument('%') }
