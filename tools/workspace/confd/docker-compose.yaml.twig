@@ -31,7 +31,7 @@ services:
         condition: service_healthy
 
   mysql:
-    image: mariadb:10
+    image: {{ @('mysql.image') }}:{{ @('mysql.version') }}
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
@@ -44,7 +44,7 @@ services:
       interval: 1s
 
   node:
-    image: node:12
+    image: node:{{ @('node.version') }}
     working_dir: /node
     volumes:
       - ./{{ @('drupal.docroot') }}:/node

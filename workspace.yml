@@ -8,6 +8,11 @@ attribute('frontend'):
   install: npm ci
   path: themes/custom/opdavies
   watch: npm run watch
+attribute('mysql'):
+  image: mariadb
+  version: 10
+attribute('node.version'): 12
+attribute('php.version'): 7.4
 
 confd('workspace:/tools/workspace/confd'):
   - { src: 'docker-compose.yaml', dst: 'workspace:/docker-compose.yaml' }
