@@ -7,8 +7,6 @@
 !/assets/**
 !/bin/
 !/config/**
-!/Dockerfile
-!/docker-compose.yaml
 !/phpcs.xml.dist
 !/phpstan.neon
 !/phpunit.xml.dist
