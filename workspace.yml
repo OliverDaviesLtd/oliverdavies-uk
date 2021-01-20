@@ -1,6 +1,13 @@
 workspace('oliverdavies-uk'):
   description: My personal website codebase.
 
+attribute('frontend'):
+  build: npm run prod
+  dev: npm run dev
+  install: npm ci
+  path: themes/custom/opdavies
+  watch: npm run watch
+
 command('composer %'):
   env:
     COMPOSE_PROJECT_NAME: = @('namespace')
@@ -35,6 +42,34 @@ command('exec %'):
   exec: |
     #!bash|=
     passthru docker-compose exec php ={ input.argument('%') }
+
+command('frontend dev'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|@
+    passthru docker-compose run --rm -w /node/@('frontend.path') node @('frontend.dev')
+
+command('frontend build'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|@
+    passthru docker-compose run --rm -w /node/@('frontend.path') node @('frontend.build')
+
+command('frontend install'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|@
+    passthru docker-compose run --rm -w /node/@('frontend.path') node @('frontend.install')
+
+command('frontend watch'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|@
+    passthru docker-compose run --rm -w /node/@('frontend.path') node @('frontend.watch')
 
 command('phpunit %'):
   env:
