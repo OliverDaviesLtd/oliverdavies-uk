@@ -1,6 +1,13 @@
 workspace('oliverdavies-uk'):
   description: My personal website codebase.
 
+command('composer %'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|=
+    ws exec composer ={ input.argument('%') }
+
 command('disable'):
   env:
     COMPOSE_PROJECT_NAME: = @('namespace')
