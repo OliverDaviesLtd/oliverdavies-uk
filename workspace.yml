@@ -14,3 +14,10 @@ command('enable'):
   exec: |
     #!bash
     run docker-compose up -d --build
+
+command('exec %'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|=
+    passthru docker-compose exec php ={ input.argument('%') }
