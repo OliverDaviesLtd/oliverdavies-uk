@@ -1,0 +1,24 @@
+command('apply config'): |
+  #!php
+  $ws->confd('workspace:/tools/workspace/confd')->apply();
+
+command('disable'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash
+    run docker-compose down --remove-orphans
+
+command('enable'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash
+    run docker-compose up -d --build
+
+command('exec %'):
+  env:
+    COMPOSE_PROJECT_NAME: = @('namespace')
+  exec: |
+    #!bash|=
+    passthru docker-compose exec php ={ input.argument('%') }

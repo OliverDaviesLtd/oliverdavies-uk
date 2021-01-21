@@ -18,16 +18,6 @@ attribute('mysql'):
 attribute('node.version'): 12
 attribute('php.version'): 7.4
 
-confd('workspace:/tools/workspace/confd'):
-  - { src: 'docker-compose.yaml', dst: 'workspace:/docker-compose.yaml' }
-  - { src: 'Dockerfile', dst: 'workspace:/Dockerfile' }
-  - { src: 'settings.local.php', dst: 'workspace:/web/sites/default/settings.local.php' }
-  - { src: 'vhost.conf', dst: 'workspace:/tools/.docker/images/nginx/vhost.conf' }
-
-command('apply config'): |
-  #!php
-  $ws->confd('workspace:/tools/workspace/confd')->apply();
-
 command('composer %'):
   env:
     COMPOSE_PROJECT_NAME: = @('namespace')
@@ -35,33 +25,12 @@ command('composer %'):
     #!bash|=
     ws exec composer ={ input.argument('%') }
 
-command('disable'):
-  env:
-    COMPOSE_PROJECT_NAME: = @('namespace')
-  exec: |
-    #!bash
-    run docker-compose down --remove-orphans
-
 command('drush %'):
   env:
     COMPOSE_PROJECT_NAME: = @('namespace')
   exec: |
     #!bash|=
     ws exec bin/drush ={ input.argument('%') }
-
-command('enable'):
-  env:
-    COMPOSE_PROJECT_NAME: = @('namespace')
-  exec: |
-    #!bash
-    run docker-compose up -d --build
-
-command('exec %'):
-  env:
-    COMPOSE_PROJECT_NAME: = @('namespace')
-  exec: |
-    #!bash|=
-    passthru docker-compose exec php ={ input.argument('%') }
 
 command('install'):
   env:
@@ -106,3 +75,6 @@ command('phpunit %'):
   exec: |
     #!bash|=
     ws exec bin/phpunit ={ input.argument('%') }
+
+import:
+  - tools/workspace/config/*.yml
