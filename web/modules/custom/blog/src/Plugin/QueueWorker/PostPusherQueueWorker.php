@@ -9,6 +9,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher;
+use Drupal\opdavies_blog\Service\PostPusher\IntegromatPostPusher;
 use Drupal\opdavies_blog\Service\PostPusher\PostPusher;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -54,6 +55,7 @@ final class PostPusherQueueWorker extends QueueWorkerBase implements ContainerFa
       $container->get('entity_type.manager')->getStorage('node'),
       [
         $container->get(IftttPostPusher::class),
+        $container->get(IntegromatPostPusher::class),
       ]
     );
   }
