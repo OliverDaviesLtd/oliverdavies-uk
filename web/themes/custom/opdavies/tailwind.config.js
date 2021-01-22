@@ -28,7 +28,7 @@ module.exports = {
         DEFAULT: {
           css: {
             a: {
-              color: theme('colors.blue.500')
+              color: theme('colors.blue.700')
             },
             code: {
               backgroundColor: theme('colors.gray.150'),
