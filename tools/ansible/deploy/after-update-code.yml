@@ -20,13 +20,13 @@
     chdir={{ release_web_path }}
   changed_when: false
 
-# - name: Run database updates
-#   command: >
-#     {{ release_drush_path }}
-#     updatedb -y
-#     chdir={{ release_web_path }}
-#   register: update_database_result
-#   changed_when: "'No pending updates' not in update_database_result.stderr"
+- name: Run database updates
+  command: >
+    {{ release_drush_path }}
+    updatedb -y
+    chdir={{ release_web_path }}
+  register: update_database_result
+  changed_when: "'No pending updates' not in update_database_result.stderr"
 
 - name: Import configuration
   command: >
