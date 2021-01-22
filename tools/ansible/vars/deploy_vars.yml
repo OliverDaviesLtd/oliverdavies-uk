@@ -14,6 +14,7 @@ ansistrano_after_update_code_tasks_file: '{{ playbook_dir }}/deploy/after-update
 
 app_hash_salt: '{{ vault_app_hash_salt }}'
 
+integromat_webhook_url: '{{ vault_integromat_webhook_url }}'
 post_tweet_webhook_url: '{{ vault_post_tweet_webhook_url }}'
 
 release_drush_path: '{{ ansistrano_release_path.stdout }}/bin/drush'
@@ -63,4 +64,5 @@ drupal_settings:
             $settings['reverse_proxy_header'] = 'CF-Connecting-IP';
             $settings['omit_vary_cookie'] = TRUE;
 
+            $config['opdavies_blog.settings']['integromat_webhook_url'] = '{{ integromat_webhook_url }}';
             $config['opdavies_blog.settings']['post_tweet_webhook_url'] = '{{ post_tweet_webhook_url }}';
