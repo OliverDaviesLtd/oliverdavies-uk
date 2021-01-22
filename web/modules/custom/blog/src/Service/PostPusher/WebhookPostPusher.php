@@ -6,7 +6,7 @@ namespace Drupal\opdavies_blog\Service\PostPusher;
 
 use GuzzleHttp\ClientInterface;
 
-abstract class HttpPostPusher implements PostPusher {
+abstract class WebhookPostPusher implements PostPusher {
 
   protected ClientInterface $client;
 

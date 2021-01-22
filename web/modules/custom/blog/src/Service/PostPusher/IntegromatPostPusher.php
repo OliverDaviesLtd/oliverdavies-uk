@@ -10,7 +10,7 @@ use Drupal\opdavies_blog\Entity\Node\Post;
 use GuzzleHttp\ClientInterface;
 use Webmozart\Assert\Assert;
 
-final class IntegromatPostPusher extends HttpPostPusher {
+final class IntegromatPostPusher extends WebhookPostPusher {
 
   use StringTranslationTrait;
 
