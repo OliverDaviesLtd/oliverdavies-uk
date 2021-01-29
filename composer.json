@@ -114,6 +114,9 @@
             ]
         },
         "patches": {
+            "drupal/plausible": {
+                "Return early if user is not anonymous": "tools/patches/plausible/return-if-authenticated.patch"
+            }
         }
     }
 }
