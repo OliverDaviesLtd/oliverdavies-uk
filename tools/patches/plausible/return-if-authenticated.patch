@@ -1,0 +1,20 @@
+diff --git a/plausible.module b/plausible.module
+index ce5a826..aa78dc5 100644
+--- a/plausible.module
++++ b/plausible.module
+@@ -16,9 +16,14 @@ use Drupal\plausible\Component\Render\PlausibleJavaScriptSnippet;
+ function plausible_page_attachments(array &$attachments) {
+   $account = \Drupal::currentUser();
+ 
+-  if (! (_plausible_visibility_pages() && _plausible_visibility_roles($account))) {
++  if (!_plausible_visibility_pages()) {
+     return;
+   }
++
++  if ($account->isAuthenticated()) {
++    return;
++  }
++
+   $config = \Drupal::config('plausible.settings');
+   $attachments['#attached']['html_head'][] = [
+     [
