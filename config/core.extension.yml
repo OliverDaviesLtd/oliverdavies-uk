@@ -25,6 +25,8 @@ module:
   hook_event_dispatcher: 0
   hreflang: 0
   image: 0
+  insert: 0
+  insert_media: 0
   layout_builder: 0
   layout_discovery: 0
   link: 0
