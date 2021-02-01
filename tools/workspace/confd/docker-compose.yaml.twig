@@ -17,6 +17,14 @@ services:
         condition: service_started
       php:
         condition: service_started
+    labels:
+      - traefik.backend={{ @('workspace.name') }}
+      - traefik.frontend.rule=Host:{{ @('workspace.name') }}.my127.site
+      - traefik.docker.network=my127ws
+      - traefik.port=80
+    networks:
+      private: {}
+      shared: {}
 
   php:
     build:
@@ -29,6 +37,10 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+    labels:
+      - traefik.enable=false
+    networks:
+      - private
 
   mysql:
     image: {{ @('mysql.image') }}:{{ @('mysql.version') }}
@@ -42,9 +54,22 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "bash", "-c", "echo > /dev/tcp/localhost/3306"]
       interval: 1s
+    labels:
+      - traefik.enable=false
+    networks:
+      - private
 
   node:
     image: node:{{ @('node.version') }}
     working_dir: /node
     volumes:
       - ./{{ @('drupal.docroot') }}:/node
+    labels:
+      - traefik.enable=false
+
+networks:
+  private:
+    external: false
+  shared:
+    external:
+      name: my127ws
