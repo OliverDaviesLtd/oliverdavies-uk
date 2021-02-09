@@ -6,6 +6,7 @@ Encore
     .cleanupOutputBeforeBuild()
     .setOutputPath('build/')
     .setPublicPath('/themes/custom/opdavies/build')
+    .setManifestKeyPrefix('build/')
 
     .addEntry('app', '@/app.js')
 

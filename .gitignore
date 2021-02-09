@@ -2,12 +2,15 @@
 !*/
 !/.gitignore
 !/**/.gitkeep
+!/.docker.env.example
+!/.dockerignore
 !/.github/**
 !/.idea/
 !/assets/**
 !/bin/
 !/config/**
-!/Makefile
+!/Dockerfile
+!/docker-compose.yaml
 !/phpcs.xml.dist
 !/phpstan.neon
 !/phpunit.xml.dist
@@ -17,6 +20,7 @@
 !/web/modules/custom/**
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php
+!/web/sites/default/settings.docker.php
 !/web/themes/custom/**
 /.idea/workspace.xml
 /node_modules/
