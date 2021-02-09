@@ -1,0 +1,7 @@
+/**/*.{md,txt}
+/.git-blame-ignore-revs
+/.git/
+/.github/
+/.gitignore
+/.idea/
+/.notes/
