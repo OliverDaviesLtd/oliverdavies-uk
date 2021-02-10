@@ -4,8 +4,12 @@
 !/**/.gitkeep
 !/.docker.env.example
 !/.dockerignore
+!/.env.example
+!/.environment
 !/.github/**
 !/.idea/
+!/.platform/**
+!/.platform.app.yaml
 !/assets/**
 !/bin/
 !/config/**
@@ -21,8 +25,10 @@
 !/web/sites/default/environments/settings.*.php
 !/web/sites/default/settings.php
 !/web/sites/default/settings.docker.php
+!/web/sites/default/settings.platformsh.php
 !/web/themes/custom/**
 /.idea/workspace.xml
+/.platform/local/
 /node_modules/
 /tools/ansible/.roles/
 /vendor/

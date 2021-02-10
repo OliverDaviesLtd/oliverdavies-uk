@@ -1,0 +1,123 @@
+name: 'app'
+type: 'php:7.4'
+
+variables:
+  env:
+    NODE_VERSION: v14.13.1
+    NVM_VERSION: v0.36.0
+
+dependencies:
+  nodejs:
+    npm: 6.14.10
+  php:
+    composer/composer: '^2'
+
+runtime:
+  extensions:
+    - redis
+
+relationships:
+  database: 'db:mysql'
+  redis: 'cache:redis'
+
+disk: 2048
+
+mounts:
+  '/web/sites/default/files':
+    source: local
+    source_path: 'files'
+  '/tmp':
+    source: local
+    source_path: 'tmp'
+  '/private':
+    source: local
+    source_path: 'private'
+  '/.drush':
+    source: local
+    source_path: 'drush'
+  '/drush-backups':
+    source: local
+    source_path: 'drush-backups'
+
+build:
+  flavor: none
+
+hooks:
+  build: |
+    set -e
+    export PATH=/app/bin:$PATH
+
+    curl -sS https://platform.sh/cli/installer | php
+    # source ~/.environment
+
+    composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader --no-dev
+
+    # platform sql 'SELECT body_value FROM block_content__body UNION SELECT body_value FROM node__body' > /tmp/body-field-values.txt
+
+    cd web/themes/custom/opdavies
+
+    unset NPM_CONFIG_PREFIX
+    export NVM_DIR="$PLATFORM_APP_DIR/.nvm"
+    curl -f -o- https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh | bash
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    npm clean-install
+    npm run production
+    rm -fr node_modules
+
+    unset NPM_CONFIG_PREFIX
+  deploy: |
+    set -e
+    export PATH=/app/bin:$PATH
+    drush -y cache-rebuild
+    drush -y updatedb
+    drush -y config-import
+
+web:
+  locations:
+    '/':
+      root: 'web'
+      expires: 5m
+      passthru: '/index.php'
+      allow: false
+      rules:
+        '\.(jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf)$':
+          allow: true
+        '^/robots\.txt$':
+          allow: true
+        '^/sitemap\.xml$':
+          allow: true
+        '^/sites/sites\.php$':
+          scripts: false
+        '^/sites/[^/]+/settings.*?\.php$':
+          scripts: false
+
+    '/sites/default/files':
+      allow: true
+      expires: 5m
+      passthru: '/index.php'
+      root: 'web/sites/default/files'
+      scripts: false
+      rules:
+        '^/sites/default/files/(css|js)':
+          expires: 2w
+
+crons:
+  drupal:
+    spec: '*/19 * * * *'
+    cmd: 'cd web && drush core-cron'
+
+  snapshot:
+    spec: '0 5 * * *'
+    cmd: |
+        if [ "$PLATFORM_BRANCH" = production ]; then
+            platform snapshot:create --yes --no-wait
+        fi
+
+  renewcert:
+    # Force a redeploy at 5am (UTC) on the 1st and 15th of every month.
+    spec: '0 5 1,15 * *'
+    cmd: |
+      if [ "$PLATFORM_BRANCH" = production ]; then
+          platform redeploy --yes --no-wait
+      fi
