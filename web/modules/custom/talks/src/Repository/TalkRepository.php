@@ -7,8 +7,7 @@ namespace Drupal\opdavies_talks\Repository;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
-use Drupal\opdavies_talks\Entity\Node\Talk;
-use Tightenco\Collect\Support\Collection;
+use Drupal\opdavies_talks\Collection\TalkCollection;
 
 final class TalkRepository {
 
@@ -18,19 +17,13 @@ final class TalkRepository {
     $this->nodeStorage = $entityTypeManager->getStorage('node');
   }
 
-  /**
-   * @return Collection|Talk[]
-   */
-  public function findAll(): Collection {
+  public function findAll(): TalkCollection {
     $talks = $this->nodeStorage->loadByProperties($this->defaultProperties());
 
-    return new Collection($talks);
+    return new TalkCollection($talks);
   }
 
-  /**
-   * @return Collection|Talk[]
-   */
-  public function findAllPublished(): Collection {
+  public function findAllPublished(): TalkCollection {
     $talks = $this->nodeStorage->loadByProperties(array_merge(
       $this->defaultProperties(),
       [
@@ -38,7 +31,7 @@ final class TalkRepository {
       ],
     ));
 
-    return new Collection($talks);
+    return new TalkCollection($talks);
   }
 
   private function defaultProperties(): array {
