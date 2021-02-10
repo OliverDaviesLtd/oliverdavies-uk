@@ -12,15 +12,9 @@ module.exports = {
     content: [
       '../../../../config/**/*.yml',
       'opdavies.theme',
+      'tailwind-safelist-classes.txt',
       'templates/**/*.twig',
-      '/tmp/body-field-values.txt'
     ],
-    options: {
-      safelist: [
-        'bg-gray-200',
-        'block-opdavies-branding'
-      ]
-    }
   },
   theme: {
     extend: {
