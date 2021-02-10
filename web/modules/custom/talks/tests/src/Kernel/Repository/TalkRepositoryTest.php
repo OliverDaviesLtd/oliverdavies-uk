@@ -47,7 +47,7 @@ final class TalkRepositoryTest extends TalksTestBase {
       'status' => NodeInterface::NOT_PUBLISHED,
     ]);
 
-    $talks = $this->talkRepository->getAll(TRUE);
+    $talks = $this->talkRepository->findAllPublished();
 
     $this->assertCount(1, $talks);
     $this->assertSame('TDD - Test Driven Drupal', $talks->first()->label());

@@ -6,6 +6,7 @@ namespace Drupal\opdavies_talks\Repository;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\node\NodeInterface;
 use Drupal\opdavies_talks\Entity\Node\Talk;
 use Tightenco\Collect\Support\Collection;
 
@@ -30,6 +31,18 @@ final class TalkRepository {
     return new Collection(
       $this->nodeStorage->loadByProperties($properties)
     );
+  }
+
+  /**
+   * @return Collection|Talk[]
+   */
+  public function findAllPublished(): Collection {
+    $talks = $this->nodeStorage->loadByProperties([
+      'status' => NodeInterface::PUBLISHED,
+      'type' => 'talk',
+    ]);
+
+    return new Collection($talks);
   }
 
 }
