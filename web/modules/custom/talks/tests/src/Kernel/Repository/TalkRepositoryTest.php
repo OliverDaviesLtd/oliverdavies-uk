@@ -22,7 +22,7 @@ final class TalkRepositoryTest extends TalksTestBase {
     $this->createTalk(['title' => 'Taking Flight with Tailwind CSS']);
     $this->createTalk(['title' => 'Upgrading to Drupal 9']);
 
-    $talks = $this->talkRepository->getAll();
+    $talks = $this->talkRepository->findAll();
 
     $this->assertCount(3, $talks);
     $this->assertSame(
@@ -57,7 +57,7 @@ final class TalkRepositoryTest extends TalksTestBase {
   public function it_only_returns_talk_nodes(): void {
     $this->createNode(['type' => 'page']);
 
-    $talks = $this->talkRepository->getAll();
+    $talks = $this->talkRepository->findAll();
 
     $this->assertEmpty($talks);
   }
