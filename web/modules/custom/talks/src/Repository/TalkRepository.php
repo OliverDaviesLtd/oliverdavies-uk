@@ -21,16 +21,12 @@ final class TalkRepository {
   /**
    * @return Collection|Talk[]
    */
-  public function getAll(bool $publishedOnly = FALSE): Collection {
-    $properties = ['type' => 'talk'];
+  public function findAll(): Collection {
+    $talks = $this->nodeStorage->loadByProperties([
+      'type' => 'talk',
+    ]);
 
-    if ($publishedOnly) {
-      $properties['status'] = TRUE;
-    }
-
-    return new Collection(
-      $this->nodeStorage->loadByProperties($properties)
-    );
+    return new Collection($talks);
   }
 
   /**

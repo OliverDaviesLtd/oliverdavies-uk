@@ -25,7 +25,7 @@ final class TalkDateUpdater {
   }
 
   public function __invoke(): void {
-    foreach ($this->talkRepository->getAll() as $talk) {
+    foreach ($this->talkRepository->findAll() as $talk) {
       $this->updateNextEventDate($talk);
     }
   }
