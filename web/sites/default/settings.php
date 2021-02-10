@@ -760,6 +760,13 @@ $settings['entity_update_backup'] = TRUE;
 
 $settings["config_sync_directory"] = '../config';
 
+$config['opdavies_blog.settings']['integromat_webhook_url'] = getenv('INTEGROMAT_WEBHOOK_URL');
+$config['opdavies_blog.settings']['post_tweet_webhook_url'] = getenv('IFTTT_WEBHOOK_URL');
+
+if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
+  include $app_root . '/' . $site_path . '/settings.platformsh.php';
+}
+
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }

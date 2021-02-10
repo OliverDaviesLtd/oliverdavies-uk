@@ -11,9 +11,9 @@ module.exports = {
   purge: {
     content: [
       '../../../../config/**/*.yml',
-      'body-field-values.txt',
       'opdavies.theme',
-      'templates/**/*.twig'
+      'templates/**/*.twig',
+      '/tmp/body-field-values.txt'
     ],
     options: {
       safelist: [
