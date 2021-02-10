@@ -22,9 +22,7 @@ final class TalkRepository {
    * @return Collection|Talk[]
    */
   public function findAll(): Collection {
-    $talks = $this->nodeStorage->loadByProperties([
-      'type' => 'talk',
-    ]);
+    $talks = $this->nodeStorage->loadByProperties($this->defaultProperties());
 
     return new Collection($talks);
   }
@@ -33,12 +31,20 @@ final class TalkRepository {
    * @return Collection|Talk[]
    */
   public function findAllPublished(): Collection {
-    $talks = $this->nodeStorage->loadByProperties([
-      'status' => NodeInterface::PUBLISHED,
-      'type' => 'talk',
-    ]);
+    $talks = $this->nodeStorage->loadByProperties(array_merge(
+      $this->defaultProperties(),
+      [
+        'status' => NodeInterface::PUBLISHED,
+      ],
+    ));
 
     return new Collection($talks);
+  }
+
+  private function defaultProperties(): array {
+    return [
+      'type' => 'talk',
+    ];
   }
 
 }
