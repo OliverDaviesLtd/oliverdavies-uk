@@ -23,6 +23,9 @@ relationships:
 disk: 2048
 
 mounts:
+  '/web/images':
+    source: local
+    source_path: 'files/images'
   '/web/sites/default/files':
     source: local
     source_path: 'files'
