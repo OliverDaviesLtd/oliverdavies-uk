@@ -52,6 +52,7 @@ module:
   path_alias: 0
   plausible: 0
   redirect: 0
+  redis: 0
   scheduler: 0
   shortcut: 0
   simple_sitemap: 0
