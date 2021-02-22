@@ -1,10 +1,10 @@
-"https://{default}/":
+"https://www.{default}/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
 
-"https://www.{default}/":
+"https://{default}/":
     type: redirect
-    to: "https://{default}/"
+    to: "https://www.{default}/"
