@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@a81bbbf
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
-        uses: actions/cache@d974700
+        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
         with:
           path: |
             ~/.composer/cache/files
@@ -30,7 +30,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@5d27b8f
+        uses: shivammathur/setup-php@5d27b8f90ea9479ac7af4fcaad6b411eb19d7170
         with:
           php-version: ${{ env.php_version }}
           extensions: mbstring
@@ -72,15 +72,15 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout@a81bbbf
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Setup node and npm
-        uses: actions/setup-node@56899e0
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 12
 
       - name: Cache npm dependencies
-        uses: actions/cache@d974700
+        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
         with:
           path: node_modules
           key: dependencies-npm-${{ hashFiles('package-lock.json') }}
@@ -107,10 +107,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@a81bbbf
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
-        uses: actions/cache@d974700
+        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
         with:
           path: |
             ~/.composer/cache/files
@@ -121,7 +121,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@5d27b8f
+        uses: shivammathur/setup-php@5d27b8f90ea9479ac7af4fcaad6b411eb19d7170
         with:
           php-version: ${{ env.php_version }}
           extensions: mbstring
@@ -148,10 +148,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@a81bbbf
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
-        uses: actions/cache@d974700
+        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
         with:
           path: |
             ~/.composer/cache/files
@@ -162,7 +162,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@5d27b8f
+        uses: shivammathur/setup-php@5d27b8f90ea9479ac7af4fcaad6b411eb19d7170
         with:
           php-version: ${{ env.php_version }}
 
@@ -181,10 +181,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@a81bbbf
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
-        uses: actions/cache@d974700
+        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
         with:
           path: |
             ~/.composer/cache/files
@@ -195,7 +195,7 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@5d27b8f
+        uses: shivammathur/setup-php@5d27b8f90ea9479ac7af4fcaad6b411eb19d7170
         with:
           php-version: ${{ env.php_version }}
 
