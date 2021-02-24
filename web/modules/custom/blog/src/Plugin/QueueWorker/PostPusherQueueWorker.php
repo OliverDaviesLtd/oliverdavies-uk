@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Drupal\opdavies_blog\Plugin\QueueWorker;
 
+use Assert\Assertion;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
 use Drupal\opdavies_blog\Entity\Node\Post;
-use Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher;
-use Drupal\opdavies_blog\Service\PostPusher\IntegromatPostPusher;
 use Drupal\opdavies_blog\Service\PostPusher\PostPusher;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -48,15 +47,22 @@ final class PostPusherQueueWorker extends QueueWorkerBase implements ContainerFa
     $pluginId,
     $pluginDefinition
   ) {
+    $postPushers = [];
+
+    foreach ($container->getParameter('opdavies_blog.post_pushers') as $postPusher) {
+      Assertion::isInstanceOf($postPusher, '\stdClass');
+      Assertion::eq($postPusher->type, 'service');
+      Assertion::notEmpty($postPusher->id);
+
+      $postPushers[] = $container->get($postPusher->id);
+    }
+
     return new static(
       $configuration,
       $pluginId,
       $pluginDefinition,
       $container->get('entity_type.manager')->getStorage('node'),
-      [
-        $container->get(IftttPostPusher::class),
-        $container->get(IntegromatPostPusher::class),
-      ]
+      $postPushers
     );
   }
 
