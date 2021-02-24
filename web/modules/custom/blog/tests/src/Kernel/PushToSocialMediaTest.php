@@ -71,7 +71,7 @@ final class PushToSocialMediaTest extends EntityKernelTestBase {
     $this->installSchema('node', ['node_access']);
 
     $this->queue = $this->container->get('queue')
-      ->get('opdavies_blog_push_post_to_social_media');
+      ->get('opdavies_blog.push_post_to_social_media');
   }
 
 }

@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @QueueWorker(
- *   id = "opdavies_blog_push_post_to_social_media",
+ *   id = "opdavies_blog.push_post_to_social_media",
  *   title = "Push a blog post to social media",
  *   cron = {"time": 30}
  * )

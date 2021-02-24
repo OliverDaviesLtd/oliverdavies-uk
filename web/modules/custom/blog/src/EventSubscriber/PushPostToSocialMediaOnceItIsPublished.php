@@ -40,7 +40,7 @@ final class PushPostToSocialMediaOnceItIsPublished implements EventSubscriberInt
       return;
     }
 
-    $queue = $this->queueFactory->get('opdavies_blog_push_post_to_social_media');
+    $queue = $this->queueFactory->get('opdavies_blog.push_post_to_social_media');
     $queue->createQueue();
 
     $queue->createItem([
