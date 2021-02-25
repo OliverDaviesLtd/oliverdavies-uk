@@ -28,7 +28,7 @@ final class IftttPostPusher extends WebhookPostPusher {
   public function push(Post $post): void {
     $url = $this->configFactory
       ->get('opdavies_blog.settings')
-      ->get('ifttt.webhook_url');
+      ->get('post_tweet_webhook_url');
 
     Assert::notNull($url, 'Cannot push the post if there is no URL.');
 
