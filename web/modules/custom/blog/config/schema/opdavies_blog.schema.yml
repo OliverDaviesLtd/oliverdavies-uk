@@ -2,7 +2,7 @@ opdavies_blog.settings:
   type: config_object
   label: 'Blog module configuration'
   mapping:
-    integromat_webhook_url:
+    integromat.webhook_url:
       type: string
-    post_tweet_webhook_url:
+    ifttt.webhook_url:
       type: string

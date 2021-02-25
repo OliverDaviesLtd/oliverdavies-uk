@@ -28,7 +28,7 @@ final class IntegromatPostPusher extends WebhookPostPusher {
   public function push(Post $post): void {
     $url = $this->configFactory
       ->get('opdavies_blog.settings')
-      ->get('integromat_webhook_url');
+      ->get('integromat.webhook_url');
 
     Assert::notNull($url, 'Cannot push the post if there is no URL.');
 
