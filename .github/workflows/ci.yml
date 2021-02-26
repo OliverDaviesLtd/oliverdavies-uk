@@ -18,8 +18,7 @@ jobs:
     name: Test Drupal site installation
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
         uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
@@ -39,11 +38,9 @@ jobs:
           extensions: mbstring
           coverage: none
 
-      - name: Ensure that composer.json and composer.lock are in sync
-        run: composer validate
-
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-suggest
+      - run: |
+          composer validate
+          composer install --prefer-dist --no-interaction --no-suggest
 
       - name: Install Drupal
         run: >
@@ -52,8 +49,7 @@ jobs:
           --existing-config
           --db-url=sqlite://sites/default/files/.ht.sqlite
 
-      - name: Start a web server
-        run: php -S localhost:8000 -t web 2>&1 &
+      - run: php -S localhost:8000 -t web 2>&1 &
 
       - name: Test loading the home page
         run: curl http://localhost:8000
@@ -72,8 +68,7 @@ jobs:
           - web/themes/custom/opdavies
 
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Setup node and npm
         uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
@@ -105,8 +100,7 @@ jobs:
           - unit
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
         uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
@@ -126,15 +120,12 @@ jobs:
           extensions: mbstring
           coverage: none
 
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-suggest
+      - run: composer install --prefer-dist --no-interaction --no-suggest
 
-      - name: Start the local web server
-        run: php -S localhost:8000 -t web 2>&1 &
+      - run: php -S localhost:8000 -t web 2>&1 &
         if: matrix.test-types == 'functional'
 
-      - name: Execute tests
-        run: bin/phpunit --testdox --colors=always --testsuite=${{ matrix.test-types }}
+      - run: bin/phpunit --testdox --colors=always --testsuite=${{ matrix.test-types }}
         env:
           SIMPLETEST_BASE_URL: http://localhost:8000
 
@@ -144,8 +135,7 @@ jobs:
     name: "Run coding standards checks"
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
         uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
@@ -163,22 +153,17 @@ jobs:
         with:
           php-version: ${{ env.php_version }}
 
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-suggest
+      - run: composer install --prefer-dist --no-interaction --no-suggest
 
-      - name: Run checks
-        run: bin/phpcs -s --warning-severity=6
+      - run: bin/phpcs -s --warning-severity=6
 
   phpstan:
     runs-on: ubuntu-latest
 
     name: Static analysis with PHPStan
 
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Cache dependencies
         uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
@@ -196,8 +181,6 @@ jobs:
         with:
           php-version: ${{ env.php_version }}
 
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-suggest
+      - run: composer install --prefer-dist --no-interaction --no-suggest
 
-      - name: Run checks
-        run: bin/phpstan analyze
+      - run: bin/phpstan analyze
