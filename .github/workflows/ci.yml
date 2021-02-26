@@ -2,6 +2,11 @@ name: CI
 
 on:
   pull_request:
+    branches:
+      - production
+  push:
+    branches:
+      - production
 
 env:
   php_version: '7.4'
