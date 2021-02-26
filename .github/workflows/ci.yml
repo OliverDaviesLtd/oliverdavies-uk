@@ -12,8 +12,6 @@ jobs:
 
     name: Test Drupal site installation
 
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
-
     steps:
       - name: Checkout code
         uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
@@ -63,8 +61,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
-
     strategy:
       matrix:
         theme-path:
@@ -95,8 +91,6 @@ jobs:
     runs-on: ubuntu-latest
 
     name: "Run ${{ matrix.test-types }} tests"
-
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
 
     strategy:
       matrix:
@@ -143,8 +137,6 @@ jobs:
     runs-on: ubuntu-latest
 
     name: "Run coding standards checks"
-
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
       - name: Checkout code
