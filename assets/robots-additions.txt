@@ -1,3 +1,4 @@
+# Paths (clean URLs)
 Disallow: /atNOQ/
 Disallow: /calendar/
 Disallow: /code-enigma-interview/
@@ -23,3 +24,49 @@ Disallow: /twitter/
 Disallow: /webpack-encore-pcss-regex/
 Disallow: /workshop-drupal-testing/
 Disallow: /workspace-demo/
+
+# Paths (clean URLs - no slash)
+Disallow: /admin
+Disallow: /atNOQ
+Disallow: /calendar
+Disallow: /code-enigma-interview
+Disallow: /comment/reply
+Disallow: /drupal-core-live-stream
+Disallow: /drupal-tailwindcss
+Disallow: /drupalcamp-nyc-training
+Disallow: /drupalorg
+Disallow: /drupalorg
+Disallow: /filter/tips
+Disallow: /github
+Disallow: /inviqa-tailwind-demo
+Disallow: /inviqa-tailwind-notes
+Disallow: /leeds-php-drupal-9
+Disallow: /linkedin
+Disallow: /node/add
+Disallow: /rebuilding-bristol-js
+Disallow: /rebuilding-pantheon
+Disallow: /rebuilding-pantheon
+Disallow: /rebuilding-symfony
+Disallow: /slides-drupal-9
+Disallow: /slides-upgrading-to-drupal-9
+Disallow: /slides-working-with-workspace
+Disallow: /symfony
+Disallow: /twitter
+Disallow: /user/login
+Disallow: /user/logout
+Disallow: /user/password
+Disallow: /user/register
+Disallow: /webpack-encore-pcss-regex
+Disallow: /workshop-drupal-testing
+Disallow: /workspace-demo
+
+# Paths (no clean URLs - no slash)
+Disallow: /?q=admin
+Disallow: /?q=comment/reply
+Disallow: /?q=filter/tips
+Disallow: /?q=node/add
+Disallow: /?q=search
+Disallow: /?q=user/password
+Disallow: /?q=user/register
+Disallow: /?q=user/login
+Disallow: /?q=user/logout
