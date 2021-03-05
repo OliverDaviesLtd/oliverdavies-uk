@@ -1,0 +1,11 @@
+entity_type_groups:
+  node:
+    page:
+      basic: basic
+      advanced: advanced
+    post:
+      basic: basic
+      advanced: advanced
+    talk:
+      basic: basic
+      advanced: advanced
