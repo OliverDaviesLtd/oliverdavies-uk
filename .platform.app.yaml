@@ -108,7 +108,7 @@ web:
 crons:
   drupal:
     spec: '*/19 * * * *'
-    cmd: 'cd web && drush core-cron'
+    cmd: 'cd web && bin/drush core-cron'
 
   snapshot:
     spec: '0 5 * * *'
