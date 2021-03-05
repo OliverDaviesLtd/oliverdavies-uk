@@ -7,6 +7,12 @@ _core:
 id: front
 label: 'Front page'
 tags:
-  title: '[site:slogan] | [site:name]'
-  shortlink: '[site:url]'
   canonical_url: '[site:url]'
+  description: 'Oliver Davies is a PHP Developer and Drupal specialist in the UK. He is an Acquia certified Drupal Grand Master, contributor, speaker, and mentor.'
+  geo_position: '51.6103; 2.9563'
+  keywords: 'PHP Developer, Drupal Developer, Symfony Developer, Acquia certified Drupal Developer, Drupal 8 Grandmaster'
+  shortlink: '[site:url]'
+  title: 'PHP Developer and Drupal specialist | [site:name]'
+  og_locale: en_GB
+  og_site_name: '[site:name]'
+  og_type: website
