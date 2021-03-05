@@ -70,3 +70,6 @@ Disallow: /?q=user/password
 Disallow: /?q=user/register
 Disallow: /?q=user/login
 Disallow: /?q=user/logout
+
+sitemap: https://www.oliverdavies.uk/sitemap.xml
+sitemap: https://www.oliverdavies.uk/sitemap
