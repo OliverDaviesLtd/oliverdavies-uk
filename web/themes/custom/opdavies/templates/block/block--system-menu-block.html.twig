@@ -34,7 +34,7 @@
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
 <nav
   class="h-full flex items-center"
-  role="navigation"
+  aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}
   aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}
 >
   {# Label. If not displayed, we still provide it for screen readers. #}

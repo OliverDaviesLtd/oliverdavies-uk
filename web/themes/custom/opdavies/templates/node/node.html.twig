@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('node min-w-full prose') }}>
+<article{{ attributes.addClass('node min-w-full prose')|without('role') }}>
 
   {{ title_prefix }}
   {% if not page %}

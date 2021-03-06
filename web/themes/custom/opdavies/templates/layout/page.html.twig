@@ -87,7 +87,7 @@
 
       {{ page.help }}
 
-      <main role="main">
+      <main>
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
         <div class="grid grid-cols-1 gap-y-8 md:grid-cols-12 md:gap-x-8">
@@ -98,7 +98,7 @@
           </div>{# /.layout-content #}
 
           {% if page.sidebar_second %}
-            <aside role="complementary" class="sidebar col-span-12 md:col-span-4">
+            <aside class="sidebar col-span-12 md:col-span-4">
               {{ page.sidebar_second }}
             </aside>
           {% endif %}
@@ -106,7 +106,7 @@
       </main>
 
       {% if page.footer %}
-        <footer role="contentinfo">
+        <footer>
           {{ page.footer }}
         </footer>
       {% endif %}
