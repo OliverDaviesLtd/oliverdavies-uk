@@ -25,7 +25,7 @@
  * @see template_preprocess_block()
  */
 #}
-<section{{ attributes.addClass('[ block ] [ mt-6 first:mt-0 ]') }}>
+<div{{ attributes.addClass('[ block ] [ mt-6 first:mt-0 ]') }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('mb-3') }}>
@@ -36,4 +36,4 @@
   {% block content %}
     {{ content }}
   {% endblock %}
-</section>
+</div>
