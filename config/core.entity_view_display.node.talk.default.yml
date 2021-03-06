@@ -69,3 +69,4 @@ content:
 hidden:
   field_event_date: true
   field_excerpt: true
+  field_meta_tags: true

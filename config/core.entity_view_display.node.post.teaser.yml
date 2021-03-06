@@ -40,6 +40,7 @@ hidden:
   field_external_link: true
   field_has_tweet: true
   field_images: true
+  field_meta_tags: true
   field_note: true
   field_send_to_social_media: true
   field_sent_to_social_media: true

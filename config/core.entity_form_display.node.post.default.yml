@@ -180,4 +180,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_external_link: true
+  field_meta_tags: true
   field_sent_to_social_media: true

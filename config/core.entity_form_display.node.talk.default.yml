@@ -146,3 +146,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_event_date: true
+  field_meta_tags: true

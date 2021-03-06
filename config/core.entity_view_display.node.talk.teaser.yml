@@ -35,6 +35,7 @@ hidden:
   body: true
   field_event_date: true
   field_events: true
+  field_meta_tags: true
   field_slides: true
   field_type: true
   field_video: true
