@@ -62,7 +62,6 @@ module:
   simple_sitemap_views: 0
   sitemap: 0
   speakerdeck_field: 0
-  stage_file_proxy: 0
   syslog: 0
   system: 0
   taxonomy: 0
