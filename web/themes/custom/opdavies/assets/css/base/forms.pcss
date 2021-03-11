@@ -1,0 +1,42 @@
+@layer base {
+  form {
+    @apply space-y-5
+  }
+
+  [type='text'],
+  textarea {
+    @apply w-full
+  }
+
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  select,
+  textarea {
+    @apply border-gray-400 rounded-lg
+  }
+
+  .form-item,
+  .form-wrapper {
+    @apply max-w-md
+  }
+
+  .js-form-type-email,
+  .js-form-type-password,
+  .js-form-type-textarea,
+  .js-form-type-textfield {
+    label {
+      @apply block
+    }
+  }
+}
