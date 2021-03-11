@@ -2,6 +2,7 @@ const colors = require('./tailwind-colours')
 const defaultConfig = require('tailwindcss/defaultConfig')
 const defaultTheme = require('tailwindcss/defaultTheme')
 const focusVisible = require('./tailwind-plugin-focus-visible')
+const forms = require('@tailwindcss/forms')
 const typography = require('@tailwindcss/typography')
 const { fontFamily } = defaultTheme
 const { variants } = defaultConfig
@@ -73,6 +74,7 @@ module.exports = {
   },
   plugins: [
     focusVisible,
+    forms,
     typography
   ],
   variants: {
