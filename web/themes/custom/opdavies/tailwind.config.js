@@ -1,3 +1,4 @@
+const aspectRatio = require('@tailwindcss/aspect-ratio')
 const colors = require('./tailwind-colours')
 const defaultConfig = require('tailwindcss/defaultConfig')
 const defaultTheme = require('tailwindcss/defaultTheme')
@@ -73,6 +74,7 @@ module.exports = {
     container: false
   },
   plugins: [
+    aspectRatio,
     focusVisible,
     forms,
     typography

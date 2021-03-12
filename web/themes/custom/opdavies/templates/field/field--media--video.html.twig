@@ -40,16 +40,23 @@
   label_display == 'visually_hidden' ? 'visually-hidden',
 ] %}
 
+{% set video_classes = [
+  'aspect-h-9',
+  'aspect-w-16',
+] %}
+
+{{ video_classes }}
+
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes }}>
       {% for item in items %}
-        <div{{ item.attributes.addClass('video-full') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass(video_classes) }}>{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass('video-full') }}>{{ item.content }}</div>
+      <div{{ attributes.addClass(video_classes) }}>{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
@@ -59,7 +66,7 @@
     <div>
       {% endif %}
       {% for item in items %}
-        <div{{ item.attributes.addClass('video-full') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass(video_classes) }}>{{ item.content }}</div>
       {% endfor %}
       {% if multiple %}
     </div>
