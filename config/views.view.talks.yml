@@ -204,6 +204,16 @@ display:
           changefreq: ''
           arguments: {  }
           max_links: 100
+        metatag_display_extender:
+          metatags:
+            title: 'Talks and Workshops | [site:name]'
+            description: 'Past and future talks and workshops by Oliver Davies.'
+            keywords: 'PHP Developer, Drupal Developer, Symfony Developer, DrupalCamp talks, PHP conference talks, meetup talks'
+            og_site_name: '[site:name]'
+            og_type: website
+            og_description: 'Past and future talks and workshops by Oliver Davies.'
+            twitter_cards_type: summary
+            twitter_cards_description: 'Past and future talks and workshops by Oliver Davies.'
       path: talks
       menu:
         type: normal

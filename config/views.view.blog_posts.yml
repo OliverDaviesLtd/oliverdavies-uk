@@ -376,6 +376,14 @@ display:
           changefreq: ''
           arguments: {  }
           max_links: 100
+        metatag_display_extender:
+          metatags:
+            description: 'Blog posts and articles by Oliver Davies about PHP, Drupal, front-end development, and systems administration.'
+            keywords: 'PHP Developer, Drupal Developer, Symfony Developer, Acquia certified Drupal Developer, Drupal 8 Grandmaster'
+            og_type: website
+            og_description: 'Blog posts and articles by Oliver Davies about PHP, Drupal, front-end development, and systems administration.'
+            twitter_cards_type: summary
+            twitter_cards_description: 'Blog posts and articles by Oliver Davies about PHP, Drupal, front-end development, and systems administration.'
       path: blog
       menu:
         type: normal
