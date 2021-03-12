@@ -191,6 +191,13 @@ display:
     display_options:
       display_extenders:
         simple_sitemap_display_extender:
+          variants:
+            default:
+              index: true
+              priority: '0.5'
+              changefreq: ''
+              arguments: {  }
+              max_links: 100
           index: true
           variant: default
           priority: '1.0'
