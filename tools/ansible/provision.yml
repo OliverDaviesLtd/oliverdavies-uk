@@ -1,0 +1,40 @@
+---
+- hosts: web
+
+  vars_files:
+    - vars/vars.yml
+    - vars/provision_vault.yml
+    - vars/provision_vars.yml
+
+  roles:
+    - name: geerlingguy.firewall
+    - name: geerlingguy.security
+    - name: geerlingguy.certbot
+    - name: geerlingguy.nginx
+    - name: geerlingguy.php-versions
+    - name: geerlingguy.php
+    - name: geerlingguy.php-mysql
+    - name: geerlingguy.composer
+    - name: geerlingguy.nodejs
+
+  pre_tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+  tasks:
+    - name: Install packages
+      package:
+        name: [curl, zip]
+        state: present
+
+    - name: Add cron jobs
+      cron:
+        name: Drupal cron - oliverdavies.uk
+        minute: '*/5'
+        job: >
+          {{ project_root_path }}/{{ ansistrano_current_dir }}/bin/drush core-cron
+          --root={{ project_root_path }}/{{ ansistrano_current_dir }}/{{ project_web_dir }}
+          --uri https://www.oliverdavies.uk
+          --quiet

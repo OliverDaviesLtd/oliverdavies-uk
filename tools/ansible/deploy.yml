@@ -1,0 +1,12 @@
+---
+- hosts: web
+
+  vars_files:
+    - vars/vars.yml
+    - vars/provision_vault.yml
+    - vars/provision_vars.yml
+    - vars/deploy_vault.yml
+    - vars/deploy_vars.yml
+
+  roles:
+    - name: ansistrano.deploy

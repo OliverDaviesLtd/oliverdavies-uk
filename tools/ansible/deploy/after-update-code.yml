@@ -1,0 +1,38 @@
+---
+- name: Install Composer dependencies
+  composer:
+    command: install
+    optimize_autoloader: true
+    working_dir: '{{ ansistrano_release_path.stdout }}'
+
+- name: Generate settings.php file
+  include_role:
+    name: opdavies.drupal_settings_files
+
+- name: Fix file permissions
+  include_role:
+    name: drupal-permissions
+
+- name: Clear Drush cache
+  command: >
+    {{ release_drush_path }}
+    cache-clear drush
+    chdir={{ release_web_path }}
+  changed_when: false
+
+- name: Run database updates
+  command: >
+    {{ release_drush_path }}
+    updatedb -y
+    chdir={{ release_web_path }}
+  register: update_database_result
+  changed_when: "'No pending updates' not in update_database_result.stderr"
+
+- name: Import configuration
+  command: >
+    {{ release_drush_path }} config-import -y
+    chdir={{ release_web_path }}
+  register: config_import_result
+  changed_when: "'There are no changes to import' not in config_import_result.stderr"
+
+- include: ../includes/build-theme-assets.yml

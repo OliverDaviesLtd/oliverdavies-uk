@@ -1,0 +1,19 @@
+---
+- name: Install theme dependencies
+  command: >
+    npm ci
+    chdir={{ release_theme_path }}
+    creates={{ release_theme_path }}/node_modules
+
+- name: Generate front-end assets
+  command: >
+    npm run production
+    chdir={{ release_theme_path }}
+    creates={{ release_theme_path }}/dist
+
+- name: Remove files that are no longer needed
+  file:
+    path: "{{ release_theme_path }}/{{ item }}"
+    state: absent
+  with_items:
+    - node_modules
