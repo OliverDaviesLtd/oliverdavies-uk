@@ -95,14 +95,5 @@ module.exports = {
     focusVisible,
     forms,
     typography
-  ],
-  variants: {
-    extend: {
-      borderColor: ['focus-visible'],
-      borderStyle: ['hover', 'focus'],
-      borderWidth: ['hover', 'focus'],
-      margin: ['first', 'last', 'odd', 'even'],
-      typography: ['responsive', 'dark']
-    }
-  }
+  ]
 }
