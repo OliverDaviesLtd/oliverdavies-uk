@@ -3,7 +3,7 @@ module.exports = {
     'postcss-easy-import': {
       extensions: ['.css', '.pcss']
     },
-    tailwindcss: {},
+    '@tailwindcss/jit': {},
     'postcss-nested': {},
     autoprefixer: {}
   }
