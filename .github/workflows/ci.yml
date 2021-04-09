@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - production
+  workflow_dispatch:
 
 env:
   php_version: '7.4'
@@ -184,3 +185,51 @@ jobs:
       - run: composer install --prefer-dist --no-interaction --no-suggest
 
       - run: bin/phpstan analyze
+
+  deploy:
+    name: Deploy via Ansible
+    runs-on: ubuntu-latest
+    needs:
+      - install
+      - phpcs
+      - phpstan
+      - phpunit
+      - theme
+    if: github.event_name == 'push'
+    env:
+      ANSIBLE_FORCE_COLOR: 1
+      ANSIBLE_HOST_KEY_CHECKING: no
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+
+      - name: Add the deployment SSH key
+        uses: shimataro/ssh-key-action@6f350ca8484d8d55c2e361e74d17e638dabe713a # 2.1.0
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          name: id_rsa
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+      - name: Cache dependencies
+        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340
+        with:
+          path: tools/ansible/.roles
+          key: dependencies-composer-${{ hashFiles('tools/ansible/requirements.yml') }}
+
+      - name: Download Ansible roles
+        run: ansible-galaxy install -r tools/ansible/requirements.yml
+
+      - name: Export the Ansible Vault password
+        run: echo $ANSIBLE_VAULT_PASS > tools/ansible/.vault-pass.txt
+        env:
+          ANSIBLE_VAULT_PASS: ${{ secrets.ANSIBLE_VAULT_PASS }}
+
+      - name: Deploy the code
+        run: >
+          ansible-playbook tools/ansible/deploy.yml
+          -i tools/ansible/hosts.yml
+          -e "ansistrano_deploy_branch=$GITHUB_SHA"
+          --vault-password-file=tools/ansible/.vault-pass.txt
+
+      - name: Remove the Ansible Vault password file
+        run: rm tools/ansible/.vault-pass.txt
