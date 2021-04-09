@@ -15,9 +15,7 @@ env:
 jobs:
   install:
     runs-on: ubuntu-latest
-
     name: Test Drupal site installation
-
     steps:
       - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
@@ -60,14 +58,11 @@ jobs:
 
   theme:
     name: Build the theme assets
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         theme-path:
           - web/themes/custom/opdavies
-
     steps:
       - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
@@ -90,16 +85,13 @@ jobs:
 
   phpunit:
     runs-on: ubuntu-latest
-
     name: "Run ${{ matrix.test-types }} tests"
-
     strategy:
       matrix:
         test-types:
           - functional
           - kernel
           - unit
-
     steps:
       - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
@@ -132,9 +124,7 @@ jobs:
 
   phpcs:
     runs-on: ubuntu-latest
-
     name: "Run coding standards checks"
-
     steps:
       - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
@@ -160,9 +150,7 @@ jobs:
 
   phpstan:
     runs-on: ubuntu-latest
-
     name: Static analysis with PHPStan
-
     steps:
       - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
