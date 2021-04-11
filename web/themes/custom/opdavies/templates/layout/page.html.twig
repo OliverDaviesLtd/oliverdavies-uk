@@ -107,11 +107,13 @@
     </div>{# /.layout-container #}
 
     {% if page.footer %}
-      <footer class="mt-auto py-8 bg-gray-700 text-center text-white">
-        <div class="container mx-auto-px-4">
-          {{ page.footer }}
-        </div>
-      </footer>
+      <div class="mt-auto">
+        <footer class="mt-10 py-8 bg-gray-700 text-center text-white">
+          <div class="container mx-auto-px-4">
+            {{ page.footer }}
+          </div>
+        </footer>
+      </div>
     {% endif %}
   </div>
 </div>
