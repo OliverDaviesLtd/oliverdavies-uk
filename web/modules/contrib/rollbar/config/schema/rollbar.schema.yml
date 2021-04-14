@@ -1,0 +1,31 @@
+rollbar.settings:
+  type: config_object
+  label: 'Rollbar settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Whether Rollbar is enabled'
+    access_token:
+      type: string
+      label: 'The rollbar API access token'
+    capture_uncaught:
+      type: boolean
+      label: 'The rollbar captureUncaught option'
+    capture_unhandled_rejections:
+      type: boolean
+      label: 'The rollbar captureUnhandledRejections option'
+    environment:
+      type: string
+      label: 'Environment that will be reported to rollbar'
+    log_level:
+      type: sequence
+      label: 'Log levels that will be reported to rollbar'
+    channels:
+      type: string
+      label: 'Channels to filter'
+    rollbar_js_url:
+      type: string
+      label: 'URL to the rollbar library'
+    host_white_list:
+      type: string
+      label: 'Comma-separated host white list'

@@ -45,6 +45,7 @@
         "drush/drush": "^10",
         "nesbot/carbon": "^2.33",
         "platformsh/config-reader": "^2.4",
+        "rollbar/rollbar": "^2.1",
         "symfony/config": "^3.4",
         "tightenco/collect": "^8.17"
     },
