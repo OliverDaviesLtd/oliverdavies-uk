@@ -3,12 +3,14 @@ version: '2.4'
 volumes:
   mysql_data:
 
-networks:
-  web:
-    external:
-      name: traefik_proxy
-
 services:
+  proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
   nginx:
     image: nginx:1-alpine
     working_dir: /app
@@ -20,13 +22,8 @@ services:
         condition: service_started
       php:
         condition: service_started
-    networks:
-      default: {}
-      web: {}
-    labels:
-      - traefik.docker.network=traefik_proxy
-      - traefik.enable=true
-      - traefik.http.routers.oliverdavies.rule=Host(`oliverdavies.docker.localhost`)
+    environment:
+      VIRTUAL_HOST: oliverdavies.localhost
 
   php:
     build:
@@ -40,10 +37,6 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    networks:
-      default: {}
-    labels:
-      - "traefik.enable=false"
 
   mysql:
     image: mariadb:10
@@ -55,15 +48,9 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "bash", "-c", "echo > /dev/tcp/localhost/3306"]
       interval: 1s
-    networks:
-      default: {}
-    labels:
-      - "traefik.enable=false"
 
   node:
     image: node:12
     working_dir: /node
     volumes:
       - ./web:/node
-    labels:
-      - "traefik.enabled=false"

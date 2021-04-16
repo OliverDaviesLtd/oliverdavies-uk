@@ -12,5 +12,5 @@ $databases['default']['default'] = [
 ];
 
 $settings['trusted_host_patterns'] = [
-  '^oliverdavies.docker.localhost$',
+  '^oliverdavies.localhost$',
 ];
