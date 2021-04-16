@@ -1,6 +1,0 @@
-name: Rollbar
-description: Integration with Rollbar
-type: module
-configure: rollbar.settings
-core: 8.x
-package: Services

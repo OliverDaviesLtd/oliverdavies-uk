@@ -1,5 +1,0 @@
-rollbar.settings:
-  title: 'Rollbar'
-  parent: system.admin_config_services
-  description: 'Configure the Rollbar integration.'
-  route_name: rollbar.settings
