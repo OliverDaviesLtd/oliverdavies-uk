@@ -34,7 +34,7 @@
         "drupal/migrate_tools": "^4.5",
         "drupal/paragraphs": "^1.10",
         "drupal/pathauto": "^1.8",
-        "drupal/plausible": "1.x-dev",
+        "drupal/plausible": "^2",
         "drupal/redirect": "^1.5",
         "drupal/redis": "^1.5",
         "drupal/scheduler": "^1.3",
