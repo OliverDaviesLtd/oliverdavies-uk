@@ -6,6 +6,7 @@ namespace Drupal\opdavies_blog\Service\PostPusher;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\opdavies_blog\Action\ConvertPostToTweet;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use GuzzleHttp\ClientInterface;
 use Webmozart\Assert\Assert;
@@ -17,12 +18,14 @@ final class IntegromatPostPusher extends WebhookPostPusher {
   private ConfigFactoryInterface $configFactory;
 
   public function __construct(
+    ConvertPostToTweet $convertPostToTweetAction,
     ClientInterface $client,
     ConfigFactoryInterface $configFactory
   ) {
+    $this->convertPostToTweetAction = $convertPostToTweetAction;
     $this->configFactory = $configFactory;
 
-    parent::__construct($client);
+    parent::__construct($convertPostToTweetAction, $client);
   }
 
   public function push(Post $post): void {
@@ -34,7 +37,7 @@ final class IntegromatPostPusher extends WebhookPostPusher {
 
     $this->client->post($url, [
       'form_params' => [
-        'text' => $this->t('@text', ['@text' => $post->toTweet()])
+        'text' => $this->t('@text', ['@text' => ($this->convertPostToTweetAction)($post)])
           ->render(),
       ],
     ]);
