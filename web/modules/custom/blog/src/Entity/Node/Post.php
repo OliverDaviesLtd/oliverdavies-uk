@@ -65,8 +65,4 @@ class Post extends Node implements ContentEntityBundleInterface {
     return (bool) $this->get(self::FIELD_SEND_TO_SOCIAL_MEDIA)->getString();
   }
 
-  public function toTweet(): string {
-    return '';
-  }
-
 }
