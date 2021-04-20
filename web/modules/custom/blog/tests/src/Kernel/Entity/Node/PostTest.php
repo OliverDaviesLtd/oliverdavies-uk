@@ -59,7 +59,7 @@ final class PostTest extends EntityKernelTestBase {
     #AutomatedTesting #DDEV #Drupal #Drupal8 #PHP
     EOF;
 
-    $this->assertSame($expected, $post->toTweet());
+    $this->assertSame($expected, ($this->convertPostToTweet)($post));
   }
 
   /** @test */
@@ -79,7 +79,7 @@ final class PostTest extends EntityKernelTestBase {
     #Drupal #PHP
     EOF;
 
-    $this->assertSame($expected, $post->toTweet());
+    $this->assertSame($expected, ($this->convertPostToTweet)($post));
   }
 
   protected function setUp() {
