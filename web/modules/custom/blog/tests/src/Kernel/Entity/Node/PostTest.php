@@ -5,6 +5,7 @@
 namespace Drupal\Tests\opdavies_blog\Kernel\Entity\Node;
 
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
+use Drupal\opdavies_blog\Action\ConvertPostToTweet;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\opdavies_blog_test\Factory\PostFactory;
 
@@ -25,6 +26,8 @@ final class PostTest extends EntityKernelTestBase {
   ];
 
   private PostFactory $postFactory;
+
+  private ConvertPostToTweet $convertPostToTweet;
 
   /** @test */
   public function it_can_determine_if_a_post_contains_a_tweet(): void {
@@ -83,6 +86,7 @@ final class PostTest extends EntityKernelTestBase {
     parent::setUp();
 
     $this->postFactory = $this->container->get(PostFactory::class);
+    $this->convertPostToTweet = $this->container->get(ConvertPostToTweet::class);
 
     $this->installEntitySchema('taxonomy_term');
 
