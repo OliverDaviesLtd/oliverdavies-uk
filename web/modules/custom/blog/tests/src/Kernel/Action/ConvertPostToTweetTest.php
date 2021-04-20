@@ -48,6 +48,10 @@ final class ConvertPostToTweetTest extends PostTestBase {
     $this->assertSame($expected, ($this->convertPostToTweet)($post));
   }
 
+  public function testSomeTagsAreNotAutomaticallyCapitalised(): void {
+    $this->markTestSkipped();
+  }
+
   protected function setUp() {
     parent::setUp();
 
