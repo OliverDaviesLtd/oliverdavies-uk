@@ -15,11 +15,7 @@ RUN apt update -yqq && apt install -yqq \
 
 FROM base AS dev
 
-WORKDIR /app
-
 ARG xdebug_version=2.9.0
-
-ENV PATH="./bin:./vendor/bin:$PATH"
 
 RUN apt update -yqq \
   && apt install -yqq \
@@ -29,6 +25,9 @@ RUN apt update -yqq \
   && docker-php-ext-enable xdebug
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+ENV PATH="/app/bin:$PATH"
 
 COPY composer.json composer.lock /app/
 COPY assets /app/assets
