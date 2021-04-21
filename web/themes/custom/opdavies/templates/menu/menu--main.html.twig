@@ -30,7 +30,7 @@
   {% import _self as menus %}
 
   {% if items %}
-    <div class="w-full md:block" :class="[ isOpen ? 'block' : 'hidden' ]">
+    <div class="w-full md:block" :class="[ isOpen ? 'block' : 'hidden' ]" x-cloak>
       {% if menu_level == 0 %}
       <ul{{ attributes.addClass('
         w-full h-full mt-2px py-4 bg-blue-700
