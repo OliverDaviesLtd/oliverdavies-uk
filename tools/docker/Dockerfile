@@ -30,6 +30,7 @@ COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
 
 COPY composer.json composer.lock /app/
 COPY assets /app/assets
+COPY tools/patches /app/tools/patches
 RUN composer install
 
 COPY tools/docker/images/php/configs/php.ini /usr/local/etc/php/conf.d/php.ini
