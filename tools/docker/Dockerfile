@@ -1,10 +1,8 @@
 FROM php:7.4-fpm-buster AS base
 
 RUN apt update -yqq && apt install -yqq \
-    git \
     libpng-dev \
     mariadb-client \
-    zip \
     zlib1g-dev \
   && docker-php-ext-install \
     exif \
@@ -19,8 +17,10 @@ ARG xdebug_version=2.9.0
 
 RUN apt update -yqq \
   && apt install -yqq \
+    git \
     pv \
     vim \
+    zip \
   && pecl install xdebug-${xdebug_version} \
   && docker-php-ext-enable xdebug
 
