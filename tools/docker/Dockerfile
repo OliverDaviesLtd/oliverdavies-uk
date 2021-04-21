@@ -28,7 +28,7 @@ RUN apt update -yqq \
   && pecl install xdebug-${xdebug_version} \
   && docker-php-ext-enable xdebug
 
-COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY composer.json composer.lock /app/
 COPY assets /app/assets
