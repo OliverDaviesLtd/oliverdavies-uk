@@ -5,7 +5,7 @@ namespace Drupal\opdavies_talks\Entity\Node;
 use Drupal\discoverable_entity_bundle_classes\ContentEntityBundleInterface;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\ParagraphInterface;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 /**
  * Defines an talk node class.

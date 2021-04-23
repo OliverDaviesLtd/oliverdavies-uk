@@ -10,7 +10,7 @@ use Drupal\hook_event_dispatcher\HookEventDispatcherInterface;
 use Drupal\opdavies_talks\Entity\Node\Talk;
 use Drupal\paragraphs\ParagraphInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 /**
  * Update a talk node before it's saved.
@@ -44,6 +44,7 @@ final class UpdateTalkNodeBeforeSave implements EventSubscriberInterface {
 
     // If the original event IDs don't match the sorted event IDs, update the
     // event field to use the sorted ones.
+    // @phpstan-ignore-next-line
     if ($events->map->id() != $eventsByDate->map->id()) {
       $talk->setEvents($eventsByDate->toArray());
     }

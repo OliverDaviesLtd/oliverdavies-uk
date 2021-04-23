@@ -43,10 +43,10 @@
         "drupal/speakerdeck_field": "^2.0",
         "drupal/stage_file_proxy": "^1.0",
         "drush/drush": "^10",
+        "illuminate/collections": "^8.38",
         "nesbot/carbon": "^2.33",
         "platformsh/config-reader": "^2.4",
-        "symfony/config": "^3.4",
-        "tightenco/collect": "^8.17"
+        "symfony/config": "^3.4"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7",

@@ -6,7 +6,7 @@ namespace Drupal\opdavies_talks\Collection;
 
 use Drupal\opdavies_talks\Entity\Node\Talk;
 use Drupal\paragraphs\ParagraphInterface;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 final class TalkCollection extends Collection {
 

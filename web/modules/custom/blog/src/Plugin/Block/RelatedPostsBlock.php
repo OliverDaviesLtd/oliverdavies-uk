@@ -10,7 +10,7 @@ use Drupal\Core\Routing\CurrentRouteMatch;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\opdavies_blog\Repository\RelatedPostsRepository;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 /**
  * @Block(

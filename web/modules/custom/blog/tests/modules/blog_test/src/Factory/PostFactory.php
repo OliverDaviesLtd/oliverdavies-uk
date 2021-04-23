@@ -12,7 +12,7 @@ use Drupal\node\Entity\Node;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\TermInterface;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 final class PostFactory {
 
