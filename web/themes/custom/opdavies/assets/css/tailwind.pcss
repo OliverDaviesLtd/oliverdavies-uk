@@ -2,7 +2,162 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import './base/*.pcss';
-@import './components/*.pcss';
-@import './libraries/*.pcss';
-@import './utilities/*.pcss';
+@layer base {
+  h1, h2, h3 {
+    @apply font-bold
+  }
+
+  h1 {
+    @apply text-3xl leading-normal
+  }
+
+  h2 {
+    @apply text-2xl leading-normal
+  }
+
+  a {
+    @apply text-blue-700 no-underline hover:underline
+  }
+
+  img {
+    @apply max-w-full h-auto
+  }
+
+  iframe {
+    @apply max-w-full
+  }
+
+  form {
+    @apply space-y-5
+  }
+
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  select,
+  textarea {
+    @apply border-gray-400 rounded-lg w-full
+  }
+
+  .form-item,
+  .form-wrapper {
+    @apply max-w-md
+  }
+
+  .js-form-type-email,
+  .js-form-type-password,
+  .js-form-type-textarea,
+  .js-form-type-textfield {
+    label {
+      @apply block
+    }
+  }
+}
+
+@layer components {
+  .sidebar .block {
+    @apply p-6 rounded bg-gray-100
+  }
+
+  .media--type-image .field--type-image img {
+    @apply border border-gray-200
+  }
+
+  .button {
+    @apply py-2 px-3 inline-block border border-blue-600;
+    @apply text-sm text-white no-underline bg-blue-600 rounded;
+
+    &:active,
+    &:focus,
+    &:hover {
+      @apply bg-white text-blue-600
+    }
+  }
+
+  .container {
+    @apply w-full max-w-5xl px-4 mx-auto
+  }
+
+  p.lead {
+    @apply md:text-lg
+  }
+
+  #block-opdavies-branding img {
+    @apply h-8 md:h-12
+  }
+
+  .note {
+    @apply max-w-full prose bg-blue-200 border-blue-600 border-l-4 mb-4 p-4 rounded;
+
+    p a {
+      @apply underline hover:no-underline
+    }
+  }
+
+  .recommendation {
+    .photo img {
+      @apply rounded-full
+    }
+  }
+
+  .table {
+    @apply w-full;
+
+    th {
+      @apply bg-gray-200 text-left
+    }
+
+    th,
+    td {
+      @apply px-4 py-2 border border-solid border-gray-200
+    }
+  }
+
+  table.is-striped {
+    tbody > tr:not(:nth-child(odd)) td {
+      @apply bg-gray-100
+    }
+  }
+
+  .widget {
+    @apply block mb-6
+  }
+
+  .wrap {
+    @apply w-full max-w-3xl mx-auto;
+
+    &.is-wide {
+      @apply max-w-5xl
+    }
+  }
+
+  .hljs {
+    @apply p-0 bg-inherit
+  }
+}
+
+@layer utilities {
+  .no-js .js-hidden {
+    @apply hidden
+  }
+
+  [x-cloak] {
+    @apply hidden
+  }
+
+  @responsive {
+    .first-of-type\:mt-0:first-of-type {
+      @apply mt-0 !important
+    }
+  }
+}
