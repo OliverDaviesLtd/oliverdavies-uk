@@ -1,3 +1,21 @@
+FROM node:14-alpine AS assets-build
+WORKDIR /app/web/themes/custom/opdavies
+COPY web/themes/custom/opdavies/package*.json ./
+RUN npm ci
+COPY web/themes/custom/opdavies ./
+RUN npm run production
+
+###
+
+FROM nginx:1-alpine AS nginx
+COPY tools/docker/images/nginx/configs/vhost.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
+COPY web web/
+WORKDIR /app/web/themes/custom/opdavies
+COPY --from=assets-build /app/web/themes/custom/opdavies/build build
+
+###
+
 FROM php:7.4-fpm-buster AS base
 
 RUN apt update -yqq && apt install -yqq \
@@ -25,6 +43,7 @@ RUN apt update -yqq \
   && docker-php-ext-enable xdebug
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY tools/docker/images/php/configs/php.ini /usr/local/etc/php/conf.d/php.ini
 
 WORKDIR /app
 ENV PATH="$PATH:/app/bin"
@@ -33,5 +52,3 @@ COPY composer.json composer.lock /app/
 COPY assets /app/assets
 COPY tools/patches /app/tools/patches
 RUN composer install
-
-COPY tools/docker/images/php/configs/php.ini /usr/local/etc/php/conf.d/php.ini

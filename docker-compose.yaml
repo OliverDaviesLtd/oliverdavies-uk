@@ -1,7 +1,9 @@
 version: '2.4'
 
 volumes:
+  assets:
   mysql_data:
+  node_modules:
 
 services:
   proxy:
@@ -11,15 +13,34 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
-  nginx:
-    image: nginx:1-alpine
-    working_dir: /app
+  node:
+    image: node:14-alpine
+    working_dir: /node
+    entrypoint: sh
     volumes:
+      - assets:/node/build
+      - node_modules:/node/node_modules
+      - ./web/themes/custom/opdavies/assets:/node/assets
+      - ./web/themes/custom/opdavies/package-lock.json:/node/package-lock.json
+      - ./web/themes/custom/opdavies/package.json:/node/package.json
+      - ./web/themes/custom/opdavies/postcss.config.js:/node/postcss.config.js
+      - ./web/themes/custom/opdavies/tailwind-colours.js:/node/tailwind-colours.js
+      - ./web/themes/custom/opdavies/tailwind-plugin-focus-visible.js:/node/tailwind-plugin-focus-visible.js
+      - ./web/themes/custom/opdavies/tailwind-safelist-classes.txt:/node/tailwind-safelist-classes.txt
+      - ./web/themes/custom/opdavies/tailwind.config.js:/node/tailwind.config.js
+      - ./web/themes/custom/opdavies/templates:/node/templates
+      - ./web/themes/custom/opdavies/webpack.config.js:/node/webpack.config.js
+
+  nginx:
+    build:
+      dockerfile: tools/docker/Dockerfile
+      context: .
+      target: nginx
+    volumes:
+      - assets:/app/web/themes/custom/opdavies/build
+      - node_modules:/app/web/themes/custom/opdavies/node_modules
       - ./:/app
-      - ./tools/docker/images/nginx/configs/vhost.conf:/etc/nginx/conf.d/default.conf
     depends_on:
-      node:
-        condition: service_started
       php:
         condition: service_started
     environment:
@@ -48,9 +69,3 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "bash", "-c", "echo > /dev/tcp/localhost/3306"]
       interval: 1s
-
-  node:
-    image: node:12
-    working_dir: /node
-    volumes:
-      - ./web:/node
