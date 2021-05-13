@@ -1,5 +1,8 @@
 parameters:
   container.autowiring.strict_mode: true
+  opdavies_blog.post_pushers:
+    - '@Drupal\opdavies_blog\Service\PostPusher\IftttPostPusher'
+    - '@Drupal\opdavies_blog\Service\PostPusher\IntegromatPostPusher'
 
 services:
   Drupal\Core\Config\ConfigFactoryInterface:
