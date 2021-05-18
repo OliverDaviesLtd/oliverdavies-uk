@@ -30,6 +30,6 @@
 /.idea/workspace.xml
 /.platform/local/
 /node_modules/
-/tools/ansible/.roles/
+/tools/deployment/.roles/
 /vendor/
 /web/themes/custom/*/body-field-values.txt

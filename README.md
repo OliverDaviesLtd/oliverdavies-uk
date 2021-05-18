@@ -2,7 +2,7 @@
 
 ## Hosting
 
-This site is hosted on a DigitalOcean droplet, which was created using [Ansible][] (see `tools/ansible/digitalocean.yml`).
+This site is hosted on a DigitalOcean droplet, which was created using [Ansible][] (see `tools/deployment/digitalocean.yml`).
 
 [Ansible]: https://www.ansible.com
 
@@ -12,10 +12,10 @@ To re-provision the server:
 
 ```bash
 # Download the required roles
-ansible-galaxy install -r tools/ansible/requirements.yml --force
+ansible-galaxy install -r tools/deployment/requirements.yml --force
 
 # Run the provision playbook
-ansible-playbook tools/ansible/provision.yml
+ansible-playbook tools/deployment/provision.yml
 ```
 
 ### Deploying
@@ -25,14 +25,14 @@ Ansible Vault is used to manage sensitive information like database passwords.
 
 Deployments are triggered automatically when changes are pushed to GitHub, and are performed automatically via GitHub Actions on each push to the `production` branch.
 
-To run a deployment manually, run `ansible-playbook tools/ansible/deploy.yml --ask-vault-pass`.
+To run a deployment manually, run `ansible-playbook tools/deployment/deploy.yml --ask-vault-pass`.
 The Vault password is stored in LastPass.
 
 [Ansistrano]: https://ansistrano.com
 
 #### Generating settings files
 
-Production settings files are generated automatically during a deployment. This is done using the [opdavies.drupal_settings_files][drupal_settings_files] Ansible role, using variables from `tools/ansible/vars/deploy_vars.yml`, and performed during Ansistrano’s `After update code` build step.
+Production settings files are generated automatically during a deployment. This is done using the [opdavies.drupal_settings_files][drupal_settings_files] Ansible role, using variables from `tools/deployment/vars/deploy_vars.yml`, and performed during Ansistrano’s `After update code` build step.
 
 [drupal_settings_files]: https://galaxy.ansible.com/opdavies/drupal_settings_files
 
