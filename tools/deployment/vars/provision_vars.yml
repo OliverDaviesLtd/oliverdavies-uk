@@ -23,9 +23,16 @@ app_mysql_port: '{{ vault_app_mysql_port }}'
 app_mysql_user: '{{ vault_app_mysql_user }}'
 
 mysql_packages:
-  - mysql-client
+  - mariadb-client
+  - mariadb-server
   - python3-mysqldb
-mysql_users: []
+mysql_databases:
+  - name: "{{ app_mysql_database }}"
+mysql_users:
+  - name: "{{ app_mysql_user }}"
+    host: "{{ app_mysql_host }}"
+    password: "{{ app_mysql_password }}"
+    priv: "{{ app_mysql_database }}.*:ALL"
 
 nginx_remove_default_vhost: true
 nginx_server_tokens: 'off'

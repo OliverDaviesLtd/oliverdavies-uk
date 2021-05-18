@@ -10,6 +10,7 @@
     - name: geerlingguy.firewall
     - name: geerlingguy.security
     - name: geerlingguy.certbot
+    - name: geerlingguy.mysql
     - name: geerlingguy.nginx
     - name: geerlingguy.php-versions
     - name: geerlingguy.php
