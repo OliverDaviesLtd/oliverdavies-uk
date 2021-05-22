@@ -2,17 +2,59 @@
 
 /**
  * @file
- * Custom module.
+ * Custom blog code.
  */
 
-declare(strict_types=1);
+use Drupal\Core\Url;
+use Drupal\discoverable_entity_bundle_classes\Storage\Node\NodeStorage;
+use Drupal\node\NodeInterface;
 
-use Symfony\Component\Finder\Finder;
+/**
+ * Implements hook_entity_type_build().
+ */
+function opdavies_blog_entity_type_build(array &$entityTypes): void {
+  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entityTypes */
+  if (isset($entityTypes['node'])) {
+    $entityTypes['node']->setStorageClass(NodeStorage::class);
+  }
+}
 
-$finder = Finder::create()
-  ->in(__DIR__ . DIRECTORY_SEPARATOR . 'hooks')
-  ->name('/.[php|inc]$/');
+/**
+ * Implements hook_node_links_alter().
+ */
+function opdavies_blog_node_links_alter(array &$links, NodeInterface $node): void {
+  if (!method_exists($node, 'getExternalLink')) {
+    return;
+  }
 
-foreach ($finder as $file) {
-  include $file->getPathname();
+  if ($link = $node->getExternalLink()) {
+    $links['node']['#links']['node-readmore']['url'] = Url::fromUri($link['uri']);
+    $links['node']['#links']['node-readmore']['title'] = t('Read more<span class="visually-hidden"> about @title</span> (<span class="visually-hidden">on </span>@domain)', [
+      '@domain' => $link['title'],
+      '@title' => $node->label(),
+    ]);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function opdavies_blog_preprocess_block(array &$variables): void {
+  // Add the 'markup' class to blocks.
+  if (in_array($variables['plugin_id'], ['views_block:featured_blog_posts-block_1'])) {
+    $variables['attributes']['class'][] = 'markup';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function opdavies_blog_preprocess_node(array &$variables): void {
+  if (!method_exists($variables['node'], 'getExternalLink')) {
+    return;
+  }
+
+  if ($link = $variables['node']->getExternalLink()) {
+    $variables['url'] = $link['uri'];
+  }
 }
