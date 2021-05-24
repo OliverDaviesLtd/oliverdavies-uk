@@ -6,8 +6,8 @@ namespace Drupal\opdavies_blog\Service\PostPusher;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\opdavies_blog\Action\ConvertPostToTweet;
 use Drupal\opdavies_blog\Entity\Node\Post;
+use Drupal\opdavies_blog\UseCase\ConvertPostToTweet;
 use GuzzleHttp\ClientInterface;
 use Webmozart\Assert\Assert;
 
@@ -18,14 +18,14 @@ final class IftttPostPusher extends WebhookPostPusher {
   private ConfigFactoryInterface $configFactory;
 
   public function __construct(
-    ConvertPostToTweet $convertPostToTweetAction,
+    ConvertPostToTweet $convertPostToTweet,
     ClientInterface $client,
     ConfigFactoryInterface $configFactory
   ) {
-    $this->convertPostToTweetAction = $convertPostToTweetAction;
+    $this->convertPostToTweet = $convertPostToTweet;
     $this->configFactory = $configFactory;
 
-    parent::__construct($convertPostToTweetAction, $client);
+    parent::__construct($convertPostToTweet, $client);
   }
 
   public function push(Post $post): void {
@@ -37,7 +37,7 @@ final class IftttPostPusher extends WebhookPostPusher {
 
     $this->client->post($url, [
       'form_params' => [
-        'value1' => $this->t('Blogged: @text', ['@text' => ($this->convertPostToTweetAction)($post)])
+        'value1' => $this->t('Blogged: @text', ['@text' => ($this->convertPostToTweet)($post)])
           ->render(),
       ],
     ]);

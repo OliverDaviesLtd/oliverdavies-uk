@@ -12,7 +12,7 @@ use Symfony\Component\Finder\Finder;
 final class OpdaviesBlogServiceProvider implements ServiceProviderInterface {
 
   public function register(ContainerBuilder $container): void {
-    foreach (['Action', 'EventSubscriber', 'Repository', 'Service'] as $directory) {
+    foreach (['EventSubscriber', 'Repository', 'Service', 'UseCase'] as $directory) {
       $files = Finder::create()
         ->in(__DIR__ . '/' . $directory)
         ->files()

@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\Tests\opdavies_blog\Kernel\Action;
+namespace Drupal\Tests\opdavies_blog\Kernel\UseCase;
 
-use Drupal\opdavies_blog\Action\ConvertPostToTweet;
+use Drupal\opdavies_blog\UseCase\ConvertPostToTweet;
 use Drupal\opdavies_blog_test\Factory\PostFactory;
 use Drupal\Tests\opdavies_blog\Kernel\PostTestBase;
 

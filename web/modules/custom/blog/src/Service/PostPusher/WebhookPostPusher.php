@@ -4,20 +4,21 @@ declare(strict_types=1);
 
 namespace Drupal\opdavies_blog\Service\PostPusher;
 
-use Drupal\opdavies_blog\Action\ConvertPostToTweet;
+use Drupal\opdavies_blog\UseCase\ConvertPostToTweet;
 use GuzzleHttp\ClientInterface;
 
 abstract class WebhookPostPusher implements PostPusher {
 
-  protected ConvertPostToTweet $convertPostToTweetAction;
+  protected ConvertPostToTweet $convertPostToTweet;
 
   protected ClientInterface $client;
 
   public function __construct(
-    ConvertPostToTweet $convertPostToTweetAction,
+    ConvertPostToTweet $convertPostToTweet,
     ClientInterface $client
   ) {
-    $this->convertPostToTweetAction = $convertPostToTweetAction;
+
+    $this->convertPostToTweet = $convertPostToTweet;
     $this->client = $client;
   }
 

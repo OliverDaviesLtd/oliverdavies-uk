@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\opdavies_blog\Action;
+namespace Drupal\opdavies_blog\UseCase;
 
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\Entity\Term;
