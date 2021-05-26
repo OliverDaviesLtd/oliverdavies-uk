@@ -73,6 +73,14 @@ To run all the migrations and update the existing migrated content:
 
     bin/drush.sh migrate:import --all --update
 
+## Updating Drupal core
+
+Updating Drupal core (and anything else) can be done using Composer. As this project is built using the Drupal core recommended project, all of the dependencies need to be updated:
+
+    docker-compose exec php composer update drupal/core-* --with-all-dependencies
+
+Once this has completed, the updated `composer.lock` file can be committed and pushed.
+
 ## Talks ordering
 
 In order to keep the talks page in the correct order, based on when the next time a talk is being given, the `created` date for the talk node is automatically updated on each save to match the date of the most future event for that talk.
