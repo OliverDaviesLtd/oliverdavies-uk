@@ -38,42 +38,21 @@ Production settings files are generated automatically during a deployment. This 
 
 ## Local development
 
-Local development is done using [DDEV-Local](https://www.ddev.com/ddev-local).
-
-### Custom DDEV commands
-
-#### Drupal
-
-| Command | Description |
-| --- | --- |
-| `ddev app install` | Install the site based on the existing config |
-| `ddev app refresh` | Re-import the existing config and rebuild cache |
-
-#### Front-end
-
-| Command | Description |
-| --- | --- |
-| `ddev theme build` | Compile a production (minified and purged) version of the theme's CSS and JS |
-| `ddev theme dev` | Compile a development version of the theme's CSS and JS |
-| `ddev theme install` | Install the node dependencies for the theme |
-| `ddev theme ssh` | SSH into the theme directory within the web container |
-| `ddev theme watch` | Compile a development version of the theme's CSS and JS, and watch for changes |
-
-## Migrating data into the website
+### Migrating data into the website
 
 To view the status of all the migrations:
 
-    bin/drush.sh migrate:status
+    docker-compose exec php drush migrate:status
 
 To run all the migrations:
 
-    bin/drush.sh migrate:import --all
+    docker-compose exec php drush migrate:import --all
 
 To run all the migrations and update the existing migrated content:
 
-    bin/drush.sh migrate:import --all --update
+    docker-compose exec php drush migrate:import --all --update
 
-## Updating Drupal core
+### Updating Drupal core
 
 Updating Drupal core (and anything else) can be done using Composer. As this project is built using the Drupal core recommended project, all of the dependencies need to be updated:
 
