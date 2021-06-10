@@ -1,0 +1,19 @@
+uuid: 3551b1da-adcb-433d-8212-43059c5d10c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_role
+    - site_settings.site_setting_entity_type.work
+id: site_setting_entity.work.field_role
+field_name: field_role
+entity_type: site_setting_entity
+bundle: work
+label: Role
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
