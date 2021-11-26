@@ -1,0 +1,26 @@
+@layer base {
+  h2 {
+    @apply font-bold
+  }
+
+  blockquote {
+    @apply pl-4 border-l-3 border-blue-primary dark:border-blue-400;
+  }
+
+  code {
+    @apply px-2 py-1 text-sm rounded-md text-gray-700 bg-gray-200 dark:bg-gray-800 dark:text-gray-100;
+  }
+
+  pre {
+    @apply p-4 my-8 overflow-auto rounded-md text-gray-700 bg-gray-200 dark:bg-gray-800 dark:text-gray-100;
+  }
+
+  iframe {
+    @apply w-full;
+  }
+
+  a:focus {
+    @apply outline-black dark:outline-white;
+    outline-offset: 2px !important;
+  }
+}

@@ -56,6 +56,7 @@ services:
       - ./web/themes/custom/opdavies/package-lock.json:/node/package-lock.json
       - ./web/themes/custom/opdavies/package.json:/node/package.json
       - ./web/themes/custom/opdavies/postcss.config.js:/node/postcss.config.js
+      - ./web/themes/custom/opdavies/tailwindcss:/node/tailwindcss
       - ./web/themes/custom/opdavies/tailwind-colours.js:/node/tailwind-colours.js
       - ./web/themes/custom/opdavies/tailwind-plugin-focus-visible.js:/node/tailwind-plugin-focus-visible.js
       - ./web/themes/custom/opdavies/tailwind-safelist-classes.txt:/node/tailwind-safelist-classes.txt
