@@ -43,6 +43,7 @@ module.exports = {
         3: '3px'
       },
       width: {
+        18: '4.5rem',
         96: '24rem'
       }
     }
