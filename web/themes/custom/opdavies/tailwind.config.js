@@ -8,6 +8,7 @@ module.exports = {
   important: true,
   purge: {
     content: [
+      'config/**/*.yml',
       'templates/**/*.html.twig',
       'tools/tailwindcss/safelist-classes.txt'
     ],
@@ -37,13 +38,13 @@ module.exports = {
         ]
       },
       spacing: {
+        18: '4.5rem',
         '2px': '2px'
       },
       borderWidth: {
         3: '3px'
       },
       width: {
-        18: '4.5rem',
         96: '24rem'
       }
     }
