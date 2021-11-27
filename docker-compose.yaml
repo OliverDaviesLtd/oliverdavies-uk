@@ -38,7 +38,7 @@ services:
     image: mariadb:10
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./tools/docker/images/mysql/databases.sql:/docker-entrypoint-initdb.d/databases.sql
+      - ./tools/assets/development:/docker-entrypoint-initdb.d
     env_file:
       - .docker.env
     healthcheck:
