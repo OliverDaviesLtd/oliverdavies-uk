@@ -1,8 +1,0 @@
-uuid: 377a5aa4-765e-4a82-ba9f-e6bd0e763c59
-langcode: en
-status: true
-dependencies: {  }
-id: work
-label: Work
-fieldset: Work
-multiple: false

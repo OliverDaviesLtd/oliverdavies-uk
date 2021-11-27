@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.talk.field_event_date
     - field.field.node.talk.field_events
     - field.field.node.talk.field_excerpt
+    - field.field.node.talk.field_meta_tags
     - field.field.node.talk.field_slides
     - field.field.node.talk.field_type
     - field.field.node.talk.field_video
@@ -26,11 +27,6 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   body: true
   field_event_date: true
@@ -39,3 +35,4 @@ hidden:
   field_slides: true
   field_type: true
   field_video: true
+  links: true

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - node.type.post
     - system.menu.main
   module:
@@ -54,25 +55,17 @@ display:
       style:
         type: html_list
         options:
-          grouping:
-            -
-              field: created
-              rendered: true
-              rendered_strip: true
           row_class: ''
           default_row_class: true
+          uses_fields: false
           type: ul
           wrapper_class: ''
-          class: ''
+          class: space-y-8
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          default_field_elements: true
-          inline:
-            title: title
-            created_1: created_1
-          separator: ' '
-          hide_empty: false
+          relationship: none
+          view_mode: teaser
       fields:
         created:
           id: created
@@ -309,7 +302,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: 'I enjoy writing articles and have written a number of them so far during my career, both to document my own learning as well to act as resources for others.'
+            value: 'This is where I publish my personal blog posts as well as technical posts and tutorials on topics such as Drupal, PHP, Tailwind CSS, automated testing, and systems administration.'
             format: full_html
           plugin_id: text
       footer: {  }
@@ -317,6 +310,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: test
     cache_metadata:
       max-age: -1
       contexts:
@@ -363,6 +357,12 @@ display:
     display_options:
       display_extenders:
         simple_sitemap_display_extender:
+          index: true
+          variant: default
+          priority: '1.0'
+          changefreq: ''
+          arguments: {  }
+          max_links: 100
           variants:
             default:
               index: true
@@ -370,12 +370,6 @@ display:
               changefreq: ''
               arguments: {  }
               max_links: 100
-          index: true
-          variant: default
-          priority: '1.0'
-          changefreq: ''
-          arguments: {  }
-          max_links: 100
         metatag_display_extender:
           metatags:
             description: 'Blog posts and articles by Oliver Davies about PHP, Drupal, front-end development, and systems administration.'
@@ -391,7 +385,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -47
+        weight: -49
         context: '0'
         menu_name: main
     cache_metadata:

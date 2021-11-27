@@ -167,7 +167,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: 'After giving my first talk in September 2012, I have now given [opdavies_talks:talk_count] presentations and workshops at various conferences and meetups, in-person and remotely, on topics including PHP, Drupal, automated testing, Git, CSS, and systems administration.'
+            value: 'Starting with my first talk in September 2012, I have given [opdavies_talks:talk_count] presentations and workshops at various conferences and meetups, in-person and remotely, on topics including PHP, Drupal, automated testing, Git, CSS, and systems administration.'
             format: full_html
           plugin_id: text
       footer: {  }
@@ -191,6 +191,12 @@ display:
     display_options:
       display_extenders:
         simple_sitemap_display_extender:
+          index: true
+          variant: default
+          priority: '1.0'
+          changefreq: ''
+          arguments: {  }
+          max_links: 100
           variants:
             default:
               index: true
@@ -198,12 +204,6 @@ display:
               changefreq: ''
               arguments: {  }
               max_links: 100
-          index: true
-          variant: default
-          priority: '1.0'
-          changefreq: ''
-          arguments: {  }
-          max_links: 100
         metatag_display_extender:
           metatags:
             title: 'Talks and Workshops | [site:name]'
