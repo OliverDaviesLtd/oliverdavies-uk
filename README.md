@@ -42,21 +42,21 @@ Production settings files are generated automatically during a deployment. This 
 
 To view the status of all the migrations:
 
-    docker-compose exec php drush migrate:status
+    ./run drush migrate:status
 
 To run all the migrations:
 
-    docker-compose exec php drush migrate:import --all
+    ./run drush migrate:import --all
 
 To run all the migrations and update the existing migrated content:
 
-    docker-compose exec php drush migrate:import --all --update
+    ./run drush migrate:import --all --update
 
 ### Updating Drupal core
 
 Updating Drupal core (and anything else) can be done using Composer. As this project is built using the Drupal core recommended project, all of the dependencies need to be updated:
 
-    docker-compose exec php composer update drupal/core-* --with-all-dependencies
+    ./run composer update drupal/core-* --with-all-dependencies
 
 Once this has completed, the updated `composer.lock` file can be committed and pushed.
 
