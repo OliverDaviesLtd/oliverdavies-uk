@@ -1,5 +1,5 @@
 ---
-security_ssh_permit_root_login: 'yes'
+security_ssh_permit_root_login: 'no'
 security_ssh_port: 2849
 
 php_default_version_debian: '{{ php_version }}'
