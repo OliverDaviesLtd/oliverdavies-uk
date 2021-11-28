@@ -10,8 +10,8 @@ module.exports = {
     content: [
       '../../../../config/**/*.yml',
       'config/**/*.yml',
-      'templates/**/*.html.twig',
-      'tools/tailwindcss/safelist-classes.txt'
+      'tailwindcss/safelist-classes.txt',
+      'templates/**/*.html.twig'
     ],
   },
   theme: {

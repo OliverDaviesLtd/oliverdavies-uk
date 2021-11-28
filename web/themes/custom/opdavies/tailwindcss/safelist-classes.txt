@@ -9,6 +9,7 @@ flex
 flex-col
 flex-none
 italic
+mb-4
 my-auto
 p-3
 pl-5
