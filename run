@@ -1,0 +1,92 @@
+#!/bin/bash
+
+set -e
+
+TTY=""
+if [[ ! -t 1 ]]; then
+  TTY="-T"
+fi
+
+DC="${DC:-exec}"
+
+function bash {
+  exec bash "${@}"
+}
+
+function exec {
+  # Run any command in the php container.
+  _dc php "${@}"
+}
+
+function composer {
+  # Execute Composer commands.
+  exec composer "${@}"
+}
+
+function db:export {
+  drush sql:dump \
+    --gzip \
+    --result-file=/app/drupal.sql
+}
+
+function drupal:install {
+  # Install Drupal.
+  drush site:install -y --account-pass admin123 --existing-config
+}
+
+function drush {
+  # Execute Drush commands.
+  exec drush "${@}"
+}
+
+function frontend:console {
+  docker-compose run --rm node
+}
+
+function help {
+  printf "%s <task> [args]\n\nTasks:\n" "${0}"
+
+  compgen -A function | grep -v "^_" | cat -n
+
+  printf "\nExtended help:\n  Each task has comments for general usage\n"
+}
+
+function lint:dockerfile {
+  docker container run --rm -i \
+    -v $(pwd)/.hadolint.yaml:/.config/hadolint.yaml \
+    hadolint/hadolint hadolint \
+    --ignore DL3008 \
+    --ignore DL3022 \
+    "${@}" - < tools/docker/Dockerfile
+}
+
+function test:functional {
+  _run_tests --testsuite functional "${@}"
+}
+
+function test:integration {
+  # Run integration tests.
+  _run_tests --testsuite kernel "${@}"
+}
+
+function test:quality {
+  # Run quality checks (code linting, static analysis, etc.).
+  DC="run --no-deps"
+  exec phpcs
+  exec phpstan "--memory-limit=256M"
+}
+
+function test:unit {
+  # Run unit tests.
+  _run_tests --testsuite unit "${@}"
+}
+
+function _dc {
+  docker-compose ${DC} ${TTY} "${@}"
+}
+
+function _run_tests {
+  _dc --user ${DOCKER_WEB_USER} php phpunit "${@}"
+}
+
+eval "${@:-help}"

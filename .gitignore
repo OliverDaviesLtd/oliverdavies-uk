@@ -18,6 +18,7 @@
 !/phpcs.xml.dist
 !/phpstan.neon
 !/phpunit.xml.dist
+!/run
 !/scripts/
 !/slides/
 !/tools/**
