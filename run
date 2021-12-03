@@ -13,6 +13,10 @@ function bash {
   exec bash "${@}"
 }
 
+function ci:test {
+  lint:dockerfile
+}
+
 function exec {
   # Run any command in the php container.
   _dc php "${@}"
