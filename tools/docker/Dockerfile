@@ -18,14 +18,16 @@ COPY --from=assets-build /app/web/themes/custom/opdavies/build build
 
 FROM php:8.0-fpm-buster AS base
 
-RUN apt update -yqq && apt install -yqq \
+RUN apt-get update -yqq && \
+  apt-get install -yqq --no-install-recommends \
     libpng-dev \
     mariadb-client \
     zlib1g-dev \
   && docker-php-ext-install \
     exif \
     gd \
-    pdo_mysql
+    pdo_mysql \
+  && rm -fr /var/lib/apt/lists/*
 
 ###
 
@@ -33,14 +35,15 @@ FROM base AS dev
 
 ARG xdebug_version=2.9.0
 
-RUN apt update -yqq \
-  && apt install -yqq \
+RUN apt-get update -yqq \
+  && apt-get install -yqq --no-install-recommends \
     git \
     pv \
     vim \
     zip \
   && pecl install xdebug-${xdebug_version} \
-  && docker-php-ext-enable xdebug
+  && docker-php-ext-enable xdebug \
+  && rm -fr /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY tools/docker/images/php/configs/php.ini /usr/local/etc/php/conf.d/php.ini
