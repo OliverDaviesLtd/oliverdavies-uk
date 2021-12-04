@@ -16,7 +16,7 @@ COPY --from=assets-build /app/web/themes/custom/opdavies/build build
 
 ###
 
-FROM php:8.0-fpm-buster AS base
+FROM php:7.4-fpm-buster AS base
 
 RUN apt-get update -yqq && \
   apt-get install -yqq --no-install-recommends \
