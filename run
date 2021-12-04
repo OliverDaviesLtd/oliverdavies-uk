@@ -7,55 +7,54 @@ if [[ ! -t 1 ]]; then
   TTY="-T"
 fi
 
-DC="${DC:-exec}"
-
-function bash {
-  exec bash "${@}"
+function task:bash {
+  task:exec bash "${@}"
 }
 
-function ci:test {
-  lint:dockerfile
+function task:ci:test {
+  task:lint:dockerfile
 }
 
-function exec {
+function task:exec {
   # Run any command in the php container.
-  _dc php "${@}"
+  docker-compose exec php "${@}"
 }
 
-function composer {
+function task:composer {
   # Execute Composer commands.
-  exec composer "${@}"
+  task:exec composer "${@}"
 }
 
-function db:export {
-  drush sql:dump \
+function task:db:export {
+  task:drush sql:dump \
     --gzip \
     --result-file=/app/drupal.sql
 }
 
-function drupal:install {
+function task:drupal:install {
   # Install Drupal.
-  drush site:install -y --account-pass admin123 --existing-config
+  task:drush site:install -y --account-pass admin123 --existing-config
 }
 
-function drush {
+function task:drush {
   # Execute Drush commands.
-  exec drush "${@}"
+  task:exec drush "${@}"
 }
 
-function frontend:console {
+function task:frontend:console {
   docker-compose run --rm node
 }
 
-function help {
+function task:help {
   printf "%s <task> [args]\n\nTasks:\n" "${0}"
 
-  compgen -A function | grep -v "^_" | cat -n
+  # Only show functions that have the "task:" prefix.
+  compgen -A function | sed -En 's/task:(.*)/\1/p' | cat -n
 
   printf "\nExtended help:\n  Each task has comments for general usage\n"
 }
 
-function lint:dockerfile {
+function task:lint:dockerfile {
   docker container run --rm -i \
     -v $(pwd)/.hadolint.yaml:/.config/hadolint.yaml \
     hadolint/hadolint hadolint \
@@ -64,33 +63,29 @@ function lint:dockerfile {
     "${@}" - < tools/docker/Dockerfile
 }
 
-function test:functional {
-  _run_tests --testsuite functional "${@}"
+function task:test:functional {
+  run-tests --testsuite functional "${@}"
 }
 
-function test:integration {
+function task:test:integration {
   # Run integration tests.
-  _run_tests --testsuite kernel "${@}"
+  run-tests --testsuite kernel "${@}"
 }
 
-function test:quality {
+function task:test:quality {
   # Run quality checks (code linting, static analysis, etc.).
-  DC="run --no-deps"
-  exec phpcs
-  exec phpstan "--memory-limit=256M"
+  docker-compose run --no-deps php phpcs
+  docker-compose run --no-deps php phpstan "--memory-limit=256M"
 }
 
-function test:unit {
+function task:test:unit {
   # Run unit tests.
-  _run_tests --testsuite unit "${@}"
+  run-tests --testsuite unit "${@}"
 }
 
-function _dc {
-  docker-compose ${DC} ${TTY} "${@}"
+function run-tests {
+  # Run PHPUnit tests.
+  docker-compose run php --user ${DOCKER_WEB_USER} php phpunit "${@}"
 }
 
-function _run_tests {
-  _dc --user ${DOCKER_WEB_USER} php phpunit "${@}"
-}
-
-eval "${@:-help}"
+eval "task:${@:-help}"
