@@ -11,6 +11,11 @@ function task:bash {
   task:exec bash "${@}"
 }
 
+function task:ci:build {
+  docker-compose build php
+  docker-compose push php
+}
+
 function task:ci:test {
   task:lint:dockerfile
 }
