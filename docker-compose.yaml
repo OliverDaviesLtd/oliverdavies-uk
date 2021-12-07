@@ -20,6 +20,7 @@ services:
         condition: service_started
     ports:
       - 80:80
+    restart: unless-stopped
 
   php:
     build:
@@ -34,6 +35,7 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+    restart: unless-stopped
 
   mysql:
     image: mariadb:10
@@ -45,6 +47,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "bash", "-c", "echo > /dev/tcp/localhost/3306"]
       interval: 1s
+    restart: unless-stopped
 
   node:
     image: node:14-alpine
