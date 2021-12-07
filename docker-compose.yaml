@@ -26,6 +26,7 @@ services:
       context: .
       dockerfile: tools/docker/Dockerfile
       target: dev
+    image: ghcr.io/opdavies/oliverdavies-uk-php:7.4-alpine
     volumes:
       - ./:/app
     env_file:
