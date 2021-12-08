@@ -16,6 +16,12 @@ function task:ci:build {
   docker-compose push php
 }
 
+function task:ci:deploy {
+  ansible-playbook tools/deployment/deploy.yml \
+    -i tools/deployment/hosts.yml \
+    "${@}"
+}
+
 function task:ci:test {
   task:lint:dockerfile
 }
