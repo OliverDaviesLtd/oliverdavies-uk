@@ -29,7 +29,7 @@ drupal_permissions:
       settings_files:
         - sites/default/settings.php
         - sites/default/settings.local.php
-  user: ubuntu
+  user: www-data
 
 drupal_settings:
   - drupal_root: '{{ release_web_path }}'

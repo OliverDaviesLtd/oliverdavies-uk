@@ -1,7 +1,7 @@
 ---
 - name: Set the permissions for each Drupal root directory.
   file:
-    group: www-data
+    group: ubuntu
     mode: ug=rX,o=
     owner: "{{ drupal_permissions.user }}"
     path: "{{ item.root }}"
