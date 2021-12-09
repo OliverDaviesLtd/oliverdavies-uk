@@ -63,6 +63,12 @@
       {% endif %}
 
       - {{ content.field_date }}
+
+      {% block trans %}
+        {% if content.field_is_online.0 %}
+          (online)
+        {% endif %}
+      {% endblock %}
     {% endblock %}
   </div>
 {% endblock paragraph %}
