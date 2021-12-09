@@ -12,17 +12,10 @@ filters:
   filter_url:
     id: filter_url
     provider: filter
-    status: true
+    status: false
     weight: -49
     settings:
       filter_url_length: 72
-  markdown:
-    id: markdown
-    provider: markdown
-    status: true
-    weight: -50
-    settings:
-      markdown_library: php-markdown
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
@@ -44,7 +37,7 @@ filters:
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
-    status: true
+    status: false
     weight: -42
     settings: {  }
   filter_align:
@@ -77,3 +70,22 @@ filters:
       default_view_mode: default
       allowed_media_types: {  }
       allowed_view_modes: {  }
+  markdown:
+    id: markdown
+    provider: markdown
+    status: true
+    weight: -15
+    settings:
+      override: false
+      id: php-markdown-extra
+      enabled: true
+      render_strategy:
+        type: filter_output
+        custom_allowed_html: ''
+        plugins:
+          filter_align: false
+          filter_caption: false
+          media_embed: false
+          php-markdown: true
+          php-markdown-extra: true
+    filterFormat: full_html
