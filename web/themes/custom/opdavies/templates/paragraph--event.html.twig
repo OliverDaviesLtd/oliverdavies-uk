@@ -69,6 +69,8 @@
           (online)
         {% endif %}
       {% endblock %}
+
+      {{ content|without(['field_date', 'field_event', 'field_is_online', 'field_link', 'field_location', 'field_name', 'field_remote']) }}
     {% endblock %}
   </div>
 {% endblock paragraph %}
