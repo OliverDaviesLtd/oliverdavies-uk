@@ -204,20 +204,13 @@ jobs:
           path: tools/deployment/.roles
           key: dependencies-composer-${{ hashFiles('tools/deployment/requirements.yml') }}
 
-      - name: Download Ansible roles
-        run: ansible-galaxy install -r tools/deployment/requirements.yml
-
       - name: Export the Ansible Vault password
         run: echo $ANSIBLE_VAULT_PASS > tools/deployment/.vault-pass.txt
         env:
           ANSIBLE_VAULT_PASS: ${{ secrets.ANSIBLE_VAULT_PASS }}
 
       - name: Deploy the code
-        run: >
-          ansible-playbook tools/deployment/deploy.yml
-          -i tools/deployment/hosts.yml
-          -e "ansistrano_deploy_branch=$GITHUB_SHA"
-          --vault-password-file=tools/deployment/.vault-pass.txt
+        run: ./run ci:deploy
 
       - name: Remove the Ansible Vault password file
         run: rm tools/deployment/.vault-pass.txt

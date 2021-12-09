@@ -17,8 +17,12 @@ function task:ci:build {
 }
 
 function task:ci:deploy {
+  ansible-galaxy install -r tools/deployment/requirements.yml
+
   ansible-playbook tools/deployment/deploy.yml \
+    -e "ansistrano_deploy_branch=${1:-production}" \
     -i tools/deployment/hosts.yml \
+    --vault-password-file="${2:-tools/deployment/.vault-pass.txt}" \
     "${@}"
 }
 
