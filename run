@@ -32,7 +32,7 @@ function task:ci:test {
 
 function task:exec {
   # Run any command in the php container.
-  docker-compose exec php "${@}"
+  docker-compose exec $TTY php "${@}"
 }
 
 function task:composer {
