@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('markdown') }}>
+<article{{ attributes }}>
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>
@@ -89,7 +89,11 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes }}>
-    {{ content }}
+  <div class="space-y-6">
+    <div{{ content_attributes.addClass('markdown') }}>
+      {{ content.body }}
+    </div>
+
+    {{ content|without('body') }}
   </div>
 </article>
