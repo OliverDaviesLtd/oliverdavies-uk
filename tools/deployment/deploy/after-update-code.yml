@@ -1,4 +1,6 @@
 ---
+- include: ../includes/build-theme-assets.yml
+
 - name: Install Composer dependencies
   composer:
     command: install
@@ -34,5 +36,3 @@
     chdir={{ release_web_path }}
   register: config_import_result
   changed_when: "'There are no changes to import' not in config_import_result.stderr"
-
-- include: ../includes/build-theme-assets.yml

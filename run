@@ -7,6 +7,19 @@ if [[ ! -t 1 ]]; then
   TTY="-T"
 fi
 
+function task:build-and-push-images {
+  export DOCKER_BUILDKIT=1
+
+  docker-compose build assets
+  docker-compose push assets
+}
+
+function task:copy-theme-assets {
+  docker container run --entrypoint sh --name oliverdavies-uk-assets oliverdavies-uk-assets
+  docker cp oliverdavies-uk-assets:/node/build web/themes/custom/opdavies
+  docker container rm oliverdavies-uk-assets
+}
+
 function task:bash {
   task:exec bash "${@}"
 }

@@ -50,7 +50,11 @@ services:
     restart: unless-stopped
 
   node:
-    image: node:14-alpine
+    build:
+      context: .
+      dockerfile: tools/docker/Dockerfile
+      target: assets
+    image: ghcr.io/opdavies/oliverdavies-uk-assets:node-14
     working_dir: /node
     entrypoint: sh
     volumes:

@@ -55,3 +55,23 @@ COPY composer.json composer.lock /app/
 COPY assets /app/assets
 COPY tools/patches /app/tools/patches
 RUN composer install
+
+###
+
+FROM node:14-alpine AS assets
+
+WORKDIR /node
+
+COPY web/themes/custom/opdavies/package*.json ./
+
+RUN npm install
+
+COPY web/themes/custom/opdavies/postcss.config.js .
+COPY web/themes/custom/opdavies/webpack.config.js .
+COPY web/themes/custom/opdavies/tailwind.config.js .
+COPY web/themes/custom/opdavies/tailwindcss tailwindcss
+COPY web/themes/custom/opdavies/assets assets
+COPY web/themes/custom/opdavies/templates templates
+
+RUN npm run prod \
+  && rm -fr node_modules
