@@ -6,8 +6,9 @@ namespace Drupal\Tests\opdavies_blog\Kernel;
 
 use Drupal\Core\Queue\QueueInterface;
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
-use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
+use Drupal\node\NodeInterface;
+use Drupal\opdavies_blog\Entity\Node\Post;
 
 final class PushToSocialMediaTest extends EntityKernelTestBase {
 
@@ -20,7 +21,6 @@ final class PushToSocialMediaTest extends EntityKernelTestBase {
     'link',
 
     // Contrib.
-    'discoverable_entity_bundle_classes',
     'hook_event_dispatcher',
     'core_event_dispatcher',
 
@@ -48,8 +48,8 @@ final class PushToSocialMediaTest extends EntityKernelTestBase {
     $post = $item->data['post'];
 
     $this->assertNotNull($post);
-    $this->assertInstanceOf(Post::class, $post);
-    $this->assertSame('1', $post->id());
+    $this->assertInstanceOf(NodeInterface::class, $post);
+    $this->assertSame('post', $post->bundle());
     $this->assertSame('Ignoring PHPCS sniffs within PHPUnit tests', $post->getTitle());
   }
 

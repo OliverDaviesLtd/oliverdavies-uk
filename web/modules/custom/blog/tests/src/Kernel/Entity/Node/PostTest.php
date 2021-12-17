@@ -16,9 +16,6 @@ final class PostTest extends EntityKernelTestBase {
     'link',
     'taxonomy',
 
-    // Contrib.
-    'discoverable_entity_bundle_classes',
-
     // Custom.
     'opdavies_blog',
     'opdavies_blog_test',

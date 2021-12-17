@@ -44,7 +44,6 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
     $pluginId,
     $pluginDefinition
   ): self {
-    // @phpstan-ignore-next-line
     return new self(
       $configuration,
       $pluginId,
@@ -66,7 +65,7 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
 
     $build['content'] = [
       '#items' => $relatedPosts
-        ->sortByDesc(fn(Post $post) => $post->getCreatedTime())
+        ->sortByDesc(fn(Post $post) => $post->getNode()->getCreatedTime())
         ->map(fn(Post $post) => $this->generateLinkToPost($post))
         ->slice(0, 3)
         ->toArray(),
@@ -93,7 +92,7 @@ class RelatedPostsBlock extends BlockBase implements ContainerFactoryPluginInter
 
   private function generateLinkToPost(Post $post): Link {
     return Link::createFromRoute(
-      $post->getTitle(),
+      $post->label(),
       'entity.node.canonical',
       ['node' => $post->id()]
     );

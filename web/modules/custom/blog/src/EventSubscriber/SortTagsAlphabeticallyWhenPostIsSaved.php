@@ -28,15 +28,16 @@ final class SortTagsAlphabeticallyWhenPostIsSaved implements EventSubscriberInte
       return;
     }
 
-    /** @var Post $entity */
     if ($entity->bundle() != 'post') {
       return;
     }
 
-    $sortedTags = $entity->getTags()
+    $post = Post::createFromNode($entity);
+
+    $sortedTags = $post->getTags()
       ->sortBy(fn(TermInterface $tag) => $tag->label());
 
-    $entity->setTags($sortedTags->toArray());
+    $post->setTags($sortedTags->toArray());
   }
 
 }

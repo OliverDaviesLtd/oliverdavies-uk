@@ -5,6 +5,7 @@
 namespace Drupal\Tests\opdavies_blog\Kernel;
 
 use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
 use Drupal\opdavies_blog\Entity\Node\Post;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\taxonomy\TermInterface;
@@ -26,8 +27,8 @@ final class ReorderBlogTagsTest extends PostTestBase {
       Post::FIELD_TAGS => [3, 1, 2],
     ]);
 
-    /** @var Post $post */
-    $post = Node::load($post->id());
+    $node = Node::load($post->id());
+    $post = Post::createFromNode($node);
 
     $this->assertSame(
       ['Drupal', 'PHP', 'Symfony'],

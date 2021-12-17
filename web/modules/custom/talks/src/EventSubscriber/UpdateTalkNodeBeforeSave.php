@@ -32,8 +32,9 @@ final class UpdateTalkNodeBeforeSave implements EventSubscriberInterface {
       return;
     }
 
-    /** @var Talk $talk */
-    $talk = $event->getEntity();
+    $node = $event->getEntity();
+    $talk = Talk::createFromNode($node);
+
     $this->reorderEvents($talk);
     $this->updateCreatedDate($talk);
   }
@@ -42,9 +43,7 @@ final class UpdateTalkNodeBeforeSave implements EventSubscriberInterface {
     $events = $talk->getEvents();
     $eventsByDate = $this->sortEventsByDate($events);
 
-    // If the original event IDs don't match the sorted event IDs, update the
-    // event field to use the sorted ones.
-    // @phpstan-ignore-next-line
+    // If the original event IDs don't match the sorted event IDs, update the event field to use the sorted ones.
     if ($events->map->id() != $eventsByDate->map->id()) {
       $talk->setEvents($eventsByDate->toArray());
     }

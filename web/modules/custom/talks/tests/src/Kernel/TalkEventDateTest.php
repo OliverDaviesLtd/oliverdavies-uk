@@ -47,7 +47,9 @@ final class TalkEventDateTest extends TalksTestBase {
 
     $expected = Carbon::today()->addDays(4)->getTimestamp();
 
-    $talk = Node::load($talk->id());
+    $node = Node::load($talk->id());
+    $talk = Talk::createFromNode($node);
+
     $this->assertNextEventDateIs($talk, $expected);
   }
 
@@ -76,7 +78,9 @@ final class TalkEventDateTest extends TalksTestBase {
 
     $expected = Carbon::today()->subDays(2)->getTimestamp();
 
-    $talk = Node::load($talk->id());
+    $node = Node::load($talk->id());
+    $talk = Talk::createFromNode($node);
+
     $this->assertNextEventDateIs($talk, $expected);
   }
 
@@ -90,7 +94,9 @@ final class TalkEventDateTest extends TalksTestBase {
     $dateUpdater = $this->container->get(TalkDateUpdater::class);
     $dateUpdater->__invoke();
 
-    $talk = Node::load($talk->id());
+    $node = Node::load($talk->id());
+    $talk = Talk::createFromNode($node);
+
     $this->assertNoNextEventDate($talk);
   }
 

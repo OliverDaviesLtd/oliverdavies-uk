@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Render\BubbleableMetadata;
-use Drupal\discoverable_entity_bundle_classes\Storage\Node\NodeStorage;
 use Drupal\opdavies_talks\Service\TalkCounter;
 use Drupal\opdavies_talks\Service\TalkDateUpdater;
 
@@ -34,16 +33,6 @@ function opdavies_talks_views_data_alter(array &$data): void {
       'id' => 'event_sort',
     ],
   ];
-}
-
-/**
- * Implements hook_entity_type_build().
- */
-function opdavies_talks_entity_type_build(array &$entityTypes): void {
-  /** @var EntityTypeInterface[] $entityTypes */
-  if (isset($entityTypes['node'])) {
-    $entityTypes['node']->setStorageClass(NodeStorage::class);
-  }
 }
 
 /**

@@ -3,5 +3,3 @@ description: Custom code for talks pages.
 type: module
 core_version_requirement: ^8 || ^9
 package: Custom
-dependencies:
-  - discoverable_entity_bundle_classes:discoverable_entity_bundle_classes

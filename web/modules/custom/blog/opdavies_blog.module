@@ -6,18 +6,7 @@
  */
 
 use Drupal\Core\Url;
-use Drupal\discoverable_entity_bundle_classes\Storage\Node\NodeStorage;
 use Drupal\node\NodeInterface;
-
-/**
- * Implements hook_entity_type_build().
- */
-function opdavies_blog_entity_type_build(array &$entityTypes): void {
-  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entityTypes */
-  if (isset($entityTypes['node'])) {
-    $entityTypes['node']->setStorageClass(NodeStorage::class);
-  }
-}
 
 /**
  * Implements hook_node_links_alter().

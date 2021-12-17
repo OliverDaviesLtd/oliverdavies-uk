@@ -18,7 +18,6 @@ abstract class PostTestBase extends EntityKernelTestBase {
     'link',
 
     // Contrib.
-    'discoverable_entity_bundle_classes',
     'hook_event_dispatcher',
     'core_event_dispatcher',
 

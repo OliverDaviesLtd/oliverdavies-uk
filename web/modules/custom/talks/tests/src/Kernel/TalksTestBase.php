@@ -20,7 +20,6 @@ abstract class TalksTestBase extends EntityKernelTestBase {
     'datetime',
 
     // Contrib.
-    'discoverable_entity_bundle_classes',
     'entity_reference_revisions',
     'paragraphs',
     'hook_event_dispatcher',
@@ -45,14 +44,14 @@ abstract class TalksTestBase extends EntityKernelTestBase {
   }
 
   protected function createTalk(array $overrides = []): Talk {
-    $talk = Node::create(array_merge([
+    $node = Node::create(array_merge([
       'title' => 'Test Driven Drupal',
       'type' => 'talk',
     ], $overrides));
 
-    $talk->save();
+    $node->save();
 
-    return $talk;
+    return Talk::createFromNode($node);
   }
 
   protected function setUp() {

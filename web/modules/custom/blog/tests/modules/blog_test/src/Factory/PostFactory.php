@@ -41,10 +41,9 @@ final class PostFactory {
       Post::FIELD_TAGS => $this->tags->toArray(),
     ];
 
-    /** @var Post $post */
     $post = Node::create($values + $overrides);
 
-    return $post;
+    return Post::createFromNode($post);
   }
 
   public function setTitle(string $title): self {

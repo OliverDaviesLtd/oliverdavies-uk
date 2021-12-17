@@ -68,21 +68,19 @@ final class PostPusherQueueWorker extends QueueWorkerBase implements ContainerFa
       return;
     }
 
-    if (!$post->isLatestRevision()) {
-      $post = $this->nodeStorage->load($post->id());
+    if (!$post->getNode()->isLatestRevision()) {
+      $node = $this->nodeStorage->load($post->id());
+      $post = Post::createFromNode($node);
 
-      // @phpstan-ignore-next-line
       if (!$this->shouldBePushed($post)) {
         return;
       }
     }
 
     foreach ($this->postPushers as $pusher) {
-      // @phpstan-ignore-next-line
       $pusher->push($post);
     }
 
-    // @phpstan-ignore-next-line
     $post->set(Post::FIELD_SENT_TO_SOCIAL_MEDIA, TRUE);
     $post->save();
   }
@@ -92,7 +90,7 @@ final class PostPusherQueueWorker extends QueueWorkerBase implements ContainerFa
       return FALSE;
     }
 
-    if (!$post->isPublished()) {
+    if (!$post->getNode()->isPublished()) {
       return FALSE;
     }
 
