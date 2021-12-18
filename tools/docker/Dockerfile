@@ -67,6 +67,7 @@ COPY web/themes/custom/opdavies/package*.json ./
 
 RUN npm install
 
+COPY config config
 COPY web/themes/custom/opdavies/postcss.config.js .
 COPY web/themes/custom/opdavies/webpack.config.js .
 COPY web/themes/custom/opdavies/tailwind.config.js .
