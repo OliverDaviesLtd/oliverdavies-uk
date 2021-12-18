@@ -15,7 +15,7 @@ function task:build-and-push-images {
 }
 
 function task:copy-theme-assets {
-  docker container run --entrypoint sh --name oliverdavies-uk-assets oliverdavies-uk-assets
+  docker container run --entrypoint sh --name oliverdavies-uk-assets ghcr.io/opdavies/oliverdavies-uk-assets:node-14
   docker cp oliverdavies-uk-assets:/node/build web/themes/custom/opdavies
   docker container rm oliverdavies-uk-assets
 }
