@@ -13,98 +13,10 @@ dependencies:
     - field.field.node.talk.field_video
     - node.type.talk
   module:
-    - layout_builder
-    - layout_discovery
+    - entity_reference_revisions
     - speakerdeck_field
     - text
     - user
-third_party_settings:
-  layout_builder:
-    allow_custom: false
-    enabled: true
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          cfc8db9c-30bb-4463-ad6c-d7bbb4832a98:
-            uuid: cfc8db9c-30bb-4463-ad6c-d7bbb4832a98
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:talk:body'
-              formatter:
-                label: hidden
-                type: text_default
-                settings: {  }
-                third_party_settings: {  }
-            additional: {  }
-            weight: 0
-          6c69325a-f94a-4485-ab15-11fe3e246d00:
-            uuid: 6c69325a-f94a-4485-ab15-11fe3e246d00
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:talk:field_slides'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: speakerdeck_formatter
-            additional: {  }
-            weight: 1
-          c90f10fc-2914-4af4-b215-b30665dacf65:
-            uuid: c90f10fc-2914-4af4-b215-b30665dacf65
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:talk:field_video'
-              formatter:
-                type: entity_reference_entity_view
-                label: above
-                settings:
-                  view_mode: default
-                  link: false
-                third_party_settings: {  }
-            additional: {  }
-            weight: 2
-          23e9e3cd-eff0-4753-bc91-001e828af8e5:
-            uuid: 23e9e3cd-eff0-4753-bc91-001e828af8e5
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'extra_field_block:node:talk:links'
-            additional: {  }
-            weight: 3
-          5a42f78c-c8e6-4c12-88da-2de1a38998be:
-            uuid: 5a42f78c-c8e6-4c12-88da-2de1a38998be
-            region: content
-            configuration:
-              id: 'field_block:node:talk:field_events'
-              label: Events
-              provider: layout_builder
-              label_display: visible
-              formatter:
-                label: hidden
-                type: entity_reference_revisions_entity_view
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-            additional: {  }
-            weight: 4
-        third_party_settings: {  }
 id: node.talk.default
 targetEntityType: node
 bundle: talk
@@ -117,6 +29,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_events:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
   field_slides:
     weight: 1
     label: above
@@ -134,13 +55,12 @@ content:
     third_party_settings: {  }
     region: content
   links:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_event_date: true
-  field_events: true
   field_excerpt: true
   field_meta_tags: true
   field_type: true
