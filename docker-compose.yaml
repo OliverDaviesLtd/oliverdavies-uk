@@ -19,7 +19,7 @@ services:
       php:
         condition: service_started
     ports:
-      - 80:80
+      - "${DOCKER_WEB_PORT:-127.0.0.1:80}:80"
     restart: unless-stopped
 
   php:
@@ -40,7 +40,7 @@ services:
   mysql:
     image: mariadb:10
     volumes:
-      - mysql_data:/var/lib/mysql
+      - "${DOCKER_MYSQL_VOLUME:-./db-data:/var/lib/mysql}"
       - ./tools/assets/development:/docker-entrypoint-initdb.d
     env_file:
       - .docker.env
