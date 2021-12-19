@@ -62,7 +62,7 @@
       <ul class="ml-4 list-disc">
     {% endif %}
     {% for item in items %}
-      <li{{ item.attributes.addClass('recommendation') }}>{{ item.content }}</li>
+      <li{{ item.attributes }}>{{ item.content }}</li>
     {% endfor %}
     {% if multiple %}
       </ul>
