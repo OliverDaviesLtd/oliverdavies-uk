@@ -52,7 +52,7 @@
       {% set eventLink = content.field_link.0 %}
 
       {% if eventLink %}
-        {{ link(content.field_name, eventLink['#url'], { class: 'inline-block' }) }}
+        {{ link(content.field_name, eventLink['#url'], { class: 'link inline-block' }) }}
       {% else %}
         {{ content.field_name }}
       {% endif %}
