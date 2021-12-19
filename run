@@ -7,6 +7,9 @@ if [[ ! -t 1 ]]; then
   TTY="-T"
 fi
 
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1
+
 function task:build-and-push-images {
   export DOCKER_BUILDKIT=1
 
