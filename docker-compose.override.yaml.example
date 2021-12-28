@@ -15,3 +15,8 @@ services:
     <<: *default-assets
     command: 'yarn build:css'
     working_dir: /app/web/themes/custom/opdavies
+
+  js:
+    <<: *default-assets
+    command: 'yarn build:js'
+    working_dir: /app/web/themes/custom/opdavies

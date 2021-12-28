@@ -133,4 +133,17 @@ function task:yarn:build:css {
     --output build/app.css "${args[@]}"
 }
 
+function task:yarn:build:js {
+  # Build JS assets, this is meant to be run from within the assets container.
+  local args=()
+
+  if [ "${NODE_ENV}" == "production" ]; then
+    args=(--minify)
+  else
+    args=(--sourcemap --watch)
+  fi
+
+  esbuild assets/js/*.* --outdir=build --bundle "${args[@]}"
+}
+
 eval "task:${@:-help}"
