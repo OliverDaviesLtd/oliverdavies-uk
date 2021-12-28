@@ -1,7 +1,12 @@
 FROM node:14-alpine AS assets-build
+WORKDIR /app
+RUN mkdir /node_modules \
+  chown node:node -R /node_modules /app
+USER node
 WORKDIR /app/web/themes/custom/opdavies
-COPY web/themes/custom/opdavies/package*.json ./
-RUN npm ci
+COPY web/themes/custom/opdavies/package.json .
+COPY web/themes/custom/opdavies/yarn.lock .
+RUN yarn install && yarn cache clear
 COPY web/themes/custom/opdavies ./
 RUN npm run production
 

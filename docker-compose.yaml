@@ -59,8 +59,8 @@ services:
       - node_modules:/node/node_modules
       - ./config:/node/config
       - ./web/themes/custom/opdavies/assets:/node/assets
-      - ./web/themes/custom/opdavies/package-lock.json:/node/package-lock.json
       - ./web/themes/custom/opdavies/package.json:/node/package.json
+      - ./web/themes/custom/opdavies/yarn.lock:/node/yarn.lock
       - ./web/themes/custom/opdavies/postcss.config.js:/node/postcss.config.js
       - ./web/themes/custom/opdavies/tailwindcss:/node/tailwindcss
       - ./web/themes/custom/opdavies/tailwind.config.js:/node/tailwind.config.js
