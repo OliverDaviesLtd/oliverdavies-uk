@@ -1,15 +1,29 @@
-FROM node:14-alpine AS assets
+FROM node:14-buster-slim AS assets
+
+ARG NODE_ENV=production
+ENV NODE_ENV="${NODE_ENV:-production}" \
+  PATH="${PATH}:/node_modules/.bin"
+
 WORKDIR /app
+
 RUN mkdir /node_modules \
-  chown node:node -R /node_modules /app
+  && chown node:node -R /node_modules /app
+
 USER node
+
+COPY --chown=node:node run .
+
 WORKDIR /app/web/themes/custom/opdavies
-COPY web/themes/custom/opdavies/.yarnrc .
-COPY web/themes/custom/opdavies/package.json .
-COPY web/themes/custom/opdavies/yarn.lock .
-RUN yarn install && yarn cache clear
-COPY web/themes/custom/opdavies ./
-RUN npm run production
+
+COPY --chown=node:node web/themes/custom/opdavies/.yarnrc .
+COPY --chown=node:node web/themes/custom/opdavies/package.json .
+COPY --chown=node:node web/themes/custom/opdavies/yarn.lock .
+
+RUN yarn install && yarn cache clean
+
+COPY --chown=node:node ../../../../config ../../../../config
+
+CMD ["bash"]
 
 ###
 

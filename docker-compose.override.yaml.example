@@ -1,0 +1,18 @@
+x-assets: &default-assets
+  build:
+    context: .
+    target: assets
+    args:
+      - "NODE_ENV=${NODE_ENV:-production}"
+  env_file:
+    - .env
+  tty: true
+  volumes:
+    - '.:/app'
+
+services:
+  css:
+    <<: *default-assets
+    image: ghcr.io/opdavies/oliverdavies-uk-assets:node-14
+    command: 'yarn build:css'
+    working_dir: /app/web/themes/custom/opdavies
