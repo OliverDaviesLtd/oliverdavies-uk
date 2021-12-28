@@ -116,7 +116,21 @@ function task:test:unit {
 
 function run-tests {
   # Run PHPUnit tests.
-  docker-compose run php --user ${DOCKER_WEB_USER} php phpunit "${@}"
+  docker-compose run --rm php --user ${DOCKER_WEB_USER} php phpunit "${@}"
+}
+
+function task:yarn:build:css {
+  # Build CSS assets, this is meant to be run from within the assets container.
+  local args=()
+
+  if [ "${NODE_ENV}" == "production" ]; then
+    args=(--minify)
+  else
+    args=(--watch)
+  fi
+
+  tailwindcss --postcss --input assets/css/tailwind.pcss \
+    --output build/app.css "${args[@]}"
 }
 
 eval "task:${@:-help}"

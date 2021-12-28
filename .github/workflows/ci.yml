@@ -77,12 +77,6 @@ jobs:
           path: node_modules
           key: dependencies-npm-${{ hashFiles('package-lock.json') }}
 
-      - name: Build the production theme assets
-        run: |
-          cd ${{ matrix.theme-path }}
-          npm clean-install
-          npm run production
-
   phpunit:
     runs-on: ubuntu-latest
     name: "Run ${{ matrix.test-types }} tests"

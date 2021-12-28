@@ -8,7 +8,7 @@ module.exports = {
   important: true,
   purge: {
     content: [
-      'config/**/*.yml',
+      '../../../../config/**/*.yml',
       'tailwindcss/safelist-classes.txt',
       'templates/**/*.html.twig'
     ],
