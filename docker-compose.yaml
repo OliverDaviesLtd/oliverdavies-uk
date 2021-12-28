@@ -11,7 +11,8 @@ services:
         condition: service_started
     ports:
       - "${DOCKER_WEB_PORT:-127.0.0.1:80}:80"
-    restart: unless-stopped
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: 3s
 
   php:
     build:
@@ -25,7 +26,8 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    restart: unless-stopped
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: 3s
 
   mysql:
     image: mariadb:10
@@ -33,11 +35,12 @@ services:
       - "${DOCKER_MYSQL_VOLUME:-./db-data:/var/lib/mysql}"
       - ./tools/assets/development:/docker-entrypoint-initdb.d
     env_file:
-      - .docker.env
+      - .env
     healthcheck:
       test: ["CMD-SHELL", "bash", "-c", "echo > /dev/tcp/localhost/3306"]
       interval: 1s
-    restart: unless-stopped
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: 3s
 
 volumes:
   assets:
