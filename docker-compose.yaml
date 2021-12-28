@@ -8,7 +8,6 @@ volumes:
 services:
   nginx:
     build:
-      dockerfile: tools/docker/Dockerfile
       context: .
       target: nginx
     volumes:
@@ -25,7 +24,6 @@ services:
   php:
     build:
       context: .
-      dockerfile: tools/docker/Dockerfile
       target: dev
     image: ghcr.io/opdavies/oliverdavies-uk-php:7.4-alpine
     volumes:
@@ -52,7 +50,6 @@ services:
   node:
     build:
       context: .
-      dockerfile: tools/docker/Dockerfile
       target: assets
     image: ghcr.io/opdavies/oliverdavies-uk-assets:node-14
     working_dir: /node

@@ -91,7 +91,7 @@ function task:lint:dockerfile {
     hadolint/hadolint hadolint \
     --ignore DL3008 \
     --ignore DL3022 \
-    "${@}" - < tools/docker/Dockerfile
+    "${@}" - < Dockerfile
 }
 
 function task:test:functional {
