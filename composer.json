@@ -17,7 +17,7 @@
         "drupal/admin_toolbar": "^2.0",
         "drupal/config_ignore": "^2.2",
         "drupal/config_split": "^1.4",
-        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-recommended": "^8.8",
         "drupal/gin": "^3.0",
         "drupal/gin_toolbar": "^1.0",
