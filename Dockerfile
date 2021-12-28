@@ -1,9 +1,10 @@
-FROM node:14-alpine AS assets-build
+FROM node:14-alpine AS assets
 WORKDIR /app
 RUN mkdir /node_modules \
   chown node:node -R /node_modules /app
 USER node
 WORKDIR /app/web/themes/custom/opdavies
+COPY web/themes/custom/opdavies/.yarnrc .
 COPY web/themes/custom/opdavies/package.json .
 COPY web/themes/custom/opdavies/yarn.lock .
 RUN yarn install && yarn cache clear
@@ -17,7 +18,7 @@ COPY tools/docker/images/nginx/configs/vhost.conf /etc/nginx/conf.d/default.conf
 WORKDIR /app
 COPY web web/
 WORKDIR /app/web/themes/custom/opdavies
-COPY --from=assets-build /app/web/themes/custom/opdavies/build build
+COPY --from=assets /app/web/themes/custom/opdavies/build build
 
 ###
 
@@ -61,24 +62,3 @@ COPY composer.json composer.lock /app/
 COPY assets /app/assets
 COPY tools/patches /app/tools/patches
 RUN composer install
-
-###
-
-FROM node:14-alpine AS assets
-
-WORKDIR /node
-
-COPY web/themes/custom/opdavies/package*.json ./
-
-RUN npm install
-
-COPY config config
-COPY web/themes/custom/opdavies/postcss.config.js .
-COPY web/themes/custom/opdavies/webpack.config.js .
-COPY web/themes/custom/opdavies/tailwind.config.js .
-COPY web/themes/custom/opdavies/tailwindcss tailwindcss
-COPY web/themes/custom/opdavies/assets assets
-COPY web/themes/custom/opdavies/templates templates
-
-RUN npm run prod \
-  && rm -fr node_modules

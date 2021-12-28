@@ -46,23 +46,3 @@ services:
       test: ["CMD-SHELL", "bash", "-c", "echo > /dev/tcp/localhost/3306"]
       interval: 1s
     restart: unless-stopped
-
-  node:
-    build:
-      context: .
-      target: assets
-    image: ghcr.io/opdavies/oliverdavies-uk-assets:node-14
-    working_dir: /node
-    entrypoint: sh
-    volumes:
-      - assets:/node/build
-      - node_modules:/node/node_modules
-      - ./config:/node/config
-      - ./web/themes/custom/opdavies/assets:/node/assets
-      - ./web/themes/custom/opdavies/package.json:/node/package.json
-      - ./web/themes/custom/opdavies/yarn.lock:/node/yarn.lock
-      - ./web/themes/custom/opdavies/postcss.config.js:/node/postcss.config.js
-      - ./web/themes/custom/opdavies/tailwindcss:/node/tailwindcss
-      - ./web/themes/custom/opdavies/tailwind.config.js:/node/tailwind.config.js
-      - ./web/themes/custom/opdavies/templates:/node/templates
-      - ./web/themes/custom/opdavies/webpack.config.js:/node/webpack.config.js
