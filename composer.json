@@ -47,7 +47,7 @@
         "michelf/php-markdown": "^1.9",
         "nesbot/carbon": "^2.33",
         "platformsh/config-reader": "^2.4",
-        "symfony/config": "^3.4"
+        "symfony/config": "^4.4"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
